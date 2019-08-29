@@ -1215,85 +1215,320 @@ They are brownish in color, to make it </documentation>
       </folder>
     </folder>
   </folder>
-  <folder name="2. System Architecture" id="2e1277e3-58cf-4bb9-84d2-2e453b17b9b5"/>
-  <folder name="1. Business Requirements" id="dd9baa0c-3208-4d33-8689-0bb83913c371">
-    <element xsi:type="zenta:SketchModel" name="New Sketch" id="5e985951-b4bb-4927-964a-cc1c0ea719f5" connectionRouterType="1" background="0">
-      <child xsi:type="zenta:SketchModelActor" name="Customer" id="b81544c1-710e-400f-a38b-d54544800c02" targetConnections="6c080516-b672-4339-af02-0a964c5cb847 294b3557-d4dd-4904-b402-314209aaef34 6276be6e-5121-40f1-ba8d-5d634db29308">
-        <bounds x="150" y="230" width="-1" height="-1"/>
-        <sourceConnection id="e621f640-485a-44a4-b684-18ba3fdf396b" lineColor="#73d216" source="b81544c1-710e-400f-a38b-d54544800c02" target="311f9b12-9ab3-40c1-adf5-15561f1cd65d" type="1"/>
-        <sourceConnection id="c39bb9bb-0bc6-49e1-a05e-4df6f424e27c" lineColor="#73d216" source="b81544c1-710e-400f-a38b-d54544800c02" target="5ca62304-0a2f-471f-a51c-e09c82ca263f" type="1"/>
-        <sourceConnection id="13e63679-7647-4d32-99b1-445b2b368f12" lineColor="#73d216" source="b81544c1-710e-400f-a38b-d54544800c02" target="1ee71de9-efda-41b1-a875-20cbcdcb486e" type="1"/>
-        <sourceConnection id="f7d84b02-313a-4fba-81c9-85ec57f7d8d6" lineColor="#73d216" source="b81544c1-710e-400f-a38b-d54544800c02" target="7c9f4ded-c130-489b-96ff-0a56f0a2b801" type="1"/>
-        <sourceConnection id="f4cbe4e2-910b-453c-b858-a41636c757db" lineColor="#73d216" source="b81544c1-710e-400f-a38b-d54544800c02" target="68ccd62f-f3cd-478c-82f0-9316af27764a" type="1"/>
+  <folder name="2. System Architecture" id="2e1277e3-58cf-4bb9-84d2-2e453b17b9b5">
+    <element xsi:type="zenta:SketchModel" name="MVP architecture" id="142c3344-46fb-4ce6-8d85-523d6c1e10f3" connectionRouterType="1" background="0">
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="6841be01-441c-4cb2-8103-73f450f84df2" textAlignment="1" targetConnections="9e030ff0-1e22-4eaf-bf62-78668921a23d" fillColor="#ffffb5">
+        <bounds x="360" y="264" width="169" height="73"/>
+        <sourceConnection name="JPA" id="40b63c23-d36b-46ba-8f01-fcf3a44f0099" textPosition="0" source="6841be01-441c-4cb2-8103-73f450f84df2" target="5fe228b4-fab3-4b1f-b526-c05378eef0ac" type="1"/>
+        <content>Application</content>
       </child>
-      <child xsi:type="zenta:SketchModelActor" name="Worker" id="8a5bc1f6-cb76-478e-a310-540154a5815c" targetConnections="7efa6035-6d71-4a18-8ba8-16e50b7d6555 2bfd9428-a2d9-4f50-a897-64d143ff9cf2 bf271a10-714a-4d21-a585-c73db37759a8 f8a28dfa-a333-4966-8e59-8855771fd93b">
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="5fe228b4-fab3-4b1f-b526-c05378eef0ac" textAlignment="1" targetConnections="40b63c23-d36b-46ba-8f01-fcf3a44f0099" fillColor="#ffc400">
+        <bounds x="360" y="396" width="169" height="73"/>
+        <content>HSQLDB</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="932e1560-300b-4c09-a6fa-61e65b5f23af" textAlignment="1" fillColor="#ffc400">
+        <bounds x="360" y="144" width="169" height="73"/>
+        <sourceConnection name="REST interface" id="9e030ff0-1e22-4eaf-bf62-78668921a23d" textPosition="0" source="932e1560-300b-4c09-a6fa-61e65b5f23af" target="6841be01-441c-4cb2-8103-73f450f84df2" type="1"/>
+        <content>SoapUI</content>
+      </child>
+    </element>
+    <element xsi:type="zenta:SketchModel" name="Production Architecture" id="044e7f07-0e4b-4cb3-bb1f-67738ac50fab" connectionRouterType="1" background="0">
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="aed65ec7-f09b-4cbd-a6b7-a35bcba21c40" textAlignment="1" targetConnections="6518ff8f-23bc-4c28-b07d-bab738713f45" fillColor="#ffffb5">
+        <bounds x="432" y="0" width="-1" height="-1"/>
+        <sourceConnection id="d0271aa0-aad2-4982-8ca2-689a6abdd2ba" source="aed65ec7-f09b-4cbd-a6b7-a35bcba21c40" target="cdfad3b8-cb97-49ac-9d48-91bb2aab9512" type="1"/>
+        <content>Browser</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="cdfad3b8-cb97-49ac-9d48-91bb2aab9512" textAlignment="1" targetConnections="d0271aa0-aad2-4982-8ca2-689a6abdd2ba" fillColor="#ffc400">
+        <bounds x="432" y="94" width="-1" height="-1"/>
+        <sourceConnection id="8e7f8688-f011-41ba-9455-240b48b5a8dc" source="cdfad3b8-cb97-49ac-9d48-91bb2aab9512" target="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" type="9"/>
+        <sourceConnection id="79885c41-c09d-46c5-90fd-46450d4d0195" source="cdfad3b8-cb97-49ac-9d48-91bb2aab9512" target="157de915-3766-489d-aee8-1be9b81e587a" type="1"/>
+        <sourceConnection id="9193d009-29bf-4b3c-8ca2-b9ce67f7d44a" source="cdfad3b8-cb97-49ac-9d48-91bb2aab9512" target="0a25ea4d-0e5c-4e32-a71b-b27483b22af2" type="1"/>
+        <content>HA-Proxy</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="157de915-3766-489d-aee8-1be9b81e587a" textAlignment="1" targetConnections="79885c41-c09d-46c5-90fd-46450d4d0195" fillColor="#ffff00">
+        <bounds x="276" y="303" width="-1" height="-1"/>
+        <sourceConnection id="2241c8b9-c388-4e1c-9cb7-fb3353142bd4" source="157de915-3766-489d-aee8-1be9b81e587a" target="0a25ea4d-0e5c-4e32-a71b-b27483b22af2" type="4"/>
+        <sourceConnection id="dbf2cc05-1fe4-43da-85db-57771f414e2f" source="157de915-3766-489d-aee8-1be9b81e587a" target="f01b8e13-9cda-451f-9d7c-335f3e213082" type="1"/>
+        <sourceConnection id="6d4211fb-f199-447c-aef1-022d8eb4cc3c" source="157de915-3766-489d-aee8-1be9b81e587a" target="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" type="1"/>
+        <content>App server 1</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="0a25ea4d-0e5c-4e32-a71b-b27483b22af2" textAlignment="1" targetConnections="9193d009-29bf-4b3c-8ca2-b9ce67f7d44a 2241c8b9-c388-4e1c-9cb7-fb3353142bd4" fillColor="#ffff00">
+        <bounds x="612" y="303" width="-1" height="-1"/>
+        <sourceConnection id="d9cefa2b-86f0-4325-b1eb-4ce5d3d3909e" source="0a25ea4d-0e5c-4e32-a71b-b27483b22af2" target="f01b8e13-9cda-451f-9d7c-335f3e213082" type="1"/>
+        <sourceConnection id="0842e13c-c91f-4775-8112-555bfef3ffb0" source="0a25ea4d-0e5c-4e32-a71b-b27483b22af2" target="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" type="1"/>
+        <content>App server N</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" textAlignment="1" targetConnections="8e7f8688-f011-41ba-9455-240b48b5a8dc 0842e13c-c91f-4775-8112-555bfef3ffb0 6d4211fb-f199-447c-aef1-022d8eb4cc3c" fillColor="#7f7fff">
+        <bounds x="708" y="94" width="-1" height="-1"/>
+        <sourceConnection id="d08d66b3-7dbd-4433-8165-b48114dfc3a0" source="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" target="47799ede-f02f-4dbf-b06c-d23aed6ce513" type="9"/>
+        <sourceConnection id="6518ff8f-23bc-4c28-b07d-bab738713f45" source="a5b6c8d8-4377-4ba4-af1b-ab80d94b3c0e" target="aed65ec7-f09b-4cbd-a6b7-a35bcba21c40" type="1"/>
+        <content>Front-end</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="47799ede-f02f-4dbf-b06c-d23aed6ce513" textAlignment="1" targetConnections="d08d66b3-7dbd-4433-8165-b48114dfc3a0" fillColor="#7f7fff">
+        <bounds x="936" y="94" width="-1" height="-1"/>
+        <content>CDN</content>
+      </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="f01b8e13-9cda-451f-9d7c-335f3e213082" textAlignment="1" targetConnections="dbf2cc05-1fe4-43da-85db-57771f414e2f d9cefa2b-86f0-4325-b1eb-4ce5d3d3909e" fillColor="#ffc400">
+        <bounds x="231" y="477" width="550" height="136"/>
+        <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="09a36eb9-207e-48f0-9350-7556604da2af" textAlignment="1" fillColor="#ffc400">
+          <bounds x="30" y="47" width="-1" height="-1"/>
+          <sourceConnection id="87759c0b-d678-43a1-b3d4-c42a8cbc144c" source="09a36eb9-207e-48f0-9350-7556604da2af" target="b2e3ee28-8ca3-47dd-a154-d89a54840e60" type="4"/>
+          <content>DB 1</content>
+        </child>
+        <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="b2e3ee28-8ca3-47dd-a154-d89a54840e60" textAlignment="1" targetConnections="87759c0b-d678-43a1-b3d4-c42a8cbc144c" fillColor="#ffc400">
+          <bounds x="372" y="47" width="-1" height="-1"/>
+          <content>DB N</content>
+        </child>
+        <content>Postgres DB cluster</content>
+      </child>
+    </element>
+  </folder>
+  <folder name="1. Business Requirements" id="dd9baa0c-3208-4d33-8689-0bb83913c371">
+    <element xsi:type="zenta:SketchModel" name="Workflow" id="5e985951-b4bb-4927-964a-cc1c0ea719f5" connectionRouterType="1" background="0">
+      <child xsi:type="zenta:SketchModelActor" name="Customer" id="b81544c1-710e-400f-a38b-d54544800c02" targetConnections="6c080516-b672-4339-af02-0a964c5cb847">
+        <bounds x="150" y="230" width="-1" height="-1"/>
+        <sourceConnection id="e621f640-485a-44a4-b684-18ba3fdf396b" source="b81544c1-710e-400f-a38b-d54544800c02" target="311f9b12-9ab3-40c1-adf5-15561f1cd65d" type="1"/>
+        <sourceConnection id="c39bb9bb-0bc6-49e1-a05e-4df6f424e27c" source="b81544c1-710e-400f-a38b-d54544800c02" target="5ca62304-0a2f-471f-a51c-e09c82ca263f" type="1"/>
+        <sourceConnection id="13e63679-7647-4d32-99b1-445b2b368f12" source="b81544c1-710e-400f-a38b-d54544800c02" target="1ee71de9-efda-41b1-a875-20cbcdcb486e" type="1"/>
+        <sourceConnection id="c5a4de65-7762-41d4-9b4c-3dc5d2bec372" source="b81544c1-710e-400f-a38b-d54544800c02" target="7bbb6409-ec94-4ba7-8b59-71c4c0564e29" type="1"/>
+      </child>
+      <child xsi:type="zenta:SketchModelActor" name="Worker" id="8a5bc1f6-cb76-478e-a310-540154a5815c" targetConnections="7efa6035-6d71-4a18-8ba8-16e50b7d6555">
         <bounds x="1008" y="230" width="-1" height="-1"/>
-        <sourceConnection id="6b48b3e5-1144-487a-bb5f-cec9c839bfb8" lineColor="#73d216" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="7bbb6409-ec94-4ba7-8b59-71c4c0564e29" type="1"/>
-        <sourceConnection id="73bc7c17-3062-4e82-af6b-9a3594237295" lineColor="#73d216" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="487981e2-4f47-4b5e-88df-a262a2dcb119" type="1"/>
-        <sourceConnection id="1540650e-f58b-41cc-8357-2803699bf851" lineColor="#73d216" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="71de7c0e-467e-4a52-91bf-56a5eae59a0f" type="1"/>
-        <sourceConnection id="4338685c-584f-4eab-9e04-9c202f9e079a" lineColor="#73d216" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="68ccd62f-f3cd-478c-82f0-9316af27764a" type="1"/>
+        <sourceConnection id="6b48b3e5-1144-487a-bb5f-cec9c839bfb8" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="7bbb6409-ec94-4ba7-8b59-71c4c0564e29" type="1"/>
+        <sourceConnection id="73bc7c17-3062-4e82-af6b-9a3594237295" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="487981e2-4f47-4b5e-88df-a262a2dcb119" type="1"/>
+        <sourceConnection id="1540650e-f58b-41cc-8357-2803699bf851" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="71de7c0e-467e-4a52-91bf-56a5eae59a0f" type="1"/>
+        <sourceConnection id="4338685c-584f-4eab-9e04-9c202f9e079a" source="8a5bc1f6-cb76-478e-a310-540154a5815c" target="68ccd62f-f3cd-478c-82f0-9316af27764a" type="1"/>
       </child>
       <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="e9732262-8210-4808-8eed-fe32d79795e0" textAlignment="1" fillColor="#ffffb5">
         <bounds x="421" y="96" width="337" height="234"/>
         <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="311f9b12-9ab3-40c1-adf5-15561f1cd65d" textAlignment="1" targetConnections="e621f640-485a-44a4-b684-18ba3fdf396b" fillColor="#ffc400">
           <bounds x="96" y="12" width="-1" height="-1"/>
-          <sourceConnection id="c7761afd-121d-4ba9-bc3e-6639090ca11b" lineColor="#3465a4" source="311f9b12-9ab3-40c1-adf5-15561f1cd65d" target="0ebd48fa-6441-448f-af8b-0447d69a218a" type="1"/>
+          <sourceConnection id="c7761afd-121d-4ba9-bc3e-6639090ca11b" source="311f9b12-9ab3-40c1-adf5-15561f1cd65d" target="0ebd48fa-6441-448f-af8b-0447d69a218a" type="1"/>
           <content>New work request</content>
         </child>
         <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="487981e2-4f47-4b5e-88df-a262a2dcb119" textAlignment="1" targetConnections="73bc7c17-3062-4e82-af6b-9a3594237295" fillColor="#ffc400">
           <bounds x="96" y="120" width="-1" height="-1"/>
-          <sourceConnection id="7c9d4d5e-0cf8-4c2c-85de-27c251fc70e5" lineColor="#3465a4" source="487981e2-4f47-4b5e-88df-a262a2dcb119" target="71de7c0e-467e-4a52-91bf-56a5eae59a0f" type="1"/>
+          <sourceConnection id="7c9d4d5e-0cf8-4c2c-85de-27c251fc70e5" source="487981e2-4f47-4b5e-88df-a262a2dcb119" target="71de7c0e-467e-4a52-91bf-56a5eae59a0f" type="1"/>
           <content>Search for works nearby</content>
         </child>
         <content>MVP</content>
       </child>
-      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="7bbb6409-ec94-4ba7-8b59-71c4c0564e29" textAlignment="1" targetConnections="6b48b3e5-1144-487a-bb5f-cec9c839bfb8" fillColor="#ffc400">
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="7bbb6409-ec94-4ba7-8b59-71c4c0564e29" textAlignment="1" targetConnections="6b48b3e5-1144-487a-bb5f-cec9c839bfb8 c5a4de65-7762-41d4-9b4c-3dc5d2bec372" fillColor="#ffc400">
         <bounds x="522" y="12" width="-1" height="-1"/>
         <content>Registration</content>
       </child>
       <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="0ebd48fa-6441-448f-af8b-0447d69a218a" textAlignment="1" targetConnections="c7761afd-121d-4ba9-bc3e-6639090ca11b" fillColor="#ffc400">
         <bounds x="768" y="132" width="-1" height="-1"/>
-        <sourceConnection id="7efa6035-6d71-4a18-8ba8-16e50b7d6555" lineColor="#ef2929" source="0ebd48fa-6441-448f-af8b-0447d69a218a" target="8a5bc1f6-cb76-478e-a310-540154a5815c" type="1"/>
+        <sourceConnection id="7efa6035-6d71-4a18-8ba8-16e50b7d6555" source="0ebd48fa-6441-448f-af8b-0447d69a218a" target="8a5bc1f6-cb76-478e-a310-540154a5815c" type="1"/>
         <content>Notify workers nearby</content>
       </child>
       <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="71de7c0e-467e-4a52-91bf-56a5eae59a0f" textAlignment="1" targetConnections="7c9d4d5e-0cf8-4c2c-85de-27c251fc70e5 1540650e-f58b-41cc-8357-2803699bf851" fillColor="#ffc400">
         <bounds x="516" y="360" width="-1" height="-1"/>
-        <sourceConnection id="6c080516-b672-4339-af02-0a964c5cb847" lineColor="#ef2929" source="71de7c0e-467e-4a52-91bf-56a5eae59a0f" target="b81544c1-710e-400f-a38b-d54544800c02" type="1"/>
+        <sourceConnection id="6c080516-b672-4339-af02-0a964c5cb847" source="71de7c0e-467e-4a52-91bf-56a5eae59a0f" target="b81544c1-710e-400f-a38b-d54544800c02" type="1"/>
         <content>Make an offer</content>
       </child>
       <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="5ca62304-0a2f-471f-a51c-e09c82ca263f" textAlignment="1" targetConnections="c39bb9bb-0bc6-49e1-a05e-4df6f424e27c" fillColor="#60ff60">
         <bounds x="516" y="456" width="-1" height="-1"/>
-        <sourceConnection id="ca1d9763-a611-46f8-8ce6-75472b242cda" lineColor="#3465a4" source="5ca62304-0a2f-471f-a51c-e09c82ca263f" target="7c9f4ded-c130-489b-96ff-0a56f0a2b801" type="1"/>
-        <sourceConnection id="2bfd9428-a2d9-4f50-a897-64d143ff9cf2" lineColor="#ef2929" source="5ca62304-0a2f-471f-a51c-e09c82ca263f" target="8a5bc1f6-cb76-478e-a310-540154a5815c" type="1"/>
+        <sourceConnection id="ca1d9763-a611-46f8-8ce6-75472b242cda" source="5ca62304-0a2f-471f-a51c-e09c82ca263f" target="7c9f4ded-c130-489b-96ff-0a56f0a2b801" type="1"/>
         <content>Accept offer</content>
       </child>
       <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="1ee71de9-efda-41b1-a875-20cbcdcb486e" textAlignment="1" targetConnections="13e63679-7647-4d32-99b1-445b2b368f12" fillColor="#ffc400">
         <bounds x="516" y="552" width="-1" height="-1"/>
         <content>Decline offer</content>
       </child>
-      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="7c9f4ded-c130-489b-96ff-0a56f0a2b801" textAlignment="1" targetConnections="ca1d9763-a611-46f8-8ce6-75472b242cda f7d84b02-313a-4fba-81c9-85ec57f7d8d6" fillColor="#ffc400">
-        <bounds x="264" y="525" width="-1" height="-1"/>
-        <sourceConnection id="bb3e8290-a79d-47b5-af04-1b6dc05152ff" lineColor="#3465a4" source="7c9f4ded-c130-489b-96ff-0a56f0a2b801" target="68ccd62f-f3cd-478c-82f0-9316af27764a" type="1"/>
-        <sourceConnection id="294b3557-d4dd-4904-b402-314209aaef34" lineColor="#ef2929" source="7c9f4ded-c130-489b-96ff-0a56f0a2b801" target="b81544c1-710e-400f-a38b-d54544800c02" type="1"/>
-        <sourceConnection id="bf271a10-714a-4d21-a585-c73db37759a8" lineColor="#ef2929" source="7c9f4ded-c130-489b-96ff-0a56f0a2b801" target="8a5bc1f6-cb76-478e-a310-540154a5815c" type="1"/>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="7c9f4ded-c130-489b-96ff-0a56f0a2b801" textAlignment="1" targetConnections="ca1d9763-a611-46f8-8ce6-75472b242cda" fillColor="#ffc400">
+        <bounds x="684" y="456" width="-1" height="-1"/>
+        <sourceConnection id="bb3e8290-a79d-47b5-af04-1b6dc05152ff" source="7c9f4ded-c130-489b-96ff-0a56f0a2b801" target="68ccd62f-f3cd-478c-82f0-9316af27764a" type="1"/>
         <content>Confirm work done and pay</content>
       </child>
-      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="68ccd62f-f3cd-478c-82f0-9316af27764a" textAlignment="1" targetConnections="bb3e8290-a79d-47b5-af04-1b6dc05152ff 4338685c-584f-4eab-9e04-9c202f9e079a f4cbe4e2-910b-453c-b858-a41636c757db" fillColor="#ffc400">
-        <bounds x="516" y="660" width="-1" height="-1"/>
-        <sourceConnection id="f8a28dfa-a333-4966-8e59-8855771fd93b" lineColor="#ef2929" source="68ccd62f-f3cd-478c-82f0-9316af27764a" target="8a5bc1f6-cb76-478e-a310-540154a5815c" type="1"/>
-        <sourceConnection id="6276be6e-5121-40f1-ba8d-5d634db29308" lineColor="#ef2929" source="68ccd62f-f3cd-478c-82f0-9316af27764a" target="b81544c1-710e-400f-a38b-d54544800c02" type="1"/>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="68ccd62f-f3cd-478c-82f0-9316af27764a" textAlignment="1" targetConnections="bb3e8290-a79d-47b5-af04-1b6dc05152ff 4338685c-584f-4eab-9e04-9c202f9e079a" fillColor="#ffc400">
+        <bounds x="852" y="456" width="-1" height="-1"/>
         <content>Rate and review about the partner</content>
-      </child>
-      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="8c245ccd-a0bb-47cd-9b50-cd4f1ea8353d" textAlignment="1" fillColor="#ffffff">
-        <bounds x="24" y="23" width="225" height="74"/>
-        <content>Arrows:
-Green: User action
-Red: User notification
-Blue: Process step</content>
       </child>
     </element>
   </folder>
-  <folder name="3. Software Architecture" id="7e8100c8-5c29-4267-8a1f-41790cb4d1dd"/>
+  <folder name="3. Software Architecture" id="7e8100c8-5c29-4267-8a1f-41790cb4d1dd">
+    <folder name="3.1 Create Work Request" id="23c780b4-1892-44f1-95e9-09672de413bf">
+      <element xsi:type="zenta:ZentaDiagramModel" name="New Work Request" id="6400646a-99b6-4042-bccf-e9051670c231">
+        <child xsi:type="zenta:DiagramObject" id="3dab848b-9533-453f-9106-d4def472ff98" zentaElement="18067277-7098-4f24-92f2-1ab8ac749b91">
+          <bounds x="648" y="84" width="-1" height="-1"/>
+          <sourceConnection xsi:type="zenta:Connection" id="0e9f23f2-3c06-42c0-86e5-f9e3584775b5" source="3dab848b-9533-453f-9106-d4def472ff98" target="3329a67e-fa68-4a01-bf40-51d54391e182" relationship="467fa704-601d-4564-8dc1-5f91896a7996"/>
+          <sourceConnection xsi:type="zenta:Connection" id="93f63ae6-98b9-4be7-890f-23b15f3933fe" source="3dab848b-9533-453f-9106-d4def472ff98" target="26eefc73-61fd-4f98-99f3-8c6b0737ea6d" relationship="a7eb263d-876a-4aca-b427-5c68e7106320"/>
+          <sourceConnection xsi:type="zenta:Connection" id="81948313-dd8e-4ed3-bb5c-86ffac294e59" source="3dab848b-9533-453f-9106-d4def472ff98" target="86e3175c-b5a4-45e5-953f-982497574c72" relationship="149e604a-747b-4ab6-9ab6-8eb220763c84"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="3329a67e-fa68-4a01-bf40-51d54391e182" targetConnections="0e9f23f2-3c06-42c0-86e5-f9e3584775b5" zentaElement="f63e2af4-77a9-42c4-899b-f7bc50f31a8f">
+          <bounds x="187" y="261" width="-1" height="-1"/>
+          <sourceConnection xsi:type="zenta:Connection" id="e42b0382-8899-4721-9dde-e310b3702909" source="3329a67e-fa68-4a01-bf40-51d54391e182" target="eea7220e-4aeb-407a-bda7-1806194451e7" relationship="e8bb1f66-f96f-49d7-af97-6bb1fc19f180"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="26eefc73-61fd-4f98-99f3-8c6b0737ea6d" targetConnections="93f63ae6-98b9-4be7-890f-23b15f3933fe" zentaElement="75fce1ae-9671-43ef-b760-a639e843279d">
+          <bounds x="642" y="252" width="131" height="73"/>
+          <sourceConnection xsi:type="zenta:Connection" id="64a21a83-1d1e-492b-bb08-1ed54d2613e7" source="26eefc73-61fd-4f98-99f3-8c6b0737ea6d" target="1961a1cc-7a46-43cf-95a0-c6b0c135acf3" relationship="527e897b-7238-47ca-aedc-58abfddc8a5b"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="86e3175c-b5a4-45e5-953f-982497574c72" targetConnections="81948313-dd8e-4ed3-bb5c-86ffac294e59" zentaElement="b0ef5382-e716-4c6e-a052-e6ce84db4227">
+          <bounds x="1080" y="257" width="121" height="64"/>
+          <sourceConnection xsi:type="zenta:Connection" id="5b43caf1-46e0-4379-858c-90e260557c4c" source="86e3175c-b5a4-45e5-953f-982497574c72" target="e0d984c3-4a09-4dd4-99fb-d38dd1afa6fd" relationship="bf3c6e97-2f1a-48f3-bf9f-de68e320f85f"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="eea7220e-4aeb-407a-bda7-1806194451e7" targetConnections="e42b0382-8899-4721-9dde-e310b3702909" zentaElement="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439">
+          <bounds x="180" y="408" width="133" height="85"/>
+          <sourceConnection xsi:type="zenta:Connection" id="fa89960a-9547-43b3-abe7-b954041a07ba" source="eea7220e-4aeb-407a-bda7-1806194451e7" target="986357b6-8c41-4dc4-9eb8-ee310b846eb0" relationship="673541fb-9999-43a5-a447-be50bfb72545"/>
+          <sourceConnection xsi:type="zenta:Connection" id="c04d0f42-bbf4-435e-8305-dc1b2bfa3695" source="eea7220e-4aeb-407a-bda7-1806194451e7" target="33ea7178-16c0-433c-a77b-64b586be956c" relationship="fdff25d3-a9bf-4286-909f-feccaa12426c"/>
+          <sourceConnection xsi:type="zenta:Connection" id="ffb40daa-242e-492c-ab79-6215eb4851a9" source="eea7220e-4aeb-407a-bda7-1806194451e7" target="cbbcbf29-dfef-484b-ac8d-3be7d90b39df" relationship="a73fd1db-8b32-49f8-8006-d96e9dc92d20"/>
+          <sourceConnection xsi:type="zenta:Connection" id="fcf5e346-3927-4daa-97b0-2bf2fd891711" source="eea7220e-4aeb-407a-bda7-1806194451e7" target="46ac82df-1f2c-4ad4-a277-edd3b2f45f38" relationship="1dd5c907-53b0-499d-88f6-75426655d41a"/>
+          <sourceConnection xsi:type="zenta:Connection" id="7203da0b-0f88-4a39-8645-d4dd5cf5d6ad" source="eea7220e-4aeb-407a-bda7-1806194451e7" target="91421c3d-7c1a-4431-85c8-5a817eb0573a" relationship="e31a5f43-29c3-4255-9f53-9f380479fb06"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="986357b6-8c41-4dc4-9eb8-ee310b846eb0" targetConnections="fa89960a-9547-43b3-abe7-b954041a07ba" zentaElement="6651599c-b29a-4244-9f5d-310166cee85d">
+          <bounds x="19" y="384" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="33ea7178-16c0-433c-a77b-64b586be956c" targetConnections="c04d0f42-bbf4-435e-8305-dc1b2bfa3695" zentaElement="a149a1a3-557f-44a7-be20-edbdc957dcd0">
+          <bounds x="19" y="468" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="cbbcbf29-dfef-484b-ac8d-3be7d90b39df" targetConnections="ffb40daa-242e-492c-ab79-6215eb4851a9" zentaElement="d5f40d38-6150-42c0-a43a-d3849fdbbe08">
+          <bounds x="91" y="564" height="97"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="46ac82df-1f2c-4ad4-a277-edd3b2f45f38" targetConnections="fcf5e346-3927-4daa-97b0-2bf2fd891711" zentaElement="27c59631-5c18-43ed-a29d-ab461d7a015b">
+          <bounds x="283" y="564" width="121" height="145"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="1961a1cc-7a46-43cf-95a0-c6b0c135acf3" targetConnections="64a21a83-1d1e-492b-bb08-1ed54d2613e7" zentaElement="f115e93f-96e2-4f1d-9e9e-7da62bd332c7">
+          <bounds x="641" y="410" width="133" height="82"/>
+          <sourceConnection xsi:type="zenta:Connection" id="009a46b4-208f-471f-9407-ed745eac54ac" source="1961a1cc-7a46-43cf-95a0-c6b0c135acf3" target="4df9a5ac-f1e3-4477-91d5-86e14b1fb692" relationship="db08a471-5419-4c1b-8319-068ef49807ed"/>
+          <sourceConnection xsi:type="zenta:Connection" id="171bec66-90c1-481b-87e2-a8108d7ff39d" source="1961a1cc-7a46-43cf-95a0-c6b0c135acf3" target="9166a682-8e06-42dd-bdd0-65bf333437ca" relationship="23a2177b-1eb9-4dfc-9e0c-21efe726fd0a"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="4df9a5ac-f1e3-4477-91d5-86e14b1fb692" targetConnections="009a46b4-208f-471f-9407-ed745eac54ac" zentaElement="f4a2fe0a-e1ff-46cd-854a-04f3f4e27774">
+          <bounds x="480" y="423" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="9166a682-8e06-42dd-bdd0-65bf333437ca" targetConnections="171bec66-90c1-481b-87e2-a8108d7ff39d" zentaElement="f5389b4a-0a6b-427e-876d-6db625718bf3">
+          <bounds x="648" y="555" height="115"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="91421c3d-7c1a-4431-85c8-5a817eb0573a" targetConnections="7203da0b-0f88-4a39-8645-d4dd5cf5d6ad" zentaElement="d39e4c4e-3941-480c-a2d0-21933703f33c">
+          <bounds x="420" y="501" width="121" height="76"/>
+          <sourceConnection xsi:type="zenta:Connection" id="eb10b16d-1d3b-4c7b-9765-55614c602684" source="91421c3d-7c1a-4431-85c8-5a817eb0573a" target="ee2e98cc-9854-4fc3-a4a1-50db9b79fb26" relationship="e95bca23-5946-4d6c-819e-c51c2b4c1cde"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="ee2e98cc-9854-4fc3-a4a1-50db9b79fb26" targetConnections="eb10b16d-1d3b-4c7b-9765-55614c602684" zentaElement="8f9e899b-8254-4a6a-a091-57993cec5315">
+          <bounds x="421" y="612" height="71"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="e0d984c3-4a09-4dd4-99fb-d38dd1afa6fd" targetConnections="5b43caf1-46e0-4379-858c-90e260557c4c" zentaElement="c5532d6c-d43f-4969-ad75-1e8c94f40a10">
+          <bounds x="1081" y="423" width="-1" height="-1"/>
+          <sourceConnection xsi:type="zenta:Connection" id="280a2d8f-baf0-4d87-8480-20504cd6d75d" source="e0d984c3-4a09-4dd4-99fb-d38dd1afa6fd" target="82dba58e-ae7d-4de2-9fe0-dc5178418316" relationship="75242bb2-847c-443d-8dce-02eb45633b5d"/>
+          <sourceConnection xsi:type="zenta:Connection" id="1feb8ec5-d16c-44f3-98b6-20247894dbd8" source="e0d984c3-4a09-4dd4-99fb-d38dd1afa6fd" target="2ddadcda-a85c-48c6-acfb-2144468cb65e" relationship="eddadf0e-8ad8-4c2d-8767-c7845a544655"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="82dba58e-ae7d-4de2-9fe0-dc5178418316" targetConnections="280a2d8f-baf0-4d87-8480-20504cd6d75d" zentaElement="3d0c8667-5997-4068-9f64-e312c1b0447c">
+          <bounds x="888" y="423" width="144"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="2ddadcda-a85c-48c6-acfb-2144468cb65e" targetConnections="1feb8ec5-d16c-44f3-98b6-20247894dbd8" zentaElement="f38e56fc-3ebc-4f50-9913-9411154b7bf7">
+          <bounds x="1081" y="552" height="61"/>
+        </child>
+      </element>
+      <element xsi:type="zenta:BasicObject" name="address" id="a149a1a3-557f-44a7-be20-edbdc957dcd0" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicRelationship" id="467fa704-601d-4564-8dc1-5f91896a7996" ancestor="1a16ba6a-0441-4e7d-8f9c-f6394fcdd10b" source="18067277-7098-4f24-92f2-1ab8ac749b91" target="f63e2af4-77a9-42c4-899b-f7bc50f31a8f"/>
+      <element xsi:type="zenta:BasicObject" name="All work requests created by the given customer is listed." id="f5389b4a-0a6b-427e-876d-6db625718bf3" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicRelationship" id="a7eb263d-876a-4aca-b427-5c68e7106320" ancestor="1a16ba6a-0441-4e7d-8f9c-f6394fcdd10b" source="18067277-7098-4f24-92f2-1ab8ac749b91" target="75fce1ae-9671-43ef-b760-a639e843279d"/>
+      <element xsi:type="zenta:BasicRelationship" id="149e604a-747b-4ab6-9ab6-8eb220763c84" ancestor="1a16ba6a-0441-4e7d-8f9c-f6394fcdd10b" source="18067277-7098-4f24-92f2-1ab8ac749b91" target="b0ef5382-e716-4c6e-a052-e6ce84db4227"/>
+      <element xsi:type="zenta:BasicRelationship" id="e8bb1f66-f96f-49d7-af97-6bb1fc19f180" ancestor="04ce9a45-2873-4e6b-abea-6f04ce048123" source="f63e2af4-77a9-42c4-899b-f7bc50f31a8f" target="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439"/>
+      <element xsi:type="zenta:BasicRelationship" id="673541fb-9999-43a5-a447-be50bfb72545" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" target="6651599c-b29a-4244-9f5d-310166cee85d"/>
+      <element xsi:type="zenta:BasicRelationship" id="fdff25d3-a9bf-4286-909f-feccaa12426c" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" target="a149a1a3-557f-44a7-be20-edbdc957dcd0"/>
+      <element xsi:type="zenta:BasicRelationship" id="a73fd1db-8b32-49f8-8006-d96e9dc92d20" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" target="d5f40d38-6150-42c0-a43a-d3849fdbbe08"/>
+      <element xsi:type="zenta:BasicRelationship" id="1dd5c907-53b0-499d-88f6-75426655d41a" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" target="27c59631-5c18-43ed-a29d-ab461d7a015b"/>
+      <element xsi:type="zenta:BasicRelationship" id="527e897b-7238-47ca-aedc-58abfddc8a5b" ancestor="04ce9a45-2873-4e6b-abea-6f04ce048123" source="75fce1ae-9671-43ef-b760-a639e843279d" target="f115e93f-96e2-4f1d-9e9e-7da62bd332c7"/>
+      <element xsi:type="zenta:BasicRelationship" id="db08a471-5419-4c1b-8319-068ef49807ed" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="f115e93f-96e2-4f1d-9e9e-7da62bd332c7" target="f4a2fe0a-e1ff-46cd-854a-04f3f4e27774"/>
+      <element xsi:type="zenta:BasicRelationship" id="23a2177b-1eb9-4dfc-9e0c-21efe726fd0a" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="f115e93f-96e2-4f1d-9e9e-7da62bd332c7" target="f5389b4a-0a6b-427e-876d-6db625718bf3"/>
+      <element xsi:type="zenta:BasicRelationship" id="e31a5f43-29c3-4255-9f53-9f380479fb06" ancestor="a0ec85e2-1b1a-47a4-8c98-9f413bb7b995" source="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" target="d39e4c4e-3941-480c-a2d0-21933703f33c"/>
+      <element xsi:type="zenta:BasicRelationship" id="e95bca23-5946-4d6c-819e-c51c2b4c1cde" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="d39e4c4e-3941-480c-a2d0-21933703f33c" target="8f9e899b-8254-4a6a-a091-57993cec5315"/>
+      <element xsi:type="zenta:BasicRelationship" id="bf3c6e97-2f1a-48f3-bf9f-de68e320f85f" ancestor="04ce9a45-2873-4e6b-abea-6f04ce048123" source="b0ef5382-e716-4c6e-a052-e6ce84db4227" target="c5532d6c-d43f-4969-ad75-1e8c94f40a10"/>
+      <element xsi:type="zenta:BasicRelationship" id="75242bb2-847c-443d-8dce-02eb45633b5d" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="c5532d6c-d43f-4969-ad75-1e8c94f40a10" target="3d0c8667-5997-4068-9f64-e312c1b0447c"/>
+      <element xsi:type="zenta:BasicObject" name="Created work request contains the geospatial coordinates of the given address" id="27c59631-5c18-43ed-a29d-ab461d7a015b" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicObject" name="Created work request contains the given work type" id="d5f40d38-6150-42c0-a43a-d3849fdbbe08" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicObject" name="Customer can create work request" id="f63e2af4-77a9-42c4-899b-f7bc50f31a8f" ancestor="e7c7a3b9-cc91-4d99-854a-d5eab68efd7c"/>
+      <element xsi:type="zenta:BasicObject" name="Customer can handle work requests" id="18067277-7098-4f24-92f2-1ab8ac749b91" ancestor="107b9a83-1292-49ee-bf2f-542de02b2654"/>
+      <element xsi:type="zenta:BasicObject" name="Customer can read their work requests" id="75fce1ae-9671-43ef-b760-a639e843279d" ancestor="e7c7a3b9-cc91-4d99-854a-d5eab68efd7c"/>
+      <element xsi:type="zenta:BasicObject" name="Customer can revoke their work request" id="b0ef5382-e716-4c6e-a052-e6ce84db4227" ancestor="e7c7a3b9-cc91-4d99-854a-d5eab68efd7c"/>
+      <element xsi:type="zenta:BasicObject" name="Customer creates a work request" id="b5e8cf5b-ebcf-4be2-a0d2-ff5cad177439" ancestor="behaviour"/>
+      <element xsi:type="zenta:BasicObject" name="customerId" id="f4a2fe0a-e1ff-46cd-854a-04f3f4e27774" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicObject" name="External GIS has been called" id="8f9e899b-8254-4a6a-a091-57993cec5315" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicObject" name="Geospatial coordinates are calculated from address" id="d39e4c4e-3941-480c-a2d0-21933703f33c" ancestor="83af8497-bfef-451b-9bc6-f00d58c8df6a"/>
+      <element xsi:type="zenta:BasicObject" name="Query work requests by customerId" id="f115e93f-96e2-4f1d-9e9e-7da62bd332c7" ancestor="behaviour"/>
+      <element xsi:type="zenta:BasicObject" name="Revoke work request by ID" id="c5532d6c-d43f-4969-ad75-1e8c94f40a10" ancestor="behaviour"/>
+      <element xsi:type="zenta:BasicObject" name="workRequestId" id="3d0c8667-5997-4068-9f64-e312c1b0447c" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicObject" name="workType" id="6651599c-b29a-4244-9f5d-310166cee85d" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicObject" name="Work request with the given id is revoked" id="f38e56fc-3ebc-4f50-9913-9411154b7bf7" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicRelationship" id="eddadf0e-8ad8-4c2d-8767-c7845a544655" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="c5532d6c-d43f-4969-ad75-1e8c94f40a10" target="f38e56fc-3ebc-4f50-9913-9411154b7bf7"/>
+      <element xsi:type="zenta:BasicObject" name="Geospatial coordinates are calculated from address (copy)"/>
+    </folder>
+    <folder name="3.2 Search Work Request" id="27033f9f-10b8-4e8a-9285-ba041ad22e14">
+      <element xsi:type="zenta:ZentaDiagramModel" name="Find Work Request" id="8cba6dbe-48c3-4e4c-a895-10174c84a1c3">
+        <child xsi:type="zenta:DiagramObject" id="a7c5d0f4-7623-4be3-90a7-ac39b6f68dc3" zentaElement="309ff9db-8ae8-455b-b543-65ad45b8d3b4">
+          <bounds x="612" y="120" width="153" height="77"/>
+          <sourceConnection xsi:type="zenta:Connection" id="9a1a1714-f789-47c1-b288-cf28f30d4a07" source="a7c5d0f4-7623-4be3-90a7-ac39b6f68dc3" target="4a804569-9841-4c77-92fc-dbd408df1de8" relationship="3202256b-054b-4f04-91a7-ec6f4668bf09"/>
+          <sourceConnection xsi:type="zenta:Connection" id="1cdc9041-1fb4-4a94-ba6b-f43450d914ca" source="a7c5d0f4-7623-4be3-90a7-ac39b6f68dc3" target="761c5d3d-352e-4efd-8d3c-24ecef646121" relationship="ef9dca25-53b2-4cf9-9883-686892652bae"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="4a804569-9841-4c77-92fc-dbd408df1de8" targetConnections="9a1a1714-f789-47c1-b288-cf28f30d4a07" zentaElement="c4deadc1-1a46-4a0a-8b3b-e138996d82b0">
+          <bounds x="259" y="288" width="123" height="74"/>
+          <sourceConnection xsi:type="zenta:Connection" id="21b08898-2355-4337-9157-9fdca5e286eb" source="4a804569-9841-4c77-92fc-dbd408df1de8" target="ab986af7-5a5f-4a41-b2b6-f0329640e51e" relationship="31d140e4-8aeb-4009-a145-4f260cc6a9d6"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="ab986af7-5a5f-4a41-b2b6-f0329640e51e" targetConnections="21b08898-2355-4337-9157-9fdca5e286eb" zentaElement="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727">
+          <bounds x="261" y="432" height="73"/>
+          <sourceConnection xsi:type="zenta:Connection" id="a268d3a3-0e7e-4df2-8ff2-4f968d4e7d64" source="ab986af7-5a5f-4a41-b2b6-f0329640e51e" target="2b3966d7-149f-48c7-9474-7071c4efb07a" relationship="bce03740-b03a-4da0-819a-e17fc551aa83"/>
+          <sourceConnection xsi:type="zenta:Connection" id="c43888d3-fbd2-497e-ac4a-da9c3bd2c870" source="ab986af7-5a5f-4a41-b2b6-f0329640e51e" target="04fc7e3c-31ac-4be8-876e-83f2c24f1140" relationship="c39d53c5-cea9-4269-a274-294deeb0269f"/>
+          <sourceConnection xsi:type="zenta:Connection" id="1328903f-dcc2-4218-848e-87665d06494b" source="ab986af7-5a5f-4a41-b2b6-f0329640e51e" target="3bae6d54-be64-4422-919f-fda2ad6dd414" relationship="0764ffeb-3f92-45fb-9944-e1894162b997"/>
+          <sourceConnection xsi:type="zenta:Connection" id="3b16e99d-fe8a-4104-b4de-0a1e9a5d9abd" source="ab986af7-5a5f-4a41-b2b6-f0329640e51e" target="97c12abc-ecab-4b05-9345-0c3faac4b5d8" relationship="86532eb4-f98e-4eb9-ba38-178bf011bafa"/>
+          <sourceConnection xsi:type="zenta:Connection" id="3e1fea29-ca47-42c4-b42e-0806b6e9f526" source="ab986af7-5a5f-4a41-b2b6-f0329640e51e" target="057b7090-bdaf-4480-bc26-ee96274efb24" relationship="b6b5e9ca-d16e-4589-aa20-2379cb495f88"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="2b3966d7-149f-48c7-9474-7071c4efb07a" targetConnections="a268d3a3-0e7e-4df2-8ff2-4f968d4e7d64" zentaElement="b0db9345-c9d8-405d-9602-651c8979e233">
+          <bounds x="96" y="378" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="04fc7e3c-31ac-4be8-876e-83f2c24f1140" targetConnections="c43888d3-fbd2-497e-ac4a-da9c3bd2c870" zentaElement="7c05d4ef-c267-4cc0-93c9-2e4bfce025a5">
+          <bounds x="96" y="441" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="3bae6d54-be64-4422-919f-fda2ad6dd414" targetConnections="1328903f-dcc2-4218-848e-87665d06494b" zentaElement="620f7ad3-b6c8-4a7b-82c9-0a3d7d64d950">
+          <bounds x="96" y="504" width="-1" height="-1"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="97c12abc-ecab-4b05-9345-0c3faac4b5d8" targetConnections="3b16e99d-fe8a-4104-b4de-0a1e9a5d9abd" zentaElement="01f9bc7c-a4f5-4473-9cd0-8356b70cc17a">
+          <bounds x="261" y="576" height="85"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="057b7090-bdaf-4480-bc26-ee96274efb24" targetConnections="3e1fea29-ca47-42c4-b42e-0806b6e9f526" zentaElement="d39e4c4e-3941-480c-a2d0-21933703f33c">
+          <bounds x="432" y="432" height="73"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="761c5d3d-352e-4efd-8d3c-24ecef646121" targetConnections="1cdc9041-1fb4-4a94-ba6b-f43450d914ca" zentaElement="9332dd47-17c8-4ed8-86d6-a4b3295af46b">
+          <bounds x="959" y="287" width="158" height="74"/>
+          <sourceConnection xsi:type="zenta:Connection" id="3949ce73-9264-471e-bbbf-87ba32b68e91" source="761c5d3d-352e-4efd-8d3c-24ecef646121" target="86d25a9d-17cb-4cf1-83ff-780042ab70f2" relationship="576ec8f3-b154-4110-bfcd-41d177ad25f7"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="86d25a9d-17cb-4cf1-83ff-780042ab70f2" targetConnections="3949ce73-9264-471e-bbbf-87ba32b68e91" zentaElement="0bde16e1-a431-414f-9166-6313eaf2d2d4">
+          <bounds x="978" y="441" width="-1" height="-1"/>
+          <sourceConnection xsi:type="zenta:Connection" id="2e654711-fa53-47bf-90c1-b7140890f089" source="86d25a9d-17cb-4cf1-83ff-780042ab70f2" target="9c0ff585-4dce-416f-a0b4-e5e6393c97d8" relationship="946ab41d-cfd7-4c6f-bd5f-5615d6815f3c"/>
+          <sourceConnection xsi:type="zenta:Connection" id="0848f1e1-f7d0-450a-8bca-98ca3a06858d" source="86d25a9d-17cb-4cf1-83ff-780042ab70f2" target="4a07d53d-38ab-4978-93c2-3f3b5451dfbe" relationship="bf76315b-d95b-4485-a93a-5dd745785f52"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="9c0ff585-4dce-416f-a0b4-e5e6393c97d8" targetConnections="2e654711-fa53-47bf-90c1-b7140890f089" zentaElement="264d2872-48ed-42bd-b118-5bd2045d36da">
+          <bounds x="780" y="441" width="132"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="4a07d53d-38ab-4978-93c2-3f3b5451dfbe" targetConnections="0848f1e1-f7d0-450a-8bca-98ca3a06858d" zentaElement="3f8cb69d-8ffc-4b95-9c3d-2a259484e8fa">
+          <bounds x="978" y="558" height="91"/>
+        </child>
+      </element>
+      <element xsi:type="zenta:BasicObject" name="Worker should be able to find proper work in their location" id="309ff9db-8ae8-455b-b543-65ad45b8d3b4" ancestor="107b9a83-1292-49ee-bf2f-542de02b2654"/>
+      <element xsi:type="zenta:BasicObject" name="Worker can search for works by type and location" id="c4deadc1-1a46-4a0a-8b3b-e138996d82b0" ancestor="e7c7a3b9-cc91-4d99-854a-d5eab68efd7c"/>
+      <element xsi:type="zenta:BasicRelationship" id="3202256b-054b-4f04-91a7-ec6f4668bf09" ancestor="1a16ba6a-0441-4e7d-8f9c-f6394fcdd10b" source="309ff9db-8ae8-455b-b543-65ad45b8d3b4" target="c4deadc1-1a46-4a0a-8b3b-e138996d82b0"/>
+      <element xsi:type="zenta:BasicObject" name="Find work by type, address and radius" id="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" ancestor="behaviour"/>
+      <element xsi:type="zenta:BasicRelationship" id="31d140e4-8aeb-4009-a145-4f260cc6a9d6" ancestor="04ce9a45-2873-4e6b-abea-6f04ce048123" source="c4deadc1-1a46-4a0a-8b3b-e138996d82b0" target="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727"/>
+      <element xsi:type="zenta:BasicObject" name="WorkType" id="b0db9345-c9d8-405d-9602-651c8979e233" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicRelationship" id="bce03740-b03a-4da0-819a-e17fc551aa83" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="b0db9345-c9d8-405d-9602-651c8979e233"/>
+      <element xsi:type="zenta:BasicObject" name="Address" id="7c05d4ef-c267-4cc0-93c9-2e4bfce025a5" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicRelationship" id="c39d53c5-cea9-4269-a274-294deeb0269f" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="7c05d4ef-c267-4cc0-93c9-2e4bfce025a5"/>
+      <element xsi:type="zenta:BasicObject" name="Radius" id="620f7ad3-b6c8-4a7b-82c9-0a3d7d64d950" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicRelationship" id="0764ffeb-3f92-45fb-9944-e1894162b997" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="620f7ad3-b6c8-4a7b-82c9-0a3d7d64d950"/>
+      <element xsi:type="zenta:BasicObject" name="Matching work request is in the search result list" id="01f9bc7c-a4f5-4473-9cd0-8356b70cc17a" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicRelationship" id="86532eb4-f98e-4eb9-ba38-178bf011bafa" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="01f9bc7c-a4f5-4473-9cd0-8356b70cc17a"/>
+      <element xsi:type="zenta:BasicObject" name="Process Step" id="5d16d422-4ca5-411d-8268-d8e3a4427744" ancestor="83af8497-bfef-451b-9bc6-f00d58c8df6a"/>
+      <element xsi:type="zenta:BasicRelationship" id="0deb6769-24a1-4a6e-937a-ff5e21de63a9" ancestor="a0ec85e2-1b1a-47a4-8c98-9f413bb7b995" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="5d16d422-4ca5-411d-8268-d8e3a4427744"/>
+      <element xsi:type="zenta:BasicRelationship" id="b6b5e9ca-d16e-4589-aa20-2379cb495f88" ancestor="a0ec85e2-1b1a-47a4-8c98-9f413bb7b995" source="f8da29fb-40e7-4efd-a8c2-d7bf0fbe2727" target="d39e4c4e-3941-480c-a2d0-21933703f33c"/>
+      <element xsi:type="zenta:BasicObject" name="Worker can read contact information of customer from the work request" id="9332dd47-17c8-4ed8-86d6-a4b3295af46b" ancestor="e7c7a3b9-cc91-4d99-854a-d5eab68efd7c"/>
+      <element xsi:type="zenta:BasicRelationship" id="ef9dca25-53b2-4cf9-9883-686892652bae" ancestor="1a16ba6a-0441-4e7d-8f9c-f6394fcdd10b" source="309ff9db-8ae8-455b-b543-65ad45b8d3b4" target="9332dd47-17c8-4ed8-86d6-a4b3295af46b"/>
+      <element xsi:type="zenta:BasicObject" name="Get work request by ID" id="0bde16e1-a431-414f-9166-6313eaf2d2d4" ancestor="behaviour"/>
+      <element xsi:type="zenta:BasicRelationship" id="576ec8f3-b154-4110-bfcd-41d177ad25f7" ancestor="04ce9a45-2873-4e6b-abea-6f04ce048123" source="9332dd47-17c8-4ed8-86d6-a4b3295af46b" target="0bde16e1-a431-414f-9166-6313eaf2d2d4"/>
+      <element xsi:type="zenta:BasicObject" name="WorkRequestID" id="264d2872-48ed-42bd-b118-5bd2045d36da" ancestor="ebc74a50-0298-4c43-8830-d93ede22576b"/>
+      <element xsi:type="zenta:BasicRelationship" id="946ab41d-cfd7-4c6f-bd5f-5615d6815f3c" ancestor="54da2470-41ef-40fb-9d35-0523a3aecb0d" source="0bde16e1-a431-414f-9166-6313eaf2d2d4" target="264d2872-48ed-42bd-b118-5bd2045d36da"/>
+      <element xsi:type="zenta:BasicObject" name="Work request contains the contact info of the customer" id="3f8cb69d-8ffc-4b95-9c3d-2a259484e8fa" ancestor="f77378e6-2ef5-4e91-8a94-47ca7fc25c27"/>
+      <element xsi:type="zenta:BasicRelationship" id="bf76315b-d95b-4485-a93a-5dd745785f52" ancestor="48b250d4-4518-40d3-8815-0f80dfa3de3a" source="0bde16e1-a431-414f-9166-6313eaf2d2d4" target="3f8cb69d-8ffc-4b95-9c3d-2a259484e8fa"/>
+    </folder>
+  </folder>
   <folder name="4. Software Design" id="620f8ada-d4be-4595-b6a8-f1c480321d3e"/>
   <property key="documentationMarkup" value="MediaWiki"/>
 </zenta:model>
