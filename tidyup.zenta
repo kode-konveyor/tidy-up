@@ -1345,6 +1345,13 @@ They are brownish in color, to make it </documentation>
         <bounds x="852" y="456" width="-1" height="-1"/>
         <content>Rate and review about the partner</content>
       </child>
+      <child xsi:type="zenta:SketchModelSticky" name="Sticky" id="8c245ccd-a0bb-47cd-9b50-cd4f1ea8353d" textAlignment="1" fillColor="#ffffff">
+        <bounds x="24" y="23" width="229" height="98"/>
+        <content>Arrows:
+Green: User action
+Red: User notification
+Blue: Process step</content>
+      </child>
     </element>
   </folder>
   <folder name="3. Software Architecture" id="7e8100c8-5c29-4267-8a1f-41790cb4d1dd">
