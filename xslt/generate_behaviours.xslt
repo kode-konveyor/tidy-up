@@ -87,7 +87,6 @@ If you have questions, see the [FAQ](https://kodekonveyor.com/coder-faq/), ask o
     <xsl:function name="zenta:fullpackageP">
         <xsl:param name="package"/>
         <xsl:if test="$package">
-        <xsl:message select="$package/@name"/>
             <xsl:variable name="parent" select="zenta:fullpackageP(zenta:neighbours($rich,$package,'contains,2')[@xsi:type='Package'])"/>
             <xsl:choose>
                 <xsl:when test="$parent">
@@ -102,7 +101,6 @@ If you have questions, see the [FAQ](https://kodekonveyor.com/coder-faq/), ask o
 
     <xsl:function name="zenta:fullpackage">
         <xsl:param name="service"/>
-        <xsl:message select="$service/@name"/>
         <xsl:copy-of select="zenta:fullpackageP(zenta:neighbours($rich,$service,'contains,2')[@xsi:type='Package'])"/>
     </xsl:function>
 

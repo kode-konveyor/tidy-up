@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
 	<description>WAR project PMD rules of Kode Konveyor</description>
-
+	<exclude-pattern>.*TestData.java</exclude-pattern>
 	<rule ref="category/java/bestpractices.xml">
 		<exclude name="JUnitAssertionsShouldIncludeMessage" />
 		<exclude name="JUnitTestsShouldIncludeAssert" />
@@ -19,6 +19,8 @@
 		<exclude name="MethodNamingConventions" />
 		<exclude name="AtLeastOneConstructor" />
 		<exclude name="LocalVariableCouldBeFinal" />
+		<exclude name="ClassNamingConventions" />
+		<exclude name="FieldNamingConventions" />
 		<exclude name="GenericsNaming" />
 		<exclude name="OnlyOneReturn" />
 	</rule>
@@ -30,7 +32,7 @@
 	</rule>
 	<rule ref="category/java/design.xml">
 		<exclude name="LawOfDemeter" />
-		<exclude name="CyclomaticComplexity" />
+		<exclude name="FinalFieldCouldBeStatic" />
 		<exclude name="LoosePackageCoupling" />
 		<exclude name="UseUtilityClass" />
 		<exclude name="DataClass" />
@@ -138,5 +140,77 @@ public interface Matrix<KeyType extends Serializable, ValueType extends Serializ
 		</properties>
 		<!--<example><![CDATA[]]></example> -->
 	</rule>
+<rule name="ClassNamingConventions"
+      language="java"
+      message="Only standard units should be used. Non-standard classes
+should only be used at the interfaces of the application,
+and should be marked with @Delegate or @InterfaceClass"
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+   <description>
+      Only standard units should be used. Non-standard classes
+      should only be used at the interfaces of the application,
+      and should be marked with @Delegate or @InterfaceClass
+   </description>
+   <priority>3</priority>
+   <properties>
+      <property name="version" value="2.0"/>
+      <property name="xpath">
+         <value>
+<![CDATA[
+//TypeDeclaration/ClassOrInterfaceDeclaration[
+  not(
+   matches(@Image,'[A-Z][a-z0-9]*Interface$') or
+   matches(@Image,'[A-Z][a-z0-9]*Service$') or
+   matches(@Image,'[A-Z][a-z0-9]*Controller$') or
+   matches(@Image,'[A-Z][a-z0-9]*Test$') or
+   matches(@Image,'[A-Z][a-z0-9]*TestData$') or
+   matches(@Image,'[A-Z][a-z0-9]*TestHelper$') or
+   matches(@Image,'[A-Z][a-z0-9]*Entity$') or
+   matches(@Image,'[A-Z][a-z0-9]*DTO$') or
+   matches(@Image,'[A-Z][a-z0-9]*Repository$') or
+   matches(@Image,'[A-Z][a-z0-9]*Factory$') or
+   matches(@Image,'[A-Z][a-z0-9]*Stubs$')
+) and not(
+   ../Annotation/MarkerAnnotation/Name/@Image = 'InterfaceClass' or
+   ../Annotation/MarkerAnnotation/Name/@Image = 'Delegate'
+)
+] 
+
+]]>
+         </value>
+      </property>
+   </properties>
+</rule>
+<rule name="TestDataRules"
+      language="java"
+      message="TestData unit rules"
+      class="net.sourceforge.pmd.lang.rule.XPathRule">
+   <description>
+      TestData units should be annotated with @Getter, and should
+      contain non-static SCREAMING_SNAKE_CASE fields, and/or corresponding
+      public getters
+   </description>
+   <priority>3</priority>
+   <properties>
+      <property name="version" value="2.0"/>
+      <property name="xpath">
+         <value>
+<![CDATA[
+//ClassOrInterfaceDeclaration[matches(@Image,'TestData$')]/(
+//FieldDeclaration[
+    not(matches(VariableDeclarator/VariableDeclaratorId/@Image,'^[A-Z0-9_]*$')) or
+    @Static = true()
+]|
+//MethodDeclaration[
+    not(matches(MethodDeclarator/@Image,'^get[A-Z0-9_]*$')) or
+    @Public = false()
+]|
+.[not(..//MarkerAnnotation[Name/@Image='Getter'])]
+)
+]]>
+         </value>
+      </property>
+   </properties>
+</rule>
 
 </ruleset>
