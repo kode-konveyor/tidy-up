@@ -66,6 +66,8 @@
 ----------------------------------------------------------------------------
 Behaviour: <xsl:value-of select="concat(@service, '/', @behaviour)" />
 
+Annotations for the test cases:
+
     @TestedBehaviour("<xsl:value-of select="@behaviour" />")
     @TestedService("<xsl:value-of select="@service" />")
 
