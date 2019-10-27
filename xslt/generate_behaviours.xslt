@@ -47,7 +47,17 @@
                '/develop/pics/',
                $picid,
                '.png')"/>
-[![<xsl:value-of select="$picname"/>](<xsl:value-of select="$piclink"/>)](<xsl:value-of select="$piclink"/>)
+            <xsl:variable name="doclink" select="concat(
+                'https://repository.kodekonveyor.com/',
+               $reponame,
+               '/',
+               $github_org,
+               '/develop/index.html#',
+               $picid)"/>
+<xsl:text>
+</xsl:text>
+<xsl:value-of select="$picname"/>
+[![<xsl:value-of select="$picname"/>](<xsl:value-of select="$piclink"/>)](<xsl:value-of select="$doclink"/>)
     </xsl:function>
 
 	<xsl:function name="zenta:writeTestcasesAsText">
@@ -59,15 +69,16 @@ Behaviour: <xsl:value-of select="concat(@service, '/', @behaviour)" />
     @TestedBehaviour("<xsl:value-of select="@behaviour" />")
     @TestedService("<xsl:value-of select="@service" />")
 
-You should modify <xsl:value-of select="concat(@package, '.', @service)" />.
+The production code is at <xsl:value-of select="concat(@package, '.', @service)" />.java
+You should probably start at <xsl:value-of select="concat(@package, '.', @service)" />Tests.java
 
-            <xsl:copy-of select="$zenta//element[@id=current()/behaviour/element/@id]/documentation/(*|text())"/>
+<xsl:copy-of select="$zenta//element[@id=current()/behaviour/element/@id]/documentation/(*|text())"/>
 
 Relevant views:
+            <xsl:variable name="servicepics" select="$zenta//element[.//child[@zentaElement=current()/service/element/@id]]/@id"/>
             <xsl:variable name="behaviourpics" select="$zenta//element[.//child[@zentaElement=current()/behaviour/element/@id]]/@id"/>
-            <xsl:variable name="servicepics" select="$zenta//element[.//child[@zentaElement=current()/behaviour/element/@id]]/@id"/>
             <xsl:for-each select="distinct-values($behaviourpics intersect $servicepics)">
-                <xsl:copy-of select="zenta:drawpic(.)"/>
+<xsl:copy-of select="zenta:drawpic(.)"/>
             </xsl:for-each>
 
 More about the service:
@@ -101,19 +112,30 @@ If you have questions, see the [FAQ](https://kodekonveyor.com/coder-faq/), ask o
 
     <xsl:function name="zenta:fullpackage">
         <xsl:param name="service"/>
-        <xsl:copy-of select="zenta:fullpackageP(zenta:neighbours($rich,$service,'contains,2')[@xsi:type='Package'])"/>
+        <xsl:variable name="parent" select="zenta:neighbours($rich,$service,'contains,2')"/>
+        <xsl:choose>
+            <xsl:when test="$parent/@xsi:type='Package'">
+                <xsl:copy-of select="zenta:fullpackageP($parent)"/>
+            </xsl:when>
+            <xsl:when test="$parent/@xsi:type='Process Step'">
+                <xsl:copy-of select="zenta:fullpackageP($parent)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="zenta:fullpackage(zenta:neighbours($rich,$service,'is implemented by/implements,2'))"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:function>
 
 	<xsl:template name="behaviours">
 		<xsl:variable name="root" select="/" />
 		<xsl:for-each
-			select="//element[@template='false' and (@xsi:type='Behaviour' or @xsi:type='Process Step')]">
+			select="//element[@template='false' and (@xsi:type='Behaviour')]">
             <xsl:variable name="behaviour" select="."/>
             <xsl:for-each select="zenta:neighbours(/,.,'is implemented by/implements,1')">
                 <task>
                     <xsl:attribute name="service" select="@name"/>
                     <xsl:attribute name="behaviour" select="$behaviour/@name"/>
-                    <xsl:attribute name="package" select="zenta:fullpackage($behaviour)"/>
+                    <xsl:attribute name="package" select="zenta:fullpackage(.)"/>
                     <service><xsl:copy-of select="."/></service>
                     <behaviour><xsl:copy-of select="$behaviour"/></behaviour>
                 </task>
