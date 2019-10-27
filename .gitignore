@@ -24,3 +24,4 @@ tidyup.testdata
 tidyup.zenta.bak
 /tidyup/
 zentaworkaround
+.attach*

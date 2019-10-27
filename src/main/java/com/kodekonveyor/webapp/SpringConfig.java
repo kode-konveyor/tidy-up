@@ -24,8 +24,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableJpaRepositories("com.kodekonveyor")
 @EnableWebMvc
 @EnableTransactionManagement
-@ExcludeFromCodeCoverage("Configuration")
 @InterfaceClass
+@ExcludeFromCodeCoverage("Configuration")
 public class SpringConfig implements WebMvcConfigurer {
 
 	@Value("${com.kodekonveyor.tidyup.jdbcUri}")

@@ -9,12 +9,12 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 @InterfaceClass
+@ExcludeFromCodeCoverage("boilerplate")
 public class WebAppInitializer implements WebApplicationInitializer {
 
 	public static XmlWebApplicationContext context;
 
 	@Override
-	@ExcludeFromCodeCoverage("boilerplate")
 	public void onStartup(final ServletContext servletContext) {
 
 		final WebApplicationContext context = getContext();
