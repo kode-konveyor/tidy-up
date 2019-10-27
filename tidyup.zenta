@@ -2527,6 +2527,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
         </child>
         <child xsi:type="zenta:DiagramObject" id="554e989a-26ab-4281-8948-b93a046b16e7" targetConnections="6b407944-fc95-40dc-93c1-79e5fd701361" zentaElement="5cbb839f-0654-4b41-839b-09089e68996d">
           <bounds x="852" y="432" width="218"/>
+          <sourceConnection xsi:type="zenta:Connection" id="ccd6539c-5a7b-41ce-a2a9-d6faf8a1ecd6" source="554e989a-26ab-4281-8948-b93a046b16e7" target="ebb8a3f1-29ef-4c2e-b4d5-efa76d679325" relationship="e320d497-4acd-441e-90f3-0a61393ec096"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="675e51e3-0f80-4876-9e0b-30904777719a" zentaElement="beceee57-a7b1-44c0-b535-d7e0efc4b62d">
           <bounds x="780" y="153" width="181" height="73"/>
@@ -2568,6 +2569,9 @@ Error is signaled by throwing ValidationException, with the message detailing th
         <child xsi:type="zenta:DiagramObject" id="5519deef-832e-43d5-a8b4-0266eeb0777c" targetConnections="88b0db23-309e-4a26-9b02-bbb9a64a0c5f" zentaElement="50a76371-685c-4111-ad30-5afa957e113e">
           <bounds x="12" y="510" width="-1" height="-1"/>
         </child>
+        <child xsi:type="zenta:DiagramObject" id="ebb8a3f1-29ef-4c2e-b4d5-efa76d679325" targetConnections="ccd6539c-5a7b-41ce-a2a9-d6faf8a1ecd6" zentaElement="bc116602-ad63-45ea-b5b7-15ca46385c0a">
+          <bounds x="852" y="547" width="218"/>
+        </child>
       </element>
       <element xsi:type="zenta:BasicObject" name="CustomerGetWorkRequestsController" id="a597bb86-2bcc-4302-96a0-e5176cde702a" ancestor="5491f72b-93ec-4ad5-b6a9-2653fe808a03"/>
       <element xsi:type="zenta:BasicObject" name="ownerId" id="100db000-a399-47bc-9374-31b0c690243a" ancestor="c201ba78-31ad-4afd-aceb-3104776c134d"/>
@@ -2605,9 +2609,11 @@ Error is signaled by throwing ValidationException, with the message detailing th
         </child>
         <child xsi:type="zenta:DiagramObject" id="1bc76c38-4547-4436-8486-3da126591b2d" targetConnections="e7e45e6e-f9db-4b8f-8287-2a41dfb84235" zentaElement="2a37744f-aa6f-45f6-8c18-eccb6a22d561">
           <bounds x="696" y="288" width="211"/>
+          <sourceConnection xsi:type="zenta:Connection" id="a1ca2f38-eba9-40bb-a1c1-9f36c655bf32" source="1bc76c38-4547-4436-8486-3da126591b2d" target="776835dd-2f63-4a3f-a762-bf013b8d9c8a" relationship="ab7b2c3a-2b40-4fce-99fd-a60fe1aa1b9f"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="23f4f3d5-075d-4cb8-a63b-669dc24a6772" targetConnections="8a1a7452-6ed5-44a3-98ee-3ff0c05fd298" zentaElement="d1d4d170-1546-402b-a51f-aa05315cf646">
           <bounds x="742" y="432" width="195"/>
+          <sourceConnection xsi:type="zenta:Connection" id="7127c829-69fe-4e21-ac46-61a638f3d2d8" source="23f4f3d5-075d-4cb8-a63b-669dc24a6772" target="c4740059-be0b-4588-8773-0543df68b613" relationship="346da659-78ee-4b63-93aa-ca91d7055cb5"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="01ace411-e28e-4a82-b530-03495573e4d3" zentaElement="9332dd47-17c8-4ed8-86d6-a4b3295af46b">
           <bounds x="708" y="-24" width="241" height="73"/>
@@ -2640,6 +2646,12 @@ Error is signaled by throwing ValidationException, with the message detailing th
         </child>
         <child xsi:type="zenta:DiagramObject" id="698c575b-739e-4bea-9e1a-8d715bcce265" targetConnections="8a2782bf-4b5d-4929-b408-cb0b39587a4a" zentaElement="9ded4f48-0605-46bf-9cb3-66c965cb508c">
           <bounds x="261" y="459" width="184"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="776835dd-2f63-4a3f-a762-bf013b8d9c8a" targetConnections="a1ca2f38-eba9-40bb-a1c1-9f36c655bf32" zentaElement="d59db938-4daa-4af1-b805-3f3d19e2a5b5">
+          <bounds x="985" y="347" width="192"/>
+        </child>
+        <child xsi:type="zenta:DiagramObject" id="c4740059-be0b-4588-8773-0543df68b613" targetConnections="7127c829-69fe-4e21-ac46-61a638f3d2d8" zentaElement="35cdf1eb-9671-4b56-bccd-ab337e7dcca2">
+          <bounds x="744" y="528" width="193"/>
         </child>
       </element>
       <element xsi:type="zenta:BasicObject" name="OpenWorkRequestController" id="9a4a8f6d-fc03-4839-a4c7-7756e24bfd53" ancestor="5491f72b-93ec-4ad5-b6a9-2653fe808a03"/>
@@ -2692,6 +2704,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
         </child>
         <child xsi:type="zenta:DiagramObject" id="8f57c726-7d0e-42e7-b7f7-85f990e06b85" targetConnections="892284b6-7e50-4c65-b980-d5cac4470738" zentaElement="167f83ac-9171-4bd0-9d67-222a01abc21e">
           <bounds x="238" y="396" width="-1" height="-1"/>
+          <sourceConnection xsi:type="zenta:Connection" id="1f12eb1e-3d3d-4976-8a40-93024773ff3c" source="8f57c726-7d0e-42e7-b7f7-85f990e06b85" target="d038dd3b-621f-41be-bfe5-a2093d64a339" relationship="89af3a7c-45c2-491e-a19e-5ac4076412a0"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="f845af53-4817-4eae-b801-8e256f4f5063" targetConnections="e2070ccc-f34d-4fa3-99c3-1c8ab912e4b2" zentaElement="5cbb839f-0654-4b41-839b-09089e68996d">
           <bounds x="768" y="324" width="241"/>
@@ -2744,7 +2757,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
         <child xsi:type="zenta:DiagramObject" id="e5412d40-13da-4b1b-8bd8-0f30ff4cf280" targetConnections="ab871443-9689-4d03-99e3-4949f6d298aa" zentaElement="51b59bc1-3164-4d08-aa20-8e5d457321e9">
           <bounds x="119" y="588" width="-1" height="-1"/>
         </child>
-        <child xsi:type="zenta:DiagramObject" id="d038dd3b-621f-41be-bfe5-a2093d64a339" zentaElement="eb99dfbf-38ad-4c89-b206-b42af2f46752">
+        <child xsi:type="zenta:DiagramObject" id="d038dd3b-621f-41be-bfe5-a2093d64a339" targetConnections="1f12eb1e-3d3d-4976-8a40-93024773ff3c" zentaElement="eb99dfbf-38ad-4c89-b206-b42af2f46752">
           <bounds x="238" y="588" width="-1" height="-1"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="3551660b-7561-4c88-ad7b-79fc723d5322" targetConnections="a90797c2-75ba-49d4-9b40-e310c9f12d2e" zentaElement="35cdf1eb-9671-4b56-bccd-ab337e7dcca2">
@@ -3051,6 +3064,10 @@ Error is signaled by throwing ValidationException, with the message detailing th
       <element xsi:type="zenta:BasicRelationship" id="08da4e37-b7ea-471e-afff-ea03fb59324c" ancestor="ecc24847-35e2-4e83-9a8d-daf4e2c6482f" source="f502dbf9-0f02-471f-9a61-7c36421ea26f" target="51b59bc1-3164-4d08-aa20-8e5d457321e9"/>
       <element xsi:type="zenta:BasicRelationship" id="e320d497-4acd-441e-90f3-0a61393ec096" ancestor="ecc24847-35e2-4e83-9a8d-daf4e2c6482f" source="5cbb839f-0654-4b41-839b-09089e68996d" target="bc116602-ad63-45ea-b5b7-15ca46385c0a"/>
       <element xsi:type="zenta:BasicRelationship" id="5aae28da-4cff-4173-9f47-7cfd421c5510" ancestor="ecc24847-35e2-4e83-9a8d-daf4e2c6482f" source="586b1b7c-262d-4449-ab7a-87d8f0cf6891" target="54e6c81e-d48e-4987-a567-51cb111b4ab1"/>
+      <element xsi:type="zenta:BasicRelationship" id="b7e872f0-4d4a-430d-afec-9ebc9307c4f4" ancestor="36b8d926-8f1a-4aba-805f-4b8ab5696360" source="6b7fdebd-1943-40d4-b5d8-cc36547970bd" target="fb688cbd-fb3c-4320-9644-0c911ca44122"/>
+      <element xsi:type="zenta:BasicRelationship" id="250b27ba-2b64-4213-8e80-9b1e430c8eb7" ancestor="c2720c1a-1642-416d-802b-07fe168edfb6" source="fb688cbd-fb3c-4320-9644-0c911ca44122" target="40c4dd90-cc92-4184-9e67-a548b63352ee"/>
+      <element xsi:type="zenta:BasicRelationship" id="3a62526d-cd19-480e-a6cf-301a8726ffc8" ancestor="36b8d926-8f1a-4aba-805f-4b8ab5696360" source="2a37744f-aa6f-45f6-8c18-eccb6a22d561" target="c885d3a8-97be-48f5-b21f-e119d183875b"/>
+      <element xsi:type="zenta:BasicRelationship" id="c4d4c9ec-fb7f-44e3-a3c2-0af927321bf2" ancestor="c2720c1a-1642-416d-802b-07fe168edfb6" source="c885d3a8-97be-48f5-b21f-e119d183875b" target="40c4dd90-cc92-4184-9e67-a548b63352ee"/>
     </folder>
     <folder name="4.6 Authentication" id="63139b80-1de2-4a3e-be57-868cd472ad8b">
       <element xsi:type="zenta:BasicObject" name="AuthenticatedUserService" id="a7324924-979f-4006-948f-cbabcfdcf1f7" ancestor="4dce3f0a-a681-447a-896b-d0ca2c1585fe"/>
@@ -3121,7 +3138,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
             <sourceConnection xsi:type="zenta:Connection" id="829457ed-5d60-4333-93ea-9aaee917c8a0" source="e704421a-87da-4d2f-acb1-fe4ede7d10a4" target="485b9c7d-aed5-44c3-a915-5e3a22a3da4a" relationship="031a2614-ecc5-4ee1-99b2-4d6527b7d0ec"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="6763401f-d589-4f73-8ed3-6129c21a6ae3" targetConnections="e876d826-855f-422d-bfe7-faa765cf1745" zentaElement="1ea40191-130b-4122-9967-f4f4045f7ec0">
-            <bounds x="457" y="156" width="-1" height="-1"/>
+            <bounds x="588" y="156" width="-1" height="-1"/>
             <sourceConnection xsi:type="zenta:Connection" id="0fa193cb-036f-4ec4-97d9-f47700d4b2fa" source="6763401f-d589-4f73-8ed3-6129c21a6ae3" target="09514e14-ef40-425a-8b7e-44b9567be94c" relationship="f9f16042-66bf-42ec-a10e-6c313798e2c4"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="5f8ab721-02bc-465d-aaf6-4783cb5ba2c2" targetConnections="68666788-9ed7-42aa-bf86-c5a1471386e5" zentaElement="416fd5e4-674a-4c24-a6b1-b96cd3b72db9">
@@ -3140,22 +3157,28 @@ Error is signaled by throwing ValidationException, with the message detailing th
             <sourceConnection xsi:type="zenta:Connection" id="39429392-f73a-4f3a-86ab-a58aa18574d2" source="e4092ac8-c7f1-4604-9e73-233b33063e94" target="e704421a-87da-4d2f-acb1-fe4ede7d10a4" relationship="0551c5da-0108-4db3-814f-aaf17c4dbe5c"/>
             <sourceConnection xsi:type="zenta:Connection" id="e876d826-855f-422d-bfe7-faa765cf1745" source="e4092ac8-c7f1-4604-9e73-233b33063e94" target="6763401f-d589-4f73-8ed3-6129c21a6ae3" relationship="b6a5dfcb-7417-4bf7-b075-f71354127867"/>
             <sourceConnection xsi:type="zenta:Connection" id="68666788-9ed7-42aa-bf86-c5a1471386e5" source="e4092ac8-c7f1-4604-9e73-233b33063e94" target="5f8ab721-02bc-465d-aaf6-4783cb5ba2c2" relationship="608a9ab2-8f19-4d91-9d54-bed3cf823c1e"/>
+            <sourceConnection xsi:type="zenta:Connection" id="723ed5f4-c042-4cc1-addc-576ad75746fb" source="e4092ac8-c7f1-4604-9e73-233b33063e94" target="62e64c7f-eb13-4dfa-834a-56a94ce2f19b" relationship="b7e872f0-4d4a-430d-afec-9ebc9307c4f4"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="09514e14-ef40-425a-8b7e-44b9567be94c" targetConnections="0fa193cb-036f-4ec4-97d9-f47700d4b2fa" zentaElement="fa075959-26f0-4dbf-b7ad-2e755911964a">
-            <bounds x="457" y="240" width="-1" height="-1"/>
+            <bounds x="588" y="240" width="-1" height="-1"/>
           </child>
-          <child xsi:type="zenta:DiagramObject" id="485b9c7d-aed5-44c3-a915-5e3a22a3da4a" targetConnections="829457ed-5d60-4333-93ea-9aaee917c8a0" zentaElement="40c4dd90-cc92-4184-9e67-a548b63352ee">
-            <bounds x="168" y="240" width="-1" height="-1"/>
+          <child xsi:type="zenta:DiagramObject" id="485b9c7d-aed5-44c3-a915-5e3a22a3da4a" targetConnections="829457ed-5d60-4333-93ea-9aaee917c8a0 8680e4a7-efaf-493f-abd3-02c874f93c0a" zentaElement="40c4dd90-cc92-4184-9e67-a548b63352ee">
+            <bounds x="240" y="246" width="-1" height="-1"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="8eda2b07-06e8-4b73-90dc-f249dffb2982" zentaElement="976bad44-6987-4e80-a357-bff40aeea537">
             <bounds x="457" y="-48" width="-1" height="-1"/>
             <sourceConnection xsi:type="zenta:Connection" id="2d3d8558-d828-41f7-946e-9840658123e7" source="8eda2b07-06e8-4b73-90dc-f249dffb2982" target="e4092ac8-c7f1-4604-9e73-233b33063e94" relationship="a3aeaa1f-2e4a-4b96-a843-5016eaba0993"/>
+          </child>
+          <child xsi:type="zenta:DiagramObject" id="62e64c7f-eb13-4dfa-834a-56a94ce2f19b" targetConnections="723ed5f4-c042-4cc1-addc-576ad75746fb" zentaElement="fb688cbd-fb3c-4320-9644-0c911ca44122">
+            <bounds x="324" y="156" width="-1" height="-1"/>
+            <sourceConnection xsi:type="zenta:Connection" id="8680e4a7-efaf-493f-abd3-02c874f93c0a" source="62e64c7f-eb13-4dfa-834a-56a94ce2f19b" target="485b9c7d-aed5-44c3-a915-5e3a22a3da4a" relationship="250b27ba-2b64-4213-8e80-9b1e430c8eb7"/>
           </child>
         </element>
         <element xsi:type="zenta:BasicObject" name="customerId" id="2d4f3ba6-a4bb-493e-b664-e090a4397683" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="address" id="1ea40191-130b-4122-9967-f4f4045f7ec0" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="workType" id="416fd5e4-674a-4c24-a6b1-b96cd3b72db9" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="CreateWorkRequestDTO" id="6b7fdebd-1943-40d4-b5d8-cc36547970bd" ancestor="dtoid"/>
+        <element xsi:type="zenta:BasicObject" name="description" id="fb688cbd-fb3c-4320-9644-0c911ca44122" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
       </folder>
       <folder name="WorkRequestEntity" id="be18d7e4-155f-4431-9627-32b6ef350516">
         <element xsi:type="zenta:BasicObject" name="WorkRequestEntity" id="d1d4d170-1546-402b-a51f-aa05315cf646" ancestor="41b4d079-dbd5-4df2-91db-6a596661ab0d"/>
@@ -3306,7 +3329,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
           <child xsi:type="zenta:DiagramObject" id="e11ce28d-141a-4c68-bc87-41425744b664" targetConnections="e71fa128-4368-41f6-998d-351d54b810f2" zentaElement="fa075959-26f0-4dbf-b7ad-2e755911964a">
             <bounds x="724" y="485" width="-1" height="-1"/>
           </child>
-          <child xsi:type="zenta:DiagramObject" id="1d973c33-6dcf-4da6-a61c-9c213419db32" targetConnections="2c394f50-9835-493d-b4ad-c6fb1c766df6" zentaElement="40c4dd90-cc92-4184-9e67-a548b63352ee">
+          <child xsi:type="zenta:DiagramObject" id="1d973c33-6dcf-4da6-a61c-9c213419db32" targetConnections="2c394f50-9835-493d-b4ad-c6fb1c766df6 08a1813a-d85f-4f40-be33-6382ce31a0c9" zentaElement="40c4dd90-cc92-4184-9e67-a548b63352ee">
             <bounds x="328" y="485" width="-1" height="-1"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="07c89dca-eba8-464b-8b16-ffe2beed8e06" targetConnections="c346384d-db40-4722-bf28-dc5d42fa04dd" zentaElement="2a37744f-aa6f-45f6-8c18-eccb6a22d561">
@@ -3314,6 +3337,7 @@ Error is signaled by throwing ValidationException, with the message detailing th
             <sourceConnection xsi:type="zenta:Connection" id="e303bda5-4d8c-47b2-a419-958d4a288d77" source="07c89dca-eba8-464b-8b16-ffe2beed8e06" target="6f91f6ca-1919-4353-a98a-7e01994c2534" relationship="7867dda2-ce9f-413b-b187-ec5d1e90bafc"/>
             <sourceConnection xsi:type="zenta:Connection" id="c09fc08a-3e04-4b2a-a984-076eb16806f7" source="07c89dca-eba8-464b-8b16-ffe2beed8e06" target="94f3e6d7-07dd-45f4-a322-4a049482241c" relationship="cc1cb7ec-fc7b-4714-8a52-fde4347667ab"/>
             <sourceConnection xsi:type="zenta:Connection" id="b6a48d9c-bda7-4335-9c6c-c437bd3bba7d" source="07c89dca-eba8-464b-8b16-ffe2beed8e06" target="340fb834-899a-45c3-a9a7-53916c91278d" relationship="f566fdf1-c351-4069-b740-82cb75f66f9e"/>
+            <sourceConnection xsi:type="zenta:Connection" id="c95ba52e-0c48-42cd-afde-7029bb9a8676" source="07c89dca-eba8-464b-8b16-ffe2beed8e06" target="f4261eec-9435-4b51-89ad-f3aa601ac848" relationship="3a62526d-cd19-480e-a6cf-301a8726ffc8"/>
           </child>
           <child xsi:type="zenta:DiagramObject" id="679a0cd9-9bde-4d5f-a651-61d827b10b58" targetConnections="2a177d4e-ae64-4687-9f32-8a8970868ad2" zentaElement="5cbb839f-0654-4b41-839b-09089e68996d">
             <bounds x="407" y="120" width="248"/>
@@ -3323,12 +3347,17 @@ Error is signaled by throwing ValidationException, with the message detailing th
             <bounds x="471" y="24" width="-1" height="-1"/>
             <sourceConnection xsi:type="zenta:Connection" id="2a177d4e-ae64-4687-9f32-8a8970868ad2" source="b4af458b-966a-41ec-894e-0eb5f1e1b1cf" target="679a0cd9-9bde-4d5f-a651-61d827b10b58" relationship="398919c0-3b77-427a-bdfb-a6e34ff05d92"/>
           </child>
+          <child xsi:type="zenta:DiagramObject" id="f4261eec-9435-4b51-89ad-f3aa601ac848" targetConnections="c95ba52e-0c48-42cd-afde-7029bb9a8676" zentaElement="c885d3a8-97be-48f5-b21f-e119d183875b">
+            <bounds x="407" y="365" width="-1" height="-1"/>
+            <sourceConnection xsi:type="zenta:Connection" id="08a1813a-d85f-4f40-be33-6382ce31a0c9" source="f4261eec-9435-4b51-89ad-f3aa601ac848" target="1d973c33-6dcf-4da6-a61c-9c213419db32" relationship="c4d4c9ec-fb7f-44e3-a3c2-0af927321bf2"/>
+          </child>
         </element>
         <element xsi:type="zenta:BasicObject" name="workType" id="cd15c61d-2214-40a7-a1a6-ce9dab641d52" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="address" id="0fe9f41f-fe11-4c5f-a787-6bd58e29cd4b" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="workRequestId" id="a70d1022-cca6-47fa-bc98-42791f18f35b" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
         <element xsi:type="zenta:BasicObject" name="WorkRequestDTO" id="2a37744f-aa6f-45f6-8c18-eccb6a22d561" ancestor="dtoid"/>
         <element xsi:type="zenta:BasicObject" name="WorkRequestListDTO" id="5cbb839f-0654-4b41-839b-09089e68996d" ancestor="dtoid"/>
+        <element xsi:type="zenta:BasicObject" name="description" id="c885d3a8-97be-48f5-b21f-e119d183875b" ancestor="b7ee463c-0e72-462b-987d-a7583cef92f4"/>
       </folder>
       <folder name="UserEntity" id="64d2756d-82ea-48e5-933d-561f57875bf0">
         <element xsi:type="zenta:ZentaDiagramModel" name="UserEntity" id="d8ccfe5b-c84d-498b-8f1c-c09b55ba35a2">
