@@ -83,8 +83,9 @@ The service:
                 <xsl:copy-of select="zenta:drawpic(.)"/>
         </xsl:for-each>
 DTOs and Entities:
-	<xsl:for-each select="$dataobjects/@id">
-                <xsl:copy-of select="zenta:drawpic(.)"/>
+	<xsl:for-each select="$dataobjects">
+        <xsl:variable name="view" select="../*[.//@zentaElement=current()/@id]"/>
+                <xsl:copy-of select="zenta:drawpic($view/@id)"/>
         </xsl:for-each>
 
 If you have questions, see the [FAQ](https://kodekonveyor.com/coder-faq/), ask on the [Telegram channel](https://t.me/joinchat/D1deE0loEBoFGvyDssWRuw) or ask your mentor.
