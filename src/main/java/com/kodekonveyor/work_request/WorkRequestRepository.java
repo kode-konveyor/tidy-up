@@ -1,0 +1,13 @@
+package com.kodekonveyor.work_request;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.kodekonveyor.authentication.UserEntity;
+
+public interface WorkRequestRepository extends CrudRepository<WorkRequestEntity, Long> {
+
+	List<WorkRequestEntity> findByCustomer(UserEntity user);
+
+}

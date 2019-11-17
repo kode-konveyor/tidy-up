@@ -21,6 +21,7 @@ public class UserTestData {
 	public final List<Object> EMPTY_LIST = new ArrayList<>();
 	public final String NO_AUTHENTICATION = "No Authentication";
 	public final String NO_CREDENTIAL = "No Credential";
+	public String NULL_OWNERID = "No OwnerID";
 
 	public Object getUSER_LIST() {
 		return List.of(USER);
