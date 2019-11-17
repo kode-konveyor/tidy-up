@@ -15,8 +15,10 @@ public class WorkRequestTestData {
 	public final WorkRequestEntity WORK_REQUEST_ENTITY;
 	public List<WorkRequestEntity> WORK_REQUEST_ENTITY_LIST;
 	public final String NULL_OWNERID = "No OwnerId";
+	public final UserTestData userTestData;
 
 	public WorkRequestTestData(final UserTestData userTestData) {
+		this.userTestData = new UserTestData();
 		WORK_REQUEST_ENTITY = new WorkRequestEntity();
 		WORK_REQUEST_ENTITY.setCustomer(userTestData.USER);
 		WORK_REQUEST_ENTITY.setWorkType(WORK_TYPE);
