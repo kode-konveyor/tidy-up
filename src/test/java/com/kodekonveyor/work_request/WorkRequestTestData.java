@@ -18,7 +18,7 @@ public class WorkRequestTestData {
 	public final UserTestData userTestData;
 
 	public WorkRequestTestData(final UserTestData userTestData) {
-		this.userTestData = new UserTestData();
+		this.userTestData = userTestData;
 		WORK_REQUEST_ENTITY = new WorkRequestEntity();
 		WORK_REQUEST_ENTITY.setCustomer(userTestData.USER);
 		WORK_REQUEST_ENTITY.setWorkType(WORK_TYPE);
@@ -32,4 +32,3 @@ public class WorkRequestTestData {
 	}
 
 }
-

@@ -10,4 +10,6 @@ public interface WorkRequestRepository extends CrudRepository<WorkRequestEntity,
 
 	List<WorkRequestEntity> findByCustomer(UserEntity user);
 
+	List<WorkRequestEntity> findByWorkRequestId(Long workRequestId);
+
 }

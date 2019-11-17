@@ -8,6 +8,6 @@ import lombok.Data;
 @Data
 public class WorkRequestListDTO {
 
-	private List<WorkRequestDTO> requests = new ArrayList<WorkRequestDTO>();
+	private List<WorkRequestDTO> requests = new ArrayList<>();
 
 }

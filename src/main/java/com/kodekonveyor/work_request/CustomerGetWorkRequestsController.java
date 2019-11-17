@@ -13,9 +13,9 @@ import com.kodekonveyor.webapp.ValidationException;
 @Controller
 public class CustomerGetWorkRequestsController {
 	@Autowired
-	WorkRequestRepository workRequestRepository;
+	public WorkRequestRepository workRequestRepository;
 	@Autowired
-	UserEntityRepository userEntityRepository;
+	public UserEntityRepository userEntityRepository;
 
 	public WorkRequestListDTO call(final String ownerId) {
 		checkOwnerId(ownerId);
@@ -24,7 +24,7 @@ public class CustomerGetWorkRequestsController {
 		final List<WorkRequestEntity> requests = workRequestRepository.findByCustomer(user.get());
 		final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
 		for (final WorkRequestEntity workRequestEntity : requests) {
-			final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
+			final WorkRequestDTO workRequestDTO = createWorkRequset();
 			workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 			workRequestDTO.setWorkRequestId(workRequestEntity.getId());
 			workRequestListDTO.getRequests().add(workRequestDTO);
@@ -32,6 +32,10 @@ public class CustomerGetWorkRequestsController {
 		}
 
 		return workRequestListDTO;
+	}
+
+	private WorkRequestDTO createWorkRequset() {
+		return new WorkRequestDTO();
 	}
 
 	public void checkOwnerId(final String ownerId) {

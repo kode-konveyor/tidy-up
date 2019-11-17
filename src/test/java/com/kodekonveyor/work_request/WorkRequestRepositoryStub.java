@@ -2,15 +2,17 @@ package com.kodekonveyor.work_request;
 
 import static org.mockito.Mockito.doReturn;
 
-import com.kodekonveyor.authentication.UserTestData;
+import java.util.List;
 
-public class WorkRequestRepositoryStub {
+public class WorkRequestRepositoryStub { // NOPMD
 
-	public static void behaviour(final WorkRequestTestData workRequestTestData,
-			final WorkRequestRepository workRequestRepository, final UserTestData userTestData) {
+	public static void behaviour(final WorkRequestRepository workRequestRepository,
+			final WorkRequestTestData workRequestTestData) {
 
 		doReturn(workRequestTestData.WORK_REQUEST_ENTITY_LIST).when(workRequestRepository)
-				.findByCustomer(userTestData.USER);
+				.findByCustomer(workRequestTestData.userTestData.USER);
+		doReturn(List.of(workRequestTestData.WORK_REQUEST_ENTITY)).when(workRequestRepository)
+				.findByWorkRequestId(workRequestTestData.WORK_REQUEST_ID);
 
 	}
 
