@@ -16,7 +16,6 @@ public class UserEntityRepositoryStubs {
 		doReturn(Optional.of(userTestData.USER)).when(userRepository).findById(userTestData.USER_ID);
 
 		final Answer<UserEntity> answer = new Answer<>() {
-
 			@Override
 			public UserEntity answer(final InvocationOnMock invocation) {
 				final Object[] args = invocation.getArguments();
