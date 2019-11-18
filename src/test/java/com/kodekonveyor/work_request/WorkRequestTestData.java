@@ -3,6 +3,7 @@ package com.kodekonveyor.work_request;
 import java.util.List;
 
 import com.kodekonveyor.authentication.UserTestData;
+import com.kodekonveyor.work_request.create.CreateWorkRequestDTO;
 
 public class WorkRequestTestData {
 	public final String OWNER_ID = "4242";
@@ -16,6 +17,7 @@ public class WorkRequestTestData {
 	public List<WorkRequestEntity> WORK_REQUEST_ENTITY_LIST;
 	public final String NULL_OWNERID = "No OwnerId";
 	public final UserTestData userTestData;
+	public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
 
 	public WorkRequestTestData(final UserTestData userTestData) {
 		this.userTestData = userTestData;
@@ -29,6 +31,9 @@ public class WorkRequestTestData {
 		WORK_REQUEST_LIST_DTO = new WorkRequestListDTO();
 		WORK_REQUEST_LIST_DTO.setRequests(List.of(WORK_REQUEST_DTO));
 		WORK_REQUEST_ENTITY_LIST = List.of(WORK_REQUEST_ENTITY);
+		CREATE_WORK_REQUEST = new CreateWorkRequestDTO();
+		CREATE_WORK_REQUEST.setCustomerId(WORK_REQUEST_ID);
+		CREATE_WORK_REQUEST.setWorkType(WORK_TYPE);
 	}
 
 }

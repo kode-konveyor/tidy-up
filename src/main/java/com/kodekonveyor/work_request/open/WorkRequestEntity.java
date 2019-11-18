@@ -10,4 +10,8 @@ public class WorkRequestEntity {
 
 	private String workType;
 
+	public void save() {
+
+	}
+
 }
