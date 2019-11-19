@@ -1,5 +1,6 @@
 package com.kodekonveyor.work_request.create;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -41,13 +42,32 @@ public class CreateWorkRequestControllerTest {
 		final UserTestData userTestData = new UserTestData();
 		workRequestTestData = new WorkRequestTestData(userTestData);
 		AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
+		createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST);
+		verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
 	}
 
 	@Test
-	@DisplayName("Controller creates WorkRequestEntity based on request")
+	@DisplayName("Controller files WorkType of WorkRequestEntity based on request")
 	public void test() {
-		createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST);
-		verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
+		assertEquals(workRequestTestData.WORK_TYPE, workRequestTestData.WORK_REQUEST_ENTITY.getWorkType());
+	}
+
+	@Test
+	@DisplayName("Controller files Id of WorkRequestEntity based on request")
+	public void test1() {
+		assertEquals(workRequestTestData.WORK_REQUEST_ID, workRequestTestData.WORK_REQUEST_ENTITY.getId());
+	}
+
+	@Test
+	@DisplayName("Controller files Description of WorkRequestEntity based on request")
+	public void test2() {
+		assertEquals(workRequestTestData.DESCRIPTION, workRequestTestData.WORK_REQUEST_ENTITY.getDescription());
+	}
+
+	@Test
+	@DisplayName("Controller files customer of WorkRequestEntity based on request")
+	public void test3() {
+		assertEquals(workRequestTestData.userTestData.USER, workRequestTestData.WORK_REQUEST_ENTITY.getCustomer());
 	}
 
 }

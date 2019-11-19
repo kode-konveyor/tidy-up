@@ -26,6 +26,7 @@ public class CreateWorkRequestController {
 		final UserEntity userEntity = authenticatedUserService.call();
 		workRequestEntity.setCustomer(userEntity);
 		workRequestEntity.setId(createWorkRequestDTO.getCustomerId());
+		workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
 
 		workRequestRepository.save(workRequestEntity);
 	}
