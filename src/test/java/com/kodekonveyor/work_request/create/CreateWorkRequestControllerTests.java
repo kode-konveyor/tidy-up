@@ -11,7 +11,6 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
-import com.kodekonveyor.exception.ThrowableTester;
 import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
 
 @ExtendWith(MockitoExtension.class)
@@ -24,10 +23,5 @@ public class CreateWorkRequestControllerTests extends CustomerWorkRequestControl
 	@Test
 	@DisplayName("")
 	public void testCreateWorkRequest() {
-		ThrowableTester
-				.assertThrows(() -> CreateWorkRequestController.call(workRequestTestData.addressTestData.address,
-						workRequestTestData.addressTestData.city, workRequestTestData.addressTestData.country,
-						workRequestTestData.WORK_TYPE, workRequestTestData.DESCRIPTION))
-				.assertMessageIs(workRequestTestData.addressTestData.ADDRESS_LENGHT_EXCEEDED);
 	}
 }
