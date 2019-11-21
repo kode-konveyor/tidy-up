@@ -20,6 +20,7 @@ import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.authentication.AuthenticatedUserService;
 import com.kodekonveyor.authentication.AuthenticatedUserStubs;
 import com.kodekonveyor.authentication.UserTestData;
+import com.kodekonveyor.work_request.AddressTestData;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 import com.kodekonveyor.work_request.WorkRequestTestData;
 
@@ -40,7 +41,8 @@ public class CreateWorkRequestControllerTest {
 	@BeforeEach
 	public void setUp() {
 		final UserTestData userTestData = new UserTestData();
-		workRequestTestData = new WorkRequestTestData(userTestData);
+		final AddressTestData addressTestData = new AddressTestData();
+		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
 		AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
 		createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST);
 		verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
@@ -68,6 +70,12 @@ public class CreateWorkRequestControllerTest {
 	@DisplayName("Controller files customer of WorkRequestEntity based on request")
 	public void test3() {
 		assertEquals(workRequestTestData.userTestData.USER, workRequestTestData.WORK_REQUEST_ENTITY.getCustomer());
+	}
+
+	@Test
+	@DisplayName("Controller files address of WorkRequestEntity based on request")
+	public void test4() {
+		assertEquals(workRequestTestData.ADDRESS_ENTITY, workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
 	}
 
 }

@@ -17,29 +17,33 @@ public class WorkRequestTestData {
 	public List<WorkRequestEntity> WORK_REQUEST_ENTITY_LIST;
 	public final String NULL_OWNERID = "No OwnerId";
 	public final UserTestData userTestData;
-	public final CreateWorkRequestDTO CREATE_WORK_REQUEST = createCREATE_WORK_REQUEST();
+	public final AddressTestData addressTestData;
+	public final AddressEntity ADDRESS_ENTITY;
+	public final AddressDTO ADDRESS_DTO;
+	public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
 
-	public WorkRequestTestData(final UserTestData userTestData) {
+	public WorkRequestTestData(final UserTestData userTestData, final AddressTestData addressTestData) {
 		this.userTestData = userTestData;
+		this.addressTestData = addressTestData;
+		ADDRESS_ENTITY = this.addressTestData.ADDRESS_ENTITY;
+		ADDRESS_DTO = this.addressTestData.ADDRESS_DTO;
 		WORK_REQUEST_ENTITY = new WorkRequestEntity();
 		WORK_REQUEST_ENTITY.setCustomer(userTestData.USER);
 		WORK_REQUEST_ENTITY.setWorkType(WORK_TYPE);
 		WORK_REQUEST_ENTITY.setId(WORK_REQUEST_ID);
 		WORK_REQUEST_ENTITY.setDescription(DESCRIPTION);
+		WORK_REQUEST_ENTITY.setAddress(ADDRESS_ENTITY);
 		WORK_REQUEST_DTO = new WorkRequestDTO();
 		WORK_REQUEST_DTO.setWorkRequestId(WORK_REQUEST_ID);
 		WORK_REQUEST_DTO.setWorkType(WORK_TYPE);
 		WORK_REQUEST_LIST_DTO = new WorkRequestListDTO();
 		WORK_REQUEST_LIST_DTO.setRequests(List.of(WORK_REQUEST_DTO));
 		WORK_REQUEST_ENTITY_LIST = List.of(WORK_REQUEST_ENTITY);
-	}
-
-	private CreateWorkRequestDTO createCREATE_WORK_REQUEST() {
-		final CreateWorkRequestDTO createWorkRequestDTO = new CreateWorkRequestDTO();
-		createWorkRequestDTO.setCustomerId(WORK_REQUEST_ID);
-		createWorkRequestDTO.setWorkType(WORK_TYPE);
-		createWorkRequestDTO.setDescription(DESCRIPTION);
-		return createWorkRequestDTO;
+		CREATE_WORK_REQUEST = new CreateWorkRequestDTO();
+		CREATE_WORK_REQUEST.setCustomerId(WORK_REQUEST_ID);
+		CREATE_WORK_REQUEST.setWorkType(WORK_TYPE);
+		CREATE_WORK_REQUEST.setDescription(DESCRIPTION);
+		CREATE_WORK_REQUEST.setAddress(ADDRESS_DTO);
 	}
 
 }
