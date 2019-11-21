@@ -13,8 +13,7 @@ public class WorkRequestRepositoryStub { // NOPMD
 				.findByCustomer(workRequestTestData.userTestData.USER);
 		doReturn(List.of(workRequestTestData.WORK_REQUEST_ENTITY)).when(workRequestRepository)
 				.findByWorkRequestId(workRequestTestData.WORK_REQUEST_ID);
-//		doReturn(workRequestTestData.EMPTY_LIST).when(workRequestRepository)
-//				.findByCustomer(workRequestTestData.userTestData.NO_REQUEST_USER);
+
 	}
 
 }

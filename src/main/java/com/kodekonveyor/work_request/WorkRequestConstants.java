@@ -1,6 +1,7 @@
 package com.kodekonveyor.work_request;
 
 public class WorkRequestConstants {
+
 	public static String ADDRESS_LENGHT_EXCEEDED = "Address Lenght Exceeded";
 	public static String NO_WORKREQUESTS = "No Work Request";
 	public static String NULL_OWNERID = "No OwnerId";

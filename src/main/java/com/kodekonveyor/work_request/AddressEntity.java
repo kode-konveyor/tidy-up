@@ -1,6 +1,9 @@
+
 package com.kodekonveyor.work_request;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -9,8 +12,10 @@ import lombok.Data;
 @Data
 public class AddressEntity {
 	@Id
-	private String id;
-	private String country;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String address;
 	private String city;
-	private String Address;
+	private String country;
+
 }

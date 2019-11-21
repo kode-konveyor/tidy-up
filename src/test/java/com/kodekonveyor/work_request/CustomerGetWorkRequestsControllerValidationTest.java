@@ -23,6 +23,7 @@ public class CustomerGetWorkRequestsControllerValidationTest extends CustomerWor
 
 	@Test
 	@DisplayName("When owner ID is null, the message is 'This field cannot be blank'")
+
 	public void testCustomerGetWorkRequestsControllerNullOwnerId() {
 		ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(null))
 				.assertMessageIs(workRequestTestData.NULL_OWNERID);
