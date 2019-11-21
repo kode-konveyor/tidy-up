@@ -7,4 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface UserEntityRepository extends CrudRepository<UserEntity, Long> {
 
 	List<UserEntity> findByAuth0id(String auth0id);
+
+	List<UserEntity> findById(String Id);
 }

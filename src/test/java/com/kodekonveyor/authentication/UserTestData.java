@@ -5,6 +5,7 @@ import java.util.List;
 
 public class UserTestData {
 
+	public final UserEntity USER_No_WORKREQUESTS = createNoRequest_USER();
 	public final String AUTH0ID = "github|424242@kode-konveyor.eu.auth0.com/";
 	public final String BAD_AUTH0ID = "github|424241@kode-konveyor.eu.auth0.com/";
 	public final String LOGIN = "424242";
@@ -18,7 +19,14 @@ public class UserTestData {
 	public final List<Object> EMPTY_LIST = new ArrayList<>();
 	public final String NO_AUTHENTICATION = "No Authentication";
 	public final String NO_CREDENTIAL = "No Credential";
-	public String NULL_OWNERID = "No OwnerID";
+	public final String NULL_OWNERID = "No OwnerID";
+	public final String INVALID_OWNERID = "Invalid OwnerId";
+	public final String NO_WORKREQUESTS = "No Work Request";
+	public final String NO_WORKREQUESTS_ID = "4243";
+	public final String OWNER_ID = "4242";
+	public final String NEGATIVE_OWNERID_ID = "-4536";
+	public final String INVALID_OWNERID_ID = "4243";
+	public final Long NO_WORKREQUESTS_ID_AsLong = Long.parseLong(NO_WORKREQUESTS_ID);
 
 	private List<UserEntity> createUSER_LIST() {
 		return List.of(USER);
@@ -36,6 +44,13 @@ public class UserTestData {
 		final UserEntity userEntity = createBAD_USER_BEFORE_SAVE();
 		userEntity.setId(BAD_USER_ID);
 		return userEntity;
+	}
+
+	private UserEntity createNoRequest_USER() {
+		final UserEntity userEntity = createUSER();
+		userEntity.setId(Long.parseLong(NO_WORKREQUESTS_ID));
+		return userEntity;
+
 	}
 
 	private UserEntity createBAD_USER_BEFORE_SAVE() {

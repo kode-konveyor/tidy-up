@@ -22,19 +22,21 @@ public class CustomerGetWorkRequestsController {
 
 		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
 		final List<WorkRequestEntity> requests = workRequestRepository.findByCustomer(user.get());
+
 		final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
 		for (final WorkRequestEntity workRequestEntity : requests) {
-			final WorkRequestDTO workRequestDTO = createWorkRequset();
+			final WorkRequestDTO workRequestDTO = createWorkRequest();
 			workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 			workRequestDTO.setWorkRequestId(workRequestEntity.getId());
 			workRequestListDTO.getRequests().add(workRequestDTO);
-
 		}
-
+		if (requests.isEmpty())
+			throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
 		return workRequestListDTO;
 	}
 
-	private WorkRequestDTO createWorkRequset() {
+	private WorkRequestDTO createWorkRequest() {
+
 		return new WorkRequestDTO();
 	}
 
@@ -42,6 +44,18 @@ public class CustomerGetWorkRequestsController {
 		if (null == ownerId)
 			throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 
-	}
+		if (ownerId.startsWith("-"))
+			throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
 
+		if (!ownerId.matches("[0-9]+"))
+			throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
+
+		if (ownerId.length() > 4)
+			throw new ValidationException(WorkRequestConstants.LENGTHEXCEED_OWNERID);
+
+		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
+		if (user.isEmpty())
+			throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
+
+	}
 }

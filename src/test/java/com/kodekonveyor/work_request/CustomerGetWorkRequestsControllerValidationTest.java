@@ -23,9 +23,42 @@ public class CustomerGetWorkRequestsControllerValidationTest extends CustomerWor
 
 	@Test
 	@DisplayName("When owner ID is null, the message is 'This field cannot be blank'")
-	public void testWorkRequestDetails2() {
+	public void testCustomerGetWorkRequestsControllerNullOwnerId() {
 		ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(null))
 				.assertMessageIs(workRequestTestData.NULL_OWNERID);
+	}
+
+	@Test
+	@DisplayName("Owner Id cannot be negative")
+	public void testCustomerGetWorkRequestsControllerCharacterCheck1() {
+		ThrowableTester
+				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.NEGATIVE_OWNERID_ID))
+				.assertMessageIs(workRequestTestData.NEGATIVE_OWNERID);
+	}
+
+	@Test
+	@DisplayName("Owner Id cannot be negative")
+	public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
+		ThrowableTester
+				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.ALPHACHAR_OWNERID_ID))
+				.assertMessageIs(workRequestTestData.ALPHACHAR_OWNERID);
+	}
+
+	@Test
+	@DisplayName("Owner Id cannot be negative")
+	public void testCustomerGetWorkRequestsControllerCharacterCheck3() {
+		ThrowableTester
+				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.LENGTHEXCEED_OWNERID_ID))
+				.assertMessageIs(workRequestTestData.LENGTHEXCEED_OWNERID);
+	}
+
+	@Test
+	@DisplayName("When owner Id is incorrect, the message is 'Invalid Owner Id'")
+	public void testCustomerGetWorkRequestsControllerInvalidOwnerId() {
+		ThrowableTester
+				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.INVALID_OWNERID_ID))
+				.assertMessageIs(workRequestTestData.INVALID_OWNERID);
+
 	}
 
 }
