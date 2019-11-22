@@ -5,7 +5,7 @@ import java.util.List;
 import com.kodekonveyor.authentication.UserTestData;
 import com.kodekonveyor.work_request.create.CreateWorkRequestDTO;
 
-public class WorkRequestTestData {
+public class WorkRequestTestData {// NOPMD
 	public final String OWNER_ID = "4242";
 	public final String WORK_TYPE = "CLEANING";
 	public final Long WORK_REQUEST_ID = (long) 42;
