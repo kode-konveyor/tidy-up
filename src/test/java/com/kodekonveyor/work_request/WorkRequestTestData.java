@@ -18,15 +18,11 @@ public class WorkRequestTestData {
 	public final String NULL_OWNERID = "No OwnerId";
 	public final UserTestData userTestData;
 	public final AddressTestData addressTestData;
-	public final AddressEntity ADDRESS_ENTITY;
-	public final AddressDTO ADDRESS_DTO;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
 
 	public WorkRequestTestData(final UserTestData userTestData, final AddressTestData addressTestData) {
 		this.userTestData = userTestData;
 		this.addressTestData = addressTestData;
-		ADDRESS_ENTITY = this.addressTestData.ADDRESS_ENTITY;
-		ADDRESS_DTO = this.addressTestData.ADDRESS_DTO;
 		WORK_REQUEST_ENTITY = createWORK_REQUEST_ENTITY();
 		WORK_REQUEST_DTO = createWORK_REQUEST_DTO();
 		WORK_REQUEST_LIST_DTO = new WorkRequestListDTO();
@@ -40,7 +36,7 @@ public class WorkRequestTestData {
 		createWorkRequest.setCustomerId(WORK_REQUEST_ID);
 		createWorkRequest.setWorkType(WORK_TYPE);
 		createWorkRequest.setDescription(DESCRIPTION);
-		createWorkRequest.setAddress(ADDRESS_DTO);
+		createWorkRequest.setAddress(addressTestData.ADDRESS_DTO);
 		return createWorkRequest;
 	}
 
@@ -50,7 +46,7 @@ public class WorkRequestTestData {
 		workRequestEntity.setWorkType(WORK_TYPE);
 		workRequestEntity.setId(WORK_REQUEST_ID);
 		workRequestEntity.setDescription(DESCRIPTION);
-		workRequestEntity.setAddress(ADDRESS_ENTITY);
+		workRequestEntity.setAddress(addressTestData.ADDRESS_ENTITY);
 		return workRequestEntity;
 	}
 

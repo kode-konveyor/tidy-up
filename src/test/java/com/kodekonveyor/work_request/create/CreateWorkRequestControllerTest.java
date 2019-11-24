@@ -75,7 +75,7 @@ public class CreateWorkRequestControllerTest {
 	@Test
 	@DisplayName("Controller files address of WorkRequestEntity based on request")
 	public void test4() {
-		assertEquals(workRequestTestData.ADDRESS_ENTITY, workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
+		assertEquals(workRequestTestData.addressTestData.ADDRESS_ENTITY, workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
 	}
 
 }
