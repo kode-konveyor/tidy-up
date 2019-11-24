@@ -28,6 +28,12 @@ public class CustomerGetWorkRequestsController {
 			final WorkRequestDTO workRequestDTO = createWorkRequest();
 			workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 			workRequestDTO.setWorkRequestId(workRequestEntity.getId());
+			final AddressDTO address = new AddressDTO();
+			address.setAddress(workRequestEntity.getAddress().getAddress());
+			address.setCity(workRequestEntity.getAddress().getCity());
+			address.setCountry(workRequestEntity.getAddress().getCountry());
+			workRequestDTO.setAddress(address);
+			workRequestDTO.setDescription(workRequestEntity.getDescription());
 			workRequestListDTO.getRequests().add(workRequestDTO);
 		}
 		if (requests.isEmpty())

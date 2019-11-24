@@ -17,5 +17,7 @@ public class WorkRequestEntity {
 	private Long id;
 	private UserEntity customer;
 	private String workType;
+	private AddressEntity address;
+	private String description;
 
 }
