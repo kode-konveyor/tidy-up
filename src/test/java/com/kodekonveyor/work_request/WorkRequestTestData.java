@@ -27,23 +27,37 @@ public class WorkRequestTestData {
 		this.addressTestData = addressTestData;
 		ADDRESS_ENTITY = this.addressTestData.ADDRESS_ENTITY;
 		ADDRESS_DTO = this.addressTestData.ADDRESS_DTO;
-		WORK_REQUEST_ENTITY = new WorkRequestEntity();
-		WORK_REQUEST_ENTITY.setCustomer(userTestData.USER);
-		WORK_REQUEST_ENTITY.setWorkType(WORK_TYPE);
-		WORK_REQUEST_ENTITY.setId(WORK_REQUEST_ID);
-		WORK_REQUEST_ENTITY.setDescription(DESCRIPTION);
-		WORK_REQUEST_ENTITY.setAddress(ADDRESS_ENTITY);
-		WORK_REQUEST_DTO = new WorkRequestDTO();
-		WORK_REQUEST_DTO.setWorkRequestId(WORK_REQUEST_ID);
-		WORK_REQUEST_DTO.setWorkType(WORK_TYPE);
+		WORK_REQUEST_ENTITY = createWORK_REQUEST_ENTITY();
+		WORK_REQUEST_DTO = createWORK_REQUEST_DTO();
 		WORK_REQUEST_LIST_DTO = new WorkRequestListDTO();
 		WORK_REQUEST_LIST_DTO.setRequests(List.of(WORK_REQUEST_DTO));
 		WORK_REQUEST_ENTITY_LIST = List.of(WORK_REQUEST_ENTITY);
-		CREATE_WORK_REQUEST = new CreateWorkRequestDTO();
-		CREATE_WORK_REQUEST.setCustomerId(WORK_REQUEST_ID);
-		CREATE_WORK_REQUEST.setWorkType(WORK_TYPE);
-		CREATE_WORK_REQUEST.setDescription(DESCRIPTION);
-		CREATE_WORK_REQUEST.setAddress(ADDRESS_DTO);
+		CREATE_WORK_REQUEST = createCREATE_WORK_REQUEST();
 	}
 
+	private CreateWorkRequestDTO createCREATE_WORK_REQUEST() {
+		final CreateWorkRequestDTO createWorkRequest = new CreateWorkRequestDTO();
+		createWorkRequest.setCustomerId(WORK_REQUEST_ID);
+		createWorkRequest.setWorkType(WORK_TYPE);
+		createWorkRequest.setDescription(DESCRIPTION);
+		createWorkRequest.setAddress(ADDRESS_DTO);
+		return createWorkRequest;
+	}
+
+	private WorkRequestEntity createWORK_REQUEST_ENTITY() {
+		final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+		workRequestEntity.setCustomer(userTestData.USER);
+		workRequestEntity.setWorkType(WORK_TYPE);
+		workRequestEntity.setId(WORK_REQUEST_ID);
+		workRequestEntity.setDescription(DESCRIPTION);
+		workRequestEntity.setAddress(ADDRESS_ENTITY);
+		return workRequestEntity;
+	}
+
+	private WorkRequestDTO createWORK_REQUEST_DTO() {
+		final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
+		workRequestDTO.setWorkRequestId(WORK_REQUEST_ID);
+		workRequestDTO.setWorkType(WORK_TYPE);
+		return workRequestDTO;
+	}
 }
