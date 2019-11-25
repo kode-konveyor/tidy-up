@@ -66,6 +66,10 @@ public class WorkRequestTestData {
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_COUNTRY_ALPHABET;
 
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_ADDRESS_LENGTH;
+	public final long NEGATIVE_WORK_REQUEST_ID = -42;
+	public final String NEGATIVE_WORK_REQUEST_ID_EXCEPTION = "Work Request Id cannot be negative";
+	public final long DECIMAL_WORK_REQUEST_ID = (long) 47.55;
+	public final String DECIMAL_WORK_REQUEST_ID_EXCEPTION = "Work Request Id should be an integer";
 
 	public WorkRequestTestData(final UserTestData userTestData) {
 		CREATE_WORK_REQUEST_ADDRESS_LENGTH = new CreateWorkRequestDTO();
@@ -113,7 +117,6 @@ public class WorkRequestTestData {
 
 		CREATE_WORK_REQUEST_NULL_WORKTYPE.setCustomerId(OWNER_ID);
 		CREATE_WORK_REQUEST_NULL_WORKTYPE.setDescription(DESCRIPTION);
-//		CREATE_WORK_REQUEST_NULL_WORKTYPE.setWorkTye(WORK_TYPE);
 		CREATE_WORK_REQUEST_NULL_WORKTYPE.setAddress(addressTestData.ADDRESS_DTO);
 		CREATE_WORK_REQUEST_NULL_WORKTYPE.setWorkTye(null);
 

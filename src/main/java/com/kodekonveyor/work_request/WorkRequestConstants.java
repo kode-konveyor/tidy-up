@@ -24,5 +24,7 @@ public class WorkRequestConstants {
 	public static String COUNTRY_LENGTH = "Country cannot be more or less than 2 letter";
 	public static String COUNTRY_ALPHABET = "Country can contains only alphahets";
 	public static String ADDRESS_LENGTH = "Address can contains only 120 characters";
+	public static String NEGATIVE_WORK_REQUEST_ID_EXCEPTION = "Work Request Id cannot be negative";
+	public static String DECIMAL_WORK_REQUEST_ID_EXCEPTION = "Work Request Id should be an integer";
 
 }

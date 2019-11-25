@@ -13,7 +13,6 @@ import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.exception.ThrowableTester;
 import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
-import com.kodekonveyor.work_request.WorkRequestRepository;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -23,7 +22,6 @@ import com.kodekonveyor.work_request.WorkRequestRepository;
 public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequestControllerTestBase {
 
 	CreateWorkRequestController createWorkRequestController = new CreateWorkRequestController();
-	public WorkRequestRepository workRequestRepository;
 
 	@Test
 	@DisplayName("Work type cannot be null")
