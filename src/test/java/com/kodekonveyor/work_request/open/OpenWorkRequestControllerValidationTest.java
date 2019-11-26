@@ -32,12 +32,4 @@ class OpenWorkRequestControllerValidationTest extends CustomerWorkRequestControl
 
 	}
 
-	@Test
-	@DisplayName("Work Request Id should be an integer")
-	void testWorkRequestIdNull() {
-		ThrowableTester.assertThrows(() -> openWorkRequestController.call(workRequestTestData.DECIMAL_WORK_REQUEST_ID))
-				.assertMessageIs(workRequestTestData.DECIMAL_WORK_REQUEST_ID_EXCEPTION);
-
-	}
-
 }

@@ -33,9 +33,34 @@ public class CustomerGetWorkRequestsControllerTest extends CustomerWorkRequestCo
 	@Test
 	@DisplayName("When no request for Owner, the message is 'No work Requests'")
 	public void testWorkRequestDetailsNotPresent() {
-//		WorkRequestRepositoryStub.behaviour(workRequestRepository, workRequestTestData);
 		ThrowableTester
 				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.NO_WORKREQUESTS_ID))
 				.assertMessageIs(workRequestTestData.NO_WORKREQUESTS);
 	}
+
+	@Test
+	@DisplayName("Controller gets Id of work request ")
+	public void testWorkRequestgetId() {
+		assertEquals(workRequestTestData.WORK_REQUEST_ID, workRequestTestData.WORK_REQUEST_ENTITY.getId());
+	}
+
+	@Test
+	@DisplayName("Controller gets work type of work request ")
+	public void testWorkRequestgetWorkType() {
+		assertEquals(workRequestTestData.WORK_TYPE, workRequestTestData.WORK_REQUEST_ENTITY.getWorkType());
+	}
+
+	@Test
+	@DisplayName("Controller gets address of work request ")
+	public void testWorkRequestgetAddress() {
+		assertEquals(workRequestTestData.addressTestData.ADDRESS_ENTITY,
+				workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
+	}
+
+	@Test
+	@DisplayName("Controller gets description of work request ")
+	public void testWorkRequestgetDescription() {
+		assertEquals(workRequestTestData.DESCRIPTION, workRequestTestData.WORK_REQUEST_ENTITY.getDescription());
+	}
+
 }

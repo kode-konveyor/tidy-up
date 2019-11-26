@@ -5,7 +5,6 @@ import java.util.List;
 
 public class UserTestData {
 
-	public final UserEntity USER_No_WORKREQUESTS = createNoRequest_USER();
 	public final String AUTH0ID = "github|424242@kode-konveyor.eu.auth0.com/";
 	public final String BAD_AUTH0ID = "github|424241@kode-konveyor.eu.auth0.com/";
 	public final String LOGIN = "424242";
@@ -27,8 +26,9 @@ public class UserTestData {
 	public final String NEGATIVE_OWNERID_ID = "-4536";
 	public final String INVALID_OWNERID_ID = "4243";
 	public final long USER_ID_CREATE_REQUEST = 4242;
-	public final UserEntity USER_CREATEREQUEST = createRequesttUser();
 	public final Long NO_WORKREQUESTS_ID_AsLong = Long.parseLong(NO_WORKREQUESTS_ID);
+	public final UserEntity USER_CREATEREQUEST = createRequesttUser();
+	public final UserEntity USER_No_WORKREQUESTS = createNO_REQUEST_USER();
 
 	private List<UserEntity> createUSER_LIST() {
 		return List.of(USER);
@@ -48,7 +48,7 @@ public class UserTestData {
 		return userEntity;
 	}
 
-	private UserEntity createNoRequest_USER() {
+	private UserEntity createNO_REQUEST_USER() {
 		final UserEntity userEntity = createUSER();
 		userEntity.setId(Long.parseLong(NO_WORKREQUESTS_ID));
 		return userEntity;

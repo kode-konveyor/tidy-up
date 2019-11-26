@@ -18,17 +18,17 @@ public class CustomerGetWorkRequestsController {
 	public UserEntityRepository userEntityRepository;
 
 	public WorkRequestListDTO call(final String ownerId) {
-		checkOwnerId(ownerId);
+		inputValidation(ownerId);
 
 		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
 		final List<WorkRequestEntity> requests = workRequestRepository.findByCustomer(user.get());
 
 		final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
+		final AddressDTO address = new AddressDTO();
 		for (final WorkRequestEntity workRequestEntity : requests) {
 			final WorkRequestDTO workRequestDTO = createWorkRequest();
 			workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 			workRequestDTO.setWorkRequestId(workRequestEntity.getId());
-			final AddressDTO address = new AddressDTO();
 			address.setAddress(workRequestEntity.getAddress().getAddress());
 			address.setCity(workRequestEntity.getAddress().getCity());
 			address.setCountry(workRequestEntity.getAddress().getCountry());
@@ -46,7 +46,7 @@ public class CustomerGetWorkRequestsController {
 		return new WorkRequestDTO();
 	}
 
-	public void checkOwnerId(final String ownerId) {
+	public void inputValidation(final String ownerId) {
 		if (null == ownerId)
 			throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 

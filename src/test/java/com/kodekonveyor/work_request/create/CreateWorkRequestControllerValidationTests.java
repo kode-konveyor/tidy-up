@@ -104,7 +104,7 @@ public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequ
 		ThrowableTester
 				.assertThrows(
 						() -> createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST_COUNTRY_LENGTH))
-				.assertMessageIs(addressTestData.COUNTRY_LENGTH);
+				.assertMessageIs(addressTestData.COUNTRY_LENGTH_ERROR_MESSAGE);
 
 	}
 
@@ -134,23 +134,7 @@ public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequ
 	public void testCreateWorkRequestCustomerId1() {
 		ThrowableTester.assertThrows(
 				() -> createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST_NEGATIVE_CUSTOMERID))
-				.assertMessageIs(workRequestTestData.NEGATIVE_CUSTOMERID);
-	}
-
-	@Test
-	@DisplayName("Customer Id cannot contain Alphabets or Special Character")
-	public void testCreateWorkRequestCustomerId2() {
-		ThrowableTester.assertThrows(
-				() -> createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST_AlPHA_CHAR_CUSTOMERID))
-				.assertMessageIs(workRequestTestData.ALPHACHAR_CUSTOMERID);
-	}
-
-	@Test
-	@DisplayName("Customer Id cannot have less than 4 digits")
-	public void testCustomerGetWorkRequestsControllerCharacterCheck3() {
-		ThrowableTester.assertThrows(
-				() -> createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST_LENGTH_CUSTOMERID))
-				.assertMessageIs(workRequestTestData.LENGTH_CUSTOMERID);
+				.assertMessageIs(workRequestTestData.NEGATIVE_CUSTOMERID_ERROR_MESSAGE);
 	}
 
 	@Test
@@ -160,7 +144,7 @@ public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequ
 		ThrowableTester
 				.assertThrows(() -> createWorkRequestController
 						.call(workRequestTestData.CREATE_WORK_REQUEST_DIGIT_SPECIAL_CHARACTER_WORKTYPE))
-				.assertMessageIs(workRequestTestData.DIGIT_SPECIAL_CHARACTER_WORKTYPE);
+				.assertMessageIs(workRequestTestData.DIGIT_SPECIAL_CHARACTER_WORKTYPE_ERROR);
 
 	}
 
@@ -170,7 +154,7 @@ public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequ
 
 		ThrowableTester.assertThrows(
 				() -> createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST_INVALID_WORKTYPE))
-				.assertMessageIs(workRequestTestData.INVALID_WORKTYPE);
+				.assertMessageIs(workRequestTestData.INVALID_WORKTYPE_ERROR_MESSAGE);
 
 	}
 

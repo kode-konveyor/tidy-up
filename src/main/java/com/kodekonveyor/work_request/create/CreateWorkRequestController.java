@@ -1,3 +1,4 @@
+
 package com.kodekonveyor.work_request.create;
 
 import java.util.ArrayList;
@@ -5,11 +6,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
+import com.kodekonveyor.authentication.UserEntity;
 import com.kodekonveyor.authentication.UserEntityRepository;
 import com.kodekonveyor.webapp.ValidationException;
-import com.kodekonveyor.work_request.CreateWorkRequestDTO;
+import com.kodekonveyor.work_request.AddressEntity;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
@@ -23,9 +27,24 @@ public class CreateWorkRequestController {
 	@Autowired
 	public AuthenticatedUserService authenticatedUserService;
 
-	public void call(final CreateWorkRequestDTO createWorkRequestDTO) {
+	@PostMapping("/work-request")
+	public void call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
 		checkInputs(createWorkRequestDTO);
 //		createWorkRequest(createWorkRequestDTO);
+		final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+		workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
+		final UserEntity userEntity = authenticatedUserService.call();
+		final AddressEntity addressEntity = new AddressEntity();
+		addressEntity.setId(Long.toString(createWorkRequestDTO.getCustomerId()));
+		addressEntity.setAddress(createWorkRequestDTO.getAddress().getAddress());
+		addressEntity.setCity(createWorkRequestDTO.getAddress().getCity());
+		addressEntity.setCountry(createWorkRequestDTO.getAddress().getCountry());
+		workRequestEntity.setCustomer(userEntity);
+		workRequestEntity.setId(createWorkRequestDTO.getCustomerId());
+		workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
+		workRequestEntity.setAddress(addressEntity);
+
+		workRequestRepository.save(workRequestEntity);
 
 	}
 
@@ -47,6 +66,9 @@ public class CreateWorkRequestController {
 		if (null == createWorkRequestDTO.getCustomerId())
 			throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
 
+		if (createWorkRequestDTO.getCustomerId() < 0)
+			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
+
 		if (null == createWorkRequestDTO.getAddress().getAddress())
 			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
 
@@ -64,15 +86,6 @@ public class CreateWorkRequestController {
 
 		if (createWorkRequestDTO.getAddress().getAddress().length() > 120)
 			throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
-
-		if (createWorkRequestDTO.getCustomerId().startsWith("-"))
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
-
-		if (!createWorkRequestDTO.getCustomerId().matches("[0-9]+"))
-			throw new ValidationException(WorkRequestConstants.ALPHACHAR_CUSTOMERID);
-
-		if (createWorkRequestDTO.getCustomerId().length() > 4)
-			throw new ValidationException(WorkRequestConstants.LENGTH_CUSTOMERID);
 
 		if (createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$") == false)
 			throw new ValidationException(WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE);

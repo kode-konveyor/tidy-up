@@ -39,10 +39,6 @@ public class OpenWorkRequestController {
 	public void inputValidation(final long workRequestId) {
 		if (workRequestId < 1)
 			throw new ValidationException(WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION);
-		System.out.println(workRequestId);
-		final String id = Long.toString(workRequestId);
-		if (id.contains("."))
-			throw new ValidationException(WorkRequestConstants.DECIMAL_WORK_REQUEST_ID_EXCEPTION);
 
 	}
 

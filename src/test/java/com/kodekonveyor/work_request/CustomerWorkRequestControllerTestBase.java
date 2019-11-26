@@ -28,8 +28,9 @@ public class CustomerWorkRequestControllerTestBase { // NOPMD
 	@BeforeEach
 	protected void setUp() {
 		userTestData = new UserTestData();
-		workRequestTestData = new WorkRequestTestData(userTestData);
+
 		addressTestData = new AddressTestData();
+		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
 
 		WorkRequestRepositoryStub.behaviour(workRequestRepository, workRequestTestData);
 		UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
