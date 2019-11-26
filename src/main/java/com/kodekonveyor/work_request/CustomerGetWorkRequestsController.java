@@ -46,18 +46,15 @@ public class CustomerGetWorkRequestsController {
 		return new WorkRequestDTO();
 	}
 
-	public void inputValidation(final String ownerId) {
+	public void inputValidation(final String ownerId) { // NOPMD
 		if (null == ownerId)
 			throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 
-		if (ownerId.startsWith("-"))
+		if (ownerId.startsWith("-")) // NOPMD
 			throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
 
 		if (!ownerId.matches("[0-9]+"))
 			throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
-
-		if (ownerId.length() > 4)
-			throw new ValidationException(WorkRequestConstants.LENGTHEXCEED_OWNERID);
 
 		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
 		if (user.isEmpty())

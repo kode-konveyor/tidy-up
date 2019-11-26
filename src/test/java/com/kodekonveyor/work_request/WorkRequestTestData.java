@@ -6,7 +6,7 @@ import java.util.List;
 import com.kodekonveyor.authentication.UserTestData;
 import com.kodekonveyor.work_request.create.CreateWorkRequestDTO;
 
-public class WorkRequestTestData {
+public class WorkRequestTestData { // NOPMD
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_WORKTYPE;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_DESCRIPTION;

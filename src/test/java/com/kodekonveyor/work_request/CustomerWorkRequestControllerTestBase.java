@@ -8,12 +8,17 @@ import com.kodekonveyor.authentication.UserEntityRepository;
 import com.kodekonveyor.authentication.UserEntityRepositoryStubs;
 import com.kodekonveyor.authentication.UserTestData;
 import com.kodekonveyor.work_request.create.CreateWorkRequestController;
+import com.kodekonveyor.work_request.open.OpenWorkRequestController;
 
 public class CustomerWorkRequestControllerTestBase { // NOPMD
 
 	@InjectMocks
 	protected CustomerGetWorkRequestsController customerGetWorkRequestsController;
+	@InjectMocks
 	protected CreateWorkRequestController createWorkRequestController;
+	@InjectMocks
+	protected OpenWorkRequestController openWorkRequestController;
+
 	@Mock
 	protected WorkRequestRepository workRequestRepository;
 	@Mock

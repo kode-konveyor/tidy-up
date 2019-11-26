@@ -19,9 +19,7 @@ import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("input validation")
 @TestedService("CreateWorkRequestController")
-public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequestControllerTestBase {
-
-	CreateWorkRequestController createWorkRequestController = new CreateWorkRequestController();
+public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequestControllerTestBase { // NOPMD
 
 	@Test
 	@DisplayName("Work type cannot be null")

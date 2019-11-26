@@ -38,19 +38,11 @@ public class CustomerGetWorkRequestsControllerValidationTest extends CustomerWor
 	}
 
 	@Test
-	@DisplayName("Owner Id cannot be negative")
+	@DisplayName("Owner Id cannot contain alphabet or special characters")
 	public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
 		ThrowableTester
 				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.ALPHACHAR_OWNERID_ID))
 				.assertMessageIs(workRequestTestData.ALPHACHAR_OWNERID);
-	}
-
-	@Test
-	@DisplayName("Owner Id cannot be negative")
-	public void testCustomerGetWorkRequestsControllerCharacterCheck3() {
-		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.LENGTHEXCEED_OWNERID_ID))
-				.assertMessageIs(workRequestTestData.LENGTHEXCEED_OWNERID);
 	}
 
 	@Test

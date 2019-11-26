@@ -1,7 +1,7 @@
 
 package com.kodekonveyor.work_request;
 
-public class AddressTestData {
+public class AddressTestData { // NOPMD
 
 	public final AddressEntity ADDRESS_ENTITY;
 
@@ -30,9 +30,9 @@ public class AddressTestData {
 
 	public AddressTestData() {
 
-		ADDRESS_ENTITY = createAddressEntity();
+		ADDRESS_ENTITY = createADDRESS_ENTITY();
 
-		ADDRESS_DTO = createAddressDTO();
+		ADDRESS_DTO = createADDRESS_DTO();
 		ADDRESS_DTO_NULL_STRING = createADDRESS_DTO_NULL_STRING();
 		ADDRESS_DTO_NULL_COUNRTY = createADDRESS_DTO_NULL_COUNRTY();
 		ADDRESS_DTO_NULL_CITY = createADDRESS_DTO_NULL_CITY();
@@ -43,43 +43,43 @@ public class AddressTestData {
 	}
 
 	private AddressDTO createADDRESS_DTO_ADDRESS_LENGTH() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setAddress(ADDRESS_LENGTH);
 		return dto;
 	}
 
 	private AddressDTO createADDRESS_DTO_COUNRTY_ALPHABET() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setCountry(COUNTRY_ALPHABET);
 		return dto;
 	}
 
 	private AddressDTO createADDRESS_DTO_COUNTRY_LENGTH() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setCountry(COUNTRY_LENGHT);
-		;
+
 		return dto;
 	}
 
 	private AddressDTO createADDRESS_DTO_NULL_CITY() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setCity(null);
 		return dto;
 	}
 
 	private AddressDTO createADDRESS_DTO_NULL_COUNRTY() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setCountry(null);
 		return dto;
 	}
 
 	private AddressDTO createADDRESS_DTO_NULL_STRING() {
-		final AddressDTO dto = createAddressDTO();
+		final AddressDTO dto = createADDRESS_DTO();
 		dto.setAddress(null);
 		return dto;
 	}
 
-	private AddressDTO createAddressDTO() {
+	private AddressDTO createADDRESS_DTO() {
 		final AddressDTO dto = new AddressDTO();
 		dto.setAddress(ADDRESS);
 		dto.setCity(CITY);
@@ -87,7 +87,7 @@ public class AddressTestData {
 		return dto;
 	}
 
-	private AddressEntity createAddressEntity() {
+	private AddressEntity createADDRESS_ENTITY() {
 		final AddressEntity entity = new AddressEntity();
 		entity.setId(ADDRESS_ID);
 		entity.setAddress(ADDRESS);

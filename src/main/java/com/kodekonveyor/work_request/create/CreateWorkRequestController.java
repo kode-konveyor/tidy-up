@@ -19,7 +19,7 @@ import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 
 @Controller
-public class CreateWorkRequestController {
+public class CreateWorkRequestController { // NOPMD
 	@Autowired
 	public WorkRequestRepository workRequestRepository;
 	@Autowired
@@ -30,7 +30,11 @@ public class CreateWorkRequestController {
 	@PostMapping("/work-request")
 	public void call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
 		inputValidation(createWorkRequestDTO);
-//		createWorkRequest(createWorkRequestDTO);
+		createWorkRequest(createWorkRequestDTO);
+
+	}
+
+	public WorkRequestEntity createWorkRequest(final CreateWorkRequestDTO createWorkRequestDTO) {
 		final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
 		workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
 		final UserEntity userEntity = authenticatedUserService.call();
@@ -44,13 +48,8 @@ public class CreateWorkRequestController {
 		workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
 		workRequestEntity.setAddress(addressEntity);
 
-		workRequestRepository.save(workRequestEntity);
+		return workRequestRepository.save(workRequestEntity);
 
-	}
-
-	public WorkRequestEntity createWorkRequest(final CreateWorkRequestDTO createWorkRequestDTO) {
-
-		return null;
 	}
 
 	public void inputValidation(final CreateWorkRequestDTO createWorkRequestDTO) {
@@ -66,9 +65,6 @@ public class CreateWorkRequestController {
 		if (null == createWorkRequestDTO.getCustomerId())
 			throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
 
-		if (createWorkRequestDTO.getCustomerId() < 0)
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
-
 		if (null == createWorkRequestDTO.getAddress().getAddress())
 			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
 
@@ -77,6 +73,9 @@ public class CreateWorkRequestController {
 
 		if (null == createWorkRequestDTO.getAddress().getCountry())
 			throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
+
+		if (createWorkRequestDTO.getCustomerId() < 0)
+			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
 
 		final int length = 2;
 		if (createWorkRequestDTO.getAddress().getCountry().length() != length)
