@@ -29,7 +29,7 @@ public class CreateWorkRequestController {
 
 	@PostMapping("/work-request")
 	public void call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
-		checkInputs(createWorkRequestDTO);
+		inputValidation(createWorkRequestDTO);
 //		createWorkRequest(createWorkRequestDTO);
 		final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
 		workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
@@ -53,7 +53,7 @@ public class CreateWorkRequestController {
 		return null;
 	}
 
-	public void checkInputs(final CreateWorkRequestDTO createWorkRequestDTO) {
+	public void inputValidation(final CreateWorkRequestDTO createWorkRequestDTO) {
 		if (null == createWorkRequestDTO.getWorkType())
 			throw new ValidationException(WorkRequestConstants.NULL_WORKTYPE);
 
@@ -78,19 +78,21 @@ public class CreateWorkRequestController {
 		if (null == createWorkRequestDTO.getAddress().getCountry())
 			throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
 
-		if (createWorkRequestDTO.getAddress().getCountry().length() != 2)
+		final int length = 2;
+		if (createWorkRequestDTO.getAddress().getCountry().length() != length)
 			throw new ValidationException(WorkRequestConstants.COUNTRY_LENGTH);
 
 		if (!createWorkRequestDTO.getAddress().getCountry().matches("^[a-z]*$"))
 			throw new ValidationException(WorkRequestConstants.COUNTRY_ALPHABET);
 
-		if (createWorkRequestDTO.getAddress().getAddress().length() > 120)
+		final int charLimit = 120;
+		if (createWorkRequestDTO.getAddress().getAddress().length() > charLimit)
 			throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
 
-		if (createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$") == false)
+		if (!createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$"))
 			throw new ValidationException(WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE);
 
-		final List<String> workType = new ArrayList<String>();
+		final List<String> workType = new ArrayList<>();
 		workType.add("PLUMBING");
 		workType.add("ELECTRICAL REPAIRMENT");
 		workType.add("CLEANING");

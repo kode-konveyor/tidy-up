@@ -26,9 +26,10 @@ public class UserTestData {
 	public final String NEGATIVE_OWNERID_ID = "-4536";
 	public final String INVALID_OWNERID_ID = "4243";
 	public final long USER_ID_CREATE_REQUEST = 4242;
-	public final Long NO_WORKREQUESTS_ID_AsLong = Long.parseLong(NO_WORKREQUESTS_ID);
-	public final UserEntity USER_CREATEREQUEST = createRequesttUser();
-	public final UserEntity USER_No_WORKREQUESTS = createNO_REQUEST_USER();
+	public final Long NO_WORKREQUESTS_ID_ASLONG = Long.parseLong(NO_WORKREQUESTS_ID);
+	public final String WORKREQUESTS_ID = "4243";
+	public final UserEntity USER_WORKREQUESTS = createREQUEST_USER();
+	public final UserEntity USER_NO_WORKREQUESTS = createNO_REQUEST_USER();
 
 	private List<UserEntity> createUSER_LIST() {
 		return List.of(USER);
@@ -62,11 +63,9 @@ public class UserTestData {
 		return userEntity;
 	}
 
-	private UserEntity createRequesttUser() {
-		UserEntity userEntity = new UserEntity();
-		userEntity = createUSER();
-		userEntity.setId(USER_ID_CREATE_REQUEST);
+	private UserEntity createREQUEST_USER() {
+		final UserEntity userEntity = createUSER();
+		userEntity.setId(Long.parseLong(WORKREQUESTS_ID));
 		return userEntity;
 	}
-
 }
