@@ -9,9 +9,7 @@
 	<rule ref="pmd/upstream.xml"/>
 	<rule ref="pmd/konveyor.xml"/>
 </ruleset>
-2019/11/26 10:55:43,703 ERROR BaseVisitor                      PMD exception visiting CustomerGetWorkRequestsControllerTest.java
-net.sourceforge.pmd.PMDException: There were processing errors!
-G:\tidy-up\src\test\java\com\kodekonveyor\work_request\CustomerGetWorkRequestsControllerTest.java: PMDException: Error while parsing G:\tidy-up\src\test\java\com\kodekonveyor\work_request\CustomerGetWorkRequestsControllerTest.java net.sourceforge.pmd.PMDException: Error while parsing G:\tidy-up\src\test\java\com\kodekonveyor\work_request\CustomerGetWorkRequestsControllerTest.java
+
 	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:99)
 	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:51)
 	at net.sourceforge.pmd.processor.PmdRunnable.call(PmdRunnable.java:78)
@@ -1094,6 +1092,111 @@ java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: C
 	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 13 more
+2019/11/26 23:52:03,913 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:221)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 13 more
+2019/11/26 23:57:44,833 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:221)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 13 more
+2019/11/27 00:09:56,184 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:221)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 13 more
+2019/11/27 00:10:42,149 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:221)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 13 more
+2019/11/27 08:46:52,115 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:221)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 13; columnNumber: 2; Content is not allowed in trailing section.
 	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
 	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
 	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
