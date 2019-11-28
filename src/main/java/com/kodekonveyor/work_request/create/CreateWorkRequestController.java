@@ -21,6 +21,7 @@ public class CreateWorkRequestController {
 		final String customerId = createWorkRequestDTO.getCustomerId();
 		if (customerId == null || customerId.isEmpty())
 			throw new ValidationException(CreateConstants.INVALID_CUSTOMER_ID);
+
 	}
 
 	private void checkDescription(final CreateWorkRequestDTO createWorkRequestDTO) {
