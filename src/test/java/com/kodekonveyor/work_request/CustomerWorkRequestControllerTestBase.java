@@ -10,22 +10,27 @@ import com.kodekonveyor.authentication.UserTestData;
 
 public class CustomerWorkRequestControllerTestBase { // NOPMD
 
-	@InjectMocks
-	protected CustomerGetWorkRequestsController customerGetWorkRequestsController;
-	@Mock
-	protected WorkRequestRepository workRequestRepository;
-	@Mock
-	protected UserEntityRepository userEntityRepository;
-	protected UserTestData userTestData;
-	protected WorkRequestTestData workRequestTestData;
+  @InjectMocks
+  CustomerGetWorkRequestsController customerGetWorkRequestsController;
+  @Mock
+  WorkRequestRepository workRequestRepository;
+  @Mock
+  UserEntityRepository userEntityRepository;
+  UserTestData userTestData;
+  WorkRequestTestData workRequestTestData;
 
-	@BeforeEach
-	protected void setUp() {
-		userTestData = new UserTestData();
-		workRequestTestData = new WorkRequestTestData(userTestData);
+  AddressTestData addressTestData;
 
-		WorkRequestRepositoryStub.behaviour(workRequestRepository, workRequestTestData);
-		UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
-	}
+  @BeforeEach
+  void setUp() {
+    userTestData = new UserTestData();
+    addressTestData = new AddressTestData();
+    workRequestTestData =
+        new WorkRequestTestData(userTestData, addressTestData);
+
+    WorkRequestRepositoryStub
+        .behaviour(workRequestRepository, workRequestTestData);
+    UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
+  }
 
 }

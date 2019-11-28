@@ -12,10 +12,13 @@ import lombok.Data;
 @Entity
 @Data
 public class WorkRequestEntity {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private UserEntity customer;
-	private String workType;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private UserEntity customer;
+  private String workType;
+  private String description;
+  private AddressEntity address;
 
 }
