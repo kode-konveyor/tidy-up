@@ -26,31 +26,31 @@ public class CustomerGetWorkRequestsControllerValidationTest extends CustomerWor
 
 	public void testCustomerGetWorkRequestsControllerNullOwnerId() {
 		ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(null))
-				.assertMessageIs(workRequestTestData.NULL_OWNERID);
+				.assertMessageIs(getWorkRequestTestData.NULL_OWNERID);
 	}
 
 	@Test
 	@DisplayName("Owner Id cannot be negative")
 	public void testCustomerGetWorkRequestsControllerCharacterCheck1() {
 		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.NEGATIVE_OWNERID_ID))
-				.assertMessageIs(workRequestTestData.NEGATIVE_OWNERID);
+				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.NEGATIVE_OWNERID_ID))
+				.assertMessageIs(getWorkRequestTestData.NEGATIVE_OWNERID);
 	}
 
 	@Test
 	@DisplayName("Owner Id cannot contain alphabet or special characters")
 	public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
 		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.ALPHACHAR_OWNERID_ID))
-				.assertMessageIs(workRequestTestData.ALPHACHAR_OWNERID);
+				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.ALPHACHAR_OWNERID_ID))
+				.assertMessageIs(getWorkRequestTestData.ALPHACHAR_OWNERID);
 	}
 
 	@Test
 	@DisplayName("When owner Id is incorrect, the message is 'Invalid Owner Id'")
 	public void testCustomerGetWorkRequestsControllerInvalidOwnerId() {
 		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.INVALID_OWNERID_ID))
-				.assertMessageIs(workRequestTestData.INVALID_OWNERID);
+				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.INVALID_OWNERID_ID))
+				.assertMessageIs(getWorkRequestTestData.INVALID_OWNERID);
 
 	}
 

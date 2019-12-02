@@ -34,8 +34,8 @@ public class CustomerGetWorkRequestsControllerTest extends CustomerWorkRequestCo
 	@DisplayName("When no request for Owner, the message is 'No work Requests'")
 	public void testWorkRequestDetailsNotPresent() {
 		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(workRequestTestData.NO_WORKREQUESTS_ID))
-				.assertMessageIs(workRequestTestData.NO_WORKREQUESTS);
+				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.NO_WORKREQUESTS_ID))
+				.assertMessageIs(getWorkRequestTestData.NO_WORKREQUESTS);
 	}
 
 	@Test

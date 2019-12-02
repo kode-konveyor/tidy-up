@@ -8,6 +8,7 @@ import com.kodekonveyor.authentication.UserEntityRepository;
 import com.kodekonveyor.authentication.UserEntityRepositoryStubs;
 import com.kodekonveyor.authentication.UserTestData;
 import com.kodekonveyor.work_request.create.CreateWorkRequestController;
+import com.kodekonveyor.work_request.create.CreateWorkRequestTestData;
 import com.kodekonveyor.work_request.open.OpenWorkRequestController;
 
 public class CustomerWorkRequestControllerTestBase { // NOPMD
@@ -29,6 +30,8 @@ public class CustomerWorkRequestControllerTestBase { // NOPMD
 	protected UserTestData userTestData;
 	protected WorkRequestTestData workRequestTestData;
 	protected AddressTestData addressTestData;
+	protected GetWorkRequestTestData getWorkRequestTestData;
+	protected CreateWorkRequestTestData createWorkRequestTestData;
 
 	@BeforeEach
 	protected void setUp() {
@@ -36,6 +39,8 @@ public class CustomerWorkRequestControllerTestBase { // NOPMD
 
 		addressTestData = new AddressTestData();
 		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
+		getWorkRequestTestData = new GetWorkRequestTestData();
+		createWorkRequestTestData = new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 
 		WorkRequestRepositoryStub.behaviour(workRequestRepository, workRequestTestData);
 		UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);

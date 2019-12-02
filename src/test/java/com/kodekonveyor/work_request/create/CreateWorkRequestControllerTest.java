@@ -37,14 +37,17 @@ public class CreateWorkRequestControllerTest {
 	@Mock
 	private AuthenticatedUserService authenticatedUserService;
 	private WorkRequestTestData workRequestTestData;
+	private CreateWorkRequestTestData createWorkRequestTestData;
 
 	@BeforeEach
 	public void setUp() {
 		final UserTestData userTestData = new UserTestData();
 		final AddressTestData addressTestData = new AddressTestData();
+
 		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
+		createWorkRequestTestData = new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 		AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
-		createWorkRequestController.call(workRequestTestData.CREATE_WORK_REQUEST);
+		createWorkRequestController.call(createWorkRequestTestData.CREATE_WORK_REQUEST);
 		verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
 	}
 
@@ -75,7 +78,8 @@ public class CreateWorkRequestControllerTest {
 	@Test
 	@DisplayName("Controller files address of WorkRequestEntity based on request")
 	public void test4() {
-		assertEquals(workRequestTestData.addressTestData.ADDRESS_ENTITY, workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
+		assertEquals(workRequestTestData.addressTestData.ADDRESS_ENTITY,
+				workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
 	}
 
 }

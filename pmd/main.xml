@@ -9,3 +9,309 @@
 	<rule ref="pmd/upstream.xml"/>
 	<rule ref="pmd/konveyor.xml"/>
 </ruleset>
+2019/12/02 16:15:11,054 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:19:18,224 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:29:49,711 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:32:38,050 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:34:38,460 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:40:39,006 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:41:01,660 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:41:38,040 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:43:19,225 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:44:36,898 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 16:47:46,115 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 17:18:41,700 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 17:18:43,028 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 17:20:33,464 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:630)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	... 3 more
+2019/12/02 17:23:11,465 ERROR PMDPlugin                        Error loading project properties. Recreating empty properties.
+net.sourceforge.pmd.eclipse.runtime.properties.PropertiesException: The project ruleset file cannot be found for project tidy-up
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesImpl.setRuleSetStoredInProject(ProjectPropertiesImpl.java:200)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.fillProjectProperties(ProjectPropertiesManagerImpl.java:214)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:85)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.ui.properties.PMDPropertyPageController.getPropertyPageBean(PMDPropertyPageController.java:83)
+	at net.sourceforge.pmd.eclipse.ui.properties.PMDProjectPropertyPage.createContents(PMDProjectPropertyPage.java:93)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:244)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1430)
+	at org.eclipse.jface.preference.PreferenceDialog$8.run(PreferenceDialog.java:1197)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1189)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:630)
+	at org.eclipse.jface.preference.PreferenceDialog$5.lambda$0(PreferenceDialog.java:661)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
+	at org.eclipse.jface.preference.PreferenceDialog$5.selectionChanged(PreferenceDialog.java:658)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:818)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:815)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1185)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$0(StructuredViewer.java:1208)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:84)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:263)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:258)
+	at org.eclipse.jface.util.OpenStrategy$1.lambda$1(OpenStrategy.java:428)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:823)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.eclipse.ui.dialogs.PropertyDialogAction.run(PropertyDialogAction.java:153)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:412)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3986)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3585)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1441)
+2019/12/02 17:23:48,992 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up2\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:91)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResourceDelta(ReviewCodeCmd.java:594)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:182)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 12 more
+2019/12/02 17:24:26,452 ERROR PMDPlugin                        Error executing command ReviewCode
+java.lang.RuntimeException: Couldn't read the ruleset G:\tidy-up2\pmd\main.xml: Content is not allowed in trailing section.
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:419)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:220)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSet(RuleSetFactory.java:215)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:176)
+	at net.sourceforge.pmd.RuleSetFactory.createRuleSets(RuleSetFactory.java:160)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadRuleSetFromProject(ProjectPropertiesManagerImpl.java:145)
+	at net.sourceforge.pmd.eclipse.runtime.properties.impl.ProjectPropertiesManagerImpl.loadProjectProperties(ProjectPropertiesManagerImpl.java:91)
+	at net.sourceforge.pmd.eclipse.plugin.PMDPlugin.loadProjectProperties(PMDPlugin.java:522)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.getProjectProperties(ReviewCodeCmd.java:399)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResource(ReviewCodeCmd.java:418)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processJavaProject(ReviewCodeCmd.java:527)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processProject(ReviewCodeCmd.java:493)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.processResources(ReviewCodeCmd.java:390)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.ReviewCodeCmd.execute(ReviewCodeCmd.java:184)
+	at net.sourceforge.pmd.eclipse.runtime.cmd.JobCommandProcessor$1.run(JobCommandProcessor.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 1; Content is not allowed in trailing section.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at net.sourceforge.pmd.RuleSetFactory.parseRuleSetNode(RuleSetFactory.java:364)
+	... 15 more
