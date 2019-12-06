@@ -10,23 +10,30 @@ import org.mockito.stubbing.Answer;
 
 public class UserEntityRepositoryStubs {
 
-	public static void behaviour(final UserEntityRepository userRepository, final UserTestData userTestData) {
-		doReturn(userTestData.USER_LIST).when(userRepository).findByAuth0id(userTestData.AUTH0ID);
-		doReturn(userTestData.EMPTY_LIST).when(userRepository).findByAuth0id(userTestData.BAD_AUTH0ID);
-		doReturn(Optional.of(userTestData.USER)).when(userRepository).findById(userTestData.USER_ID);
-		doReturn(Optional.of(userTestData.USER_NO_WORKREQUESTS)).when(userRepository)
-				.findById(userTestData.NO_WORKREQUESTS_ID_ASLONG);
+  public static void behaviour(
+      final UserEntityRepository userRepository, final UserTestData userTestData
+  ) {
+    doReturn(userTestData.USER_LIST).when(userRepository)
+        .findByAuth0id(userTestData.AUTH0ID);
+    doReturn(userTestData.EMPTY_LIST).when(userRepository)
+        .findByAuth0id(userTestData.BAD_AUTH0ID);
+    doReturn(Optional.of(userTestData.USER)).when(userRepository)
+        .findById(userTestData.USER_ID);
+    doReturn(Optional.of(userTestData.USER_NO_WORKREQUESTS))
+        .when(userRepository)
+        .findById(userTestData.NO_WORKREQUESTS_ID_ASLONG);
 
-		final Answer<UserEntity> answer = new Answer<>() {
-			@Override
-			public UserEntity answer(final InvocationOnMock invocation) {
-				final Object[] args = invocation.getArguments();
-				final UserEntity user = (UserEntity) args[0];
-				user.setId(userTestData.BAD_USER_ID);
-				return null;
-			}
-		};
-		when(userRepository.save(userTestData.BAD_USER_BEFORE_SAVE)).then(answer);
+    final Answer<UserEntity> answer = new Answer<>() {
 
-	}
+      @Override
+      public UserEntity answer(final InvocationOnMock invocation) {
+        final Object[] args = invocation.getArguments();
+        final UserEntity user = (UserEntity) args[0];
+        user.setId(userTestData.BAD_USER_ID);
+        return null;
+      }
+    };
+    when(userRepository.save(userTestData.BAD_USER_BEFORE_SAVE)).then(answer);
+
+  }
 }

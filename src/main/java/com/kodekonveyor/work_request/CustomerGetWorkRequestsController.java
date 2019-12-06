@@ -12,54 +12,65 @@ import com.kodekonveyor.webapp.ValidationException;
 
 @Controller
 public class CustomerGetWorkRequestsController {
-	@Autowired
-	public WorkRequestRepository workRequestRepository;
-	@Autowired
-	public UserEntityRepository userEntityRepository;
 
-	public WorkRequestListDTO call(final String ownerId) {
-		inputValidation(ownerId);
+  @Autowired
+  public WorkRequestRepository workRequestRepository;
+  @Autowired
+  public UserEntityRepository userEntityRepository;
 
-		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
-		final List<WorkRequestEntity> requests = workRequestRepository.findByCustomer(user.get());
+  public WorkRequestListDTO call(final String ownerId) {
+    inputValidation(ownerId);
 
-		final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
-		final AddressDTO address = new AddressDTO();
-		for (final WorkRequestEntity workRequestEntity : requests) {
-			final WorkRequestDTO workRequestDTO = createWorkRequest();
-			workRequestDTO.setWorkType(workRequestEntity.getWorkType());
-			workRequestDTO.setWorkRequestId(workRequestEntity.getId());
-			address.setAddress(workRequestEntity.getAddress().getAddress());
-			address.setCity(workRequestEntity.getAddress().getCity());
-			address.setCountry(workRequestEntity.getAddress().getCountry());
-			workRequestDTO.setAddress(address);
-			workRequestDTO.setDescription(workRequestEntity.getDescription());
-			workRequestListDTO.getRequests().add(workRequestDTO);
-		}
-		if (requests.isEmpty())
-			throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
-		return workRequestListDTO;
-	}
+    final Optional<UserEntity> user =
+        userEntityRepository.findById(Long.parseLong(ownerId));
+    final List<WorkRequestEntity> requests =
+        workRequestRepository.findByCustomer(user.get());
 
-	private WorkRequestDTO createWorkRequest() {
+    final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
+    final AddressDTO address = new AddressDTO();
 
-		return new WorkRequestDTO();
-	}
+    for (final WorkRequestEntity workRequestEntity : requests) {
 
-	public void inputValidation(final String ownerId) { // NOPMD
-		if (null == ownerId)
-			throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
+      final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
 
-		if (ownerId.startsWith("-")) // NOPMD
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
+      workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 
-		if (!ownerId.matches("[0-9]+"))
-			throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
+      workRequestDTO.setWorkRequestId(workRequestEntity.getId());
+      address.setAddress(workRequestEntity.getAddress().getAddress());
+      address.setCity(workRequestEntity.getAddress().getCity());
+      address.setCountry(workRequestEntity.getAddress().getCountry());
+      address.setId(Long.parseLong(workRequestEntity.getAddress().getId()));
+      workRequestDTO.setAddress(address);
+      workRequestDTO.setDescription(workRequestEntity.getDescription());
+      workRequestListDTO.getRequests().add(workRequestDTO);
+    }
 
-		final Optional<UserEntity> user = userEntityRepository.findById(Long.parseLong(ownerId));
-		if (user.isEmpty())
-			throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
+    if (requests.isEmpty())
+      throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
+    return workRequestListDTO;
 
-	}
+  }
+
+  public WorkRequestDTO createWorkRequest() {
+    return null;
+
+  }
+
+  public void inputValidation(final String ownerId) { // NOPMD
+    if (null == ownerId)
+      throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
+
+    if (ownerId.startsWith("-")) // NOPMD
+      throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
+
+    if (!ownerId.matches("[0-9]+"))
+      throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
+
+    final Optional<UserEntity> user =
+        userEntityRepository.findById(Long.parseLong(ownerId));
+    if (user.isEmpty())
+      throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
+
+  }
 
 }

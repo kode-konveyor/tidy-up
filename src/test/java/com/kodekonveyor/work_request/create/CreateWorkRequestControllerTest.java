@@ -30,57 +30,51 @@ import com.kodekonveyor.work_request.WorkRequestTestData;
 @TestedBehaviour("Data access")
 @TestedService("CreateWorkRequestController")
 public class CreateWorkRequestControllerTest {
-	@InjectMocks
-	private CreateWorkRequestController createWorkRequestController;
-	@Mock
-	private WorkRequestRepository workRequestRepository;
-	@Mock
-	private AuthenticatedUserService authenticatedUserService;
 
-	private WorkRequestTestData workRequestTestData;
-	private CreateWorkRequestTestData createWorkRequestTestData;
+  @InjectMocks
+  private CreateWorkRequestController createWorkRequestController;
+  @Mock
+  private WorkRequestRepository workRequestRepository;
+  @Mock
+  private AuthenticatedUserService authenticatedUserService;
 
-	@BeforeEach
-	public void setUp() {
-		final UserTestData userTestData = new UserTestData();
-		final AddressTestData addressTestData = new AddressTestData();
+  private WorkRequestTestData workRequestTestData;
+  private CreateWorkRequestTestData createWorkRequestTestData;
 
-		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
-		createWorkRequestTestData = new CreateWorkRequestTestData(workRequestTestData, addressTestData);
-		AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
-		createWorkRequestController.call(createWorkRequestTestData.CREATE_WORK_REQUEST);
-		verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
-	}
+  @BeforeEach
+  public void setUp() {
+    final UserTestData userTestData = new UserTestData();
+    final AddressTestData addressTestData = new AddressTestData();
 
-	@Test
-	@DisplayName("Controller files WorkType of WorkRequestEntity based on request")
-	public void test() {
-		assertEquals(workRequestTestData.WORK_TYPE, workRequestTestData.WORK_REQUEST_ENTITY.getWorkType());
-	}
+    workRequestTestData =
+        new WorkRequestTestData(userTestData, addressTestData);
+    createWorkRequestTestData =
+        new CreateWorkRequestTestData(workRequestTestData, addressTestData);
+    AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
+    createWorkRequestController
+        .call(createWorkRequestTestData.CREATE_WORK_REQUEST);
+    verify(workRequestRepository).save(workRequestTestData.WORK_REQUEST_ENTITY);
+  }
 
-	@Test
-	@DisplayName("Controller files Id of WorkRequestEntity based on request")
-	public void test1() {
-		assertEquals(workRequestTestData.WORK_REQUEST_ID, workRequestTestData.WORK_REQUEST_ENTITY.getId());
-	}
+  @Test
+  @DisplayName("Controller files address of WorkRequestEntity based on request")
+  public void test4() {
+    assertEquals(
+        workRequestTestData.addressTestData.ADDRESS_ENTITY,
+        workRequestTestData.WORK_REQUEST_ENTITY.getAddress()
+    );
+  }
 
-	@Test
-	@DisplayName("Controller files Description of WorkRequestEntity based on request")
-	public void test2() {
-		assertEquals(workRequestTestData.DESCRIPTION, workRequestTestData.WORK_REQUEST_ENTITY.getDescription());
-	}
+  @Test
+  @DisplayName(
+    "Controller files customer of WorkRequestEntity based on request"
+  )
+  public void test3() {
+    assertEquals(
+        workRequestTestData.userTestData.USER,
+        workRequestTestData.WORK_REQUEST_ENTITY.getCustomer()
+    );
 
-	@Test
-	@DisplayName("Controller files customer of WorkRequestEntity based on request")
-	public void test3() {
-		assertEquals(workRequestTestData.userTestData.USER, workRequestTestData.WORK_REQUEST_ENTITY.getCustomer());
-	}
-
-	@Test
-	@DisplayName("Controller files address of WorkRequestEntity based on request")
-	public void test4() {
-		assertEquals(workRequestTestData.addressTestData.ADDRESS_ENTITY,
-				workRequestTestData.WORK_REQUEST_ENTITY.getAddress());
-	}
+  }
 
 }

@@ -20,109 +20,120 @@ import com.kodekonveyor.work_request.WorkRequestRepository;
 
 @Controller
 public class CreateWorkRequestController {
-	@Autowired
-	public WorkRequestRepository workRequestRepository;
-	@Autowired
-	public UserEntityRepository userEntityRepository;
-	@Autowired
-	public AuthenticatedUserService authenticatedUserService;
 
-	@PostMapping("/work-request")
-	public void call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
+  @Autowired
+  public WorkRequestRepository workRequestRepository;
+  @Autowired
+  public UserEntityRepository userEntityRepository;
+  @Autowired
+  public AuthenticatedUserService authenticatedUserService;
 
-		validateWorkType(createWorkRequestDTO);
-		validateDescrption(createWorkRequestDTO);
-		validateCustomerId(createWorkRequestDTO);
-		validateAddressDetails(createWorkRequestDTO);
+  @PostMapping("/work-request")
+  public void
+      call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
 
-		validateCityAndCountry(createWorkRequestDTO);
-		createWorkRequest(createWorkRequestDTO);
+    validateWorkType(createWorkRequestDTO);
+    validateDescrption(createWorkRequestDTO);
+    validateCustomerId(createWorkRequestDTO);
+    validateAddressDetails(createWorkRequestDTO);
 
-	}
+    validateCityAndCountry(createWorkRequestDTO);
+    createWorkRequest(createWorkRequestDTO);
 
-	public WorkRequestEntity createWorkRequest(final CreateWorkRequestDTO createWorkRequestDTO) {
-		final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
-		workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
-		final UserEntity userEntity = authenticatedUserService.call();
-		final AddressEntity addressEntity = new AddressEntity();
-		addressEntity.setId(Long.toString(createWorkRequestDTO.getCustomerId()));
-		addressEntity.setAddress(createWorkRequestDTO.getAddress().getAddress());
-		addressEntity.setCity(createWorkRequestDTO.getAddress().getCity());
-		addressEntity.setCountry(createWorkRequestDTO.getAddress().getCountry());
-		workRequestEntity.setCustomer(userEntity);
-		workRequestEntity.setId(createWorkRequestDTO.getCustomerId());
-		workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
-		workRequestEntity.setAddress(addressEntity);
+  }
 
-		return workRequestRepository.save(workRequestEntity);
+  public WorkRequestEntity createWorkRequest(
+      @RequestBody final CreateWorkRequestDTO createWorkRequestDTO
+  ) {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
+    final UserEntity userEntity = authenticatedUserService.call();
+    final AddressEntity addressEntity = new AddressEntity();
+    addressEntity.setId(Long.toString(createWorkRequestDTO.getCustomerId()));
+    addressEntity.setAddress(createWorkRequestDTO.getAddress().getAddress());
+    addressEntity.setCity(createWorkRequestDTO.getAddress().getCity());
+    addressEntity.setCountry(createWorkRequestDTO.getAddress().getCountry());
+    workRequestEntity.setCustomer(userEntity);
+    workRequestEntity.setId(createWorkRequestDTO.getCustomerId());
+    workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
+    workRequestEntity.setAddress(addressEntity);
 
-	}
+    return workRequestRepository.save(workRequestEntity);
 
-	public void validateWorkType(final CreateWorkRequestDTO createWorkRequestDTO) {
-		if (null == createWorkRequestDTO.getCustomerId())
-			throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
+  }
 
-		if (null == createWorkRequestDTO.getWorkType())
-			throw new ValidationException(WorkRequestConstants.NULL_WORKTYPE);
+  public void
+      validateWorkType(final CreateWorkRequestDTO createWorkRequestDTO) {
+    if (null == createWorkRequestDTO.getCustomerId())
+      throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
 
-		if (!createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$"))
-			throw new ValidationException(WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE);
+    if (null == createWorkRequestDTO.getWorkType())
+      throw new ValidationException(WorkRequestConstants.NULL_WORKTYPE);
 
-		final List<String> workType = new ArrayList<>();
-		workType.add("PLUMBING");
-		workType.add("ELECTRICAL REPAIRMENT");
-		workType.add("CLEANING");
-		workType.add("OTHER");
+    if (!createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$"))
+      throw new ValidationException(
+          WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE
+      );
 
-		if (!workType.contains(createWorkRequestDTO.getWorkType()))
-			throw new ValidationException(WorkRequestConstants.INVALID_WORKTYPE);
-	}
+    final List<String> workType = new ArrayList<>();
+    workType.add("PLUMBING");
+    workType.add("ELECTRICAL REPAIRMENT");
+    workType.add("CLEANING");
+    workType.add("OTHER");
 
-	public void validateDescrption(final CreateWorkRequestDTO createWorkRequestDTO) {
+    if (!workType.contains(createWorkRequestDTO.getWorkType()))
+      throw new ValidationException(WorkRequestConstants.INVALID_WORKTYPE);
+  }
 
-		if (null == createWorkRequestDTO.getDescription())
-			throw new ValidationException(WorkRequestConstants.NULL_DESCRIPTION);
+  public void
+      validateDescrption(final CreateWorkRequestDTO createWorkRequestDTO) {
 
-	}
+    if (null == createWorkRequestDTO.getDescription())
+      throw new ValidationException(WorkRequestConstants.NULL_DESCRIPTION);
 
-//	public void validateAddress(final CreateWorkRequestDTO createWorkRequestDTO) {
-//		if (null == createWorkRequestDTO.getAddress())
-//			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS);
-//	}
+  }
 
-	public void validateAddressDetails(final CreateWorkRequestDTO createWorkRequestDTO) {
+  //	public void validateAddress(final CreateWorkRequestDTO createWorkRequestDTO) {
+  //		if (null == createWorkRequestDTO.getAddress())
+  //			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS);
+  //	}
 
-		if (null == createWorkRequestDTO.getAddress().getAddress())
-			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
+  public void
+      validateAddressDetails(final CreateWorkRequestDTO createWorkRequestDTO) {
 
-		final int charLimit = 120;
-		if (createWorkRequestDTO.getAddress().getAddress().length() > charLimit)
-			throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
+    if (null == createWorkRequestDTO.getAddress().getAddress())
+      throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
 
-	}
+    final int charLimit = 120;
+    if (createWorkRequestDTO.getAddress().getAddress().length() > charLimit)
+      throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
 
-	public void validateCityAndCountry(final CreateWorkRequestDTO createWorkRequestDTO) {
+  }
 
-		if (null == createWorkRequestDTO.getAddress().getCity())
-			throw new ValidationException(WorkRequestConstants.NULL_CITY);
+  public void
+      validateCityAndCountry(final CreateWorkRequestDTO createWorkRequestDTO) {
 
-		if (null == createWorkRequestDTO.getAddress().getCountry())
-			throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
+    if (null == createWorkRequestDTO.getAddress().getCity())
+      throw new ValidationException(WorkRequestConstants.NULL_CITY);
 
-		final int length = 2;
-		if (createWorkRequestDTO.getAddress().getCountry().length() != length)
-			throw new ValidationException(WorkRequestConstants.COUNTRY_LENGTH);
+    if (null == createWorkRequestDTO.getAddress().getCountry())
+      throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
 
-		if (!createWorkRequestDTO.getAddress().getCountry().matches("^[a-z]*$"))
-			throw new ValidationException(WorkRequestConstants.COUNTRY_ALPHABET);
+    final int length = 2;
+    if (createWorkRequestDTO.getAddress().getCountry().length() != length)
+      throw new ValidationException(WorkRequestConstants.COUNTRY_LENGTH);
 
-	}
+    if (!createWorkRequestDTO.getAddress().getCountry().matches("^[a-z]*$"))
+      throw new ValidationException(WorkRequestConstants.COUNTRY_ALPHABET);
 
-	public void validateCustomerId(final CreateWorkRequestDTO createWorkRequestDTO) {
+  }
 
-		if (createWorkRequestDTO.getCustomerId() < 0)
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
+  public void
+      validateCustomerId(final CreateWorkRequestDTO createWorkRequestDTO) {
 
-	}
+    if (createWorkRequestDTO.getCustomerId() < 0)
+      throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
+
+  }
 
 }

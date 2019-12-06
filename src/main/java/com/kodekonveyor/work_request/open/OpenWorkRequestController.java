@@ -15,32 +15,38 @@ import com.kodekonveyor.work_request.WorkRequestRepository;
 @Controller
 public class OpenWorkRequestController {
 
-	@Autowired
-	private WorkRequestRepository workRequestRepository;
+  @Autowired
+  private WorkRequestRepository workRequestRepository;
 
-	@GetMapping("workRequest/own/@workRequestId")
-	public WorkRequestDTO call(@RequestParam final long workRequestId) {
-		inputValidation(workRequestId);
+  @GetMapping("workRequest/own/@workRequestId")
+  public WorkRequestDTO call(@RequestParam final long workRequestId) {
+    inputValidation(workRequestId);
 
-		final WorkRequestEntity workRequestEntity = workRequestRepository.findByWorkRequestId(workRequestId).get(0);
-		final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
-		workRequestDTO.setWorkRequestId(workRequestEntity.getId());
-		workRequestDTO.setWorkType(workRequestEntity.getWorkType());
-		final AddressDTO address = new AddressDTO();
-		address.setAddress(workRequestEntity.getAddress().getAddress());
-		address.setCity(workRequestEntity.getAddress().getCity());
-		address.setCountry(workRequestEntity.getAddress().getCountry());
-		workRequestDTO.setAddress(address);
-		workRequestDTO.setDescription(workRequestEntity.getDescription());
+    final WorkRequestEntity workRequestEntity =
+        workRequestRepository.findByWorkRequestId(workRequestId).get(0);
+    final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
+    workRequestDTO.setWorkRequestId(workRequestEntity.getId());
+    workRequestDTO.setWorkType(workRequestEntity.getWorkType());
+    final AddressDTO address = new AddressDTO();
+    address.setId(Long.parseLong(workRequestEntity.getAddress().getId()));
+    address.setAddress(workRequestEntity.getAddress().getAddress());
+    address.setCity(workRequestEntity.getAddress().getCity());
+    address.setCountry(workRequestEntity.getAddress().getCountry());
+    workRequestDTO.setAddress(address);
 
-		return workRequestDTO;
-	}
+    workRequestDTO.setDescription(workRequestEntity.getDescription());
+    return workRequestDTO;
 
-	public void inputValidation(final long workRequestId) {
-		final int workId = 1;
-		if (workRequestId < workId)
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION);
+    //    return WorkRequestUtil.convertWorkRequestEntityToDTO(workRequestEntity);
+  }
 
-	}
+  public void inputValidation(final long workRequestId) {
+    final int workId = 1;
+    if (workRequestId < workId)
+      throw new ValidationException(
+          WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
+      );
+
+  }
 
 }

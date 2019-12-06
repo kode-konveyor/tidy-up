@@ -13,37 +13,40 @@ import com.kodekonveyor.work_request.open.OpenWorkRequestController;
 
 public class CustomerWorkRequestControllerTestBase { // NOPMD
 
-	@InjectMocks
-	protected CustomerGetWorkRequestsController customerGetWorkRequestsController;
-	@InjectMocks
-	protected CreateWorkRequestController createWorkRequestController;
-	@InjectMocks
-	protected OpenWorkRequestController openWorkRequestController;
+  @InjectMocks
+  protected CustomerGetWorkRequestsController customerGetWorkRequestsController;
+  @InjectMocks
+  protected CreateWorkRequestController createWorkRequestController;
+  @InjectMocks
+  protected OpenWorkRequestController openWorkRequestController;
 
-	@Mock
-	protected WorkRequestRepository workRequestRepository;
-	@Mock
-	protected UserEntityRepository userEntityRepository;
-	@Mock
-	protected AddressEntity addressEntity;
+  @Mock
+  protected WorkRequestRepository workRequestRepository;
+  @Mock
+  protected UserEntityRepository userEntityRepository;
+  @Mock
+  protected AddressEntity addressEntity;
 
-	protected UserTestData userTestData;
-	protected WorkRequestTestData workRequestTestData;
-	protected AddressTestData addressTestData;
-	protected GetWorkRequestTestData getWorkRequestTestData;
-	protected CreateWorkRequestTestData createWorkRequestTestData;
+  protected UserTestData userTestData;
+  protected WorkRequestTestData workRequestTestData;
+  protected AddressTestData addressTestData;
+  protected GetWorkRequestTestData getWorkRequestTestData;
+  protected CreateWorkRequestTestData createWorkRequestTestData;
 
-	@BeforeEach
-	protected void setUp() {
-		userTestData = new UserTestData();
+  @BeforeEach
+  protected void setUp() {
+    userTestData = new UserTestData();
 
-		addressTestData = new AddressTestData();
-		workRequestTestData = new WorkRequestTestData(userTestData, addressTestData);
-		getWorkRequestTestData = new GetWorkRequestTestData();
-		createWorkRequestTestData = new CreateWorkRequestTestData(workRequestTestData, addressTestData);
+    addressTestData = new AddressTestData();
+    workRequestTestData =
+        new WorkRequestTestData(userTestData, addressTestData);
+    getWorkRequestTestData = new GetWorkRequestTestData();
+    createWorkRequestTestData =
+        new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 
-		WorkRequestRepositoryStub.behaviour(workRequestRepository, workRequestTestData);
-		UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
-	}
+    WorkRequestRepositoryStub
+        .behaviour(workRequestRepository, workRequestTestData);
+    UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
+  }
 
 }

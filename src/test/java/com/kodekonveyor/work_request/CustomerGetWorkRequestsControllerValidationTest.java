@@ -19,39 +19,52 @@ import com.kodekonveyor.exception.ThrowableTester;
 @TestedBehaviour("input validation")
 @TestedService("CustomerGetWorkRequestsController")
 
-public class CustomerGetWorkRequestsControllerValidationTest extends CustomerWorkRequestControllerTestBase {
+public class CustomerGetWorkRequestsControllerValidationTest
+    extends CustomerWorkRequestControllerTestBase {
 
-	@Test
-	@DisplayName("When owner ID is null, the message is 'This field cannot be blank'")
+  @Test
+  @DisplayName(
+    "When owner ID is null, the message is 'This field cannot be blank'"
+  )
 
-	public void testCustomerGetWorkRequestsControllerNullOwnerId() {
-		ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(null))
-				.assertMessageIs(getWorkRequestTestData.NULL_OWNERID);
-	}
+  public void testCustomerGetWorkRequestsControllerNullOwnerId() {
+    ThrowableTester
+        .assertThrows(() -> customerGetWorkRequestsController.call(null))
+        .assertMessageIs(getWorkRequestTestData.NULL_OWNERID);
+  }
 
-	@Test
-	@DisplayName("Owner Id cannot be negative")
-	public void testCustomerGetWorkRequestsControllerCharacterCheck1() {
-		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.NEGATIVE_OWNERID_ID))
-				.assertMessageIs(getWorkRequestTestData.NEGATIVE_OWNERID);
-	}
+  @Test
+  @DisplayName("Owner Id cannot be negative")
+  public void testCustomerGetWorkRequestsControllerCharacterCheck1() {
+    ThrowableTester
+        .assertThrows(
+            () -> customerGetWorkRequestsController
+                .call(getWorkRequestTestData.NEGATIVE_OWNERID_ID)
+        )
+        .assertMessageIs(getWorkRequestTestData.NEGATIVE_OWNERID);
+  }
 
-	@Test
-	@DisplayName("Owner Id cannot contain alphabet or special characters")
-	public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
-		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.ALPHACHAR_OWNERID_ID))
-				.assertMessageIs(getWorkRequestTestData.ALPHACHAR_OWNERID);
-	}
+  @Test
+  @DisplayName("Owner Id cannot contain alphabet or special characters")
+  public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
+    ThrowableTester
+        .assertThrows(
+            () -> customerGetWorkRequestsController
+                .call(getWorkRequestTestData.ALPHACHAR_OWNERID_ID)
+        )
+        .assertMessageIs(getWorkRequestTestData.ALPHACHAR_OWNERID);
+  }
 
-	@Test
-	@DisplayName("When owner Id is incorrect, the message is 'Invalid Owner Id'")
-	public void testCustomerGetWorkRequestsControllerInvalidOwnerId() {
-		ThrowableTester
-				.assertThrows(() -> customerGetWorkRequestsController.call(getWorkRequestTestData.INVALID_OWNERID_ID))
-				.assertMessageIs(getWorkRequestTestData.INVALID_OWNERID);
+  @Test
+  @DisplayName("When owner Id is incorrect, the message is 'Invalid Owner Id'")
+  public void testCustomerGetWorkRequestsControllerInvalidOwnerId() {
+    ThrowableTester
+        .assertThrows(
+            () -> customerGetWorkRequestsController
+                .call(getWorkRequestTestData.INVALID_OWNERID_ID)
+        )
+        .assertMessageIs(getWorkRequestTestData.INVALID_OWNERID);
 
-	}
+  }
 
 }
