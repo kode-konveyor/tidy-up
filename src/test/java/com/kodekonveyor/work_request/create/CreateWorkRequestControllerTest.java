@@ -36,6 +36,7 @@ public class CreateWorkRequestControllerTest {
 	private WorkRequestRepository workRequestRepository;
 	@Mock
 	private AuthenticatedUserService authenticatedUserService;
+
 	private WorkRequestTestData workRequestTestData;
 	private CreateWorkRequestTestData createWorkRequestTestData;
 

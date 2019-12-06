@@ -19,7 +19,7 @@ import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 
 @Controller
-public class CreateWorkRequestController { // NOPMD
+public class CreateWorkRequestController {
 	@Autowired
 	public WorkRequestRepository workRequestRepository;
 	@Autowired
@@ -29,7 +29,13 @@ public class CreateWorkRequestController { // NOPMD
 
 	@PostMapping("/work-request")
 	public void call(@RequestBody final CreateWorkRequestDTO createWorkRequestDTO) {
-		inputValidation(createWorkRequestDTO);
+
+		validateWorkType(createWorkRequestDTO);
+		validateDescrption(createWorkRequestDTO);
+		validateCustomerId(createWorkRequestDTO);
+		validateAddressDetails(createWorkRequestDTO);
+
+		validateCityAndCountry(createWorkRequestDTO);
 		createWorkRequest(createWorkRequestDTO);
 
 	}
@@ -52,41 +58,12 @@ public class CreateWorkRequestController { // NOPMD
 
 	}
 
-	public void inputValidation(final CreateWorkRequestDTO createWorkRequestDTO) {
-		if (null == createWorkRequestDTO.getWorkType())
-			throw new ValidationException(WorkRequestConstants.NULL_WORKTYPE);
-
-		if (null == createWorkRequestDTO.getDescription())
-			throw new ValidationException(WorkRequestConstants.NULL_DESCRIPTION);
-
-		if (null == createWorkRequestDTO.getAddress())
-			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS);
-
+	public void validateWorkType(final CreateWorkRequestDTO createWorkRequestDTO) {
 		if (null == createWorkRequestDTO.getCustomerId())
 			throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
 
-		if (null == createWorkRequestDTO.getAddress().getAddress())
-			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
-
-		if (null == createWorkRequestDTO.getAddress().getCity())
-			throw new ValidationException(WorkRequestConstants.NULL_CITY);
-
-		if (null == createWorkRequestDTO.getAddress().getCountry())
-			throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
-
-		if (createWorkRequestDTO.getCustomerId() < 0)
-			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
-
-		final int length = 2;
-		if (createWorkRequestDTO.getAddress().getCountry().length() != length)
-			throw new ValidationException(WorkRequestConstants.COUNTRY_LENGTH);
-
-		if (!createWorkRequestDTO.getAddress().getCountry().matches("^[a-z]*$"))
-			throw new ValidationException(WorkRequestConstants.COUNTRY_ALPHABET);
-
-		final int charLimit = 120;
-		if (createWorkRequestDTO.getAddress().getAddress().length() > charLimit)
-			throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
+		if (null == createWorkRequestDTO.getWorkType())
+			throw new ValidationException(WorkRequestConstants.NULL_WORKTYPE);
 
 		if (!createWorkRequestDTO.getWorkType().matches("^[a-zA-Z]*$"))
 			throw new ValidationException(WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE);
@@ -99,6 +76,52 @@ public class CreateWorkRequestController { // NOPMD
 
 		if (!workType.contains(createWorkRequestDTO.getWorkType()))
 			throw new ValidationException(WorkRequestConstants.INVALID_WORKTYPE);
+	}
+
+	public void validateDescrption(final CreateWorkRequestDTO createWorkRequestDTO) {
+
+		if (null == createWorkRequestDTO.getDescription())
+			throw new ValidationException(WorkRequestConstants.NULL_DESCRIPTION);
+
+	}
+
+//	public void validateAddress(final CreateWorkRequestDTO createWorkRequestDTO) {
+//		if (null == createWorkRequestDTO.getAddress())
+//			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS);
+//	}
+
+	public void validateAddressDetails(final CreateWorkRequestDTO createWorkRequestDTO) {
+
+		if (null == createWorkRequestDTO.getAddress().getAddress())
+			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
+
+		final int charLimit = 120;
+		if (createWorkRequestDTO.getAddress().getAddress().length() > charLimit)
+			throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
+
+	}
+
+	public void validateCityAndCountry(final CreateWorkRequestDTO createWorkRequestDTO) {
+
+		if (null == createWorkRequestDTO.getAddress().getCity())
+			throw new ValidationException(WorkRequestConstants.NULL_CITY);
+
+		if (null == createWorkRequestDTO.getAddress().getCountry())
+			throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
+
+		final int length = 2;
+		if (createWorkRequestDTO.getAddress().getCountry().length() != length)
+			throw new ValidationException(WorkRequestConstants.COUNTRY_LENGTH);
+
+		if (!createWorkRequestDTO.getAddress().getCountry().matches("^[a-z]*$"))
+			throw new ValidationException(WorkRequestConstants.COUNTRY_ALPHABET);
+
+	}
+
+	public void validateCustomerId(final CreateWorkRequestDTO createWorkRequestDTO) {
+
+		if (createWorkRequestDTO.getCustomerId() < 0)
+			throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
 
 	}
 

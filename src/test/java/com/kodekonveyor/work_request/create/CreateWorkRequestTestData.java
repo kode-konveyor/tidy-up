@@ -3,11 +3,11 @@ package com.kodekonveyor.work_request.create;
 import com.kodekonveyor.work_request.AddressTestData;
 import com.kodekonveyor.work_request.WorkRequestTestData;
 
-public class CreateWorkRequestTestData {
+public class CreateWorkRequestTestData { // NOPMD
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_WORKTYPE;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_DESCRIPTION;
-	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_ADDRESS;
+//	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_ADDRESS;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_CUSTOMERID;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_ADDRESS_STRING;
 	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_COUNTRY;
@@ -39,7 +39,7 @@ public class CreateWorkRequestTestData {
 	public final String NULL_WORKTYPE = "Blank Work Type";
 
 	public final AddressTestData addressTestData;
-	public final WorkRequestTestData workRequestTestData;
+	public final WorkRequestTestData workRequestTestData; // NOPMD
 
 	public CreateWorkRequestTestData(final WorkRequestTestData workRequestTestData,
 			final AddressTestData addressTestData) {
@@ -49,7 +49,7 @@ public class CreateWorkRequestTestData {
 		CREATE_WORK_REQUEST = createCREATE_WORK_REQUEST();
 		CREATE_WORK_REQUEST_NULL_CITY = createCREATE_WORK_REQUEST_NULL_CITY();
 		CREATE_WORK_REQUEST_COUNTRY_LENGTH = createCREATE_WORK_REQUEST_COUNTRY_LENGTH();
-		CREATE_WORK_REQUEST_NULL_ADDRESS = createCREATE_WORK_REQUEST_NULL_ADDRESS();
+//		CREATE_WORK_REQUEST_NULL_ADDRESS = createCREATE_WORK_REQUEST_NULL_ADDRESS();
 		CREATE_WORK_REQUEST_NULL_CUSTOMERID = createCREATE_WORK_REQUEST_NULL_CUSTOMERID();
 		CREATE_WORK_REQUEST_NULL_DESCRIPTION = createCREATE_WORK_REQUEST_NULL_DESCRIPTION();
 		CREATE_WORK_REQUEST_NULL_WORKTYPE = createCREATE_WORK_REQUEST_NULL_WORKTYPE();
@@ -132,12 +132,12 @@ public class CreateWorkRequestTestData {
 		return dto;
 	}
 
-	private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_ADDRESS() {
-		final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
-		dto.setAddress(null);
-		return dto;
-
-	}
+//	private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_ADDRESS() {
+//		final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
+//		dto.setAddress(null);
+//		return dto;
+//
+//	}
 
 	private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_CITY() {
 		final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();

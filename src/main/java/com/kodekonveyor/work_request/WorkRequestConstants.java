@@ -1,6 +1,6 @@
 package com.kodekonveyor.work_request;
 
-public class WorkRequestConstants {
+public class WorkRequestConstants { // NOPMD
 
 	public static String NULL_DESCRIPTION = "Blank Description";
 	public static String NULL_WORKTYPE = "Blank Work Type";

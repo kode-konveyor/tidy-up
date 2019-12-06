@@ -42,16 +42,6 @@ public class CreateWorkRequestControllerValidationTests extends CustomerWorkRequ
 	}
 
 	@Test
-	@DisplayName("Address cannot be null")
-	public void testCreateWorkRequestAddress() {
-
-		ThrowableTester.assertThrows(
-				() -> createWorkRequestController.call(createWorkRequestTestData.CREATE_WORK_REQUEST_NULL_ADDRESS))
-				.assertMessageIs(createWorkRequestTestData.NULL_ADDRESS);
-
-	}
-
-	@Test
 	@DisplayName("Customer Id cannot be null")
 	public void testCreateWorkRequestCustomerId() {
 

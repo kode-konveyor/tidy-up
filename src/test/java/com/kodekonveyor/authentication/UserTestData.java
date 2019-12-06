@@ -3,7 +3,7 @@ package com.kodekonveyor.authentication;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserTestData {
+public class UserTestData { // NOPMD
 
 	public final String AUTH0ID = "github|424242@kode-konveyor.eu.auth0.com/";
 	public final String BAD_AUTH0ID = "github|424241@kode-konveyor.eu.auth0.com/";
