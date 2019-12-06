@@ -13,7 +13,6 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
-import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -21,7 +20,7 @@ import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
 @TestedBehaviour("Data access")
 @TestedService("OpenWorkRequestController")
 public class OpenWorkRequestControllerTest
-    extends CustomerWorkRequestControllerTestBase {
+    extends OpenWorkRequestControllerTestBase {
 
   @Test
   @DisplayName("Controller returns right DTO based on requestId")
