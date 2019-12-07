@@ -18,7 +18,7 @@ public class OpenWorkRequestController {
   @Autowired
   private WorkRequestRepository workRequestRepository;
 
-  @GetMapping("workRequest/own/@workRequestId")
+  @GetMapping("/workRequest/own/@workRequestId")
   public WorkRequestDTO call(@RequestParam final long workRequestId) {
     inputValidation(workRequestId);
 
@@ -28,7 +28,7 @@ public class OpenWorkRequestController {
     workRequestDTO.setWorkRequestId(workRequestEntity.getId());
     workRequestDTO.setWorkType(workRequestEntity.getWorkType());
     final AddressDTO address = new AddressDTO();
-    address.setId(Long.parseLong(workRequestEntity.getAddress().getId()));
+    address.setId(workRequestEntity.getAddress().getId());
     address.setAddress(workRequestEntity.getAddress().getAddress());
     address.setCity(workRequestEntity.getAddress().getCity());
     address.setCountry(workRequestEntity.getAddress().getCountry());

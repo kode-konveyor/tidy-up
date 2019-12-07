@@ -20,18 +20,16 @@ public class CustomerGetWorkRequestsController {
 
   public WorkRequestListDTO call(final String ownerId) {
     inputValidation(ownerId);
-
     final Optional<UserEntity> user =
         userEntityRepository.findById(Long.parseLong(ownerId));
     final List<WorkRequestEntity> requests =
         workRequestRepository.findByCustomer(user.get());
 
     final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
+
     final AddressDTO address = new AddressDTO();
-
+    final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
     for (final WorkRequestEntity workRequestEntity : requests) {
-
-      final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
 
       workRequestDTO.setWorkType(workRequestEntity.getWorkType());
 
@@ -39,7 +37,7 @@ public class CustomerGetWorkRequestsController {
       address.setAddress(workRequestEntity.getAddress().getAddress());
       address.setCity(workRequestEntity.getAddress().getCity());
       address.setCountry(workRequestEntity.getAddress().getCountry());
-      address.setId(Long.parseLong(workRequestEntity.getAddress().getId()));
+      address.setId(workRequestEntity.getAddress().getId());
       workRequestDTO.setAddress(address);
       workRequestDTO.setDescription(workRequestEntity.getDescription());
       workRequestListDTO.getRequests().add(workRequestDTO);
@@ -47,20 +45,15 @@ public class CustomerGetWorkRequestsController {
 
     if (requests.isEmpty())
       throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
+
     return workRequestListDTO;
-
   }
 
-  public WorkRequestDTO createWorkRequest() {
-    return null;
-
-  }
-
-  public void inputValidation(final String ownerId) { // NOPMD
+  private void inputValidation(final String ownerId) {
     if (null == ownerId)
       throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 
-    if (ownerId.startsWith("-")) // NOPMD
+    if ('-' == ownerId.charAt(0))
       throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
 
     if (!ownerId.matches("[0-9]+"))

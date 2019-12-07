@@ -1,9 +1,6 @@
 
 package com.kodekonveyor.work_request.create;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +14,7 @@ import com.kodekonveyor.work_request.AddressEntity;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
+import com.kodekonveyor.work_request.WorkTypeEnum;
 
 @Controller
 public class CreateWorkRequestController {
@@ -27,6 +25,8 @@ public class CreateWorkRequestController {
   public UserEntityRepository userEntityRepository;
   @Autowired
   public AuthenticatedUserService authenticatedUserService;
+  @Autowired
+  public WorkTypeEnum workTypeEnum;
 
   @PostMapping("/work-request")
   public void
@@ -42,14 +42,14 @@ public class CreateWorkRequestController {
 
   }
 
-  public WorkRequestEntity createWorkRequest(
-      @RequestBody final CreateWorkRequestDTO createWorkRequestDTO
+  private void createWorkRequest(
+      final CreateWorkRequestDTO createWorkRequestDTO
   ) {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
     workRequestEntity.setWorkType(createWorkRequestDTO.getWorkType());
     final UserEntity userEntity = authenticatedUserService.call();
     final AddressEntity addressEntity = new AddressEntity();
-    addressEntity.setId(Long.toString(createWorkRequestDTO.getCustomerId()));
+    addressEntity.setId(createWorkRequestDTO.getCustomerId());
     addressEntity.setAddress(createWorkRequestDTO.getAddress().getAddress());
     addressEntity.setCity(createWorkRequestDTO.getAddress().getCity());
     addressEntity.setCountry(createWorkRequestDTO.getAddress().getCountry());
@@ -57,12 +57,11 @@ public class CreateWorkRequestController {
     workRequestEntity.setId(createWorkRequestDTO.getCustomerId());
     workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
     workRequestEntity.setAddress(addressEntity);
-
-    return workRequestRepository.save(workRequestEntity);
+    workRequestRepository.save(workRequestEntity);
 
   }
 
-  public void
+  private void
       validateWorkType(final CreateWorkRequestDTO createWorkRequestDTO) {
     if (null == createWorkRequestDTO.getCustomerId())
       throw new ValidationException(WorkRequestConstants.NULL_CUSTOMERID);
@@ -75,17 +74,13 @@ public class CreateWorkRequestController {
           WorkRequestConstants.DIGIT_SPECIAL_CHARACTER_WORKTYPE
       );
 
-    final List<String> workType = new ArrayList<>();
-    workType.add("PLUMBING");
-    workType.add("ELECTRICAL REPAIRMENT");
-    workType.add("CLEANING");
-    workType.add("OTHER");
-
-    if (!workType.contains(createWorkRequestDTO.getWorkType()))
-      throw new ValidationException(WorkRequestConstants.INVALID_WORKTYPE);
+    //    WorkTypeEnum.values();
+    //
+    //    if (WorkTypeEnum.values() != null)
+    //      throw new ValidationException(WorkRequestConstants.INVALID_WORKTYPE);
   }
 
-  public void
+  private void
       validateDescrption(final CreateWorkRequestDTO createWorkRequestDTO) {
 
     if (null == createWorkRequestDTO.getDescription())
@@ -98,7 +93,7 @@ public class CreateWorkRequestController {
   //			throw new ValidationException(WorkRequestConstants.NULL_ADDRESS);
   //	}
 
-  public void
+  private void
       validateAddressDetails(final CreateWorkRequestDTO createWorkRequestDTO) {
 
     if (null == createWorkRequestDTO.getAddress().getAddress())
@@ -110,7 +105,7 @@ public class CreateWorkRequestController {
 
   }
 
-  public void
+  private void
       validateCityAndCountry(final CreateWorkRequestDTO createWorkRequestDTO) {
 
     if (null == createWorkRequestDTO.getAddress().getCity())
@@ -128,7 +123,7 @@ public class CreateWorkRequestController {
 
   }
 
-  public void
+  private void
       validateCustomerId(final CreateWorkRequestDTO createWorkRequestDTO) {
 
     if (createWorkRequestDTO.getCustomerId() < 0)

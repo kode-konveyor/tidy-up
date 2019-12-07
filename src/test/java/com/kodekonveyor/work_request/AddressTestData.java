@@ -93,7 +93,7 @@ public class AddressTestData { // NOPMD
 
   private AddressEntity createADDRESS_ENTITY() {
     final AddressEntity entity = new AddressEntity();
-    entity.setId(ADDRESS_ID);
+    entity.setId(Long.parseLong(ADDRESS_ID));
     entity.setAddress(ADDRESS);
     entity.setCity(CITY);
     entity.setCountry(COUNTRY);

@@ -18,8 +18,8 @@ import com.kodekonveyor.exception.ThrowableTester;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("input validation")
 @TestedService("CreateWorkRequestController")
-public class CreateWorkRequestControllerValidationTests // NOPMD
-    extends CreateWorkRequestControllerTestBase {// NOPMD
+public class CreateWorkRequestControllerValidationTests
+    extends CreateWorkRequestControllerTestBase {
 
   @Test
   @DisplayName("Work type cannot be null")
@@ -167,19 +167,19 @@ public class CreateWorkRequestControllerValidationTests // NOPMD
 
   }
 
-  @Test
-  @DisplayName("Invalid Work type ")
-  public void testCreateWorkRequestWorkType2() {
+  //  @Test
+  //  @DisplayName("Invalid Work type ")
+  //  public void testCreateWorkRequestWorkType2() {
+  //
+  //    ThrowableTester.assertThrows(
+  //        () -> createWorkRequestController.call(
+  //            createWorkRequestTestData.CREATE_WORK_REQUEST_INVALID_WORKTYPE
+  //        )
+  //    )
+  //        .assertMessageIs(
+  //            createWorkRequestTestData.INVALID_WORKTYPE_ERROR_MESSAGE
+  //        );
 
-    ThrowableTester.assertThrows(
-        () -> createWorkRequestController.call(
-            createWorkRequestTestData.CREATE_WORK_REQUEST_INVALID_WORKTYPE
-        )
-    )
-        .assertMessageIs(
-            createWorkRequestTestData.INVALID_WORKTYPE_ERROR_MESSAGE
-        );
-
-  }
+  //  }
 
 }
