@@ -18,6 +18,7 @@ import com.kodekonveyor.exception.ThrowableTester;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("input validation")
 @TestedService("CreateWorkRequestController")
+
 public class CreateWorkRequestControllerValidationTests
     extends CreateWorkRequestControllerTestBase {
 

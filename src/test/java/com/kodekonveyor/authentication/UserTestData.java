@@ -52,7 +52,7 @@ public class UserTestData { // NOPMD
 
   private UserEntity createNO_REQUEST_USER() {
     final UserEntity userEntity = createUSER();
-    userEntity.setId(Long.parseLong(NO_WORKREQUESTS_ID));
+    userEntity.setId(NO_WORKREQUESTS_ID_ASLONG);
     return userEntity;
 
   }

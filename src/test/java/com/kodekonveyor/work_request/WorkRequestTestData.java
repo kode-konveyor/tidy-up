@@ -7,6 +7,9 @@ import com.kodekonveyor.authentication.UserTestData;
 
 public class WorkRequestTestData {
 
+  public final String NO_WORKREQUESTS = "No Work Request";
+  public final String NO_WORKREQUESTS_ID = "4243";
+
   public final WorkRequestDTO WORK_REQUEST_DTO;
   public WorkRequestListDTO WORK_REQUEST_LIST_DTO;
   public final WorkRequestEntity WORK_REQUEST_ENTITY;

@@ -20,6 +20,7 @@ public class CustomerGetWorkRequestsController {
 
   public WorkRequestListDTO call(final String ownerId) {
     inputValidation(ownerId);
+
     final Optional<UserEntity> user =
         userEntityRepository.findById(Long.parseLong(ownerId));
     final List<WorkRequestEntity> requests =
@@ -53,7 +54,8 @@ public class CustomerGetWorkRequestsController {
     if (null == ownerId)
       throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 
-    if ('-' == ownerId.charAt(0))
+    final char minusSign = '-';
+    if (minusSign == ownerId.charAt(0))
       throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
 
     if (!ownerId.matches("[0-9]+"))

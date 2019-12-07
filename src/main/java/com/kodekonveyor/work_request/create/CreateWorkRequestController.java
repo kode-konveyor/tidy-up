@@ -17,7 +17,7 @@ import com.kodekonveyor.work_request.WorkRequestRepository;
 import com.kodekonveyor.work_request.WorkTypeEnum;
 
 @Controller
-public class CreateWorkRequestController {
+public class CreateWorkRequestController { //NOPMD
 
   @Autowired
   public WorkRequestRepository workRequestRepository;

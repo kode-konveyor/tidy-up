@@ -38,9 +38,9 @@ public class CustomerGetWorkRequestsControllerTest
   //    ThrowableTester
   //        .assertThrows(
   //            () -> customerGetWorkRequestsController
-  //                .call(getWorkRequestTestData.NO_WORKREQUESTS_ID)
+  //                .call(workRequestTestData.NO_WORKREQUESTS_ID)
   //        )
-  //        .assertMessageIs(getWorkRequestTestData.NO_WORKREQUESTS);
+  //        .assertMessageIs(workRequestTestData.NO_WORKREQUESTS);
   //  }
 
   @Test
