@@ -19,7 +19,7 @@ import com.kodekonveyor.exception.ThrowableTester;
 @TestedBehaviour("input validation")
 @TestedService("CreateWorkRequestController")
 
-public class CreateWorkRequestControllerValidationTests
+public class CreateWorkRequestControllerValidationTest
     extends CreateWorkRequestControllerTestBase {
 
   @Test
@@ -98,89 +98,5 @@ public class CreateWorkRequestControllerValidationTests
         .assertMessageIs(addressTestData.NULL_COUNTRY);
 
   }
-
-  @Test
-  @DisplayName("Country cannot be more or less than 2 letter")
-  public void testCreateWorkRequestCountryCodeLenght() {
-
-    ThrowableTester.assertThrows(
-        () -> createWorkRequestController
-            .call(createWorkRequestTestData.CREATE_WORK_REQUEST_COUNTRY_LENGTH)
-    )
-        .assertMessageIs(addressTestData.COUNTRY_LENGTH_ERROR_MESSAGE);
-
-  }
-
-  @Test
-  @DisplayName("Country can contains only alphahets")
-  public void testCreateWorkRequestCountryCodeDigit() {
-
-    ThrowableTester.assertThrows(
-        () -> createWorkRequestController.call(
-            createWorkRequestTestData.CREATE_WORK_REQUEST_COUNTRY_ALPHABET
-        )
-    )
-        .assertMessageIs(addressTestData.COUNTRY_CODE_ALPHABET);
-
-  }
-
-  @Test
-  @DisplayName("Address can contains only 120 characters")
-  public void testCreateWorkRequestAddressLength() {
-
-    ThrowableTester.assertThrows(
-        () -> createWorkRequestController
-            .call(createWorkRequestTestData.CREATE_WORK_REQUEST_ADDRESS_LENGTH)
-    )
-        .assertMessageIs(addressTestData.ADDRESS_LENGTHEXCEED);
-
-  }
-
-  @Test
-  @DisplayName("Customer Id cannot be negative")
-  public void testCreateWorkRequestCustomerId1() {
-    ThrowableTester
-        .assertThrows(
-            () -> createWorkRequestController
-                .call(
-                    createWorkRequestTestData.CREATE_WORK_REQUEST_NEGATIVE_CUSTOMERID
-                )
-        )
-        .assertMessageIs(
-            createWorkRequestTestData.NEGATIVE_CUSTOMERID_ERROR_MESSAGE
-        );
-  }
-
-  @Test
-  @DisplayName("Work type cannot contain digits")
-  public void testCreateWorkRequestWorkType1() {
-
-    ThrowableTester
-        .assertThrows(
-            () -> createWorkRequestController
-                .call(
-                    createWorkRequestTestData.CREATE_WORK_REQUEST_DIGIT_SPECIAL_CHARACTER_WORKTYPE
-                )
-        )
-        .assertMessageIs(
-            createWorkRequestTestData.DIGIT_SPECIAL_CHARACTER_WORKTYPE_ERROR
-        );
-
-  }
-
-  //  @Test
-  //  @DisplayName("Invalid Work type ")
-  //  public void testCreateWorkRequestWorkType2() {
-  //
-  //    ThrowableTester.assertThrows(
-  //        () -> createWorkRequestController.call(
-  //            createWorkRequestTestData.CREATE_WORK_REQUEST_INVALID_WORKTYPE
-  //        )
-  //    )
-  //        .assertMessageIs(
-  //            createWorkRequestTestData.INVALID_WORKTYPE_ERROR_MESSAGE
-  //        );
-
-  //  }
 
 }
