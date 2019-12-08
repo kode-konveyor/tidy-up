@@ -1,5 +1,7 @@
 package com.kodekonveyor.work_request.open;
 
+import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -9,7 +11,7 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
-import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
+import com.kodekonveyor.exception.ThrowableTester;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -17,17 +19,22 @@ import com.kodekonveyor.work_request.CustomerWorkRequestControllerTestBase;
 @TestedBehaviour("input validation")
 @TestedService("OpenWorkRequestController")
 
-class OpenWorkRequestControllerValidationTest extends CustomerWorkRequestControllerTestBase {
+class OpenWorkRequestControllerValidationTest
+    extends OpenWorkRequestControllerTestBase {
 
-//	@InjectMocks
-//	private OpenWorkRequestController openWorkRequestController;
-//
-//	@Test
-//	@DisplayName("Work Request Id cannot be negative")
-//	public void testWorkRequestNegativeId() {
-//		ThrowableTester.assertThrows(() -> openWorkRequestController.call(workRequestTestData.NEGATIVE_WORK_REQUEST_ID))
-//				.assertMessageIs(workRequestTestData.NEGATIVE_WORK_REQUEST_ID_EXCEPTION);
+  private OpenWorkRequestControllerTestData openWorkRequestControllerTestData;
 
-//	}
+  @Test
+  @DisplayName("Work Request Id cannot be negative")
+  public void testWorkRequestNegativeId() {
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call(openWorkRequestControllerTestData.NEGATIVE_WORK_REQUEST_ID)
+    )
+        .assertMessageIs(
+            openWorkRequestControllerTestData.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
+        );
+
+  }
 
 }
