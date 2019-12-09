@@ -23,8 +23,14 @@ public class CustomerGetWorkRequestsController {
 
     final Optional<UserEntity> user =
         userEntityRepository.findById(Long.parseLong(ownerId));
+    if (user.isEmpty())
+      throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
+
     final List<WorkRequestEntity> requests =
         workRequestRepository.findByCustomer(user.get());
+
+    if (requests.isEmpty())
+      throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
 
     final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
 
@@ -44,9 +50,6 @@ public class CustomerGetWorkRequestsController {
       workRequestListDTO.getRequests().add(workRequestDTO);
     }
 
-    if (requests.isEmpty())
-      throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
-
     return workRequestListDTO;
   }
 
@@ -60,11 +63,6 @@ public class CustomerGetWorkRequestsController {
 
     if (!ownerId.matches("[0-9]+"))
       throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
-
-    final Optional<UserEntity> user =
-        userEntityRepository.findById(Long.parseLong(ownerId));
-    if (user.isEmpty())
-      throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
 
   }
 

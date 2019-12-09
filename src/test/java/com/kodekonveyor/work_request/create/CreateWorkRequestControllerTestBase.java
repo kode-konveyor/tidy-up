@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import com.kodekonveyor.authentication.AuthenticatedUserService;
+import com.kodekonveyor.authentication.AuthenticatedUserStubs;
 import com.kodekonveyor.authentication.UserEntityRepository;
 import com.kodekonveyor.authentication.UserEntityRepositoryStubs;
 import com.kodekonveyor.authentication.UserTestData;
@@ -24,6 +26,8 @@ public class CreateWorkRequestControllerTestBase {
   UserEntityRepository userEntityRepository;
   @Mock
   AddressEntity addressEntity;
+  @Mock
+  AuthenticatedUserService authenticatedUserService;
 
   UserTestData userTestData;
   WorkRequestTestData workRequestTestData;
@@ -39,11 +43,12 @@ public class CreateWorkRequestControllerTestBase {
         new WorkRequestTestData(userTestData, addressTestData);
     createWorkRequestTestData =
         new CreateWorkRequestTestData(workRequestTestData, addressTestData);
-    createWorkRequestController = new CreateWorkRequestController();
 
     WorkRequestRepositoryStub
         .behaviour(workRequestRepository, workRequestTestData);
     UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
+
+    AuthenticatedUserStubs.behaviour(authenticatedUserService, userTestData);
   }
 
 }
