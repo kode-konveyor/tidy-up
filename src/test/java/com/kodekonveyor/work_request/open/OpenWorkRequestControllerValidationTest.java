@@ -38,6 +38,32 @@ class OpenWorkRequestControllerValidationTest
   }
 
   @Test
+  @DisplayName("Invalid work request Id")
+  public void testWorkRequestInvalidId() {
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call(openWorkRequestControllerTestData.INVALID_WORK_REQUEST_ID)
+    )
+        .assertMessageIs(
+            openWorkRequestControllerTestData.INVALID_WORK_REQUEST_ID_EXCEPTION
+        );
+
+  }
+
+  @Test
+  @DisplayName("Work Request Id cannot be zero")
+  public void testWorkRequestZeroId() {
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call(0)
+    )
+        .assertMessageIs(
+            openWorkRequestControllerTestData.ZERO_WORK_REQUEST_ID_EXCEPTION
+        );
+
+  }
+
+  @Test
   @DisplayName("Work Request Id cannot be null")
   public void testWorkRequestNullId() {
     ThrowableTester.assertThrows(

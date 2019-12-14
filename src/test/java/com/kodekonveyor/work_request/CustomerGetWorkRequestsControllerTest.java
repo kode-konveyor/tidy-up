@@ -21,7 +21,7 @@ import com.kodekonveyor.annotations.TestedService;
 @TestedService("CustomerGetWorkRequestsController")
 
 public class CustomerGetWorkRequestsControllerTest
-    extends CustomerWorkRequestControllerTestBase {
+    extends CustomerWorkRequestsControllerTestBase {
 
   @Test
   @DisplayName("We return the right work request list for the owner ID")

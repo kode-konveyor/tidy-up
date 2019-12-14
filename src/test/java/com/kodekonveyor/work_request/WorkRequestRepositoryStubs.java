@@ -4,7 +4,7 @@ import static org.mockito.Mockito.doReturn;
 
 import java.util.List;
 
-public class WorkRequestRepositoryStub { // NOPMD
+public class WorkRequestRepositoryStubs { // NOPMD
 
   public static void behaviour(
       final WorkRequestRepository workRequestRepository,

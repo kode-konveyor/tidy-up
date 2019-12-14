@@ -99,9 +99,16 @@ public class CreateWorkRequestController { //NOPMD
     if (null == createWorkRequestDTO.getAddress().getAddress())
       throw new ValidationException(WorkRequestConstants.NULL_ADDRESS_STRING);
 
-    final int charLimit = 121;
-    if (createWorkRequestDTO.getAddress().getAddress().length() >= charLimit)
+    final int charLimit = 120;
+    if (createWorkRequestDTO.getAddress().getAddress().length() == charLimit)
+      throw new ValidationException(WorkRequestConstants.ADDRESS_MAX_LENGTH);
+
+    if (!(createWorkRequestDTO.getAddress().getAddress().length() <= charLimit))
       throw new ValidationException(WorkRequestConstants.ADDRESS_LENGTH);
+
+    final int charLimit1 = 0;
+    if (createWorkRequestDTO.getAddress().getAddress().length() == charLimit1)
+      throw new ValidationException(WorkRequestConstants.ZERO_ADDRESS_LENGTH);
 
   }
 
@@ -126,8 +133,11 @@ public class CreateWorkRequestController { //NOPMD
   private void
       validateCustomerId(final CreateWorkRequestDTO createWorkRequestDTO) {
 
-    if (createWorkRequestDTO.getCustomerId() <= 0)
+    if (createWorkRequestDTO.getCustomerId() < 0)
       throw new ValidationException(WorkRequestConstants.NEGATIVE_CUSTOMERID);
+
+    if (createWorkRequestDTO.getCustomerId() == 0)
+      throw new ValidationException(WorkRequestConstants.ZERO_CUSTOMERID);
 
   }
 

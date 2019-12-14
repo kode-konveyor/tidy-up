@@ -50,6 +50,10 @@ public class CreateWorkRequestTestData { // NOPMD
   public final WorkRequestTestData workRequestTestData; // NOPMD
   public final String CUSTOMER_ID_LENGTH_ERROR =
       "Customer ID should not be longer than 4 digit";
+  public final CreateWorkRequestDTO CREATE_WORK_REQUEST_ZERO_CUSTOMERID;
+  public String ZERO_CUSTOMERID_ERROR_MESSAGE = "Customer Id cannot be zero";
+  public CreateWorkRequestDTO CREATE_WORK_REQUEST_ZERO_ADDRESS_LENGTH;
+  public CreateWorkRequestDTO CREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH;
 
   public CreateWorkRequestTestData(
       final WorkRequestTestData workRequestTestData,
@@ -84,6 +88,30 @@ public class CreateWorkRequestTestData { // NOPMD
     CREATE_WORK_REQUEST_NULL_COUNTRY = createCREATE_WORK_REQUEST_NULL_COUNTRY();
     CREATE_WORK_REQUEST_CUSTOMER_ID_LENGTH =
         createCREATE_WORK_REQUEST_CUSTOMER_ID_LENGTH();
+    CREATE_WORK_REQUEST_ZERO_CUSTOMERID =
+        createCREATE_WORK_REQUEST_ZERO_CUSTOMERID();
+    CREATE_WORK_REQUEST_ZERO_ADDRESS_LENGTH =
+        createCREATE_WORK_REQUEST_ZERO_ADDRESS_LENGTH();
+    CREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH =
+        createCREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH();
+  }
+
+  private CreateWorkRequestDTO createCREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH() {
+    final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
+    dto.setAddress(addressTestData.MAX_ADDRESS_DTO);
+    return dto;
+  }
+
+  private CreateWorkRequestDTO createCREATE_WORK_REQUEST_ZERO_ADDRESS_LENGTH() {
+    final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
+    dto.setAddress(addressTestData.ZERO_ADDRESS_DTO);
+    return dto;
+  }
+
+  private CreateWorkRequestDTO createCREATE_WORK_REQUEST_ZERO_CUSTOMERID() {
+    final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
+    dto.setCustomerId((long) 0);
+    return dto;
   }
 
   private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_COUNTRY() {

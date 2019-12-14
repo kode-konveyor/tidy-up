@@ -60,6 +60,34 @@ public class CreateWorkRequestControllerValidation2Test
   }
 
   @Test
+  @DisplayName("Address can contains only 120 characters")
+  public void testCreateWorkRequestZeroAddressLength() {
+
+    ThrowableTester.assertThrows(
+        () -> createWorkRequestController
+            .call(
+                createWorkRequestTestData.CREATE_WORK_REQUEST_ZERO_ADDRESS_LENGTH
+            )
+    )
+        .assertMessageIs(addressTestData.ADDRESS_ZERO_LENGTH);
+
+  }
+
+  @Test
+  @DisplayName("Address reached max limit")
+  public void testCreateWorkRequestZeroAddressLength1() {
+
+    ThrowableTester.assertThrows(
+        () -> createWorkRequestController
+            .call(
+                createWorkRequestTestData.CREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH
+            )
+    )
+        .assertMessageIs(addressTestData.ADDRESS_MAX_LENGTH);
+
+  }
+
+  @Test
   @DisplayName("Customer Id cannot be negative")
   public void testCreateWorkRequestCustomerId1() {
     ThrowableTester
@@ -71,6 +99,21 @@ public class CreateWorkRequestControllerValidation2Test
         )
         .assertMessageIs(
             createWorkRequestTestData.NEGATIVE_CUSTOMERID_ERROR_MESSAGE
+        );
+  }
+
+  @Test
+  @DisplayName("Customer Id cannot be zero")
+  public void testCreateWorkRequestZeroCustomerId() {
+    ThrowableTester
+        .assertThrows(
+            () -> createWorkRequestController
+                .call(
+                    createWorkRequestTestData.CREATE_WORK_REQUEST_ZERO_CUSTOMERID
+                )
+        )
+        .assertMessageIs(
+            createWorkRequestTestData.ZERO_CUSTOMERID_ERROR_MESSAGE
         );
   }
 

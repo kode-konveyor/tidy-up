@@ -20,7 +20,7 @@ import com.kodekonveyor.exception.ThrowableTester;
 @TestedService("CustomerGetWorkRequestsController")
 
 public class CustomerGetWorkRequestsControllerValidationTest
-    extends CustomerWorkRequestControllerTestBase {
+    extends CustomerWorkRequestsControllerTestBase {
 
   @Test
   @DisplayName(

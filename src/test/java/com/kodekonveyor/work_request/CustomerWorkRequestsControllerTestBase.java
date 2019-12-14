@@ -7,15 +7,12 @@ import org.mockito.Mock;
 import com.kodekonveyor.authentication.UserEntityRepository;
 import com.kodekonveyor.authentication.UserEntityRepositoryStubs;
 import com.kodekonveyor.authentication.UserTestData;
-import com.kodekonveyor.work_request.create.CreateWorkRequestController;
 import com.kodekonveyor.work_request.create.CreateWorkRequestTestData;
 
-public class CustomerWorkRequestControllerTestBase { // NOPMD
+public class CustomerWorkRequestsControllerTestBase { // NOPMD
 
   @InjectMocks
   CustomerGetWorkRequestsController customerGetWorkRequestsController;
-  @InjectMocks
-  CreateWorkRequestController createWorkRequestController;
 
   @Mock
   WorkRequestRepository workRequestRepository;
@@ -41,7 +38,7 @@ public class CustomerWorkRequestControllerTestBase { // NOPMD
     createWorkRequestTestData =
         new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 
-    WorkRequestRepositoryStub
+    WorkRequestRepositoryStubs
         .behaviour(workRequestRepository, workRequestTestData);
     UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
   }

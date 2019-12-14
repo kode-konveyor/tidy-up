@@ -1,5 +1,7 @@
 package com.kodekonveyor.work_request.open;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
+import com.kodekonveyor.work_request.WorkRequestUtil;
 
 @Controller
 public class OpenWorkRequestController {
@@ -24,6 +27,7 @@ public class OpenWorkRequestController {
 
     final WorkRequestEntity workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId).get(0);
+
     final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
     workRequestDTO.setWorkRequestId(workRequestEntity.getId());
     workRequestDTO.setWorkType(workRequestEntity.getWorkType());
@@ -35,17 +39,28 @@ public class OpenWorkRequestController {
     workRequestDTO.setAddress(address);
 
     workRequestDTO.setDescription(workRequestEntity.getDescription());
-    return workRequestDTO;
+    //    return workRequestDTO;
 
-    //    return WorkRequestUtil.convertWorkRequestEntityToDTO(workRequestEntity);
+    return WorkRequestUtil.convertWorkRequestEntityToDTO(workRequestEntity);
   }
 
   public void inputValidation(final long workRequestId) {
 
     final int workId = 0;
-    if (workRequestId <= workId)
+    if (workRequestId < workId)
       throw new ValidationException(
           WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
+      );
+    if (workRequestId == workId)
+      throw new ValidationException(
+          WorkRequestConstants.ZERO_WORK_REQUEST_ID_EXCEPTION
+      );
+
+    final List<WorkRequestEntity> workRequestEntity =
+        workRequestRepository.findByWorkRequestId(workRequestId);
+    if (workRequestEntity.isEmpty())
+      throw new ValidationException(
+          WorkRequestConstants.INVALID_WORK_REQUEST_ID_EXCEPTION
       );
 
   }

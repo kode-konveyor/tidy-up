@@ -12,7 +12,7 @@ import com.kodekonveyor.authentication.UserTestData;
 import com.kodekonveyor.work_request.AddressEntity;
 import com.kodekonveyor.work_request.AddressTestData;
 import com.kodekonveyor.work_request.WorkRequestRepository;
-import com.kodekonveyor.work_request.WorkRequestRepositoryStub;
+import com.kodekonveyor.work_request.WorkRequestRepositoryStubs;
 import com.kodekonveyor.work_request.WorkRequestTestData;
 
 public class CreateWorkRequestControllerTestBase {
@@ -44,7 +44,7 @@ public class CreateWorkRequestControllerTestBase {
     createWorkRequestTestData =
         new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 
-    WorkRequestRepositoryStub
+    WorkRequestRepositoryStubs
         .behaviour(workRequestRepository, workRequestTestData);
     UserEntityRepositoryStubs.behaviour(userEntityRepository, userTestData);
 

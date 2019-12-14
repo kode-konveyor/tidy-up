@@ -16,7 +16,7 @@ public class AddressTestData { // NOPMD
   public final String COUNTRY_LENGHT = "eefg";
   public final String COUNTRY_ALPHABET = "3e";
   public final String ADDRESS_LENGTH =
-      "123, sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgytutu";
+      "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgytut";
   public final String ADDRESS_ID = "4242";
   public final String ADDRESS = "Männimäe, 74626";
 
@@ -31,6 +31,17 @@ public class AddressTestData { // NOPMD
   public final String ADDRESS_LENGTHEXCEED =
       "Address can contains only 120 characters";
 
+  public AddressDTO ZERO_ADDRESS_DTO;
+
+  public String ADDRESS_ZERO_LENGTH = "Address cannot be blank";
+
+  public String ADDRESS_MAX_LENGTH = "Address reached max limit";
+
+  public AddressDTO MAX_ADDRESS_DTO;
+
+  private final String MAX_ADDRESS_LENGTH =
+      "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgytu";
+
   public AddressTestData() {
 
     ADDRESS_ENTITY = createADDRESS_ENTITY();
@@ -42,7 +53,21 @@ public class AddressTestData { // NOPMD
     ADDRESS_DTO_COUNTRY_LENGTH = createADDRESS_DTO_COUNTRY_LENGTH();
     ADDRESS_DTO_COUNRTY_ALPHABET = createADDRESS_DTO_COUNRTY_ALPHABET();
     ADDRESS_DTO_ADDRESS_LENGTH = createADDRESS_DTO_ADDRESS_LENGTH();
+    ZERO_ADDRESS_DTO = createZERO_ADDRESS_DTO();
+    MAX_ADDRESS_DTO = createMAX_ADDRESS_DTO9();
 
+  }
+
+  private AddressDTO createMAX_ADDRESS_DTO9() {
+    final AddressDTO dto = createADDRESS_DTO();
+    dto.setAddress(MAX_ADDRESS_LENGTH);
+    return dto;
+  }
+
+  private AddressDTO createZERO_ADDRESS_DTO() {
+    final AddressDTO dto = createADDRESS_DTO();
+    dto.setAddress("");
+    return dto;
   }
 
   private AddressDTO createADDRESS_DTO_ADDRESS_LENGTH() {
