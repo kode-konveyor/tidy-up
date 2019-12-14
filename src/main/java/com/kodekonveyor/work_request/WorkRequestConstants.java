@@ -34,4 +34,6 @@ public class WorkRequestConstants { // NOPMD
       "Work Request Id cannot be negative";
   public static String DECIMAL_WORK_REQUEST_ID_EXCEPTION =
       "Work Request Id should be an integer";
+  public static String CUSTOMER_ID_LENGTH_ERROR =
+      "Customer ID should not be longer than 4 digit";
 }

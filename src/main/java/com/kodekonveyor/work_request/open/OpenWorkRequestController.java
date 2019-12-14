@@ -41,8 +41,9 @@ public class OpenWorkRequestController {
   }
 
   public void inputValidation(final long workRequestId) {
-    final int workId = 1;
-    if (workRequestId < workId)
+
+    final int workId = 0;
+    if (workRequestId <= workId)
       throw new ValidationException(
           WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
       );

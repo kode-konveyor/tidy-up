@@ -37,4 +37,17 @@ class OpenWorkRequestControllerValidationTest
 
   }
 
+  @Test
+  @DisplayName("Work Request Id cannot be null")
+  public void testWorkRequestNullId() {
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call((Long) null)
+    )
+        .assertMessageIs(
+            openWorkRequestControllerTestData.NULL_WORK_REQUEST_ID_EXCEPTION
+        );
+
+  }
+
 }
