@@ -28,6 +28,7 @@ public class OpenWorkRequestControllerTestBase {
   UserTestData userTestData;
   WorkRequestTestData workRequestTestData;
   AddressTestData addressTestData;
+  OpenWorkRequestControllerTestData openWorkRequestControllerTestData;
 
   @BeforeEach
   void setUp() {
@@ -36,6 +37,8 @@ public class OpenWorkRequestControllerTestBase {
     addressTestData = new AddressTestData();
     workRequestTestData =
         new WorkRequestTestData(userTestData, addressTestData);
+    openWorkRequestControllerTestData =
+        new OpenWorkRequestControllerTestData();
 
     WorkRequestRepositoryStubs
         .behaviour(workRequestRepository, workRequestTestData);

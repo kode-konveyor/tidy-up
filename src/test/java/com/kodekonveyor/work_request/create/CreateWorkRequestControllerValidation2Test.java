@@ -48,7 +48,9 @@ public class CreateWorkRequestControllerValidation2Test
   }
 
   @Test
-  @DisplayName("Address can contains only 120 characters")
+  @DisplayName(
+    "When the address length is 121, we get an exception with the message 'Max characters for 'Address can contains only 120 characters"
+  )
   public void testCreateWorkRequestAddressLength() {
 
     ThrowableTester.assertThrows(
@@ -60,7 +62,7 @@ public class CreateWorkRequestControllerValidation2Test
   }
 
   @Test
-  @DisplayName("Address can contains only 120 characters")
+  @DisplayName("Address cannot contain zero characters")
   public void testCreateWorkRequestZeroAddressLength() {
 
     ThrowableTester.assertThrows(
@@ -74,16 +76,13 @@ public class CreateWorkRequestControllerValidation2Test
   }
 
   @Test
-  @DisplayName("Address reached max limit")
-  public void testCreateWorkRequestZeroAddressLength1() {
+  @DisplayName("when Addrss has 120 characters, we do not throw exception")
+  public void testCreateWorkRequestMaxAddressLength1() { //NOPMD
 
-    ThrowableTester.assertThrows(
-        () -> createWorkRequestController
-            .call(
-                createWorkRequestTestData.CREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH
-            )
-    )
-        .assertMessageIs(addressTestData.ADDRESS_MAX_LENGTH);
+    createWorkRequestController
+        .call(
+            createWorkRequestTestData.CREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH
+        );
 
   }
 
@@ -133,22 +132,5 @@ public class CreateWorkRequestControllerValidation2Test
         );
 
   }
-
-  //  @Test
-  //  @DisplayName("Invalid Work type ")
-  //  public void testCreateWorkRequestWorkType2() {
-  //
-  //    ThrowableTester.assertThrows(
-  //        () -> createWorkRequestController.call(
-  //            createWorkRequestTestData.CREATE_WORK_REQUEST_INVALID_WORKTYPE
-  //        )
-  //    )
-  //        .assertMessageIs(
-  //            createWorkRequestTestData.INVALID_WORKTYPE_ERROR_MESSAGE
-  //        );
-
-  //  }
-
-  //
 
 }

@@ -8,7 +8,7 @@ public class CreateWorkRequestTestData { // NOPMD
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST;
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_WORKTYPE;
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_DESCRIPTION;
-  //	public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_ADDRESS;
+
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_CUSTOMERID;
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_ADDRESS_STRING;
   public final CreateWorkRequestDTO CREATE_WORK_REQUEST_NULL_COUNTRY;
@@ -66,7 +66,7 @@ public class CreateWorkRequestTestData { // NOPMD
     CREATE_WORK_REQUEST_NULL_CITY = createCREATE_WORK_REQUEST_NULL_CITY();
     CREATE_WORK_REQUEST_COUNTRY_LENGTH =
         createCREATE_WORK_REQUEST_COUNTRY_LENGTH();
-    //		CREATE_WORK_REQUEST_NULL_ADDRESS = createCREATE_WORK_REQUEST_NULL_ADDRESS();
+
     CREATE_WORK_REQUEST_NULL_CUSTOMERID =
         createCREATE_WORK_REQUEST_NULL_CUSTOMERID();
     CREATE_WORK_REQUEST_NULL_DESCRIPTION =
@@ -98,6 +98,7 @@ public class CreateWorkRequestTestData { // NOPMD
 
   private CreateWorkRequestDTO createCREATE_WORK_REQUEST_MAX_ADDRESS_LENGTH() {
     final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
+    dto.setCustomerId((long) 4242);
     dto.setAddress(addressTestData.MAX_ADDRESS_DTO);
     return dto;
   }
@@ -190,13 +191,6 @@ public class CreateWorkRequestTestData { // NOPMD
     dto.setCustomerId(null);
     return dto;
   }
-
-  //	private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_ADDRESS() {
-  //		final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();
-  //		dto.setAddress(null);
-  //		return dto;
-  //
-  //	}
 
   private CreateWorkRequestDTO createCREATE_WORK_REQUEST_NULL_CITY() {
     final CreateWorkRequestDTO dto = createCREATE_WORK_REQUEST();

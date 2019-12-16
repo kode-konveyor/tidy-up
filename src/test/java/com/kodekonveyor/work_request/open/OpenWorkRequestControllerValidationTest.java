@@ -1,7 +1,7 @@
 package com.kodekonveyor.work_request.open;
 
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -22,17 +22,16 @@ import com.kodekonveyor.exception.ThrowableTester;
 class OpenWorkRequestControllerValidationTest
     extends OpenWorkRequestControllerTestBase {
 
-  private OpenWorkRequestControllerTestData openWorkRequestControllerTestData;
-
   @Test
-  @DisplayName("Work Request Id cannot be negative")
+  @DisplayName("Work Request should be positive")
   public void testWorkRequestNegativeId() {
+
     ThrowableTester.assertThrows(
         () -> openWorkRequestController
-            .call(openWorkRequestControllerTestData.NEGATIVE_WORK_REQUEST_ID)
+            .call(openWorkRequestControllerTestData.NON_POSITIVE_WORK_REQUEST_ID)
     )
         .assertMessageIs(
-            openWorkRequestControllerTestData.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
+            openWorkRequestControllerTestData.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
         );
 
   }
@@ -46,32 +45,6 @@ class OpenWorkRequestControllerValidationTest
     )
         .assertMessageIs(
             openWorkRequestControllerTestData.INVALID_WORK_REQUEST_ID_EXCEPTION
-        );
-
-  }
-
-  @Test
-  @DisplayName("Work Request Id cannot be zero")
-  public void testWorkRequestZeroId() {
-    ThrowableTester.assertThrows(
-        () -> openWorkRequestController
-            .call(0)
-    )
-        .assertMessageIs(
-            openWorkRequestControllerTestData.ZERO_WORK_REQUEST_ID_EXCEPTION
-        );
-
-  }
-
-  @Test
-  @DisplayName("Work Request Id cannot be null")
-  public void testWorkRequestNullId() {
-    ThrowableTester.assertThrows(
-        () -> openWorkRequestController
-            .call((Long) null)
-    )
-        .assertMessageIs(
-            openWorkRequestControllerTestData.NULL_WORK_REQUEST_ID_EXCEPTION
         );
 
   }

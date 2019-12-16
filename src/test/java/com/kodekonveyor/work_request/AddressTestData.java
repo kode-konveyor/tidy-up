@@ -35,12 +35,12 @@ public class AddressTestData { // NOPMD
 
   public String ADDRESS_ZERO_LENGTH = "Address cannot be blank";
 
-  public String ADDRESS_MAX_LENGTH = "Address reached max limit";
+  //  public String ADDRESS_MAX_LENGTH = "Address reached max limit";
 
   public AddressDTO MAX_ADDRESS_DTO;
 
   private final String MAX_ADDRESS_LENGTH =
-      "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgytu";
+      "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgyte";
 
   public AddressTestData() {
 

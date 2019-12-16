@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kodekonveyor.webapp.ValidationException;
-import com.kodekonveyor.work_request.AddressDTO;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -28,32 +27,15 @@ public class OpenWorkRequestController {
     final WorkRequestEntity workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId).get(0);
 
-    final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
-    workRequestDTO.setWorkRequestId(workRequestEntity.getId());
-    workRequestDTO.setWorkType(workRequestEntity.getWorkType());
-    final AddressDTO address = new AddressDTO();
-    address.setId(workRequestEntity.getAddress().getId());
-    address.setAddress(workRequestEntity.getAddress().getAddress());
-    address.setCity(workRequestEntity.getAddress().getCity());
-    address.setCountry(workRequestEntity.getAddress().getCountry());
-    workRequestDTO.setAddress(address);
-
-    workRequestDTO.setDescription(workRequestEntity.getDescription());
-    //    return workRequestDTO;
-
     return WorkRequestUtil.convertWorkRequestEntityToDTO(workRequestEntity);
   }
 
   public void inputValidation(final long workRequestId) {
 
     final int workId = 0;
-    if (workRequestId < workId)
+    if (workRequestId <= workId)
       throw new ValidationException(
-          WorkRequestConstants.NEGATIVE_WORK_REQUEST_ID_EXCEPTION
-      );
-    if (workRequestId == workId)
-      throw new ValidationException(
-          WorkRequestConstants.ZERO_WORK_REQUEST_ID_EXCEPTION
+          WorkRequestConstants.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
       );
 
     final List<WorkRequestEntity> workRequestEntity =
