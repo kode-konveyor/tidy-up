@@ -29,9 +29,6 @@ public class CustomerGetWorkRequestsController {
     final List<WorkRequestEntity> requests =
         workRequestRepository.findByCustomer(user.get());
 
-    if (requests.isEmpty())
-      throw new ValidationException(WorkRequestConstants.NO_WORKREQUESTS);
-
     final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
 
     final AddressDTO address = new AddressDTO();

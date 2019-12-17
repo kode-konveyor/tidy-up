@@ -32,17 +32,6 @@ public class CustomerGetWorkRequestsControllerTest
     );
   }
 
-  //  @Test
-  //  @DisplayName("When no request for Owner, the message is 'No work Requests'")
-  //  public void testWorkRequestDetailsNotPresent() {
-  //    ThrowableTester
-  //        .assertThrows(
-  //            () -> customerGetWorkRequestsController
-  //                .call(workRequestTestData.NO_WORKREQUESTS_ID)
-  //        )
-  //        .assertMessageIs(workRequestTestData.NO_WORKREQUESTS);
-  //  }
-
   @Test
   @DisplayName("Controller gets Id of work request ")
   public void testWorkRequestgetId() {
