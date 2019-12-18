@@ -33,7 +33,7 @@ public class CustomerGetWorkRequestsControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets Id of work request ")
+  @DisplayName("We return the right work request Id")
   public void testWorkRequestgetId() {
     assertEquals(
         workRequestTestData.WORK_REQUEST_ID,
@@ -42,7 +42,7 @@ public class CustomerGetWorkRequestsControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets work type of work request ")
+  @DisplayName("We return the right work type")
   public void testWorkRequestgetWorkType() {
     assertEquals(
         workRequestTestData.WORK_TYPE,
@@ -51,7 +51,7 @@ public class CustomerGetWorkRequestsControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets address of work request ")
+  @DisplayName("We return the right address")
   public void testWorkRequestgetAddress() {
     assertEquals(
         workRequestTestData.addressTestData.ADDRESS_ENTITY,
@@ -60,7 +60,7 @@ public class CustomerGetWorkRequestsControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets description of work request ")
+  @DisplayName("We return the right description")
   public void testWorkRequestgetDescription() {
     assertEquals(
         workRequestTestData.DESCRIPTION,

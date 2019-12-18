@@ -23,7 +23,9 @@ class OpenWorkRequestControllerValidationTest
     extends OpenWorkRequestControllerTestBase {
 
   @Test
-  @DisplayName("Work Request should be positive")
+  @DisplayName(
+    "When the work request id is non-positive, an exception is thrown."
+  )
   public void testWorkRequestNegativeId() {
 
     ThrowableTester.assertThrows(
@@ -37,7 +39,9 @@ class OpenWorkRequestControllerValidationTest
   }
 
   @Test
-  @DisplayName("Invalid work request Id")
+  @DisplayName(
+    "When the work request id is not present in repository, an exception is thrown."
+  )
   public void testWorkRequestInvalidId() {
     ThrowableTester.assertThrows(
         () -> openWorkRequestController

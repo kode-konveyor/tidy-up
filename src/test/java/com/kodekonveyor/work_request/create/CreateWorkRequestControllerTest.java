@@ -33,7 +33,7 @@ public class CreateWorkRequestControllerTest
   }
 
   @Test
-  @DisplayName("Controller files address of WorkRequestEntity based on request")
+  @DisplayName("The address in the entity is saved correctly")
   public void test4() {
     assertEquals(
         workRequestTestData.addressTestData.ADDRESS_ENTITY,
@@ -43,7 +43,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files customer of WorkRequestEntity based on request"
+    "The user in the entity is saved correctly"
   )
   public void test3() {
     assertEquals(
@@ -55,7 +55,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files worktype of WorkRequestEntity based on request"
+    "The work type in the entity is saved correctly"
   )
   public void test6() {
     assertEquals(
@@ -66,7 +66,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files city of WorkRequestEntity based on request"
+    "The city in the entity is saved correctly"
   )
   public void test7() {
     assertEquals(
@@ -77,7 +77,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files country of WorkRequestEntity based on request"
+    "The country in the entity is saved correctly"
   )
   public void test8() {
     assertEquals(
@@ -88,7 +88,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files address of WorkRequestEntity based on request"
+    "The address string in the entity is saved correctly"
   )
   public void test9() {
     assertEquals(
@@ -99,7 +99,7 @@ public class CreateWorkRequestControllerTest
 
   @Test
   @DisplayName(
-    "Controller files address of WorkRequestEntity based on request"
+    "The description in the entity is saved correctly"
   )
   public void test10() {
     assertEquals(

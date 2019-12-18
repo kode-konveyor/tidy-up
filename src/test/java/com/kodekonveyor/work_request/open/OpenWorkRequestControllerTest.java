@@ -19,11 +19,12 @@ import com.kodekonveyor.annotations.TestedService;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("Data access")
 @TestedService("OpenWorkRequestController")
+
 public class OpenWorkRequestControllerTest
     extends OpenWorkRequestControllerTestBase {
 
   @Test
-  @DisplayName("Controller returns right DTO based on requestId")
+  @DisplayName("Work request details are returned based on work requestId")
   public void test() {
     assertEquals(
         workRequestTestData.WORK_REQUEST_DTO,
@@ -34,7 +35,7 @@ public class OpenWorkRequestControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets Id of work request ")
+  @DisplayName("The work request id is returned")
   public void testWorkRequestgetId() {
     assertEquals(
         workRequestTestData.WORK_REQUEST_ID,
@@ -43,7 +44,7 @@ public class OpenWorkRequestControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets work type of work request ")
+  @DisplayName("The work type is returned")
   public void testWorkRequestgetWorkType() {
     assertEquals(
         workRequestTestData.WORK_TYPE,
@@ -52,7 +53,7 @@ public class OpenWorkRequestControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets address of work request ")
+  @DisplayName("The address is returned ")
   public void testWorkRequestgetAddress() {
     assertEquals(
         workRequestTestData.addressTestData.ADDRESS_ENTITY,
@@ -61,7 +62,7 @@ public class OpenWorkRequestControllerTest
   }
 
   @Test
-  @DisplayName("Controller gets description of work request ")
+  @DisplayName("The description is returned")
   public void testWorkRequestgetDescription() {
     assertEquals(
         workRequestTestData.DESCRIPTION,

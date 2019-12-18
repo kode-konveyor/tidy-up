@@ -24,7 +24,7 @@ public class CustomerGetWorkRequestsControllerValidationTest
 
   @Test
   @DisplayName(
-    "When owner ID is null, the message is 'This field cannot be blank'"
+    "When owner ID is null, the message is 'No OwnerId'"
   )
 
   public void testCustomerGetWorkRequestsControllerNullOwnerId() {
@@ -45,7 +45,9 @@ public class CustomerGetWorkRequestsControllerValidationTest
   }
 
   @Test
-  @DisplayName("Owner Id cannot contain alphabet or special characters")
+  @DisplayName(
+    "Owner Id can contain only digits, alphabet and special characters not allowed"
+  )
   public void testCustomerGetWorkRequestsControllerCharacterCheck2() {
     ThrowableTester
         .assertThrows(
@@ -56,7 +58,7 @@ public class CustomerGetWorkRequestsControllerValidationTest
   }
 
   @Test
-  @DisplayName("When owner Id is incorrect, the message is 'Invalid Owner Id'")
+  @DisplayName("When owner Id is incorrect, the message is 'Invalid OwnerId'")
   public void testCustomerGetWorkRequestsControllerInvalidOwnerId() {
     ThrowableTester
         .assertThrows(
