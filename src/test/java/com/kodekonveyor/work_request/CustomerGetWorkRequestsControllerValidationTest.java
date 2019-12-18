@@ -34,17 +34,6 @@ public class CustomerGetWorkRequestsControllerValidationTest
   }
 
   @Test
-  @DisplayName("Owner Id cannot be negative")
-  public void testCustomerGetWorkRequestsControllerCharacterCheck1() {
-    ThrowableTester
-        .assertThrows(
-            () -> customerGetWorkRequestsController
-                .call(getWorkRequestTestData.NEGATIVE_OWNERID_ID)
-        )
-        .assertMessageIs(getWorkRequestTestData.NEGATIVE_OWNERID);
-  }
-
-  @Test
   @DisplayName(
     "Owner Id can contain only digits, alphabet and special characters not allowed"
   )

@@ -54,10 +54,6 @@ public class CustomerGetWorkRequestsController {
     if (null == ownerId)
       throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
 
-    final char minusSign = '-';
-    if (minusSign == ownerId.charAt(0))
-      throw new ValidationException(WorkRequestConstants.NEGATIVE_OWNERID);
-
     if (!ownerId.matches("[0-9]+"))
       throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
 
