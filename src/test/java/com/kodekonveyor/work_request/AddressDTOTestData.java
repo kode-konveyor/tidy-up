@@ -5,7 +5,7 @@ public class AddressDTOTestData {
   public final static String ADDRESS_OF_120_LENGTH =
       "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgyte";
   public final static String ADDRESS_OF_121_LENGTH =
-      "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgytut";
+      ADDRESS_OF_120_LENGTH + "t";
 
   public final static String COUNTRY_WITH_INVALID_CHARACTER = "3e";
   public final static String COUNTRY_OF_INVALID_LENGTH = "eefg";

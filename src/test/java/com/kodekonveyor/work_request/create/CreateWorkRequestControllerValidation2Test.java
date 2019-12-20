@@ -45,7 +45,9 @@ public class CreateWorkRequestControllerValidation2Test
             CreateWorkRequestDTOTestData.getCountryInvalidCharacter()
         )
     )
-        .assertMessageIs(WorkRequestValidationUtilTestData.COUNTRY_CODE_NONALPHA);
+        .assertMessageIs(
+            WorkRequestValidationUtilTestData.COUNTRY_CODE_NON_ALPHABETIC_CHARACTER_ERROR_MESSAGE
+        );
 
   }
 
