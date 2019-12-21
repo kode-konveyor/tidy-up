@@ -28,13 +28,12 @@ public class GiveofferControllerTestBase {
   void setUp() {
 
     userTestData = new UserTestData();
-
     addressTestData = new AddressTestData();
     workRequestTestData =
         new WorkRequestTestData(userTestData, addressTestData);
+
     giveofferControllerTestData =
         new GiveofferControllerTestData();
-
     WorkRequestRepositoryStubs
         .behaviour(workRequestRepository, workRequestTestData);
   }
