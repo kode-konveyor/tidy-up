@@ -27,7 +27,7 @@ public class AddressTestData { // NOPMD
   public final String NULL_COUNTRY = "Country cannot be empty";
   public String COUNTRY_LENGTH_ERROR_MESSAGE =
       "Country cannot be more or less than 2 letter";
-  public String COUNTRY_CODE_ALPHABET = "Country can contains only alphahets";
+  public String COUNTRY_CODE_ALPHABET = "Country can contain only alphahet";
   public final String ADDRESS_LENGTHEXCEED =
       "Address can contains only 120 characters";
 
@@ -41,6 +41,10 @@ public class AddressTestData { // NOPMD
 
   private final String MAX_ADDRESS_LENGTH =
       "123sdfgokwerwttigfgldsgdfgeryytusdfghrethewrwergtweryfdgb45wertwertwehgfdgsdgertgdfgerygjgxgfhghjfyuert456ghfdgu79ukgyte";
+
+  public String CITY_NON_ALPHABET = "mu3bai";
+
+  public String CITY_NON_ALPHABET_EXEPTION = "City can contain only alphabet";
 
   public AddressTestData() {
 

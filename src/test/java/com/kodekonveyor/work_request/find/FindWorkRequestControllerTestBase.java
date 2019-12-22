@@ -9,6 +9,7 @@ import com.kodekonveyor.work_request.AddressTestData;
 import com.kodekonveyor.work_request.WorkRequestEntityRepositoryStubs;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 import com.kodekonveyor.work_request.WorkRequestTestData;
+import com.kodekonveyor.work_request.create.CreateWorkRequestTestData;
 
 public class FindWorkRequestControllerTestBase {
 
@@ -19,6 +20,7 @@ public class FindWorkRequestControllerTestBase {
   AddressTestData addressTestData;
   UserTestData userTestData;
   WorkRequestTestData workRequestTestData;
+  CreateWorkRequestTestData createWorkRequestTestData;
 
   @BeforeEach
   void setUp() {
@@ -28,6 +30,9 @@ public class FindWorkRequestControllerTestBase {
         userTestData,
         addressTestData
     );
+
+    createWorkRequestTestData =
+        new CreateWorkRequestTestData(workRequestTestData, addressTestData);
 
     WorkRequestEntityRepositoryStubs.behaviour(
         workRequestRepository,

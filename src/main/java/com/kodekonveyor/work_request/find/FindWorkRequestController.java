@@ -20,16 +20,23 @@ public class FindWorkRequestController {
       final String country, final String city,
       final String workType
   ) {
+    FindWorkRequestValidationUtil.inputValidation(workType);
+    CountryAndCityValidationUtil.cityValidation(city);
+    CountryAndCityValidationUtil.countryValidation(country);
+
     final List<WorkRequestEntity> entities = workRequestRepository
         .findByTypeAndCountryAndCity(WorkTypeEnum.valueOf(workType),
             country, city
         );
+
     final WorkRequestListDTO dtoList = new WorkRequestListDTO();
     for (final WorkRequestEntity entity : entities) {
       final WorkRequestDTO dto = WorkRequestUtil
           .convertWorkRequestEntityToDTO(entity);
       dtoList.getRequests().add(dto);
     }
+
     return dtoList;
   }
+
 }
