@@ -26,10 +26,10 @@ public class GiveofferControllerInputValidationTest
   public void testOfferForInvalidPrice() {
     ThrowableTester.assertThrows(
         () -> giveofferController
-            .call(giveofferControllerTestData.OFFER_DTO_INVALID_PRICE)
+            .call(GiveofferControllerTestData.getPriceInvalid())
     )
         .assertMessageIs(
-            giveofferControllerTestData.INVALID_PRICE
+            GiveofferControllerTestData.INVALID_PRICE
         );
 
   }
@@ -42,10 +42,10 @@ public class GiveofferControllerInputValidationTest
 
     ThrowableTester.assertThrows(
         () -> giveofferController
-            .call(giveofferControllerTestData.OFFER_DTO_NEGATIVE_PRICE)
+            .call(GiveofferControllerTestData.getPriceNegative())
     )
         .assertMessageIs(
-            giveofferControllerTestData.NEGATIVE_PRICE_EXCEPTION
+            GiveofferControllerTestData.NEGATIVE_PRICE_EXCEPTION
         );
 
   }
@@ -59,11 +59,11 @@ public class GiveofferControllerInputValidationTest
     ThrowableTester.assertThrows(
         () -> giveofferController
             .call(
-                giveofferControllerTestData.OFFER_DTO_NON_POSITIVE_WORK_REQUEST_ID
+                GiveofferControllerTestData.getWorkRequestIdNonPositive()
             )
     )
         .assertMessageIs(
-            giveofferControllerTestData.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
+            GiveofferControllerTestData.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
         );
 
   }
@@ -76,30 +76,12 @@ public class GiveofferControllerInputValidationTest
     ThrowableTester.assertThrows(
         () -> giveofferController
             .call(
-                giveofferControllerTestData
-                    .createOFFER_DTO_INVALID_WORK_REQUEST_ID()
+                GiveofferControllerTestData
+                    .getInvalidWorkRequestId()
             )
     )
         .assertMessageIs(
-            giveofferControllerTestData.INVALID_WORK_REQUEST_ID_EXCEPTION
-        );
-
-  }
-
-  @Test
-  @DisplayName(
-    "When the work request id is zero, an exception is thrown."
-  )
-  public void testZeroWorkRequestId() {
-    ThrowableTester.assertThrows(
-        () -> giveofferController
-            .call(
-                giveofferControllerTestData
-                    .createOFFER_DTO_ZERO_WORK_REQUEST_ID()
-            )
-    )
-        .assertMessageIs(
-            giveofferControllerTestData.ZERO_WORK_REQUEST_ID_EXCEPTION
+            GiveofferControllerTestData.INVALID_WORK_REQUEST_ID_EXCEPTION
         );
 
   }

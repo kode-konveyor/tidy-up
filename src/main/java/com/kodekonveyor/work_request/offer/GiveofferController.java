@@ -30,12 +30,7 @@ public class GiveofferController {
     final int workId = 0;
     final long workRequestId = offerDTO.getWorkRequestId();
 
-    if (workRequestId == workId)
-      throw new ValidationException(
-          WorkRequestConstants.ZERO_WORK_REQUEST_ID_EXCEPTION
-      );
-
-    if (workRequestId < workId)
+    if (workRequestId <= workId)
       throw new ValidationException(
           WorkRequestConstants.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
       );
