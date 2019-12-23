@@ -11,24 +11,6 @@ public class GiveofferControllerTestData {
   public static final String INVALID_WORK_REQUEST_ID_EXCEPTION =
       "Invalid work request Id";
 
-  /*  public final OfferDTO OFFER_DTO_INVALID_PRICE;
-  public final OfferDTO OFFER_DTO_NEGATIVE_PRICE;
-  
-  public final OfferDTO OFFER_DTO_INVALID_WORK_REQUEST_ID;
-  public final OfferDTO OFFER_DTO_ZERO_WORK_REQUEST_ID;
-  public final OfferDTO OFFER_DTO_NON_POSITIVE_WORK_REQUEST_ID;
-  
-  public GiveofferControllerTestData() {
-    OFFER_DTO_INVALID_PRICE =
-        getPriceInvalid();
-    OFFER_DTO_NEGATIVE_PRICE = getPriceNegative();
-    OFFER_DTO_INVALID_WORK_REQUEST_ID =
-        getInvalidWorkRequestId();
-    OFFER_DTO_ZERO_WORK_REQUEST_ID = getWorkRequestIdZero();
-    OFFER_DTO_NON_POSITIVE_WORK_REQUEST_ID =
-        getWorkRequestIdNonPositive();
-  }*/
-
   public static OfferDTO getPriceNegative() {
     final OfferDTO dto = get();
     dto.setPrice(-89);
