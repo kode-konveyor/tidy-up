@@ -40,21 +40,6 @@ public class RevokeWorkRequestControllerValidationTest
 
   }
 
-  //  @Test
-  //  @DisplayName(
-  //    "When the work request id is not present in repository, an exception is thrown."
-  //  )
-  //  public void testWorkRequestInvalidId() {
-  //    ThrowableTester.assertThrows(
-  //        () -> revokeWorkRequestController
-  //            .call(WorkRequestEntityTestData.INVALID_WORK_REQUEST_ID)
-  //    )
-  //        .assertMessageIs(
-  //            RevokeWorkRequestControllerTestData.INVALID_WORK_REQUEST_ID_EXCEPTION
-  //        );
-  //
-  //  }
-
   @Test
   @DisplayName(
     "When work request id is valid, fetch work request information"
