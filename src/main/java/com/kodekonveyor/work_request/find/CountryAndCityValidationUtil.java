@@ -6,7 +6,7 @@ import com.kodekonveyor.work_request.WorkRequestConstants;
 public class CountryAndCityValidationUtil {
 
   public static void
-      countryValidation(final String country) {
+      validateCountry(final String country) {
 
     if (null == country)
       throw new ValidationException(WorkRequestConstants.NULL_COUNTRY);
@@ -21,7 +21,7 @@ public class CountryAndCityValidationUtil {
   }
 
   public static void
-      cityValidation(final String city) {
+      validateCity(final String city) {
     if (null == city)
       throw new ValidationException(WorkRequestConstants.NULL_CITY);
 
