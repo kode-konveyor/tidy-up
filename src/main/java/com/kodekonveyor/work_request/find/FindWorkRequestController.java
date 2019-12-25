@@ -22,9 +22,8 @@ public class FindWorkRequestController {
   ) {
     WorkTypeValidationUtil.validateWorkType(workType);
     CountryAndCityValidationUtil.validateCountry(country);
-    ;
+
     CountryAndCityValidationUtil.validateCity(city);
-    ;
 
     final List<WorkRequestEntity> entities = workRequestRepository
         .findByTypeAndCountryAndCity(WorkTypeEnum.valueOf(workType),
