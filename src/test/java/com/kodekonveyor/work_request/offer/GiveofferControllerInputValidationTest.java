@@ -10,12 +10,14 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
+import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.exception.ThrowableTester;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("input validation")
+@TestedService("GiveofferController")
 public class GiveofferControllerInputValidationTest
     extends GiveofferControllerTestBase {
 
@@ -26,7 +28,7 @@ public class GiveofferControllerInputValidationTest
   public void testOfferForInvalidPrice() {
     ThrowableTester.assertThrows(
         () -> giveofferController
-            .call(GiveofferControllerTestData.getPriceInvalid())
+            .call(OfferDTOTestData.getPriceInvalid())
     )
         .assertMessageIs(
             GiveofferControllerTestData.INVALID_PRICE
@@ -42,7 +44,7 @@ public class GiveofferControllerInputValidationTest
 
     ThrowableTester.assertThrows(
         () -> giveofferController
-            .call(GiveofferControllerTestData.getPriceNegative())
+            .call(OfferDTOTestData.getPriceNegative())
     )
         .assertMessageIs(
             GiveofferControllerTestData.NEGATIVE_PRICE_EXCEPTION
@@ -59,7 +61,7 @@ public class GiveofferControllerInputValidationTest
     ThrowableTester.assertThrows(
         () -> giveofferController
             .call(
-                GiveofferControllerTestData.getWorkRequestIdNonPositive()
+                OfferDTOTestData.getWorkRequestIdNonPositive()
             )
     )
         .assertMessageIs(
@@ -76,7 +78,7 @@ public class GiveofferControllerInputValidationTest
     ThrowableTester.assertThrows(
         () -> giveofferController
             .call(
-                GiveofferControllerTestData
+                OfferDTOTestData
                     .getInvalidWorkRequestId()
             )
     )
