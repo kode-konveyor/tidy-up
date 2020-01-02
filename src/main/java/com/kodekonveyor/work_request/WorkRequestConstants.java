@@ -44,6 +44,8 @@ public class WorkRequestConstants {
   public static String ADDRESS_MAX_LENGTH = "Address reached max limit";
   public static String INVALID_WORK_REQUEST_ID_EXCEPTION =
       "Invalid work request Id";
+  public static String CITY_ALPHABET =
+      "City can contain alphabetic characters/letters only";
   public static String INVALID_PRICE = "Invalid Price";
   public static String NEGATIVE_PRICE_EXCEPTION = "Price cannot be negative";
 }
