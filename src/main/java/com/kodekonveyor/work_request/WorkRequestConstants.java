@@ -46,4 +46,6 @@ public class WorkRequestConstants {
       "Invalid work request Id";
   public static String INVALID_PRICE = "Invalid Price";
   public static String NEGATIVE_PRICE_EXCEPTION = "Price cannot be negative";
+  public static String CITY_ALPHABET =
+      "City can contain alphabetic characters/letters only";
 }
