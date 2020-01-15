@@ -16,10 +16,11 @@ public class WorkRequestEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private UserEntity customer;
-  private String workType;
-
-  private AddressEntity address;
   private String description;
-
+  private StatusEnum status;
+  private String workType;
+  private AddressEntity address;
+  private UserEntity customer;
+  private boolean isActive;
+  private UserEntity provider;
 }
