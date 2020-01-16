@@ -25,4 +25,7 @@ tidyup.zenta.bak
 /tidyup/
 zentaworkaround
 .attach*
+.classpath
+.project
+.settings/
 
