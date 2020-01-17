@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
@@ -17,7 +18,7 @@ public class GiveofferController {
 
   @PostMapping("/offer")
 
-  public OfferEntity call(final OfferDTO offerDTO) {
+  public OfferEntity call(@RequestBody final OfferDTO offerDTO) {
 
     final OfferEntity offerEntity = new OfferEntity();
     final Optional<WorkRequestEntity> workRequest =

@@ -38,7 +38,7 @@ public class WorkRequestConstants {
   public static String CUSTOMER_ID_LENGTH_ERROR =
       "Customer ID should not be longer than 4 digit";
   public static String ZERO_WORK_REQUEST_ID_EXCEPTION =
-      "ork Request Id cannot be zero";
+      "Work Request Id cannot be zero";
   public static String ZERO_CUSTOMERID = "Customer Id cannot be zero";
   public static String ZERO_ADDRESS_LENGTH = "Address cannot be blank";
   public static String ADDRESS_MAX_LENGTH = "Address reached max limit";
