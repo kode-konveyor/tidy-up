@@ -13,7 +13,7 @@ import com.kodekonveyor.work_request.WorkRequestRepository;
 public class GiveofferController {
 
   @Autowired
-  WorkRequestRepository workRequestRepository;
+  public WorkRequestRepository workRequestRepository;
 
   @PostMapping("/offer")
 
