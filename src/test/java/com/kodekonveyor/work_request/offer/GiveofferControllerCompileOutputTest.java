@@ -31,7 +31,7 @@ public class GiveofferControllerCompileOutputTest
 
     final OfferDTO offerDTO = OfferDTOTestData.get();
     final OfferEntity offerEntity = OfferEntityTestData.get();
-    assertEquals(offerDTO, giveofferController.call(offerEntity));
+    assertEquals(offerEntity, giveofferController.call(offerDTO));
   }
 
 }
