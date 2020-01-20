@@ -3,21 +3,20 @@ package com.kodekonveyor.work_request.offer;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 
-@Controller
+@RestController
 public class GiveofferController {
 
   @Autowired
-  public WorkRequestRepository workRequestRepository;
+  private WorkRequestRepository workRequestRepository;
 
   @PostMapping("/offer")
-
   public OfferEntity call(@RequestBody final OfferDTO offerDTO) {
 
     final OfferEntity offerEntity = new OfferEntity();
