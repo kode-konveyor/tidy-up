@@ -5,6 +5,7 @@ import static org.mockito.Mockito.doReturn;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -21,6 +22,9 @@ public class MarkAsPaidControllerStatusesTestBase {
 
   protected final WorkRequestEntity workRequestEntityData =
       WorkRequestEntityTestData.get();
+
+  protected final ArgumentCaptor<WorkRequestEntity> argCaptor =
+      ArgumentCaptor.forClass(WorkRequestEntity.class);
 
   @BeforeEach
   public void setUp() {
