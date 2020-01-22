@@ -12,11 +12,15 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
+import com.kodekonveyor.annotations.TestedBehaviour;
+import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.work_request.WorkRequestStatusEnum;
 
 @RunWith(MockitoJUnitRunner.class)
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
+@TestedBehaviour("statuses")
+@TestedService("MarkAsPaidController")
 public class MarkAsPaidControllerStatusesTest
     extends MarkAsPaidControllerStatusesTestBase {
 
