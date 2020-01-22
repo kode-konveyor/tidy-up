@@ -49,4 +49,6 @@ public class WorkRequestConstants {
   public static String INVALID_PRICE = "Invalid Price";
   public static String NEGATIVE_PRICE_EXCEPTION = "Price cannot be negative";
 
+  public static final String OWNER_ID_REGEX = "[0-9]+";
+
 }
