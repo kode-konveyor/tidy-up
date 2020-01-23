@@ -10,14 +10,8 @@ public class OfferValidationUtil {
   }
 
   public static void validatePrice(final OfferDTO offerDTO) {
-    if (0 == offerDTO.getPrice())
+    if (offerDTO.getPrice() <= 0)
       throw new ValidationException(WorkRequestConstants.INVALID_PRICE);
-
-    if (0 > offerDTO.getPrice())
-      throw new ValidationException(
-          WorkRequestConstants.NEGATIVE_PRICE_EXCEPTION
-      );
-
   }
 
 }

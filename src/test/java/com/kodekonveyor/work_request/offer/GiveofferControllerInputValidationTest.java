@@ -1,5 +1,7 @@
 package com.kodekonveyor.work_request.offer;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +14,7 @@ import org.mockito.quality.Strictness;
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.exception.ThrowableTester;
+import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -23,31 +26,32 @@ public class GiveofferControllerInputValidationTest
 
   @Test
   @DisplayName(
-    "When the price is zero, an exception is thrown."
-  )
-  public void testOfferForInvalidPrice() {
-    ThrowableTester.assertThrows(
-        () -> giveofferController
-            .call(OfferDTOTestData.getPriceInvalid())
-    )
-        .assertMessageIs(
-            GiveofferControllerTestData.INVALID_PRICE
-        );
-
-  }
-
-  @Test
-  @DisplayName(
     "When the price is non-positive, an exception is thrown."
   )
-  public void testPriceNegativeId() {
+  public void testPriceInvalidValue() {
 
     ThrowableTester.assertThrows(
         () -> giveofferController
             .call(OfferDTOTestData.getPriceNegative())
     )
         .assertMessageIs(
-            GiveofferControllerTestData.NEGATIVE_PRICE_EXCEPTION
+            GiveofferControllerTestData.INVALID_PRICE_EXCEPTION
+        );
+
+  }
+
+  @Test
+  @DisplayName(
+    "When the price is zero, an exception is thrown."
+  )
+  public void testPriceZeroValue() {
+
+    ThrowableTester.assertThrows(
+        () -> giveofferController
+            .call(OfferDTOTestData.getPriceZero())
+    )
+        .assertMessageIs(
+            GiveofferControllerTestData.INVALID_PRICE_EXCEPTION
         );
 
   }
@@ -88,4 +92,36 @@ public class GiveofferControllerInputValidationTest
 
   }
 
+  @Test
+  @DisplayName(
+    "When the work request id is present in repository."
+  )
+  public void testWorkRequestValidId() {
+    giveofferController
+        .call(
+            OfferDTOTestData.get()
+        );
+    assertEquals(
+        WorkRequestEntityTestData.WORK_REQUEST_ID.longValue(),
+        OfferDTOTestData.get().getWorkRequestId()
+    );
+
+  }
+
+  @Test
+  @DisplayName(
+    "When the price is valid."
+  )
+  public void testPriceValidValue() {
+
+    giveofferController
+        .call(
+            OfferDTOTestData.get()
+        );
+    assertEquals(
+        OfferDTOTestData.VALID_PRICE,
+        OfferDTOTestData.get().getPrice()
+    );
+
+  }
 }
