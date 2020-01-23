@@ -1,5 +1,8 @@
 package com.kodekonveyor.completion;
 
+import static com.kodekonveyor.completion.CompletionConstants.MARK_AS_PAID_PATH;
+import static com.kodekonveyor.completion.CompletionConstants.MARK_AS_PAID_WORK_REQUEST_ID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,8 +18,10 @@ public class MarkAsPaidController {
   @Autowired
   WorkRequestRepository repository;
 
-  @PutMapping("/paid/{workRequestId}")
-  public void call(@PathVariable("workRequestId") final Long workRequestId) {
+  @PutMapping(MARK_AS_PAID_PATH)
+  public void call(
+      @PathVariable(MARK_AS_PAID_WORK_REQUEST_ID) final Long workRequestId
+  ) {
 
     final WorkRequestEntity workRequest =
         repository.findById(workRequestId).get();
