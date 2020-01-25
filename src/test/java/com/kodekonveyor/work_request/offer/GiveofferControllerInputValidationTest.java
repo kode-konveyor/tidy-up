@@ -83,7 +83,7 @@ public class GiveofferControllerInputValidationTest
         () -> giveofferController
             .call(
                 OfferDTOTestData
-                    .getInvalidWorkRequestId()
+                    .getWorkrequestIdInvalid()
             )
     )
         .assertMessageIs(
@@ -94,7 +94,7 @@ public class GiveofferControllerInputValidationTest
 
   @Test
   @DisplayName(
-    "When the work request id is present in repository."
+    "Validation is successful when the work request id is present in repository."
   )
   public void testWorkRequestValidId() {
     giveofferController
@@ -110,7 +110,7 @@ public class GiveofferControllerInputValidationTest
 
   @Test
   @DisplayName(
-    "When the price is valid."
+    "Validation is successful when the price is valid."
   )
   public void testPriceValidValue() {
 

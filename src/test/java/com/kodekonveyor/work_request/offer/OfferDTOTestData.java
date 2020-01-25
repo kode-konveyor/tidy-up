@@ -14,7 +14,7 @@ public class OfferDTOTestData {
     return dto;
   }
 
-  public static OfferDTO getInvalidWorkRequestId() {
+  public static OfferDTO getWorkrequestIdInvalid() {
     final OfferDTO dto = get();
     dto.setWorkRequestId(WorkRequestEntityTestData.INVALID_WORK_REQUEST_ID);
     return dto;
