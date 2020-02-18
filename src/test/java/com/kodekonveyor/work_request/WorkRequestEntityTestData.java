@@ -12,6 +12,8 @@ public class WorkRequestEntityTestData {
   public static final Long WORK_REQUEST_ID = 4242L;
   public static final Long INVALID_WORK_REQUEST_ID = 3454L;
 
+  public static final Long REVOKE_WORK_REQUEST_ID = 424143L;
+
   public static final String OWNER_ID = "4242";
   public static final String WORK_TYPE = "CLEANING";
   public static final String DESCRIPTION = "Clean up the mess";
@@ -23,6 +25,16 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setCustomer(UserEntityTestData.get());
     workRequestEntity.setWorkType(WORK_TYPE);
     workRequestEntity.setId(WORK_REQUEST_ID);
+    workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getRevoke() {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
+    workRequestEntity.setWorkType(WORK_TYPE);
+    workRequestEntity.setId(REVOKE_WORK_REQUEST_ID);
     workRequestEntity.setDescription(DESCRIPTION);
     workRequestEntity.setAddress(AddressEntityTestData.get());
     return workRequestEntity;
