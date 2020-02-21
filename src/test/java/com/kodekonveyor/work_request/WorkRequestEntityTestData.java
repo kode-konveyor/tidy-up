@@ -18,6 +18,19 @@ public class WorkRequestEntityTestData {
   public static final boolean IS_ACTIVE = true;
   public static final Long CUSTOMER_ID = (long) 4242;
 
+  public final static String NUll_WORKTYPE = null;
+  public final static String VALID_WORKTYPE = "ELECTRICAL_REPAIRMENT";
+  public final static String INVALID_WORKTYPE = "XXXYYYZZZ";
+
+  public final static String NUll_COUNTRY = null;
+  public final static String VALID_COUNTRY = "in";
+  public final static String INVALID_LARGE_COUNTRY = "XXXXXX";
+  public final static String INVALID_COUNTRY = "X1";
+
+  public final static String NUll_CITY = null;
+  public final static String VALID_CITY = "Xyz";
+  public final static String INVALID_CITY = "XX12345";
+
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
     workRequestEntity.setCustomer(UserEntityTestData.get());

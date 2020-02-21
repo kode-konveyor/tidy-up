@@ -35,9 +35,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.VALID_COUNTRY,
-                FindWorkRequestDTOTestData.VALID_CITY,
-                FindWorkRequestDTOTestData.NUll_WORKTYPE
+                WorkRequestEntityTestData.VALID_COUNTRY,
+                WorkRequestEntityTestData.VALID_CITY,
+                WorkRequestEntityTestData.NUll_WORKTYPE
             )
     )
         .assertMessageIs(WorkRequestValidationUtilTestData.NULL_WORKTYPE);
@@ -51,9 +51,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.NUll_COUNTRY,
-                FindWorkRequestDTOTestData.VALID_CITY,
-                FindWorkRequestDTOTestData.VALID_WORKTYPE
+                WorkRequestEntityTestData.NUll_COUNTRY,
+                WorkRequestEntityTestData.VALID_CITY,
+                WorkRequestEntityTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -69,9 +69,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.INVALID_LARGE_COUNTRY,
-                FindWorkRequestDTOTestData.VALID_CITY,
-                FindWorkRequestDTOTestData.VALID_WORKTYPE
+                WorkRequestEntityTestData.INVALID_LARGE_COUNTRY,
+                WorkRequestEntityTestData.VALID_CITY,
+                WorkRequestEntityTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -87,9 +87,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.INVALID_COUNTRY,
-                FindWorkRequestDTOTestData.VALID_CITY,
-                FindWorkRequestDTOTestData.VALID_WORKTYPE
+                WorkRequestEntityTestData.INVALID_COUNTRY,
+                WorkRequestEntityTestData.VALID_CITY,
+                WorkRequestEntityTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -105,9 +105,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.VALID_COUNTRY,
-                FindWorkRequestDTOTestData.NUll_CITY,
-                FindWorkRequestDTOTestData.VALID_WORKTYPE
+                WorkRequestEntityTestData.VALID_COUNTRY,
+                WorkRequestEntityTestData.NUll_CITY,
+                WorkRequestEntityTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(WorkRequestValidationUtilTestData.CITY_CANNOT_BE_EMPTY);
@@ -121,9 +121,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                FindWorkRequestDTOTestData.VALID_COUNTRY,
-                FindWorkRequestDTOTestData.INVALID_CITY,
-                FindWorkRequestDTOTestData.VALID_WORKTYPE
+                WorkRequestEntityTestData.VALID_COUNTRY,
+                WorkRequestEntityTestData.INVALID_CITY,
+                WorkRequestEntityTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
