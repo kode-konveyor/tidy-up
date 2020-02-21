@@ -46,7 +46,7 @@ public class WorkRequestEntityTestData {
     return List.of(get());
   }
 
-  public static WorkRequestEntity saveData() {
+  public static WorkRequestEntity save() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
     workRequestEntity.setCustomer(UserEntityTestData.get());
     workRequestEntity.setWorkType(WORK_TYPE);
