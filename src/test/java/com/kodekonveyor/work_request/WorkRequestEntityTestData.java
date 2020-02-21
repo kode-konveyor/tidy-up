@@ -32,4 +32,14 @@ public class WorkRequestEntityTestData {
   public static List<WorkRequestEntity> list() {
     return List.of(get());
   }
+
+  public static WorkRequestEntity saveData() {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setWorkType(WORK_TYPE);
+    workRequestEntity.setId(WORK_REQUEST_ID);
+    workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
+    return workRequestEntity;
+  }
 }

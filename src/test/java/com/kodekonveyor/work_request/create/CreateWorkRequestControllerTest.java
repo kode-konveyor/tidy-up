@@ -39,7 +39,7 @@ public class CreateWorkRequestControllerTest
   @DisplayName("Work request entity is saved")
   public void test5() {
 
-    verify(workRequestRepository).save(WorkRequestEntityTestData.get());
+    verify(workRequestRepository).save(WorkRequestEntityTestData.saveData());
   }
 
   @Test

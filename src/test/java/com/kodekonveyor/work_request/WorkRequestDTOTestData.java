@@ -17,6 +17,7 @@ public class WorkRequestDTOTestData {
     workRequestDTO.setWorkType(WorkRequestEntityTestData.WORK_TYPE);
     workRequestDTO.setAddress(AddressDTOTestData.get());
     workRequestDTO.setDescription(WorkRequestEntityTestData.DESCRIPTION);
+    workRequestDTO.setStatus(WorkRequestStatusEnum.AGREED.toString());
     return workRequestDTO;
 
   }
