@@ -48,7 +48,7 @@ public class WorkRequestConstants {
       "City can contain alphabetic characters/letters only";
   public static String INVALID_PRICE = "Invalid Price";
   public static String NEGATIVE_PRICE_EXCEPTION = "Price cannot be negative";
-
+  public static String NULL_STATUS = "Status cannot be empty";
   public static final String OWNER_ID_REGEX = "[0-9]+";
 
 }

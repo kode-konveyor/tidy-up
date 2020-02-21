@@ -18,7 +18,7 @@ public class WorkRequestEntity {
   private Long id;
   private UserEntity customer;
   private String workType;
-
+  private UserEntity provider;
   private AddressEntity address;
   private String description;
   private WorkRequestStatusEnum status;

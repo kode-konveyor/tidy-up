@@ -25,6 +25,7 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setId(WORK_REQUEST_ID);
     workRequestEntity.setDescription(DESCRIPTION);
     workRequestEntity.setAddress(AddressEntityTestData.get());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     return workRequestEntity;
   }
 
