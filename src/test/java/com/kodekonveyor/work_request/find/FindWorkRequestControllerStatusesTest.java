@@ -35,9 +35,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.VALID_COUNTRY,
-                WorkRequestEntityTestData.VALID_CITY,
-                WorkRequestEntityTestData.NUll_WORKTYPE
+                FindWorkRequestTestData.VALID_COUNTRY,
+                FindWorkRequestTestData.VALID_CITY,
+                FindWorkRequestTestData.NUll_WORKTYPE
             )
     )
         .assertMessageIs(WorkRequestValidationUtilTestData.NULL_WORKTYPE);
@@ -51,9 +51,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.NUll_COUNTRY,
-                WorkRequestEntityTestData.VALID_CITY,
-                WorkRequestEntityTestData.VALID_WORKTYPE
+                FindWorkRequestTestData.NUll_COUNTRY,
+                FindWorkRequestTestData.VALID_CITY,
+                FindWorkRequestTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -69,9 +69,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.INVALID_LARGE_COUNTRY,
-                WorkRequestEntityTestData.VALID_CITY,
-                WorkRequestEntityTestData.VALID_WORKTYPE
+                FindWorkRequestTestData.INVALID_LARGE_COUNTRY,
+                FindWorkRequestTestData.VALID_CITY,
+                FindWorkRequestTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -87,9 +87,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.INVALID_COUNTRY,
-                WorkRequestEntityTestData.VALID_CITY,
-                WorkRequestEntityTestData.VALID_WORKTYPE
+                FindWorkRequestTestData.INVALID_COUNTRY,
+                FindWorkRequestTestData.VALID_CITY,
+                FindWorkRequestTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -105,9 +105,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.VALID_COUNTRY,
-                WorkRequestEntityTestData.NUll_CITY,
-                WorkRequestEntityTestData.VALID_WORKTYPE
+                FindWorkRequestTestData.VALID_COUNTRY,
+                FindWorkRequestTestData.NUll_CITY,
+                FindWorkRequestTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(WorkRequestValidationUtilTestData.CITY_CANNOT_BE_EMPTY);
@@ -121,9 +121,9 @@ public class FindWorkRequestControllerStatusesTest
     ThrowableTester.assertThrows(
         () -> findWorkRequestController
             .call(
-                WorkRequestEntityTestData.VALID_COUNTRY,
-                WorkRequestEntityTestData.INVALID_CITY,
-                WorkRequestEntityTestData.VALID_WORKTYPE
+                FindWorkRequestTestData.VALID_COUNTRY,
+                FindWorkRequestTestData.INVALID_CITY,
+                FindWorkRequestTestData.VALID_WORKTYPE
             )
     )
         .assertMessageIs(
@@ -135,6 +135,22 @@ public class FindWorkRequestControllerStatusesTest
   @Test
   @DisplayName("Sucess when status is not in POSTED")
   public void testSuccessNotInPostedState() {
+
+    assertEquals(
+        WorkRequestStatusEnum.AGREED.name(),
+        findWorkRequestController
+            .call(
+                AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
+                WorkRequestEntityTestData.WORK_TYPE
+            )
+            .getRequests().get(0).getStatus()
+    );
+
+  }
+
+  @Test
+  @DisplayName("Sucess when status is not in POSTED for Provider")
+  public void testSuccessNotInPostedProvider() {
 
     assertEquals(
         WorkRequestStatusEnum.AGREED.name(),

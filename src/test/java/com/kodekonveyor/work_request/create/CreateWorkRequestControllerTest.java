@@ -18,6 +18,7 @@ import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.authentication.UserEntityTestData;
 import com.kodekonveyor.work_request.AddressEntityTestData;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
+import com.kodekonveyor.work_request.find.FindWorkRequestTestData;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -39,7 +40,7 @@ public class CreateWorkRequestControllerTest
   @DisplayName("Work request entity is saved")
   public void test5() {
 
-    verify(workRequestRepository).save(WorkRequestEntityTestData.save());
+    verify(workRequestRepository).save(FindWorkRequestTestData.get());
   }
 
   @Test
