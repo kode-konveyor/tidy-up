@@ -10,7 +10,7 @@ import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 public class FindWorkRequestTestData {
 
   public final static String NUll_WORKTYPE = null; //NOPMD
-  public final static String VALID_WORKTYPE = "ELECTRICAL_REPAIRMENT";
+  public final static String VALID_WORKTYPE = "ELECTRICAL_REPAIRMENT"; //NOPMD
   public final static String INVALID_WORKTYPE = "XXXYYYZZZ";
 
   public final static String NUll_COUNTRY = null; //NOPMD
