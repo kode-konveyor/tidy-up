@@ -30,13 +30,10 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
-  public static WorkRequestEntity getRevoke() {
-    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+  public static WorkRequestEntity getCustomerBadUser() {
+    final WorkRequestEntity workRequestEntity = get();
     workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
-    workRequestEntity.setWorkType(WORK_TYPE);
     workRequestEntity.setId(REVOKE_WORK_REQUEST_ID);
-    workRequestEntity.setDescription(DESCRIPTION);
-    workRequestEntity.setAddress(AddressEntityTestData.get());
     return workRequestEntity;
   }
 
