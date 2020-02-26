@@ -19,9 +19,7 @@ import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("access control")
 @TestedService("RevokeWorkRequestController")
-/**
- * RevokeWorkRequestController/access control
- */
+
 public class RevokeWorkRequestControllerAccessControlTest
     extends RevokeWorkRequestControllerTestBase {
 
@@ -33,9 +31,7 @@ public class RevokeWorkRequestControllerAccessControlTest
   @DisplayName(
     "When a user try to revoke Work Request of another user, an exception is thrown."
   )
-  /**
-   * Test : A user can only revoke its own work request
-   */
+
   public void testRevokeWorkRequestOfOtherOwner() {
 
     ThrowableTester.assertThrows(
