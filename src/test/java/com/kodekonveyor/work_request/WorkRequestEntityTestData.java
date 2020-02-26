@@ -55,7 +55,6 @@ public abstract class WorkRequestEntityTestData {
 
   public static WorkRequestEntity getInvalidDetails() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
-    workRequestEntity.setCustomer(UserEntityTestData.get());
     workRequestEntity.setWorkType(WORK_TYPE);
     workRequestEntity.setId(WORK_REQUEST_ID);
     workRequestEntity.setDescription(DESCRIPTION);
