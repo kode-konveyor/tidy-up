@@ -32,9 +32,4 @@ public class CountryAndCityValidationUtil {
 
   }
 
-  public static void validateStatus(final String status) {
-
-    if (null == status)
-      throw new ValidationException(WorkRequestConstants.NULL_STATUS);
-  }
 }

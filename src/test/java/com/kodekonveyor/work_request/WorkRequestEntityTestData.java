@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kodekonveyor.authentication.UserEntityTestData;
 
-public class WorkRequestEntityTestData {
+public abstract class WorkRequestEntityTestData {
 
   public static final String NO_WORKREQUESTS = "No Work Request";
   public static final String NO_WORKREQUESTS_ID = "4243";
@@ -31,6 +31,38 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setAddress(AddressEntityTestData.get());
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestEntity.setProvider(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
+  public static List<WorkRequestEntity> listCustomer() {
+    return List.of(getCustomer());
+  }
+
+  public static WorkRequestEntity getCustomer() {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setWorkType(WORK_TYPE);
+    workRequestEntity.setId(WORK_REQUEST_ID);
+    workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
+  public static List<WorkRequestEntity> listInvalid() {
+    return List.of(getInvalidDetails());
+  }
+
+  public static WorkRequestEntity getInvalidDetails() {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setWorkType(WORK_TYPE);
+    workRequestEntity.setId(WORK_REQUEST_ID);
+    workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.POSTED);
+    workRequestEntity.setCustomer(UserEntityTestData.get());
     return workRequestEntity;
   }
 }

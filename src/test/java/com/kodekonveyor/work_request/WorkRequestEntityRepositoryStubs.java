@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.kodekonveyor.authentication.UserEntityTestData;
 
-public class WorkRequestEntityRepositoryStubs {
+public abstract class WorkRequestEntityRepositoryStubs {
 
   public static void behaviour(
       final WorkRequestRepository workRequestRepository
@@ -22,6 +22,32 @@ public class WorkRequestEntityRepositoryStubs {
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.WORK_REQUEST_ID);
     doReturn(WorkRequestEntityTestData.list())
+        .when(workRequestRepository)
+        .findByTypeAndCountryAndCity(
+            WorkTypeEnum.CLEANING, AddressEntityTestData.COUNTRY,
+            AddressEntityTestData.CITY
+        );
+
+  }
+
+  public static void behaviourCustomer(
+      final WorkRequestRepository workRequestRepository
+  ) {
+
+    doReturn(WorkRequestEntityTestData.listCustomer())
+        .when(workRequestRepository)
+        .findByTypeAndCountryAndCity(
+            WorkTypeEnum.CLEANING, AddressEntityTestData.COUNTRY,
+            AddressEntityTestData.CITY
+        );
+
+  }
+
+  public static void behaviourInvalid(
+      final WorkRequestRepository workRequestRepository
+  ) {
+
+    doReturn(WorkRequestEntityTestData.listInvalid())
         .when(workRequestRepository)
         .findByTypeAndCountryAndCity(
             WorkTypeEnum.CLEANING, AddressEntityTestData.COUNTRY,
