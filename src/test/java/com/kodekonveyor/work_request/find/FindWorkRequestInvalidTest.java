@@ -14,7 +14,6 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
-import com.kodekonveyor.authentication.AuthenticatedUserStubs;
 import com.kodekonveyor.work_request.AddressEntityTestData;
 import com.kodekonveyor.work_request.WorkRequestEntityRepositoryStubs;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
@@ -24,7 +23,7 @@ import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 @RunWith(MockitoJUnitRunner.class)
 @TestedBehaviour("input validation")
 @TestedService("FindWorkRequestController")
-public class FindWorkRequestTest
+public class FindWorkRequestInvalidTest
     extends FindWorkRequestControllerTestBase {
 
   @Override
@@ -35,11 +34,10 @@ public class FindWorkRequestTest
         workRequestRepository
     );
 
-    AuthenticatedUserStubs.behaviour(authenticatedUserService);
   }
 
   @Test
-  @DisplayName("Sucess when status is not in POSTED for Customer")
+  @DisplayName("Sucess when status is not in POSTED for Customer and Provider")
   public void testSuccessNotInPostedProvider() {
 
     assertEquals(

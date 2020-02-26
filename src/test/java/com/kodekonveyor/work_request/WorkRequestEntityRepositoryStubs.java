@@ -56,4 +56,17 @@ public abstract class WorkRequestEntityRepositoryStubs {
 
   }
 
+  public static void behaviourProvider(
+      final WorkRequestRepository workRequestRepository
+  ) {
+
+    doReturn(WorkRequestEntityTestData.listProvider())
+        .when(workRequestRepository)
+        .findByTypeAndCountryAndCity(
+            WorkTypeEnum.CLEANING, AddressEntityTestData.COUNTRY,
+            AddressEntityTestData.CITY
+        );
+
+  }
+
 }

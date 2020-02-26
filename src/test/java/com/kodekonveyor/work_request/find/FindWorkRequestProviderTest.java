@@ -33,7 +33,7 @@ public class FindWorkRequestProviderTest
   @BeforeEach
   void setUp() {
     super.setUp();
-    WorkRequestEntityRepositoryStubs.behaviourCustomer(
+    WorkRequestEntityRepositoryStubs.behaviourProvider(
         workRequestRepository
     );
 
@@ -41,7 +41,7 @@ public class FindWorkRequestProviderTest
   }
 
   @Test
-  @DisplayName("Sucess when status is not in POSTED for Customer")
+  @DisplayName("Sucess when status is not in POSTED for Provider")
   public void testSuccessNotInPostedProvider() {
 
     assertEquals(

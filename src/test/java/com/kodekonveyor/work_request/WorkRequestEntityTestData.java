@@ -46,7 +46,6 @@ public abstract class WorkRequestEntityTestData {
     workRequestEntity.setDescription(DESCRIPTION);
     workRequestEntity.setAddress(AddressEntityTestData.get());
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
-    workRequestEntity.setCustomer(UserEntityTestData.get());
     return workRequestEntity;
   }
 
@@ -62,7 +61,21 @@ public abstract class WorkRequestEntityTestData {
     workRequestEntity.setDescription(DESCRIPTION);
     workRequestEntity.setAddress(AddressEntityTestData.get());
     workRequestEntity.setStatus(WorkRequestStatusEnum.POSTED);
-    workRequestEntity.setCustomer(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
+  public static List<WorkRequestEntity> listProvider() {
+    return List.of(getProvider());
+  }
+
+  public static WorkRequestEntity getProvider() {
+    final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
+    workRequestEntity.setWorkType(WORK_TYPE);
+    workRequestEntity.setId(WORK_REQUEST_ID);
+    workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setProvider(UserEntityTestData.get());
     return workRequestEntity;
   }
 }

@@ -149,7 +149,7 @@ public class FindWorkRequestControllerStatusesTest
   }
 
   @Test
-  @DisplayName("Sucess when status is not in POSTED for Provider")
+  @DisplayName("Sucess when status is not in POSTED for Customer")
   public void testSuccessNotInPostedProvider() {
 
     assertEquals(
