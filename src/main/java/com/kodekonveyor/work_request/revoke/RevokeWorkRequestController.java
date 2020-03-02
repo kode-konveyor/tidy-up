@@ -33,7 +33,6 @@ public class RevokeWorkRequestController {
     final UserEntity user = authenticatedUserService.call();
     final UserEntity customer = workRequestEntity.getCustomer();
 
-    //a user can only revoke its own work request
     if (customer.getId() == user.getId())
       workRequestRepository.delete(workRequestEntity);
     else
