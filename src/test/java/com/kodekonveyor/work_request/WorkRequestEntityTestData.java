@@ -28,6 +28,12 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
+  public static WorkRequestEntity getProviderFilledIn() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setProvider(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
   public static List<WorkRequestEntity> list() {
     return List.of(get());
   }

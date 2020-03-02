@@ -17,6 +17,7 @@ public class UserEntityTestData {
   public static final String NEGATIVE_OWNERID_ID = "-4536";
   public static final Long NO_WORKREQUESTS_ID_ASLONG =
       Long.parseLong(NO_WORKREQUESTS_ID);
+  public static final long PROVIDER_ID = 42424;
 
   public static List<UserEntity> list() {
     return List.of(get());
@@ -47,6 +48,12 @@ public class UserEntityTestData {
     final UserEntity userEntity = new UserEntity();
     userEntity.setAuth0id(BAD_AUTH0ID);
     userEntity.setLogin(BAD_LOGIN);
+    return userEntity;
+  }
+
+  public static UserEntity getIdProvider() {
+    final UserEntity userEntity = get();
+    userEntity.setId(PROVIDER_ID);
     return userEntity;
   }
 

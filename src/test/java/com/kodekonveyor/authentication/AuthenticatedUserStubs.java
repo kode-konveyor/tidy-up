@@ -11,4 +11,13 @@ public class AuthenticatedUserStubs {
     doReturn(UserEntityTestData.get()).when(authenticatedUserService).call();
 
   }
+
+  public static void providerIsAuthenticated(
+      final AuthenticatedUserService authenticatedUserService
+  ) {
+
+    doReturn(UserEntityTestData.getIdProvider()).when(authenticatedUserService)
+        .call();
+
+  }
 }

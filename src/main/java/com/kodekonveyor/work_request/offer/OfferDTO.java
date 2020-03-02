@@ -8,4 +8,5 @@ public class OfferDTO {
   private long id;
   private long price;
   private long workRequestId;
+  private long providerId;
 }
