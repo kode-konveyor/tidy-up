@@ -31,7 +31,7 @@ public class GiveofferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("OfferDTO returned successfully")
+  @DisplayName("Returns an offer")
   public void testCompileOutput() {
 
     assertEquals(
@@ -40,7 +40,7 @@ public class GiveofferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("Valid price tested successfully")
+  @DisplayName("The price of the offer is returned")
   public void testPrice() {
     assertEquals(
         OfferDTOTestData.VALID_PRICE,
@@ -49,7 +49,7 @@ public class GiveofferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("Id tested successfully")
+  @DisplayName("The Offer's unique identifier is returned")
   public void testId() {
     assertEquals(
         OfferDTOTestData.get().getId(),
@@ -58,7 +58,7 @@ public class GiveofferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("WorRequest tested successfully")
+  @DisplayName("The right work request identifier is returned")
   public void testWorkRequest() {
     assertEquals(
         OfferDTOTestData.get().getWorkRequestId(),
