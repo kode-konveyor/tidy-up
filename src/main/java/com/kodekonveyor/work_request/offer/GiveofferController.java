@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodekonveyor.authentication.AuthenticatedUserService;
+import com.kodekonveyor.authentication.UserEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
 
 @RestController
@@ -13,10 +15,30 @@ public class GiveofferController {
   @Autowired
   WorkRequestRepository workRequestRepository;
 
+  @Autowired
+  OfferEntityRepository offerEntityRepository;
+
+  @Autowired
+  AuthenticatedUserService authenticatedUserService;
+
   @PostMapping("/offer")
   public void
       call(@RequestBody final OfferDTO offerDTO) {
     OfferValidationUtil.inputValidation(workRequestRepository, offerDTO);
+    final UserEntity userEntity = authenticatedUserService.call();
+    save(offerDTO, userEntity);
+  }
+
+  private void save(final OfferDTO offerDTO, final UserEntity userEntity) {
+    //code for update check if offerDTO.getId() exists
+    final OfferEntity offerEntity = new OfferEntity();
+    offerEntity.setId(offerDTO.getId());
+    offerEntity.setPrice(offerDTO.getPrice());
+    offerEntity.setWorkRequest(
+        workRequestRepository.findByWorkRequestId(offerDTO.getWorkRequestId()).get(0)
+    );
+    offerEntity.setProvider(userEntity);
+    offerEntityRepository.save(offerEntity);
   }
 
 }
