@@ -58,7 +58,7 @@ public class GiveofferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("The right work request identifier is returned")
+  @DisplayName("The right work request identifier is returned.")
   public void testWorkRequest() {
     assertEquals(
         OfferDTOTestData.get().getWorkRequestId(),
