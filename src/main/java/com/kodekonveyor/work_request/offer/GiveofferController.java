@@ -22,11 +22,12 @@ public class GiveofferController {
   AuthenticatedUserService authenticatedUserService;
 
   @PostMapping("/offer")
-  public void
+  public OfferDTO
       call(@RequestBody final OfferDTO offerDTO) {
     OfferValidationUtil.inputValidation(workRequestRepository, offerDTO);
     final UserEntity userEntity = authenticatedUserService.call();
     save(offerDTO, userEntity);
+    return offerDTO;
   }
 
   private void save(final OfferDTO offerDTO, final UserEntity userEntity) {
