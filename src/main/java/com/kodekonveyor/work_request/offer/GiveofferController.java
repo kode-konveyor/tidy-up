@@ -26,12 +26,11 @@ public class GiveofferController {
       call(@RequestBody final OfferDTO offerDTO) {
     OfferValidationUtil.inputValidation(workRequestRepository, offerDTO);
     final UserEntity userEntity = authenticatedUserService.call();
-    save(offerDTO, userEntity);
+    giveOfferToUser(offerDTO, userEntity);
     return offerDTO;
   }
 
-  private void save(final OfferDTO offerDTO, final UserEntity userEntity) {
-    //code for update check if offerDTO.getId() exists
+  private void giveOfferToUser(final OfferDTO offerDTO, final UserEntity userEntity) {
     final OfferEntity offerEntity = new OfferEntity();
     offerEntity.setId(offerDTO.getId());
     offerEntity.setPrice(offerDTO.getPrice());

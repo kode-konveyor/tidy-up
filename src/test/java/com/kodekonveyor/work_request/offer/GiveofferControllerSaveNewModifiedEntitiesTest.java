@@ -27,7 +27,7 @@ public class GiveofferControllerSaveNewModifiedEntitiesTest
     extends GiveofferControllerTestBase {
 
   @Test
-  @DisplayName("Saved entity successfully")
+  @DisplayName("The offer is saved successfully")
   public void testSaveNewModifiedEntities() {
     AuthenticatedUserStubs.behaviour(authenticatedUserService);
     giveofferController.call(OfferDTOTestData.get());
@@ -36,17 +36,17 @@ public class GiveofferControllerSaveNewModifiedEntitiesTest
   }
 
   @Test
-  @DisplayName("Verified saved workrequest Id succcessfully")
+  @DisplayName("The work request identifier is saved successfully.")
   public void testWorkRequestSavedId() {
     assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID, // check if we need to compare objects instead
+        WorkRequestEntityTestData.WORK_REQUEST_ID,
         OfferEntityTestData.get().getWorkRequest().getId()
     );
 
   }
 
   @Test
-  @DisplayName("Verified saved Provider entity")
+  @DisplayName("The provider is saved successfully")
   public void testSavedUserEntity() {
     assertEquals(
         UserEntityTestData.get(),
@@ -56,7 +56,7 @@ public class GiveofferControllerSaveNewModifiedEntitiesTest
   }
 
   @Test
-  @DisplayName("Verified saved price")
+  @DisplayName("The price of the offer is saved successfully ")
   public void testSavedPrice() {
     assertEquals(
         Long.valueOf(OfferDTOTestData.VALID_PRICE), OfferEntityTestData.get().getPrice()
