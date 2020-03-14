@@ -1,3 +1,4 @@
+
 package com.kodekonveyor.work_request;
 
 public class WorkRequestConstants {
@@ -52,6 +53,7 @@ public class WorkRequestConstants {
       "You can only revoke your own work request";
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
+  public static final int MIN_PRICE = 1;
   public static final String OPEN_WORK_REQUEST_CONTROLLER =
       "OpenWorkRequestController";
 
