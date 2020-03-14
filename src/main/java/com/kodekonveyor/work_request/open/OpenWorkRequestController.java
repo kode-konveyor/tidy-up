@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.webapp.ValidationException;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestDTO;
@@ -19,9 +20,13 @@ public class OpenWorkRequestController {
 
   @Autowired
   WorkRequestRepository workRequestRepository;
+  @Autowired
+  LoggerService loggerService;
 
   @GetMapping("/workRequest/own/@workRequestId")
   public WorkRequestDTO call(@RequestParam final long workRequestId) {
+    loggerService.call(WorkRequestConstants.OPEN_WORK_REQUEST_CONTROLLER);
+
     inputValidation(workRequestId);
 
     final WorkRequestEntity workRequestEntity =

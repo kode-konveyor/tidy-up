@@ -7,4 +7,7 @@ public class OpenWorkRequestControllerTestData {
 
   public static final String INVALID_WORK_REQUEST_ID_EXCEPTION =
       "Invalid work request Id";
+
+  public static final String OPEN_WORK_REQUEST_CONTROLLLER =
+      "OpenWorkRequestController";
 }

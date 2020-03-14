@@ -52,5 +52,7 @@ public class WorkRequestConstants {
       "You can only revoke your own work request";
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
+  public static final String OPEN_WORK_REQUEST_CONTROLLER =
+      "OpenWorkRequestController";
 
 }
