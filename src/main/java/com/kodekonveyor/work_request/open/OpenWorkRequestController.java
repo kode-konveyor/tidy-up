@@ -25,7 +25,7 @@ public class OpenWorkRequestController {
 
   @GetMapping("/workRequest/own/@workRequestId")
   public WorkRequestDTO call(@RequestParam final long workRequestId) {
-    loggerService.call(WorkRequestConstants.OPEN_WORK_REQUEST_CONTROLLER);
+    loggerService.call(this.getClass().getName());
 
     inputValidation(workRequestId);
 

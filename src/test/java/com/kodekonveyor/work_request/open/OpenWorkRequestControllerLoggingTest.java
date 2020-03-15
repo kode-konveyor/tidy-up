@@ -31,7 +31,7 @@ public class OpenWorkRequestControllerLoggingTest
         .call(WorkRequestDTOTestData.get().getWorkRequestId());
     Mockito.verify(loggerService).call(captor.capture());
     assertEquals(
-        OpenWorkRequestControllerTestData.OPEN_WORK_REQUEST_CONTROLLLER,
+        OpenWorkRequestController.class.getName(),
         captor.getValue()
     );
   }
