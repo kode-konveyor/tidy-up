@@ -5,10 +5,10 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.slf4j.Logger;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
 import com.kodekonveyor.authentication.AuthenticatedUserStubs;
-import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestEntityRepositoryStubs;
 import com.kodekonveyor.work_request.WorkRequestRepository;
@@ -24,7 +24,7 @@ public class AcceptOfferControllerTestBase {
   @Mock
   AuthenticatedUserService authenticatedUserService;
   @Mock
-  LoggerService loggerService;
+  Logger loggerService;
   @Captor
   ArgumentCaptor<WorkRequestEntity> captorEntity;
 

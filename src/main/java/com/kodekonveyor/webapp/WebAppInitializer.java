@@ -29,13 +29,14 @@ public class WebAppInitializer implements WebApplicationInitializer {
     )
         .addMappingForUrlPatterns(
             null,
-            false, WebappConstants.SLASH_STAR
+            false, WebappConstants.ANY_URL
         );
   }
 
   private XmlWebApplicationContext getContext() {
     context = new XmlWebApplicationContext();
-    context.setConfigLocations(WebappConstants.WEB_INF_APPLICATION_CONTEXT_XML);
+
+    context.setConfigLocations(WebappConstants.APPLICATION_CONTEXT_XML_PATH);
     return context;
   }
 

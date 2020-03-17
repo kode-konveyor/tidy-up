@@ -5,5 +5,5 @@ public class AcceptOfferControllerTestData {
   public static final String ACCEPT_OFFER_CONTROLLER_IS_STARTED =
       "AcceptOfferController is started";
   public static final String SUCCESS = "SUCCESS";
-  public static final Integer NUMBER_OF_LOGS = 2;
+  public static final Integer NUMBER_OF_LOGS = 1;
 }

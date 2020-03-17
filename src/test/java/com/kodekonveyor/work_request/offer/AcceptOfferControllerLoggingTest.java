@@ -38,7 +38,7 @@ public class AcceptOfferControllerLoggingTest extends
 
   void test1() {
     Mockito.verify(loggerService)
-        .call(AcceptOfferControllerTestData.ACCEPT_OFFER_CONTROLLER_IS_STARTED);
+        .info(AcceptOfferControllerTestData.ACCEPT_OFFER_CONTROLLER_IS_STARTED);
   }
 
   @Test
@@ -51,11 +51,11 @@ public class AcceptOfferControllerLoggingTest extends
         loggerService,
         Mockito.times(AcceptOfferControllerTestData.NUMBER_OF_LOGS)
     )
-        .call(
+        .debug(
             captorString.capture()
         );
     assertTrue(
-        captorString.getAllValues().get(1).contains(AcceptOfferControllerTestData.SUCCESS)
+        captorString.getValue().contains(AcceptOfferControllerTestData.SUCCESS)
     );
   }
 
@@ -69,11 +69,12 @@ public class AcceptOfferControllerLoggingTest extends
         loggerService,
         Mockito.times(AcceptOfferControllerTestData.NUMBER_OF_LOGS)
     )
-        .call(
+        .debug(
             captorString.capture()
         );
     assertTrue(
-        captorString.getAllValues().get(1).contains(WorkRequestEntityTestData.WORK_REQUEST_ID.toString())
+        captorString.getValue()
+            .contains(WorkRequestEntityTestData.WORK_REQUEST_ID.toString())
     );
   }
 }
