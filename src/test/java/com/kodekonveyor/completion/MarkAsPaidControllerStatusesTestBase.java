@@ -9,6 +9,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 import com.kodekonveyor.work_request.WorkRequestRepository;
@@ -25,6 +26,8 @@ public class MarkAsPaidControllerStatusesTestBase {
 
   protected final ArgumentCaptor<WorkRequestEntity> argCaptor =
       ArgumentCaptor.forClass(WorkRequestEntity.class);
+  @Mock
+  LoggerService loggerService;
 
   @BeforeEach
   public void setUp() {
