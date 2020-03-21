@@ -17,4 +17,15 @@ public class LoggerService {
     LOGGER.info(msg);
   }
 
+  public void info(final String msg) {
+    LOGGER.info(msg);
+  }
+
+  public void warn(final String msg) {
+    LOGGER.warn(msg);
+  }
+
+  public void fine(final String msg) {
+    LOGGER.debug(msg);
+  }
 }

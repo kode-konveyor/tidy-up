@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
 import com.kodekonveyor.authentication.UserEntity;
+import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.webapp.ValidationException;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -19,17 +20,38 @@ public class RevokeWorkRequestController {
 
   @Autowired
   WorkRequestRepository workRequestRepository;
-
+  @Autowired
+  LoggerService loggerService;
   @Autowired
   AuthenticatedUserService authenticatedUserService;
 
   @GetMapping("/workRequest/@workRequestId")
   public void call(@RequestParam final long workRequestId) {
+    loggerService.info(
+        this.getClass().getName()
+    );
+    loggerService.info(
+        this.getClass().getName() + WorkRequestConstants.DOT +
+            WorkRequestConstants.INPUT_VALIDATION
+    );
     inputValidation(workRequestId);
-
+    loggerService.fine(
+        this.getClass().getName() + WorkRequestConstants.DOT +
+            WorkRequestConstants.INPUT_VALIDATION + WorkRequestConstants.DOT +
+            WorkRequestConstants.SUCCESS
+    );
+    loggerService.info(
+        this.getClass().getName() + WorkRequestConstants.DOT +
+            WorkRequestConstants.FIND_WORK_REQUEST_ENTITY
+    );
     final WorkRequestEntity workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId).get(0);
-
+    loggerService.fine(
+        this.getClass().getName() + WorkRequestConstants.DOT +
+            WorkRequestConstants.FIND_WORK_REQUEST_ENTITY +
+            WorkRequestConstants.DOT +
+            WorkRequestConstants.SUCCESS
+    );
     final UserEntity user = authenticatedUserService.call();
     final UserEntity customer = workRequestEntity.getCustomer();
 
