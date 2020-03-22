@@ -29,7 +29,7 @@ public class RevokeWorkRequestControllerTestBase {
   @Mock
   AuthenticatedUserService authenticatedUserService;
   @Mock
-  static Logger loggerService;
+  Logger loggerService;
 
   @Captor
   ArgumentCaptor<Long> captorLong;
