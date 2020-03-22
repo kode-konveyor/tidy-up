@@ -1,7 +1,6 @@
 package com.kodekonveyor.work_request.revoke;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,6 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
-import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
 @ExtendWith(MockitoExtension.class)
@@ -28,18 +26,19 @@ public class RevokeWorkRequestControllerLoggingTest
     extends RevokeWorkRequestControllerTestBase {
 
   @Test
-  @DisplayName("The call of Revoke Controller is Logged with Revoked entity")
+  @DisplayName(
+    "The call of Revoke Controller Sevice call is Logged with Revoked entity"
+  )
   public void test1() {
     revokeWorkRequestController
         .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService, times(numberOfCallForInfoInLoggerService))
+    Mockito.verify(loggerService)
         .info(
-            captor.capture()
+            Mockito.eq(RevokeWorkRequestControllerTestData.SERVICE_CALL_NAME), captorString.capture()
         );
-
     assertEquals(
         RevokeWorkRequestController.class.getName(),
-        captor.getAllValues().get(0)
+        captorString.getValue()
     );
   }
 
@@ -50,75 +49,77 @@ public class RevokeWorkRequestControllerLoggingTest
   public void test2() {
     revokeWorkRequestController
         .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService, times(numberOfCallForInfoInLoggerService))
+    Mockito.verify(loggerService)
         .info(
-            captor.capture()
+            Mockito.eq(RevokeWorkRequestControllerTestData.INPUT_VALIDATION),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorLong.capture()
         );
     assertEquals(
-        RevokeWorkRequestController.class.getName() + WorkRequestConstants.DOT +
-            WorkRequestConstants.INPUT_VALIDATION,
-        captor.getAllValues().get(1)
+        WorkRequestEntityTestData.WORK_REQUEST_ID,
+        captorLong.getValue()
     );
+
   }
 
   @Test
   @DisplayName(
-    "The call of Revoke Controller input validation SUCCESS is Logged with Revoked entity"
+    "The call of Revoke Controller work Request ID for find work request is Logged"
   )
   public void test3() {
     revokeWorkRequestController
         .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService, times(numberOfCallForFineInLoggerService))
-        .fine(
-            captor.capture()
+    Mockito.verify(loggerService)
+        .info(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.FIND_WORK_REQUEST_ENTITY),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorLong.capture()
         );
-
     assertEquals(
-        RevokeWorkRequestController.class.getName() + WorkRequestConstants.DOT +
-            WorkRequestConstants.INPUT_VALIDATION + WorkRequestConstants.DOT +
-            WorkRequestConstants.SUCCESS,
-        captor.getAllValues().get(0)
+        WorkRequestEntityTestData.WORK_REQUEST_ID,
+        captorLong.getValue()
     );
+
   }
 
   @Test
   @DisplayName(
-    "The call of Revoke Controller find work request entity is Logged with Revoked entity"
+    "The call of Revoke Controller input validation SUCCESS is Logged with workRequestID"
   )
   public void test4() {
     revokeWorkRequestController
         .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService, times(numberOfCallForInfoInLoggerService))
-        .info(
-            captor.capture()
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito.eq(RevokeWorkRequestControllerTestData.INPUT_VALIDATION),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorLong.capture(),
+            Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
         );
-
     assertEquals(
-        RevokeWorkRequestController.class.getName() + WorkRequestConstants.DOT +
-            WorkRequestConstants.FIND_WORK_REQUEST_ENTITY,
-        captor.getAllValues().get(2)
+        WorkRequestEntityTestData.WORK_REQUEST_ID,
+        captorLong.getValue()
     );
+
   }
 
   @Test
   @DisplayName(
-    "The call of Revoke Controller find work request entity SUCCESS is Logged with Revoked entity"
+    "The call of Revoke Controller find work request entity SUCCESS is Logged with workRequestID"
   )
   public void test5() {
     revokeWorkRequestController
         .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService, times(numberOfCallForFineInLoggerService))
-        .fine(
-            captor.capture()
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.FIND_WORK_REQUEST_ENTITY),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorLong.capture(),
+            Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
         );
-
     assertEquals(
-        RevokeWorkRequestController.class.getName() + WorkRequestConstants.DOT +
-            WorkRequestConstants.FIND_WORK_REQUEST_ENTITY +
-            WorkRequestConstants.DOT +
-            WorkRequestConstants.SUCCESS,
-        captor.getAllValues().get(1)
+        WorkRequestEntityTestData.WORK_REQUEST_ID,
+        captorLong.getValue()
     );
+
   }
 
 }

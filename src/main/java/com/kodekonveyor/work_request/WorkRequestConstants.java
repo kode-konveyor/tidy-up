@@ -56,7 +56,8 @@ public class WorkRequestConstants {
   public static final String DOT = ".";
   public static final String SUCCESS = "SUCCESS";
   public static final String FAILURE = "FAILURE";
-  public static final String INPUT_VALIDATION = "InputValidation";
+  public static final String INPUT_VALIDATION = "InputValidation: {}";
   public static final String FIND_WORK_REQUEST_ENTITY =
-      "FindWorkRequestEntityById";
+      "FindWorkRequestEntityById: {}";
+  public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
 }
