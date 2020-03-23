@@ -60,4 +60,6 @@ public class WorkRequestConstants {
   public static final String FIND_WORK_REQUEST_ENTITY =
       "FindWorkRequestEntityById: {}";
   public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
+  public static final String AUTHENTICATION = "Authentication: {}";
+  public static final String GET_CUSTOMER = "GetCustomer: {}";
 }

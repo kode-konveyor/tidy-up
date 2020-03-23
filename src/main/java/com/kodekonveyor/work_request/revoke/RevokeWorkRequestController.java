@@ -53,9 +53,20 @@ public class RevokeWorkRequestController {
         this.getClass().getName(), workRequestId,
         WorkRequestConstants.SUCCESS
     );
+    loggerService
+        .info(WorkRequestConstants.AUTHENTICATION, this.getClass().getName());
     final UserEntity user = authenticatedUserService.call();
+    loggerService.debug(
+        WorkRequestConstants.AUTHENTICATION, this.getClass().getName(),
+        user.getAuth0id(), WorkRequestConstants.SUCCESS
+    );
+    loggerService
+        .info(WorkRequestConstants.GET_CUSTOMER, this.getClass().getName());
     final UserEntity customer = workRequestEntity.getCustomer();
-
+    loggerService.debug(
+        WorkRequestConstants.GET_CUSTOMER, this.getClass().getName(),
+        customer.getAuth0id(), WorkRequestConstants.SUCCESS
+    );
     if (customer.getId() == user.getId())
       workRequestRepository.delete(workRequestEntity);
     else

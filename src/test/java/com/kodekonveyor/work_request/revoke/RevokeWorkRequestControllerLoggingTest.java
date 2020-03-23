@@ -122,4 +122,75 @@ public class RevokeWorkRequestControllerLoggingTest
 
   }
 
+  @Test
+  @DisplayName(
+    "The call of Revoke Controller user Authentication logging"
+  )
+  public void test6() {
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .info(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.AUTHENTICATION),
+            Mockito.eq(RevokeWorkRequestController.class.getName())
+        );
+
+  }
+
+  @Test
+  @DisplayName(
+    "The call of Revoke Controller user Authentication logging SUCCESS with AuthID"
+  )
+  public void test7() {
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.AUTHENTICATION),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorString.capture(), Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
+        );
+
+    assertEquals(
+        WorkRequestEntityTestData.get().getCustomer().getAuth0id(),
+        captorString.getValue()
+    );
+  }
+
+  @Test
+  @DisplayName(
+    "The call of Revoke Controller get customer user entity logging"
+  )
+  public void test8() {
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .info(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.GET_CUSTOMER),
+            Mockito.eq(RevokeWorkRequestController.class.getName())
+        );
+
+  }
+
+  @Test
+  @DisplayName(
+    "The call of Revoke Controller get customer user entity logging SUCCESS with AuthID"
+  )
+  public void test9() {
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito
+                .eq(RevokeWorkRequestControllerTestData.GET_CUSTOMER),
+            Mockito.eq(RevokeWorkRequestController.class.getName()), captorString.capture(), Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
+        );
+
+    assertEquals(
+        WorkRequestEntityTestData.get().getCustomer().getAuth0id(),
+        captorString.getValue()
+    );
+  }
 }
