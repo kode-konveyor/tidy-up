@@ -14,4 +14,12 @@ public class OfferEntityTestData {
     return offerEntity;
   }
 
+  public static Object getWithOtherUser() {
+
+    final OfferEntity offerEntity = get();
+    offerEntity.getWorkRequest()
+        .setCustomer(UserEntityTestData.getIdForBadUser());
+    return offerEntity;
+  }
+
 }
