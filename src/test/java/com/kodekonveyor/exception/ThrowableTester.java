@@ -115,4 +115,12 @@ public class ThrowableTester {//NOPMD
     return this;
   }
 
+  public static void assertNoException(final Thrower thrower) {
+    try {
+      thrower.throwException();
+    } catch (final Throwable e) {//NOPMD
+      fail("an exception is thrown");
+    }
+  }
+
 }

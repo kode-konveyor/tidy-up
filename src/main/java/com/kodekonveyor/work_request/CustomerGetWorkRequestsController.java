@@ -23,8 +23,9 @@ public class CustomerGetWorkRequestsController {
   public WorkRequestListDTO call(final String ownerId) {
     inputValidation(ownerId);
 
+    final Long parseLong = Long.parseLong(ownerId);
     final Optional<UserEntity> user =
-        userEntityRepository.findById(Long.parseLong(ownerId));
+        userEntityRepository.findById(parseLong);
     if (user.isEmpty())
       throw new ValidationException(WorkRequestConstants.INVALID_OWNERID);
 

@@ -14,7 +14,7 @@ public class UserEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private Long id;
   @Column(name = "username")
   private String login;
   @Column(name = "auth0id")
