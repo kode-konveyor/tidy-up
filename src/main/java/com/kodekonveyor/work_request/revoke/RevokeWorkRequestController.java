@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
 import com.kodekonveyor.authentication.UserEntity;
-
 import com.kodekonveyor.webapp.ValidationException;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -40,7 +39,6 @@ public class RevokeWorkRequestController {
       throw new ValidationException(
           WorkRequestConstants.UNAUTHORIZE_REVOKE_WORK_REQUEST
       );
-    workRequestRepository.delete(workRequestEntity);
 
   }
 
