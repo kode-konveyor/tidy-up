@@ -14,20 +14,25 @@ import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
-@RunWith(MockitoJUnitRunner.class)
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-@TestedBehaviour("Data access")
+@RunWith(MockitoJUnitRunner.class)
+
+@TestedBehaviour("Save the new/modified entities")
 @TestedService("RevokeWorkRequestController")
-public class RevokeWorkRequestControllerDataAccessTest
+
+class RevokeWorkRequestControllerTests
     extends RevokeWorkRequestControllerTestBase {
 
   @Test
-  @DisplayName("Delete the entity successfully")
-  public void testDeleteWorkRequest() {
-    revokeWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+  @DisplayName("Check if Delete is called")
+  void test() {
+
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
     Mockito.verify(workRequestRepository)
-        .delete(WorkRequestEntityTestData.get());
+        .delete(Mockito.eq(WorkRequestEntityTestData.get()));
+
   }
 
 }
