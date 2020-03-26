@@ -12,6 +12,10 @@ public class WorkRequestEntityTestData {
   public static final Long WORK_REQUEST_ID = 4242L;
   public static final Long INVALID_WORK_REQUEST_ID = 3454L;
 
+
+  public static final Long REVOKE_WORK_REQUEST_ID = 4241L;
+
+
   public static final String OWNER_ID = "4242";
   public static final String WORK_TYPE = "CLEANING";
   public static final String DESCRIPTION = "Clean up the mess";
@@ -26,7 +30,14 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setDescription(DESCRIPTION);
 
     workRequestEntity.setAddress(AddressEntityTestData.get());
+    return workRequestEntity;
+  }
 
+  public static WorkRequestEntity getCustomerBadUser() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
+    workRequestEntity.setId(REVOKE_WORK_REQUEST_ID);
+    workRequestEntity.setAddress(AddressEntityTestData.get());
     return workRequestEntity;
   }
 
