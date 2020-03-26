@@ -24,7 +24,9 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setWorkType(WORK_TYPE);
     workRequestEntity.setId(WORK_REQUEST_ID);
     workRequestEntity.setDescription(DESCRIPTION);
+
     workRequestEntity.setAddress(AddressEntityTestData.get());
+
     return workRequestEntity;
   }
 
