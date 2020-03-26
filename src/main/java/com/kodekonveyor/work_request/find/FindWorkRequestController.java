@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestListDTO;
@@ -18,6 +19,8 @@ import com.kodekonveyor.work_request.create.CountryAndCityValidationUtil;
 public class FindWorkRequestController {
 
   @Autowired
+  LoggerService loggerService;
+  @Autowired
   WorkRequestRepository workRequestRepository;
 
   @GetMapping("workRequest/{country}/{city}/{workType}")
@@ -25,6 +28,7 @@ public class FindWorkRequestController {
       final String country, final String city,
       final String workType
   ) {
+    loggerService.call(FindWorkRequestControllerConstants.IS_STARTED);
     WorkTypeValidationUtil.validateWorkType(workType);
     CountryAndCityValidationUtil.validateCountry(country);
 
