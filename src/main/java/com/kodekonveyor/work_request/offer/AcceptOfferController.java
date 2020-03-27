@@ -1,10 +1,12 @@
 package com.kodekonveyor.work_request.offer;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodekonveyor.work_request.AddressDTO;
+import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
@@ -19,9 +21,15 @@ public class AcceptOfferController {
   @Autowired
   WorkRequestRepository workRequestReposiory;
 
+  @Autowired
+  Logger loggerService;
+
   @PutMapping("/accept/{offerId}")
   public WorkRequestDTO call(final long offerId) {
 
+    loggerService.info(
+        WorkRequestConstants.SERVICE_CALL_NAME, this.getClass().getName()
+    );
     final OfferEntity offerEntity =
         offerEntityRepository.findById(offerId).get();
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
