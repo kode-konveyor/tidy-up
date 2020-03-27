@@ -22,7 +22,8 @@ import com.kodekonveyor.annotations.TestedService;
 @TestedBehaviour("logging")
 @TestedService("GiveOfferController")
 
-public class GiveOfferControllerLogging extends GiveofferControllerTestBase {
+public class GiveOfferControllerLoggingTest
+    extends GiveofferControllerTestBase {
 
   @BeforeEach
   public void setUpTest() {
