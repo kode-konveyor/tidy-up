@@ -10,5 +10,6 @@ public class GiveofferControllerTestData {
 
   public static final String INVALID_WORK_REQUEST_ID_EXCEPTION =
       "Invalid work request Id";
+  public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
 
 }

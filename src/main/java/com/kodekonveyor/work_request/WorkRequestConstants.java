@@ -53,5 +53,6 @@ public class WorkRequestConstants {
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
   public static final int MIN_PRICE = 1;
+  public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
 
 }
