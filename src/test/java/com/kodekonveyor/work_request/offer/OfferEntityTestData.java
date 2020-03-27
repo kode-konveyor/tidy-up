@@ -5,6 +5,8 @@ import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
 public class OfferEntityTestData {
 
+  public static final Long OFFER_ID = 40L;
+
   public static OfferEntity get() {
     final OfferEntity offerEntity = new OfferEntity();
     offerEntity.setId(OfferDTOTestData.get().getId());
