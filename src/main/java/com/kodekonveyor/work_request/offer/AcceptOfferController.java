@@ -22,7 +22,7 @@ public class AcceptOfferController {
   WorkRequestRepository workRequestReposiory;
 
   @Autowired
-  Logger loggerService;
+  Logger loggerService; //NOPMD
 
   @PutMapping("/accept/{offerId}")
   public WorkRequestDTO call(final long offerId) {
