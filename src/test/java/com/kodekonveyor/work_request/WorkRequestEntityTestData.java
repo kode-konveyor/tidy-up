@@ -13,6 +13,7 @@ public class WorkRequestEntityTestData {
   public static final Long INVALID_WORK_REQUEST_ID = 3454L;
 
   public static final Long REVOKE_WORK_REQUEST_ID = 4241L;
+  public static final Long WORK_REQUEST_ID_NOT_POSTED = 4872L;
 
   public static final String OWNER_ID = "4242";
   public static final String WORK_TYPE = "CLEANING";
@@ -34,6 +35,13 @@ public class WorkRequestEntityTestData {
     final WorkRequestEntity workRequestEntity = get();
     workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setId(REVOKE_WORK_REQUEST_ID);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusNotPosted() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED);
     return workRequestEntity;
   }
 

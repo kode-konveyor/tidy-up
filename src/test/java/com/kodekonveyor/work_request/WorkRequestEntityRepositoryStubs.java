@@ -15,9 +15,11 @@ public class WorkRequestEntityRepositoryStubs {
     doReturn(WorkRequestEntityTestData.list())
         .when(workRequestRepository)
         .findByCustomer(UserEntityTestData.get());
-    doReturn(List.of(WorkRequestEntityTestData.get()))
+    doReturn(List.of(WorkRequestEntityTestData.getStatusNotPosted()))
         .when(workRequestRepository)
-        .findByWorkRequestId(WorkRequestEntityTestData.WORK_REQUEST_ID);
+        .findByWorkRequestId(
+            WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED
+        );
     doReturn(WorkRequestEntityTestData.list())
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.WORK_REQUEST_ID);
