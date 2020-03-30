@@ -53,7 +53,6 @@ public class WorkRequestConstants {
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
   public static final int MIN_PRICE = 1;
-  public static final String DOT = ".";
   public static final String SUCCESS = "SUCCESS";
   public static final String FAILURE = "FAILURE";
   public static final String INPUT_VALIDATION = "InputValidation: {}";
