@@ -14,7 +14,12 @@ public class RevokeWorkRequestControllerTestData {
   public static final String FIND_WORK_REQUEST_ENTITY =
       "FindWorkRequestEntityById: {}";
   public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
-  public static final String AUTHENTICATION = "Authentication: {}";
-  public static final String GET_CUSTOMER = "GetCustomer: {}";
 
+  public static final String DELETE_WORK_REQUEST_ENTITY =
+      "DeleteWorkRequestEntity: {}";
+  public static final String INPUT_VALIDATION_STATUS = "InputValidation: {} {}";
+  public static final String DELETE_WORK_REQUEST_ENTITY_STATUS =
+      "DeleteWorkRequestEntity: {} {}";
+  public static final String FIND_WORK_REQUEST_ENTITY_STATUS =
+      "FindWorkRequestEntityById: {} {}";
 }
