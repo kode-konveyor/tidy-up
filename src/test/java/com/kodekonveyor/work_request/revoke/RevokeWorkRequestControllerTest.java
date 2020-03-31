@@ -21,7 +21,7 @@ import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 @TestedBehaviour("Save the new/modified entities")
 @TestedService("RevokeWorkRequestController")
 
-class RevokeWorkRequestControllerTests
+class RevokeWorkRequestControllerTest
     extends RevokeWorkRequestControllerTestBase {
 
   @Test
