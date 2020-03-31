@@ -230,4 +230,34 @@ public class RevokeWorkRequestControllerLoggingTest
 
   }
 
+  @Test
+  @DisplayName(
+    "Revoke Controller delete work request entity FAILURE is Logged"
+  )
+  public void test10() {
+
+    ThrowableTester.assertThrows(
+        () -> revokeWorkRequestController
+            .call(WorkRequestEntityTestData.REVOKE_WORK_REQUEST_ID)
+    )
+        .assertMessageIs(
+            RevokeWorkRequestControllerTestData.WORK_REQUEST_ACCESS_EXCEPTION
+        );
+    Mockito.verify(loggerService)
+        .warn(
+            Mockito
+                .eq(
+                    RevokeWorkRequestControllerTestData.DELETE_WORK_REQUEST_ENTITY_STATUS
+
+                ),
+            captorString.capture(), Mockito
+                .eq(RevokeWorkRequestControllerTestData.FAILURE)
+        );
+    assertEquals(
+        RevokeWorkRequestControllerTestData.WORK_REQUEST_ACCESS_EXCEPTION,
+        captorString.getValue()
+    );
+
+  }
+
 }
