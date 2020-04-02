@@ -28,4 +28,11 @@ public class WorkRequestDTOTestData {
     return workRequestDTO;
   }
 
+  public static WorkRequestDTO getStatusAgreed() {
+    final WorkRequestDTO workRequestDTO = get();
+    workRequestDTO.setStatus(WorkRequestStatusEnum.AGREED);
+
+    return workRequestDTO;
+  }
+
 }

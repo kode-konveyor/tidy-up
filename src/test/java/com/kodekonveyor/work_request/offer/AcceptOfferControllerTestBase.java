@@ -20,5 +20,6 @@ public class AcceptOfferControllerTestBase {
   void setUp() {
     OfferEntityRepositoryStubs.behaviour(offerEntityRepository);
     WorkRequestEntityRepositoryStubs.behaviour2(workRequestRepository);
+
   }
 }

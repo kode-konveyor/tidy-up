@@ -20,9 +20,9 @@ import com.kodekonveyor.work_request.WorkRequestDTOTestData;
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 @RunWith(MockitoJUnitRunner.class)
-@TestedBehaviour("compile output")
+@TestedBehaviour("statuses")
 @TestedService("AcceptOfferController")
-public class AcceptOfferControllerCompileOutputTest
+public class AcceptOfferControllerStatusesTest
     extends AcceptOfferControllerTestBase {
 
   private WorkRequestDTO workRequestDTOTestData;
@@ -35,61 +35,12 @@ public class AcceptOfferControllerCompileOutputTest
   }
 
   @Test
-  @DisplayName("Work Request returned successfully")
+  @DisplayName("Work request status AGREED returned successfully")
   public void test1() {
-    assertEquals(
-        workRequestDTOTestData,
-        workRequestDTO
-    );
-  }
-
-  @Test
-  @DisplayName("Work Request ID returned successfully")
-  public void test2() {
-
-    assertEquals(
-        workRequestDTOTestData.getWorkRequestId(),
-        workRequestDTO.getWorkRequestId()
-    );
-  }
-
-  @Test
-  @DisplayName("Work Request description returned successfully")
-  public void test3() {
-
-    assertEquals(
-        workRequestDTOTestData.getDescription(),
-        workRequestDTO.getDescription()
-    );
-  }
-
-  @Test
-  @DisplayName("Work request status returned successfully")
-  public void test4() {
 
     assertEquals(
         workRequestDTOTestData.getStatus(),
         workRequestDTO.getStatus()
-    );
-  }
-
-  @Test
-  @DisplayName("Work request type returned successfully")
-  public void test5() {
-
-    assertEquals(
-        workRequestDTOTestData.getWorkType(),
-        workRequestDTO.getWorkType()
-    );
-  }
-
-  @Test
-  @DisplayName("Work request address returned successfully")
-  public void test6() {
-
-    assertEquals(
-        workRequestDTOTestData.getAddress(),
-        workRequestDTO.getAddress()
     );
   }
 }

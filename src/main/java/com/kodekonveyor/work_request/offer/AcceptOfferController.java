@@ -8,6 +8,7 @@ import com.kodekonveyor.work_request.AddressDTO;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
+import com.kodekonveyor.work_request.WorkRequestStatusEnum;
 
 @RestController
 
@@ -25,7 +26,8 @@ public class AcceptOfferController {
     final OfferEntity offerEntity =
         offerEntityRepository.findById(offerId).get();
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
-    return getWorkRequestDTO(workRequest);
+
+    return getWorkRequestDTOStatusAgreed(workRequest);
 
   }
 
@@ -47,6 +49,13 @@ public class AcceptOfferController {
         .setCountry(workRequest.getAddress().getCountry());
 
     workRequestDTO.setAddress(addressDTO);
+    return workRequestDTO;
+  }
+
+  private WorkRequestDTO
+      getWorkRequestDTOStatusAgreed(final WorkRequestEntity workRequest) {
+    final WorkRequestDTO workRequestDTO = getWorkRequestDTO(workRequest);
+    workRequestDTO.setStatus(WorkRequestStatusEnum.AGREED);
     return workRequestDTO;
   }
 }
