@@ -36,7 +36,6 @@ public class AcceptOfferController {
     final WorkRequestDTO workRequestDTO = new WorkRequestDTO();
     workRequestDTO
         .setDescription(workRequest.getDescription());
-    workRequestDTO.setStatus(workRequest.getStatus());
     workRequestDTO.setWorkRequestId(workRequest.getId());
     workRequestDTO.setWorkType(workRequest.getWorkType());
 
