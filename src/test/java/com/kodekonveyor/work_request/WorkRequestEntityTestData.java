@@ -19,13 +19,17 @@ public class WorkRequestEntityTestData {
   public static final String DESCRIPTION = "Clean up the mess";
   public static final boolean IS_ACTIVE = true;
   public static final Long CUSTOMER_ID = (long) 4242;
+  public static final WorkRequestStatusEnum STATUS =
+      WorkRequestStatusEnum.POSTED;
 
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
     workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setProvider(UserEntityTestData.get());
     workRequestEntity.setWorkType(WORK_TYPE);
     workRequestEntity.setId(WORK_REQUEST_ID);
     workRequestEntity.setDescription(DESCRIPTION);
+    workRequestEntity.setStatus(WorkRequestStatusEnum.POSTED);
     workRequestEntity.setAddress(AddressEntityTestData.get());
     return workRequestEntity;
   }
@@ -40,4 +44,29 @@ public class WorkRequestEntityTestData {
   public static List<WorkRequestEntity> list() {
     return List.of(get());
   }
+
+  public static List<WorkRequestEntity> listForCountryCityAndTypeQuery() {
+    return List.of(
+        get(), getStatusNotPosted(),
+        getStatusNotPostedAndUserIsEitherOwnerOrCustomer()
+    );
+  }
+
+  public static WorkRequestEntity getStatusNotPosted() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
+    workRequestEntity.setProvider(UserEntityTestData.getIdForBadUser());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity
+      getStatusNotPostedAndUserIsEitherOwnerOrCustomer() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setProvider(UserEntityTestData.get());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.PAID);
+    return workRequestEntity;
+  }
+
 }

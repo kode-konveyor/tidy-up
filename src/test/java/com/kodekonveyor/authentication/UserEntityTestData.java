@@ -11,12 +11,14 @@ public class UserEntityTestData {
   public static final String LOGIN = "424242";
   public static final String BAD_LOGIN = "424241";
   public static final long USER_ID = 4242;
+  public static final long CUSTOMER_ID = 4242;
   public static final long BAD_USER_ID = 4241;
   public static final String NO_WORKREQUESTS_ID = "4243";
   public static final String OWNER_ID = "4242";
   public static final String NEGATIVE_OWNERID_ID = "-4536";
   public static final Long NO_WORKREQUESTS_ID_ASLONG =
       Long.parseLong(NO_WORKREQUESTS_ID);
+  public static final long PROVIDER_ID = 4242;
 
   public static List<UserEntity> list() {
     return List.of(get());
