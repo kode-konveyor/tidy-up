@@ -21,9 +21,11 @@ public class WorkRequestEntityRepositoryStubs {
     doReturn(WorkRequestEntityTestData.list())
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.WORK_REQUEST_ID);
+
     doReturn(List.of(WorkRequestEntityTestData.getCustomerBadUser()))
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.REVOKE_WORK_REQUEST_ID);
+    
     doReturn(WorkRequestEntityTestData.list())
         .when(workRequestRepository)
         .findByTypeAndCountryAndCity(
@@ -31,6 +33,16 @@ public class WorkRequestEntityRepositoryStubs {
             AddressEntityTestData.CITY
         );
 
+  }
+
+  public static void behaviour2(
+      final WorkRequestRepository workRequestRepository
+  ) {
+    doReturn(List.of(WorkRequestEntityTestData.getStatusPosted()))
+        .when(workRequestRepository)
+        .findByWorkRequestId(
+            WorkRequestEntityTestData.WORK_REQUEST_ID
+        );
   }
 
 }
