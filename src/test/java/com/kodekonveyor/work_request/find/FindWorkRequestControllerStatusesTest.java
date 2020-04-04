@@ -1,5 +1,6 @@
 package com.kodekonveyor.work_request.find;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
@@ -31,22 +32,19 @@ public class FindWorkRequestControllerStatusesTest
   @DisplayName(
     "Not Posted work requests which do not belong to the user, not returned."
   )
-  void test2() {
+  void test1() {
     final WorkRequestListDTO call = findWorkRequestController.call(
         AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
         WorkRequestEntityTestData.WORK_TYPE
     );
-    assertEquals(
-        WorkRequestEntityTestData.ENTITY_WITHOUT_OWNER_COUNT,
-        call.getRequests().size()
-    );
+    FindTestHelper.assertContains(call.getRequests());
   }
 
   @Test
   @DisplayName(
     "Not Posted work requests for which the user is the owner, are returned."
   )
-  void test3() {
+  void test2() {
     final WorkRequestListDTO call = findWorkRequestController.call(
         AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
         WorkRequestEntityTestData.WORK_TYPE
@@ -60,7 +58,7 @@ public class FindWorkRequestControllerStatusesTest
   @DisplayName(
     "Not Posted work requests for which the user is the provider, are returned."
   )
-  void test4() {
+  void test3() {
     final WorkRequestListDTO call = findWorkRequestController.call(
         AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
         WorkRequestEntityTestData.WORK_TYPE
@@ -68,5 +66,17 @@ public class FindWorkRequestControllerStatusesTest
     assertEquals(
         UserEntityTestData.PROVIDER_ID, call.getRequests().get(1).getWorkRequestId()
     );
+  }
+
+  @Test
+  @DisplayName(
+    "Call is not null."
+  )
+  void test4() {
+    final WorkRequestListDTO call = findWorkRequestController.call(
+        AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
+        WorkRequestEntityTestData.WORK_TYPE
+    );
+    assertNotNull(call);
   }
 }

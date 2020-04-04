@@ -15,6 +15,7 @@ public class WorkRequestEntityTestData {
   public static final Long REVOKE_WORK_REQUEST_ID = 4241L;
 
   public static final String OWNER_ID = "4242";
+  public static final Long NON_OWNER_ID = 4343L;
   public static final String WORK_TYPE = "CLEANING";
   public static final String DESCRIPTION = "Clean up the mess";
   public static final boolean IS_ACTIVE = true;
@@ -64,6 +65,7 @@ public class WorkRequestEntityTestData {
 
   public static WorkRequestEntity getStatusNotPostedAndNonOWner() {
     final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setId(NON_OWNER_ID);
     workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setProvider(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
