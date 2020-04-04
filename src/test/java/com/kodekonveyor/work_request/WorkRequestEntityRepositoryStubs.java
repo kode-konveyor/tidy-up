@@ -21,6 +21,7 @@ public class WorkRequestEntityRepositoryStubs {
     doReturn(WorkRequestEntityTestData.list())
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.WORK_REQUEST_ID);
+
     doReturn(List.of(WorkRequestEntityTestData.getCustomerBadUser()))
         .when(workRequestRepository)
         .findByWorkRequestId(WorkRequestEntityTestData.REVOKE_WORK_REQUEST_ID);
@@ -30,6 +31,7 @@ public class WorkRequestEntityRepositoryStubs {
             WorkTypeEnum.CLEANING, AddressEntityTestData.COUNTRY,
             AddressEntityTestData.CITY
         );
+
   }
 
   public static void behaviour2(
