@@ -50,7 +50,7 @@ public class FindWorkRequestControllerStatusesTest
         WorkRequestEntityTestData.WORK_TYPE
     );
     assertEquals(
-        UserEntityTestData.CUSTOMER_ID, call.getRequests().get(1).getWorkRequestId()
+        UserEntityTestData.ID_CUSTOMER_OR_PROVIDER, call.getRequests().get(1).getWorkRequestId()
     );
   }
 
@@ -64,7 +64,7 @@ public class FindWorkRequestControllerStatusesTest
         WorkRequestEntityTestData.WORK_TYPE
     );
     assertEquals(
-        UserEntityTestData.PROVIDER_ID, call.getRequests().get(1).getWorkRequestId()
+        UserEntityTestData.ID_CUSTOMER_OR_PROVIDER, call.getRequests().get(1).getWorkRequestId()
     );
   }
 

@@ -1,6 +1,5 @@
 package com.kodekonveyor.work_request.find;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.List;
@@ -13,10 +12,6 @@ public class FindTestHelper {
 
   public static void
       assertContains(final List<WorkRequestDTO> container) {
-    assertEquals(
-        WorkRequestEntityTestData.ENTITY_WITHOUT_OWNER_COUNT,
-        container.size()
-    );
     final List<Long> ids = container.stream()
         .mapToLong(WorkRequestDTO::getWorkRequestId)
         .boxed()

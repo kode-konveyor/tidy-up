@@ -22,7 +22,6 @@ public class WorkRequestEntityTestData {
   public static final Long CUSTOMER_ID = (long) 4242;
   public static final WorkRequestStatusEnum STATUS =
       WorkRequestStatusEnum.POSTED;
-  public static final int ENTITY_WITHOUT_OWNER_COUNT = 3;
 
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
