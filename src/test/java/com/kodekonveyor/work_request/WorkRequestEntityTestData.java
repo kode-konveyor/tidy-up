@@ -21,7 +21,7 @@ public class WorkRequestEntityTestData {
   public static final Long CUSTOMER_ID = (long) 4242;
   public static final WorkRequestStatusEnum STATUS =
       WorkRequestStatusEnum.POSTED;
-  public static final int ENTITY_WITHOUT_OWNER_COUNT = 2;
+  public static final int ENTITY_WITHOUT_OWNER_COUNT = 3;
 
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
@@ -55,12 +55,14 @@ public class WorkRequestEntityTestData {
 
   public static List<WorkRequestEntity> listForCountryCityAndTypeQuery() {
     return List.of(
-        get(), getStatusNotPosted(),
-        getStatusNotPostedAndUserIsEitherOwnerOrCustomer()
+        get(),
+        getStatusNotPostedAndNonOWner(),
+        getStatusNotPostedAndUserIsCustomer(),
+        getStatusNotPostedAndUserIsProvider()
     );
   }
 
-  public static WorkRequestEntity getStatusNotPosted() {
+  public static WorkRequestEntity getStatusNotPostedAndNonOWner() {
     final WorkRequestEntity workRequestEntity = get();
     workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setProvider(UserEntityTestData.getIdForBadUser());
@@ -68,10 +70,18 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
-  public static WorkRequestEntity
-      getStatusNotPostedAndUserIsEitherOwnerOrCustomer() {
+  public static WorkRequestEntity getStatusNotPostedAndUserIsCustomer() {
     final WorkRequestEntity workRequestEntity = get();
     workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setProvider(UserEntityTestData.getIdForBadUser());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity
+      getStatusNotPostedAndUserIsProvider() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setProvider(UserEntityTestData.get());
     workRequestEntity.setStatus(WorkRequestStatusEnum.PAID);
     return workRequestEntity;
