@@ -36,7 +36,10 @@ public class FindWorkRequestControllerStatusesTest
         AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
         WorkRequestEntityTestData.WORK_TYPE
     );
-    assertEquals(2, call.getRequests().size());
+    assertEquals(
+        WorkRequestEntityTestData.ENTITY_WITHOUT_OWNER_COUNT,
+        call.getRequests().size()
+    );
   }
 
   @Test

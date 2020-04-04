@@ -46,14 +46,12 @@ public class FindWorkRequestController {
     final List<WorkRequestEntity> filteredList = new ArrayList<>();
 
     for (final WorkRequestEntity entity : entities)
-      if (!entity.getStatus().equals(WorkRequestStatusEnum.POSTED)) {
-        if (
-          entity.getCustomer().getId() == currentUser.getId() ||
-              entity.getProvider().getId() == currentUser.getId()
-        )
-          filteredList.add(entity);
-
-      } else
+      if (entity.getStatus().equals(WorkRequestStatusEnum.POSTED))
+        filteredList.add(entity);
+      else if (
+        entity.getCustomer().getId() == currentUser.getId() ||
+            entity.getProvider().getId() == currentUser.getId()
+      )
         filteredList.add(entity);
 
     final WorkRequestListDTO dtoList = new WorkRequestListDTO();
