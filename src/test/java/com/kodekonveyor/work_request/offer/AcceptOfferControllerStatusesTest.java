@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
@@ -16,6 +17,7 @@ import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestDTOTestData;
+import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -30,7 +32,8 @@ public class AcceptOfferControllerStatusesTest
 
   @BeforeEach
   public void setUpTest() {
-    workRequestDTOTestData = WorkRequestDTOTestData.getStatusAgreed();
+    workRequestDTOTestData =
+        WorkRequestDTOTestData.getStatusAgreedAndProvider();
     workRequestDTO = acceptOfferController.call(OfferDTOTestData.get().getId());
   }
 
@@ -43,4 +46,26 @@ public class AcceptOfferControllerStatusesTest
         workRequestDTO.getStatus()
     );
   }
+
+  @Test
+  @DisplayName("Work request entity is saved with Status AGREED")
+  public void test2() {
+    Mockito.verify(workRequestRepository).save(captorEntity.capture());
+    assertEquals(
+        WorkRequestEntityTestData.getProviderAndStatusAgreed(),
+        captorEntity.getValue()
+    );
+
+  }
+
+  @Test
+  @DisplayName("Provider is set in workRequest and WorkRequestDTO")
+  public void test3() {
+    Mockito.verify(workRequestRepository).save(captorEntity.capture());
+    assertEquals(
+        workRequestDTO.getProvider(), captorEntity.getValue().getProvider()
+    );
+
+  }
+
 }

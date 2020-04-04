@@ -30,7 +30,8 @@ public class AcceptOfferControllerCompileOutputTest
 
   @BeforeEach
   public void setUpTest() {
-    workRequestDTOTestData = WorkRequestDTOTestData.getStatusAgreed();
+    workRequestDTOTestData =
+        WorkRequestDTOTestData.getStatusAgreedAndProvider();
     workRequestDTO = acceptOfferController.call(OfferDTOTestData.get().getId());
   }
 

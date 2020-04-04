@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodekonveyor.authentication.AuthenticatedUserService;
+import com.kodekonveyor.authentication.UserEntity;
 import com.kodekonveyor.work_request.AddressDTO;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -16,19 +18,23 @@ public class AcceptOfferController {
 
   @Autowired
   OfferEntityRepository offerEntityRepository;
-
   @Autowired
-  WorkRequestRepository workRequestReposiory;
+  AuthenticatedUserService authenticatedUserService;
+  @Autowired
+  WorkRequestRepository workRequestRepository;
 
   @PutMapping("/accept/{offerId}")
   public WorkRequestDTO call(final long offerId) {
 
     final OfferEntity offerEntity =
         offerEntityRepository.findById(offerId).get();
+    final UserEntity provider = authenticatedUserService.call();
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
+    workRequest.setProvider(provider);
+    workRequest.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestRepository.save(workRequest);
 
     return getWorkRequestDTOStatusAgreed(workRequest);
-
   }
 
   private WorkRequestDTO
@@ -54,7 +60,9 @@ public class AcceptOfferController {
   private WorkRequestDTO
       getWorkRequestDTOStatusAgreed(final WorkRequestEntity workRequest) {
     final WorkRequestDTO workRequestDTO = getWorkRequestDTO(workRequest);
-    workRequestDTO.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestDTO.setStatus(workRequest.getStatus());
+    workRequestDTO.setProvider(workRequest.getProvider());
     return workRequestDTO;
   }
+
 }

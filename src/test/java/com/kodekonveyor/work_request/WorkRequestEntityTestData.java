@@ -46,6 +46,14 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
+  public static WorkRequestEntity getProviderAndStatusAgreed() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setProvider(UserEntityTestData.get());
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
   public static List<WorkRequestEntity> list() {
     return List.of(get());
   }
