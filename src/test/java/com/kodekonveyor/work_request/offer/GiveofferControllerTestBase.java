@@ -27,8 +27,7 @@ public class GiveofferControllerTestBase {
   GiveofferControllerTestData giveofferControllerTestData;
   @Mock
   Logger loggerService; //NOPMD
-  @Captor
-  ArgumentCaptor<Long> captorLong;
+
   @Captor
   ArgumentCaptor<String> captorString;
 

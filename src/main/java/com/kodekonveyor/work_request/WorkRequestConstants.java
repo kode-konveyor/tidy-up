@@ -55,6 +55,16 @@ public class WorkRequestConstants {
   public static final String OWNER_ID_REGEX = "[0-9]+";
   public static final int MIN_PRICE = 1;
   public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
-
-
+  public static final String INPUT_VALIDATION = "Input Validation: {}";
+  public static final String INPUT_VALIDATION_STATUS =
+      "Input Validation Status: {} {}";
+  public static final String SUCCESS = "SUCCESS";
+  public static final String FIND_WORK_REQUEST =
+      "Finding work request for ID: {}";
+  public static final String FIND_WORK_REQUEST_STATUS =
+      "Finding work request for ID: {} {}";
+  public static final String SAVE_OFFER = "Save offer with offer ID: {}";
+  public static final String SAVE_OFFER_STATUS =
+      "Save offer with offer ID: {} {}";
+  public static final String FAILURE = "FAILURE";
 }
