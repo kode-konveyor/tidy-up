@@ -32,7 +32,6 @@ public class OfferValidationUtil {
       throw new ValidationException(
           WorkRequestConstants.NON_POSITIVE_WORK_REQUEST_ID_EXCEPTION
       );
-
     final List<WorkRequestEntity> workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId);
     if (workRequestEntity.isEmpty())
