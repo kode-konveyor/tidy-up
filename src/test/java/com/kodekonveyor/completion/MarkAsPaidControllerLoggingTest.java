@@ -15,6 +15,7 @@ import org.mockito.quality.Strictness;
 
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
+import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 import com.kodekonveyor.work_request.WorkRequestStatusEnum;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -31,7 +32,6 @@ public class MarkAsPaidControllerLoggingTest
 
     final ArgumentCaptor<String> argCaptor =
         ArgumentCaptor.forClass(String.class);
-
     Mockito.verify(loggerService).call(argCaptor.capture());
 
     Assertions
@@ -40,6 +40,73 @@ public class MarkAsPaidControllerLoggingTest
                 .contains(MarkAsPaidControllerTestData.CLASS_NAME)
         );
 
+  }
+
+  @Test
+  @DisplayName("The call of MarkAsPaidController input validation is logged")
+  void test2() {
+    final ArgumentCaptor<Long> captorLong =
+        ArgumentCaptor.forClass(Long.class);
+
+    Mockito.verify(logger)
+        .info(Mockito.eq(MarkAsPaidControllerTestData.INPUT_VALIDATION), captorLong.capture());
+    Assertions.assertEquals(
+        WorkRequestEntityTestData.get().getId(),
+        captorLong.getValue()
+    );
+  }
+
+  @Test
+  @DisplayName(
+    "The call of MarkAsPaidController input validation SUCCESS is logged"
+  )
+  void test3() {
+    final ArgumentCaptor<String> captorString =
+        ArgumentCaptor.forClass(String.class);
+
+    Mockito.verify(logger)
+        .debug(
+            Mockito.eq(MarkAsPaidControllerTestData.INPUT_VALIDATION_STATUS), captorString.capture(), Mockito.eq(MarkAsPaidControllerTestData.SUCCESS)
+        );
+    Assertions.assertEquals(
+        WorkRequestEntityTestData.get().getId(),
+        captorString.getValue()
+    );
+  }
+
+  @Test
+  @DisplayName(
+    "The call of MarkAsPaidController find work request is logged"
+  )
+  void test4() {
+    final ArgumentCaptor<String> captorString =
+        ArgumentCaptor.forClass(String.class);
+
+    Mockito.verify(logger)
+        .info(
+            Mockito.eq(MarkAsPaidControllerTestData.FIND_WORK_REQUEST), captorString.capture()
+        );
+    Assertions.assertEquals(
+        WorkRequestEntityTestData.get().getId(),
+        captorString.getValue()
+    );
+  }
+
+  @Test
+  @DisplayName(
+    "The call of MarkAsPaidController find work request SUCCESS is Logged"
+  )
+  public void test5() {
+    final ArgumentCaptor<String> captorString =
+        ArgumentCaptor.forClass(String.class);
+    Mockito.verify(logger)
+        .debug(
+            Mockito.eq(MarkAsPaidControllerTestData.FIND_WORK_REQUEST_STATUS), captorString.capture(), Mockito.eq(MarkAsPaidControllerTestData.SUCCESS)
+        );
+    Assertions.assertEquals(
+        WorkRequestEntityTestData.get().getId(),
+        captorString.getValue()
+    );
   }
 
   @Override

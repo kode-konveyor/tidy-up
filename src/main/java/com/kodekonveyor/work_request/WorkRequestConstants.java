@@ -2,6 +2,17 @@ package com.kodekonveyor.work_request;
 
 public class WorkRequestConstants {
 
+  public static final String INPUT_VALIDATION = "Input Validation: {}";
+  public static final String SUCCESS = "SUCCESS";
+  public static final String FAILURE = "FAILURE";
+  public static final String INPUT_VALIDATION_STATUS = "InputValidation: {} {}";
+  public static final String FIND_WORK_REQUEST =
+      "Finding work request for ID: {}";
+  public static final String FIND_WORK_REQUEST_STATUS =
+      "Finding work request for ID: {} {}";
+  public static final String SAVE_OFFER = "Save offer with offer ID: {}";
+  public static final String SAVE_OFFER_STATUS =
+      "Save offer with offer ID: {} {}";
   public static String NULL_DESCRIPTION = "Blank Description";
   public static String NULL_WORKTYPE = "Blank Work Type";
   public static String ADDRESS_LENGHT_EXCEEDED = "Address Lenght Exceeded";

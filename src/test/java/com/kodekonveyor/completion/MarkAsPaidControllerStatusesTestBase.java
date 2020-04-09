@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.slf4j.Logger;
 
 import com.kodekonveyor.webapp.LoggerService;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -28,6 +29,9 @@ public class MarkAsPaidControllerStatusesTestBase {
       ArgumentCaptor.forClass(WorkRequestEntity.class);
   @Mock
   LoggerService loggerService;
+
+  @Mock
+  Logger logger;
 
   @BeforeEach
   public void setUp() {
