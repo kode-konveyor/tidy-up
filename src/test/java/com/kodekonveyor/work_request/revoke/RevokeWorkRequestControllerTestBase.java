@@ -29,15 +29,12 @@ public class RevokeWorkRequestControllerTestBase {
   @Mock
   AuthenticatedUserService authenticatedUserService;
   @Mock
-  Logger loggerService; //NOPMD
+  Logger loggerService;
 
   @Captor
   ArgumentCaptor<Long> captorLong;
   @Captor
   ArgumentCaptor<String> captorString;
-
-  int numberOfCallForInfoInLoggerService = 2;
-  int numberOfCallForFineInLoggerService = 2;
 
   @BeforeEach
   void setUp() {

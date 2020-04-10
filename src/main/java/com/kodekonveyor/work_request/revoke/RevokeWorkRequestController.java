@@ -21,7 +21,7 @@ public class RevokeWorkRequestController {
   @Autowired
   WorkRequestRepository workRequestRepository;
   @Autowired
-  Logger loggerService; //NOPMD
+  Logger loggerService;
   @Autowired
   AuthenticatedUserService authenticatedUserService;
 
