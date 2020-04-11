@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
-import com.kodekonveyor.authentication.UserEntity;
 import com.kodekonveyor.work_request.AddressDTO;
 import com.kodekonveyor.work_request.WorkRequestDTO;
 import com.kodekonveyor.work_request.WorkRequestEntity;
@@ -28,9 +27,7 @@ public class AcceptOfferController {
 
     final OfferEntity offerEntity =
         offerEntityRepository.findById(offerId).get();
-    final UserEntity provider = authenticatedUserService.call();
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
-    workRequest.setProvider(provider);
     workRequest.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestRepository.save(workRequest);
 
