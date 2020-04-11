@@ -23,7 +23,7 @@ public class GiveofferController {
   @Autowired
   AuthenticatedUserService authenticatedUserService;
   @Autowired
-  Logger loggerService; //NOPMD
+  Logger loggerService;
 
   @PostMapping("/offer")
   public OfferDTO
