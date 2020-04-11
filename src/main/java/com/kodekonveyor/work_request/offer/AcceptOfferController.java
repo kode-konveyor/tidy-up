@@ -53,7 +53,6 @@ public class AcceptOfferController {
     addressDTO.setId(workRequest.getAddress().getId());
     addressDTO
         .setCountry(workRequest.getAddress().getCountry());
-
     workRequestDTO.setAddress(addressDTO);
     return workRequestDTO;
   }
