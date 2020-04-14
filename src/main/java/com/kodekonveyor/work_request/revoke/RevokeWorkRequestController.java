@@ -97,6 +97,7 @@ public class RevokeWorkRequestController {
     final List<WorkRequestEntity> workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId);
     if (workRequestEntity.isEmpty()) {
+
       loggerService.warn(
           WorkRequestConstants.INPUT_VALIDATION_STATUS,
           WorkRequestConstants.INVALID_WORK_REQUEST_ID_EXCEPTION,
