@@ -16,6 +16,7 @@ import com.kodekonveyor.work_request.AddressUtil;
 import com.kodekonveyor.work_request.WorkRequestConstants;
 import com.kodekonveyor.work_request.WorkRequestEntity;
 import com.kodekonveyor.work_request.WorkRequestRepository;
+import com.kodekonveyor.work_request.WorkRequestStatusEnum;
 import com.kodekonveyor.work_request.WorkTypeEnum;
 
 @RestController
@@ -61,8 +62,10 @@ public class CreateWorkRequestController {
     final AddressEntity addressEntity =
         AddressUtil.createAddressEntityFromDTO(address, customerId);
     workRequestEntity.setCustomer(userEntity);
+    workRequestEntity.setProvider(userEntity);
     workRequestEntity.setId(customerId);
     workRequestEntity.setDescription(createWorkRequestDTO.getDescription());
+    workRequestEntity.setStatus(WorkRequestStatusEnum.POSTED);
     workRequestEntity.setAddress(addressEntity);
     workRequestRepository.save(workRequestEntity);
     loggerService.debug(
