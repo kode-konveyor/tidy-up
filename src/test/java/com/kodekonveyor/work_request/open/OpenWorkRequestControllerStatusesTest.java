@@ -12,6 +12,7 @@ import org.mockito.quality.Strictness;
 import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.exception.ThrowableTester;
+import com.kodekonveyor.webapp.ValidationException;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
 
 @ExtendWith(MockitoExtension.class)
@@ -23,12 +24,58 @@ public class OpenWorkRequestControllerStatusesTest
     extends OpenWorkRequestControllerTestBase {
 
   @Test
-  @DisplayName("Work requests not posted will not be returned")
+  @DisplayName("Work requests not posted will raise a validation exception")
   void testOne() {
 
     ThrowableTester.assertThrows(
         () -> openWorkRequestController
             .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
-    ).showStackTrace();
+    ).assertException(ValidationException.class);
+
+  }
+
+  @Test
+  @DisplayName(
+    "For work request not posted, the error message would be 'Work request is not posted'"
+  )
+  void testTwo() {
+
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
+    ).assertMessageIs(
+        WorkRequestEntityTestData.WORK_REQUEST_IS_NOT_POSTED_MESSAGE
+    );
+
+  }
+
+  @Test
+  @DisplayName(
+    "Not posted work request for which the user is a customer, we don't throw exception"
+  )
+  void testThree() {
+
+    ThrowableTester.assertNoException(
+        () -> openWorkRequestController
+            .call(
+                WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED_WITH_CUSTOMER
+            )
+    );
+
+  }
+
+  @Test
+  @DisplayName(
+    "Not posted work request for which the user is a provider, we don't throw exception"
+  )
+  void testFour() {
+
+    ThrowableTester.assertNoException(
+        () -> openWorkRequestController
+            .call(
+                WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED_WITH_PROVIDER
+            )
+    );
+
   }
 }

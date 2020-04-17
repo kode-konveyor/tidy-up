@@ -15,6 +15,9 @@ public class WorkRequestEntityTestData {
   public static final Long REVOKE_WORK_REQUEST_ID = 4241L;
   public static final Long WORK_REQUEST_ID_NOT_POSTED = 4872L;
 
+  public static final String WORK_REQUEST_IS_NOT_POSTED_MESSAGE =
+      "Work request is not posted";
+
   public static final String OWNER_ID = "4242";
   public static final Long NON_OWNER_ID = 4343L;
   public static final String WORK_TYPE = "CLEANING";
@@ -23,6 +26,10 @@ public class WorkRequestEntityTestData {
   public static final Long CUSTOMER_ID = (long) 4242;
   public static final WorkRequestStatusEnum STATUS =
       WorkRequestStatusEnum.POSTED;
+  public static final Long WORK_REQUEST_ID_NOT_POSTED_WITH_CUSTOMER =
+      (long) 4244;
+  public static final Long WORK_REQUEST_ID_NOT_POSTED_WITH_PROVIDER =
+      (long) 4245;
 
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
@@ -63,6 +70,23 @@ public class WorkRequestEntityTestData {
     final WorkRequestEntity workRequestEntity = get();
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED);
+    workRequestEntity.setCustomer(null);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusNotPostedWithCustomer() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED_WITH_CUSTOMER);
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusNotPostedWithProvider() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED_WITH_PROVIDER);
+    workRequestEntity.setProvider(UserEntityTestData.get());
     return workRequestEntity;
   }
 
