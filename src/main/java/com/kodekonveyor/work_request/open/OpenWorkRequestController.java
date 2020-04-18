@@ -38,8 +38,8 @@ public class OpenWorkRequestController {
     if (
       !workRequestEntity.getStatus().equals(
           WorkRequestStatusEnum.POSTED
-      ) && (!currentUser.equals(workRequestEntity.getCustomer()) ||
-          !currentUser.equals(workRequestEntity.getProvider()))
+      ) && !(currentUser.equals(workRequestEntity.getCustomer()) ||
+          currentUser.equals(workRequestEntity.getProvider()))
 
     )
       throw new ValidationException(

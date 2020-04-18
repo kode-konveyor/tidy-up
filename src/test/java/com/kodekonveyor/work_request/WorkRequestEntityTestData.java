@@ -71,6 +71,7 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED);
     workRequestEntity.setCustomer(null);
+    workRequestEntity.setProvider(null);
     return workRequestEntity;
   }
 
@@ -79,6 +80,7 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED_WITH_CUSTOMER);
     workRequestEntity.setCustomer(UserEntityTestData.get());
+    workRequestEntity.setProvider(null);
     return workRequestEntity;
   }
 
@@ -87,6 +89,7 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestEntity.setId(WORK_REQUEST_ID_NOT_POSTED_WITH_PROVIDER);
     workRequestEntity.setProvider(UserEntityTestData.get());
+    workRequestEntity.setCustomer(null);
     return workRequestEntity;
   }
 
