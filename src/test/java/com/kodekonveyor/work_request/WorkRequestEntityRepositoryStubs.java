@@ -60,4 +60,14 @@ public class WorkRequestEntityRepositoryStubs {
         );
   }
 
+  public static void agreedWorkRequest(
+      final WorkRequestRepository workRequestRepository
+  ) {
+    doReturn(List.of(WorkRequestEntityTestData.getStatusAgreed()))
+        .when(workRequestRepository)
+        .findByWorkRequestId(
+            WorkRequestEntityTestData.WORK_REQUEST_ID
+        );
+  }
+
 }

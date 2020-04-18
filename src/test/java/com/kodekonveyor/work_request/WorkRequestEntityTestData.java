@@ -129,4 +129,16 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
+  public static WorkRequestEntity getStatusAgreed() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusCompleted() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.COMPLETED);
+    return workRequestEntity;
+  }
+
 }
