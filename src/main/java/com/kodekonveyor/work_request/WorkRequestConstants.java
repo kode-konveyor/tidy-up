@@ -62,7 +62,7 @@ public class WorkRequestConstants {
   public static final String FIND_WORK_REQUEST =
       "Finding work request for ID: {}";
   public static final String FIND_WORK_REQUEST_STATUS =
-      "Finding work request for ID: {} {}";
+      "Work request found : {} {}";
   public static final String SAVE_OFFER = "Save offer with offer ID: {}";
   public static final String SAVE_OFFER_STATUS =
       "Save offer with offer ID: {} {}";

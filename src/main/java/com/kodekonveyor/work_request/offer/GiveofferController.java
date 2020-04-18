@@ -33,10 +33,7 @@ public class GiveofferController {
     );
     loggerService.info(WorkRequestConstants.INPUT_VALIDATION, offerDTO.getId());
     OfferValidationUtil.inputValidation(workRequestRepository, offerDTO);
-    loggerService.debug(
-        WorkRequestConstants.INPUT_VALIDATION_STATUS, offerDTO.getId(),
-        WorkRequestConstants.SUCCESS
-    );
+
     final UserEntity userEntity = authenticatedUserService.call();
     giveOfferToUser(offerDTO, userEntity);
     return offerDTO;
@@ -55,13 +52,13 @@ public class GiveofferController {
     );
     loggerService.debug(
         WorkRequestConstants.FIND_WORK_REQUEST_STATUS,
-        offerDTO.getWorkRequestId(), WorkRequestConstants.SUCCESS
+        offerEntity.getWorkRequest(), WorkRequestConstants.SUCCESS
     );
     offerEntity.setProvider(userEntity);
-    loggerService.info(WorkRequestConstants.SAVE_OFFER, offerDTO);
+    loggerService.info(WorkRequestConstants.SAVE_OFFER, offerEntity.getId());
     offerEntityRepository.save(offerEntity);
     loggerService.debug(
-        WorkRequestConstants.SAVE_OFFER_STATUS, offerDTO,
+        WorkRequestConstants.SAVE_OFFER_STATUS, offerEntity.getId(),
         WorkRequestConstants.SUCCESS
     );
   }

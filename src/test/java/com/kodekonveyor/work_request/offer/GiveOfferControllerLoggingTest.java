@@ -62,21 +62,6 @@ public class GiveOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of GiveOfferController input validation SUCCESS Logged"
-  )
-  public void test3() {
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito.eq(GiveofferControllerTestData.INPUT_VALIDATION_STATUS), captorString.capture(), Mockito.eq(GiveofferControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        OfferDTOTestData.get().getId(),
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName(
     "The call of GiveOfferController find work request is Logged"
   )
   public void test4() {
@@ -92,7 +77,7 @@ public class GiveOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of GiveOfferController find work request SUCCESS is Logged"
+    "The call of GiveOfferController find work request SUCCESS is Logged with work request"
   )
   public void test5() {
     Mockito.verify(loggerService)
@@ -100,7 +85,7 @@ public class GiveOfferControllerLoggingTest
             Mockito.eq(GiveofferControllerTestData.FIND_WORK_REQUEST_STATUS), captorString.capture(), Mockito.eq(GiveofferControllerTestData.SUCCESS)
         );
     assertEquals(
-        OfferDTOTestData.get().getWorkRequestId(),
+        OfferEntityTestData.get().getWorkRequest(),
         captorString.getValue()
     );
   }
@@ -115,7 +100,7 @@ public class GiveOfferControllerLoggingTest
             Mockito.eq(GiveofferControllerTestData.SAVE_OFFER), captorString.capture()
         );
     assertEquals(
-        OfferDTOTestData.get(),
+        OfferEntityTestData.get().getId(),
         captorString.getValue()
     );
   }
@@ -130,7 +115,7 @@ public class GiveOfferControllerLoggingTest
             Mockito.eq(GiveofferControllerTestData.SAVE_OFFER_STATUS), captorString.capture(), Mockito.eq(GiveofferControllerTestData.SUCCESS)
         );
     assertEquals(
-        OfferDTOTestData.get(),
+        OfferEntityTestData.get().getId(),
         captorString.getValue()
     );
   }
