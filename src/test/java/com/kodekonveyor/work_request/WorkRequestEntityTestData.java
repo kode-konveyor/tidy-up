@@ -50,6 +50,14 @@ public class WorkRequestEntityTestData {
     return workRequestEntity;
   }
 
+  public static WorkRequestEntity getProviderAndStatusAgreed() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+
+    workRequestEntity.setCustomer(UserEntityTestData.get());
+    return workRequestEntity;
+  }
+
   public static List<WorkRequestEntity> list() {
     return List.of(get());
   }
@@ -86,6 +94,18 @@ public class WorkRequestEntityTestData {
     workRequestEntity.setCustomer(UserEntityTestData.getIdForBadUser());
     workRequestEntity.setProvider(UserEntityTestData.get());
     workRequestEntity.setStatus(WorkRequestStatusEnum.PAID);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusAgreed() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.AGREED);
+    return workRequestEntity;
+  }
+
+  public static WorkRequestEntity getStatusCompleted() {
+    final WorkRequestEntity workRequestEntity = get();
+    workRequestEntity.setStatus(WorkRequestStatusEnum.COMPLETED);
     return workRequestEntity;
   }
 
