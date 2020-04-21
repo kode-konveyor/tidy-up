@@ -37,6 +37,7 @@ public class WorkRequestConstants {
       "Work Request Id should be an integer";
   public static final String WORK_REQUEST_IS_NOT_POSTED =
       "Work request is not posted";
+  public static final String WORK_REQUEST_ERROR = "Work request error: {} {}";
 
   public static String CUSTOMER_ID_LENGTH_ERROR =
       "Customer ID should not be longer than 4 digit";
