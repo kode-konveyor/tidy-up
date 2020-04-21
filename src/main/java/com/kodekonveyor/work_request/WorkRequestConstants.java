@@ -35,6 +35,9 @@ public class WorkRequestConstants {
       "Work Request Id should be positive";
   public static String DECIMAL_WORK_REQUEST_ID_EXCEPTION =
       "Work Request Id should be an integer";
+  public static final String WORK_REQUEST_IS_NOT_POSTED =
+      "Work request is not posted";
+
   public static String CUSTOMER_ID_LENGTH_ERROR =
       "Customer ID should not be longer than 4 digit";
   public static String ZERO_WORK_REQUEST_ID_EXCEPTION =
@@ -48,10 +51,24 @@ public class WorkRequestConstants {
       "City can contain alphabetic characters/letters only";
   public static String INVALID_PRICE = "Invalid Price";
   public static String NEGATIVE_PRICE_EXCEPTION = "Price cannot be negative";
+
   public static final String UNAUTHORIZE_REVOKE_WORK_REQUEST =
       "You can only revoke your own work request";
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
   public static final int MIN_PRICE = 1;
-
+  public static final String SERVICE_CALL_NAME = "Service Call Name: {}";
+  public static final String INPUT_VALIDATION = "Input Validation: {}";
+  public static final String INPUT_VALIDATION_STATUS =
+      "Input Validation Status: {} {}";
+  public static final String SUCCESS = "SUCCESS";
+  public static final String FIND_WORK_REQUEST =
+      "Finding work request for ID: {}";
+  public static final String FIND_WORK_REQUEST_STATUS =
+      "Work request found : {} {}";
+  public static final String SAVE_OFFER = "Save offer with offer ID: {}";
+  public static final String SAVE_OFFER_STATUS =
+      "Save offer with offer ID: {} {}";
+  public static final String FAILURE = "FAILURE";
+  public static final String WORK_REQUEST_RECEIVED = "workrequest.received";
 }

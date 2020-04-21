@@ -1,9 +1,9 @@
 package com.kodekonveyor.exception;
 
+import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.platform.commons.util.ExceptionUtils;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,7 @@ public class ThrowableTester {//NOPMD
   private static ThrowableTester tester = new ThrowableTester();
 
   private ThrowableTester() {
+
   }
 
   public ThrowableTester assertMessageIs(final String message) {
@@ -28,9 +29,12 @@ public class ThrowableTester {//NOPMD
   }
 
   public ThrowableTester assertMessageMatches(final String string) {
-    assertNotNull("no message of the exception", thrown.getMessage());
+    assertNotNull(
+        ExceptionConstants.NO_MESSAGE_OF_THE_EXCEPTION, thrown.getMessage()
+    );
     assertTrue(
-        "message does not match. \nexpected: " + string + "\n got:" +
+        ExceptionConstants.MESSAGE_DOES_NOT_MATCH_EXPECTED + string +
+            ExceptionConstants.GOT +
             thrown.getMessage(),
         thrown.getMessage().matches(string)
     );
@@ -39,7 +43,8 @@ public class ThrowableTester {//NOPMD
 
   public ThrowableTester assertMessageContains(final String string) {
     assertTrue(
-        "message does not contain: " + string + "\n got:" + thrown.getMessage(),
+        ExceptionConstants.MESSAGE_DOES_NOT_CONTAIN + string +
+            ExceptionConstants.GOT + thrown.getMessage(),
         thrown.getMessage().contains(string)
     );
     return this;
@@ -78,7 +83,7 @@ public class ThrowableTester {//NOPMD
   }
 
   public ThrowableTester showStackTrace() {
-    thrown.printStackTrace(); // NOPMD AvoidPrintStackTrace
+    thrown.printStackTrace(); //NOPMD
     return this;
   }
 
@@ -86,14 +91,23 @@ public class ThrowableTester {//NOPMD
     return tester.doAssertThrows(thrower);
   }
 
-  public ThrowableTester doAssertThrows(final Thrower thrower) {
+  public static void assertNoException(final Thrower thrower) {
     try {
       thrower.throwException();
-    } catch (final Throwable exception) { // NOPMD AvoidCatchingThrowable
+    } catch (final Throwable exception) {//NOPMD
+      fail(exception.getMessage());
+    }
+  }
+
+  public ThrowableTester doAssertThrows(final Thrower thrower) {
+    try {
+      thrown = null;//NOPMD
+      thrower.throwException();
+    } catch (final Throwable exception) { //NOPMD
       thrown = exception;
     }
     if (thrown == null)
-      fail("no exception thrown");
+      fail(ExceptionConstants.NO_EXCEPTION_THROWN);
     return this;
   }
 
@@ -104,7 +118,8 @@ public class ThrowableTester {//NOPMD
   public ThrowableTester
       assertException(final Class<? extends Throwable> klass) {
     final String message = String.format(
-        "expected %s but got %s", klass, ExceptionUtils.readStackTrace(thrown)
+        ExceptionConstants.EXPECTED_S_BUT_GOT_S, klass,
+        ExceptionUtils.readStackTrace(thrown)
     );
     assertEquals(message, klass, thrown.getClass());
     return this;
