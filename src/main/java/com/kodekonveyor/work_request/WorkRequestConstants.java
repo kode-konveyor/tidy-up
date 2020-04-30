@@ -72,4 +72,5 @@ public class WorkRequestConstants {
       "Save offer with offer ID: {} {}";
   public static final String FAILURE = "FAILURE";
   public static final String WORK_REQUEST_RECEIVED = "workrequest.received";
+  public static final String OPEN_WORK_REQUEST = "Open work request: {}";
 }

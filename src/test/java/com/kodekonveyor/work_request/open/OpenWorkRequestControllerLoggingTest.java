@@ -45,22 +45,6 @@ public class OpenWorkRequestControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of OpenWorkRequestController input validation is Logged"
-  )
-  public void test2() {
-    openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService)
-        .info(
-            Mockito.eq(OpenWorkRequestControllerTestData.INPUT_VALIDATION), captorString.capture()
-        );
-    assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID,
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName(
     "The call of OpenWorkRequestController find work request is Logged"
   )
   public void test3() {
@@ -204,4 +188,17 @@ public class OpenWorkRequestControllerLoggingTest
         captorString.getValue()
     );
   }
+
+  @Test
+  @DisplayName(
+    "The OpenWorkRequestController service success is Logged"
+  )
+  public void test10() {
+    openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito.eq(OpenWorkRequestControllerTestData.OPEN_WORK_REQUEST), Mockito.eq(OpenWorkRequestControllerTestData.SUCCESS)
+        );
+  }
+
 }

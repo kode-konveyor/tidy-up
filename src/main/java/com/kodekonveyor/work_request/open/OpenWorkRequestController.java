@@ -35,7 +35,6 @@ public class OpenWorkRequestController {
     loggerService.info(
         WorkRequestConstants.SERVICE_CALL_NAME, super.getClass().getName()
     );
-    loggerService.info(WorkRequestConstants.INPUT_VALIDATION, workRequestId);
     inputValidation(workRequestId);
     loggerService.info(WorkRequestConstants.FIND_WORK_REQUEST, workRequestId);
     final WorkRequestEntity workRequestEntity =
@@ -63,6 +62,10 @@ public class OpenWorkRequestController {
           WorkRequestConstants.WORK_REQUEST_IS_NOT_POSTED
       );
     }
+    loggerService.debug(
+        WorkRequestConstants.OPEN_WORK_REQUEST,
+        WorkRequestConstants.SUCCESS
+    );
     return WorkRequestUtil.convertWorkRequestEntityToDTO(workRequestEntity);
   }
 

@@ -20,4 +20,5 @@ public class OpenWorkRequestControllerTestData {
   public static final String FAILURE = "FAILURE";
   public static final String WORK_REQUEST_IS_NOT_POSTED =
       "Work request is not posted";
+  public static final String OPEN_WORK_REQUEST = "Open work request: {}";
 }
