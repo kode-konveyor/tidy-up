@@ -36,19 +36,10 @@ public class AcceptOfferController {
     loggerService.info(WorkRequestConstants.FIND_OFFER, offerId);
     final OfferEntity offerEntity =
         offerEntityRepository.findById(offerId).get();
-    loggerService.debug(
-        WorkRequestConstants.FIND_OFFER_STATUS, offerEntity.getId(),
-        WorkRequestConstants.SUCCESS
-    );
+
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
-    loggerService.info(
-        WorkRequestConstants.SET_WORK_REQUEST_ENUM, WorkRequestStatusEnum.AGREED
-    );
+
     workRequest.setStatus(WorkRequestStatusEnum.AGREED);
-    loggerService.debug(
-        WorkRequestConstants.SET_WORK_REQUEST_ENUM_STATUS, workRequest,
-        WorkRequestConstants.SUCCESS
-    );
     loggerService.info(WorkRequestConstants.SAVE_WORK_REQUEST, workRequest);
     workRequestRepository.save(workRequest);
 

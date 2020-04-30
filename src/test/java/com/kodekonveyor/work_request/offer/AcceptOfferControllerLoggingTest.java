@@ -17,7 +17,6 @@ import com.kodekonveyor.annotations.TestedBehaviour;
 import com.kodekonveyor.annotations.TestedService;
 import com.kodekonveyor.work_request.WorkRequestDTOTestData;
 import com.kodekonveyor.work_request.WorkRequestEntityTestData;
-import com.kodekonveyor.work_request.WorkRequestStatusEnum;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -59,54 +58,6 @@ public class AcceptOfferControllerLoggingTest
         );
     assertEquals(
         OfferDTOTestData.get().getId(),
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName(
-    "The Find work request return log"
-  )
-  public void test3() {
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito.eq(AcceptOfferControllerTestData.FIND_OFFER_STATUS), captorString.capture(), Mockito.eq(AcceptOfferControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        OfferEntityTestData.getWorkRequestPosted().getId(),
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName(
-    "set work request enum log"
-  )
-  public void test4() {
-    Mockito.verify(loggerService)
-        .info(
-            Mockito.eq(AcceptOfferControllerTestData.SET_WORK_REQUEST_ENUM), captorString.capture()
-        );
-    assertEquals(
-        WorkRequestStatusEnum.AGREED,
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName(
-    "set work request enum status log"
-  )
-  public void test5() {
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito.eq(
-                AcceptOfferControllerTestData.SET_WORK_REQUEST_ENUM_STATUS
-            ), captorString.capture(),
-            Mockito.eq(AcceptOfferControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        WorkRequestEntityTestData.getStatusAgreed(),
         captorString.getValue()
     );
   }
