@@ -82,5 +82,6 @@ public class WorkRequestConstants {
       "Save offer with offer ID: {} {}";
 
   public static final String WORK_REQUEST_RECEIVED = "workrequest.received";
-
+  public static final String REVOKE_WORK_REQUEST =
+      "Revoke work request controller: {}";
 }

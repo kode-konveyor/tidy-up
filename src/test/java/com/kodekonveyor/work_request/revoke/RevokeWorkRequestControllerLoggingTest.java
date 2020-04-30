@@ -85,51 +85,6 @@ public class RevokeWorkRequestControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of Revoke Controller input validation SUCCESS is Logged with workRequestID"
-  )
-  public void test4() {
-    revokeWorkRequestController
-        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito.eq(
-                RevokeWorkRequestControllerTestData.INPUT_VALIDATION_STATUS
-            ),
-            captorLong.capture(),
-            Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID,
-        captorLong.getValue()
-    );
-
-  }
-
-  @Test
-  @DisplayName(
-    "The call of Revoke Controller find work request entity SUCCESS is Logged with workRequestID"
-  )
-  public void test5() {
-    revokeWorkRequestController
-        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito
-                .eq(
-                    RevokeWorkRequestControllerTestData.FIND_WORK_REQUEST_ENTITY_STATUS
-                ),
-            captorLong.capture(),
-            Mockito.eq(RevokeWorkRequestControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID,
-        captorLong.getValue()
-    );
-
-  }
-
-  @Test
-  @DisplayName(
     "The call of Revoke Controller delete work request entity is Logged with workRequestID"
   )
   public void test6() {
@@ -142,30 +97,6 @@ public class RevokeWorkRequestControllerLoggingTest
                     RevokeWorkRequestControllerTestData.DELETE_WORK_REQUEST_ENTITY
                 ),
             captorLong.capture()
-        );
-    assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID,
-        captorLong.getValue()
-    );
-
-  }
-
-  @Test
-  @DisplayName(
-    "The call of Revoke Controller delete work request entity SUCCESS is Logged with workRequestID"
-  )
-  public void test7() {
-    revokeWorkRequestController
-        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito
-                .eq(
-                    RevokeWorkRequestControllerTestData.DELETE_WORK_REQUEST_ENTITY_STATUS
-
-                ),
-            captorLong.capture(), Mockito
-                .eq(RevokeWorkRequestControllerTestData.SUCCESS)
         );
     assertEquals(
         WorkRequestEntityTestData.WORK_REQUEST_ID,
@@ -260,4 +191,23 @@ public class RevokeWorkRequestControllerLoggingTest
 
   }
 
+  @Test
+  @DisplayName(
+    "Revoke work request Controller service SUCCESS logged"
+  )
+  public void test11() {
+    revokeWorkRequestController
+        .call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+    Mockito.verify(loggerService)
+        .debug(
+            Mockito
+                .eq(
+                    RevokeWorkRequestControllerTestData.REVOKE_WORK_REQUEST
+                ),
+            Mockito
+                .eq(
+                    RevokeWorkRequestControllerTestData.SUCCESS
+                )
+        );
+  }
 }

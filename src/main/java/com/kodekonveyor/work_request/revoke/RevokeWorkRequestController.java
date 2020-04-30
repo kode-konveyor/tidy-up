@@ -37,22 +37,13 @@ public class RevokeWorkRequestController {
 
     );
     inputValidation(workRequestId);
-    loggerService.debug(
-        WorkRequestConstants.INPUT_VALIDATION_STATUS,
-        workRequestId,
-        WorkRequestConstants.SUCCESS
-    );
+
     loggerService.info(
         WorkRequestConstants.FIND_WORK_REQUEST_ENTITY,
         workRequestId
     );
     final WorkRequestEntity workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId).get(0);
-    loggerService.debug(
-        WorkRequestConstants.FIND_WORK_REQUEST_ENTITY_STATUS,
-        workRequestId,
-        WorkRequestConstants.SUCCESS
-    );
 
     final UserEntity user = authenticatedUserService.call();
 
@@ -61,13 +52,9 @@ public class RevokeWorkRequestController {
         WorkRequestConstants.DELETE_WORK_REQUEST_ENTITY,
         workRequestId
     );
-    if (customer.getId() == user.getId()) {
+    if (customer.getId() == user.getId())
       workRequestRepository.delete(workRequestEntity);
-      loggerService.debug(
-          WorkRequestConstants.DELETE_WORK_REQUEST_ENTITY_STATUS,
-          workRequestId, WorkRequestConstants.SUCCESS
-      );
-    } else {
+    else {
       loggerService.warn(
           WorkRequestConstants.DELETE_WORK_REQUEST_ENTITY_STATUS,
           WorkRequestConstants.UNAUTHORIZE_REVOKE_WORK_REQUEST,
@@ -77,6 +64,10 @@ public class RevokeWorkRequestController {
           WorkRequestConstants.UNAUTHORIZE_REVOKE_WORK_REQUEST
       );
     }
+    loggerService.debug(
+        WorkRequestConstants.REVOKE_WORK_REQUEST,
+        WorkRequestConstants.SUCCESS
+    );
   }
 
   private void inputValidation(final long workRequestId) {

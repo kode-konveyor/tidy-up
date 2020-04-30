@@ -22,4 +22,6 @@ public class RevokeWorkRequestControllerTestData {
       "DeleteWorkRequestEntity: {} {}";
   public static final String FIND_WORK_REQUEST_ENTITY_STATUS =
       "FindWorkRequestEntityById: {} {}";
+  public static final String REVOKE_WORK_REQUEST =
+      "Revoke work request controller: {}";
 }
