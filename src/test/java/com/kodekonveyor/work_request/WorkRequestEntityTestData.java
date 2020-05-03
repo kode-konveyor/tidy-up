@@ -6,6 +6,7 @@ import com.kodekonveyor.authentication.UserEntityTestData;
 
 public class WorkRequestEntityTestData {
 
+  private static final String COMMA = ",";
   public static final String NO_WORKREQUESTS = "No Work Request";
   public static final String NO_WORKREQUESTS_ID = "4243";
   public static final Long NON_POSITIVE_WORK_REQUEST_ID = 0L;
@@ -30,6 +31,8 @@ public class WorkRequestEntityTestData {
       (long) 4244;
   public static final Long WORK_REQUEST_ID_NOT_POSTED_WITH_PROVIDER =
       (long) 4245;
+  public static final String WORK_REQUEST_ID_STRING =
+      OWNER_ID + COMMA + OWNER_ID + COMMA + OWNER_ID;
 
   public static WorkRequestEntity get() {
     final WorkRequestEntity workRequestEntity = new WorkRequestEntity();
