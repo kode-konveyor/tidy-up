@@ -36,13 +36,8 @@ public class OpenWorkRequestController {
         WorkRequestConstants.SERVICE_CALL_NAME, super.getClass().getName()
     );
     inputValidation(workRequestId);
-    loggerService.info(WorkRequestConstants.FIND_WORK_REQUEST, workRequestId);
     final WorkRequestEntity workRequestEntity =
         workRequestRepository.findByWorkRequestId(workRequestId).get(0);
-    loggerService.debug(
-        WorkRequestConstants.FIND_WORK_REQUEST_STATUS, workRequestEntity,
-        WorkRequestConstants.SUCCESS
-    );
 
     final UserEntity currentUser = authenticatedUserService.call();
 

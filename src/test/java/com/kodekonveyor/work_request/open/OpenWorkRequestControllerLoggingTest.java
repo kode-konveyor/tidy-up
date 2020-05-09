@@ -29,7 +29,7 @@ public class OpenWorkRequestControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of OpenWorkRequestController is Logged"
+    "The start of Open work request controller is Logged"
   )
   public void test1() {
     openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
@@ -45,105 +45,32 @@ public class OpenWorkRequestControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of OpenWorkRequestController find work request is Logged"
+    "Work requests not posted will raise a validation exception which is logged"
   )
-  public void test3() {
-    openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
+  void test2() {
+
+    ThrowableTester.assertThrows(
+        () -> openWorkRequestController
+            .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
+    ).assertException(ValidationException.class);
     Mockito.verify(loggerService)
-        .info(
-            Mockito.eq(OpenWorkRequestControllerTestData.FIND_WORK_REQUEST), captorString.capture()
+        .warn(
+            Mockito.eq(
+                OpenWorkRequestControllerTestData.WORK_REQUEST_ERROR
+            ), captorString.capture(),
+            Mockito.eq(OpenWorkRequestControllerTestData.FAILURE)
         );
     assertEquals(
-        WorkRequestEntityTestData.WORK_REQUEST_ID,
+        OpenWorkRequestControllerTestData.WORK_REQUEST_IS_NOT_POSTED,
         captorString.getValue()
     );
   }
 
   @Test
   @DisplayName(
-    "The call of OpenWorkRequestController find work request status is Logged"
+    "Invalid work request id exception is logged when an invalid work request is sent"
   )
-  public void test4() {
-    openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
-    Mockito.verify(loggerService)
-        .debug(
-            Mockito.eq(
-                OpenWorkRequestControllerTestData.FIND_WORK_REQUEST_STATUS
-            ), captorString.capture(),
-            Mockito.eq(OpenWorkRequestControllerTestData.SUCCESS)
-        );
-    assertEquals(
-        WorkRequestEntityTestData.get(),
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName("Work requests not posted error log")
-  void test5() {
-
-    ThrowableTester.assertThrows(
-        () -> openWorkRequestController
-            .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
-    ).assertException(ValidationException.class);
-    Mockito.verify(loggerService)
-        .warn(
-            Mockito.eq(
-                OpenWorkRequestControllerTestData.WORK_REQUEST_ERROR
-            ), captorString.capture(),
-            Mockito.eq(OpenWorkRequestControllerTestData.FAILURE)
-        );
-    assertEquals(
-        OpenWorkRequestControllerTestData.WORK_REQUEST_IS_NOT_POSTED,
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName("Work requests not posted will raise a validation exception")
-  void test6() {
-
-    ThrowableTester.assertThrows(
-        () -> openWorkRequestController
-            .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
-    ).assertException(ValidationException.class);
-    Mockito.verify(loggerService)
-        .warn(
-            Mockito.eq(
-                OpenWorkRequestControllerTestData.WORK_REQUEST_ERROR
-            ), captorString.capture(),
-            Mockito.eq(OpenWorkRequestControllerTestData.FAILURE)
-        );
-    assertEquals(
-        OpenWorkRequestControllerTestData.WORK_REQUEST_IS_NOT_POSTED,
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName("Work requests not posted will raise a validation exception")
-  void test7() {
-
-    ThrowableTester.assertThrows(
-        () -> openWorkRequestController
-            .call(WorkRequestEntityTestData.WORK_REQUEST_ID_NOT_POSTED)
-    ).assertException(ValidationException.class);
-    Mockito.verify(loggerService)
-        .warn(
-            Mockito.eq(
-                OpenWorkRequestControllerTestData.WORK_REQUEST_ERROR
-            ), captorString.capture(),
-            Mockito.eq(OpenWorkRequestControllerTestData.FAILURE)
-        );
-    assertEquals(
-        OpenWorkRequestControllerTestData.WORK_REQUEST_IS_NOT_POSTED,
-        captorString.getValue()
-    );
-  }
-
-  @Test
-  @DisplayName("Invalid work request id exception log")
-  void test8() {
+  void test3() {
 
     ThrowableTester.assertThrows(
         () -> openWorkRequestController
@@ -166,8 +93,10 @@ public class OpenWorkRequestControllerLoggingTest
   }
 
   @Test
-  @DisplayName("Invalid work request id exception log")
-  void test9() {
+  @DisplayName(
+    "when a negative work request Id is sent, exception is raised and logged"
+  )
+  void test4() {
 
     ThrowableTester.assertThrows(
         () -> openWorkRequestController
@@ -191,9 +120,9 @@ public class OpenWorkRequestControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The OpenWorkRequestController service success is Logged"
+    "The OpenWorkRequestController service success is Logged when all the required checks are completed"
   )
-  public void test10() {
+  public void test5() {
     openWorkRequestController.call(WorkRequestEntityTestData.WORK_REQUEST_ID);
     Mockito.verify(loggerService)
         .debug(
