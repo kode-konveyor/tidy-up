@@ -22,7 +22,7 @@ public class CustomerGetWorkRequestsController {
   @Autowired
   UserEntityRepository userEntityRepository;
   @Autowired
-  private AuthenticatedUserService authenticatedUserService;
+  AuthenticatedUserService authenticatedUserService;
 
 
   @GetMapping("/work-request/byOwner/{ownerId}")
