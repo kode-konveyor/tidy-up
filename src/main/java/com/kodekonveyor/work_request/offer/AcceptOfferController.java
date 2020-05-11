@@ -76,8 +76,6 @@ public class AcceptOfferController {
     final WorkRequestDTO workRequestDTO = getWorkRequestDTO(workRequest);
     workRequestDTO.setStatus(workRequest.getStatus());
     workRequestDTO.setProvider(workRequest.getProvider());
-    loggerService
-        .info(WorkRequestConstants.RETURN_WORK_REQUEST_DTO, workRequestDTO);
     return workRequestDTO;
   }
 

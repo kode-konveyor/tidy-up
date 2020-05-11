@@ -34,7 +34,7 @@ public class AcceptOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The call of AccepptOfferController is Logged"
+    "Accept offer Controller call is logged "
   )
   public void test1() {
     Mockito.verify(loggerService)
@@ -49,7 +49,7 @@ public class AcceptOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "The Find work request log"
+    "The Find work request for a particula offer id is logged"
   )
   public void test2() {
     Mockito.verify(loggerService)
@@ -64,7 +64,7 @@ public class AcceptOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "Save work request log"
+    "The saving of work request is logged"
   )
   public void test6() {
     Mockito.verify(loggerService)
@@ -82,7 +82,7 @@ public class AcceptOfferControllerLoggingTest
 
   @Test
   @DisplayName(
-    "return work request DTO success"
+    "After successful completion of all the process, work request DTO is successfully returned and is logged"
   )
   public void test7() {
     Mockito.verify(loggerService)
@@ -100,21 +100,4 @@ public class AcceptOfferControllerLoggingTest
     );
   }
 
-  @Test
-  @DisplayName(
-    "return work request log"
-  )
-  public void test8() {
-    Mockito.verify(loggerService)
-        .info(
-            Mockito.eq(
-                AcceptOfferControllerTestData.RETURN_WORK_REQUEST_DTO
-            ), captorString.capture()
-
-        );
-    assertEquals(
-        WorkRequestDTOTestData.getStatusAgreedAndProvider(),
-        captorString.getValue()
-    );
-  }
 }
