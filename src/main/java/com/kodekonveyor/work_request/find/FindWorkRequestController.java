@@ -32,7 +32,7 @@ public class FindWorkRequestController {
   AuthenticatedUserService authenticatedUserService;
 
   @Autowired
-  private Logger loggerService; //NOPMD
+  private Logger loggerService;
 
   @GetMapping("workRequest/{country}/{city}/{workType}")
   public WorkRequestListDTO call(
@@ -44,11 +44,6 @@ public class FindWorkRequestController {
     CountryAndCityValidationUtil.validateCountry(country);
 
     CountryAndCityValidationUtil.validateCity(city);
-
-    loggerService.debug(
-        LoggingConstants.SUCCESS, LoggingConstants.INPUT_VALIDATION,
-        LoggingConstants.UNKNOWN
-    );
 
     final List<WorkRequestEntity> entities = workRequestRepository
         .findByTypeAndCountryAndCity(WorkTypeEnum.valueOf(workType),

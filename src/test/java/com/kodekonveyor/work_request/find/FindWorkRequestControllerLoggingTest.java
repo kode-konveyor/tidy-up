@@ -39,20 +39,6 @@ public class FindWorkRequestControllerLoggingTest
   }
 
   @Test
-  @DisplayName("Sucessful Input validation is logged FINE level")
-  public void test1() {
-    findWorkRequestController
-        .call(
-            AddressEntityTestData.COUNTRY, AddressEntityTestData.CITY,
-            WorkRequestEntityTestData.WORK_TYPE
-        );
-    Mockito.verify(loggerService).debug(
-        LoggingConstants.SUCCESS, LoggingConstants.INPUT_VALIDATION,
-        LoggingConstants.UNKNOWN
-    );
-  }
-
-  @Test
   @DisplayName("Find of work request entity logged with FINE level")
   public void test2() {
     findWorkRequestController
