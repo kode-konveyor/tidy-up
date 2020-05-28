@@ -123,7 +123,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
             "Logging of successful api call."
     )
     public void test6() {
-
+        customerGetWorkRequestsController.call(OWNER_ID);
         Mockito.verify(loggerService)
                 .debug(
                         Mockito.eq(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER_API_CALL_STATUS), captorString.capture(), Mockito.eq(SUCCESS)
