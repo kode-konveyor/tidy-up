@@ -73,6 +73,8 @@ public class WorkRequestConstants {
   public static final String FIND_WORK_REQUEST_BY_CUSTOMER_STATUS =
           "Finding work request for owner id {} status : {}";
 
+  public static final String WORK_REQUEST_INPUT_VALIDATION_ERROR = "Input validation status for {} : {} , error : {} ";
+
   public static final String FIND_WORK_REQUEST_BY_CUSTOMER_API_CALL_STATUS =
           "API call for work request by owner id {} : {}";
 

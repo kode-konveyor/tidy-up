@@ -16,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import static com.kodekonveyor.authentication.UserEntityTestData.USER_ID_FOR_UNAUTHENTICATED_CALL;
-import static com.kodekonveyor.work_request.WorkRequestConstants.INPUT_VALIDATION_STATUS;
 import static com.kodekonveyor.work_request.WorkRequestConstants.INVALID_OWNERID;
 import static com.kodekonveyor.work_request.WorkRequestConstants.NULL_OWNERID;
 import static com.kodekonveyor.work_request.WorkRequestConstants.SERVICE_CALL_NAME;
@@ -50,22 +49,6 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
 
     @Test
     @DisplayName(
-            "The start of input validation is Logged"
-    )
-    public void test2() {
-        customerGetWorkRequestsController.call(OWNER_ID);
-        Mockito.verify(loggerService)
-                .info(
-                        Mockito.eq(WorkRequestConstants.INPUT_VALIDATION), captorString.capture()
-                );
-        assertEquals(
-                OWNER_ID,
-                captorString.getValue()
-        );
-    }
-
-    @Test
-    @DisplayName(
             "Logging of input validation failure when owner id is null."
     )
     public void test3() {
@@ -74,7 +57,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
 
         Mockito.verify(loggerService)
                 .warn(
-                        Mockito.eq(WorkRequestConstants.WORK_REQUEST_ERROR), captorString.capture(), Mockito.eq(WorkRequestConstants.FAILURE)
+                        Mockito.eq(WorkRequestConstants.WORK_REQUEST_INPUT_VALIDATION_ERROR), Mockito.eq(null), Mockito.eq(WorkRequestConstants.FAILURE), captorString.capture()
                 );
         assertEquals(
                 NULL_OWNERID,
@@ -92,7 +75,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
 
         Mockito.verify(loggerService)
                 .warn(
-                        Mockito.eq(WorkRequestConstants.WORK_REQUEST_ERROR), captorString.capture(), Mockito.eq(WorkRequestConstants.FAILURE)
+                        Mockito.eq(WorkRequestConstants.WORK_REQUEST_INPUT_VALIDATION_ERROR), Mockito.eq(INVALID_OWNERID), Mockito.eq(WorkRequestConstants.FAILURE), captorString.capture()
                 );
         assertEquals(
                 WorkRequestConstants.ALPHACHAR_OWNERID,
@@ -127,55 +110,6 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
         Mockito.verify(loggerService)
                 .debug(
                         Mockito.eq(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER_API_CALL_STATUS), captorString.capture(), Mockito.eq(SUCCESS)
-                );
-        assertEquals(
-                OWNER_ID,
-                captorString.getValue()
-        );
-    }
-
-
-    @Test
-    @DisplayName(
-            "Logging of start of fetching work request by a customer from db."
-    )
-    public void test7() {
-        customerGetWorkRequestsController.call(OWNER_ID);
-        Mockito.verify(loggerService)
-                .info(
-                        Mockito.eq(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER), captorString.capture()
-                );
-        assertEquals(
-                OWNER_ID,
-                captorString.getValue()
-        );
-    }
-
-    @Test
-    @DisplayName(
-            "Logging of success of fetching work request by a customer from db."
-    )
-    public void test8() {
-        customerGetWorkRequestsController.call(OWNER_ID);
-        Mockito.verify(loggerService)
-                .debug(
-                        Mockito.eq(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER_STATUS), captorString.capture(), Mockito.eq(SUCCESS)
-                );
-        assertEquals(
-                OWNER_ID,
-                captorString.getValue()
-        );
-    }
-
-    @Test
-    @DisplayName(
-            "Logging of successful validation."
-    )
-    public void test9() {
-        customerGetWorkRequestsController.call(OWNER_ID);
-        Mockito.verify(loggerService)
-                .debug(
-                        Mockito.eq(INPUT_VALIDATION_STATUS), captorString.capture(), Mockito.eq(SUCCESS)
                 );
         assertEquals(
                 OWNER_ID,

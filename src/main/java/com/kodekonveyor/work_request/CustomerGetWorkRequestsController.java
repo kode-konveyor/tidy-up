@@ -16,6 +16,7 @@ import static com.kodekonveyor.work_request.WorkRequestConstants.FAILURE;
 import static com.kodekonveyor.work_request.WorkRequestConstants.SUCCESS;
 import static com.kodekonveyor.work_request.WorkRequestConstants.UNAUTHORIZE_GET_WORK_REQUESTS_FOR_USER;
 import static com.kodekonveyor.work_request.WorkRequestConstants.WORK_REQUEST_ERROR;
+import static com.kodekonveyor.work_request.WorkRequestConstants.WORK_REQUEST_INPUT_VALIDATION_ERROR;
 
 @RestController
 public class CustomerGetWorkRequestsController {
@@ -59,12 +60,8 @@ public class CustomerGetWorkRequestsController {
       throw new ValidationException(UNAUTHORIZE_GET_WORK_REQUESTS_FOR_USER);
     }
 
-    loggerService.info(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER, ownerId);
-
     final List<WorkRequestEntity> requests =
         workRequestRepository.findByCustomer(user.get());
-
-    loggerService.debug(WorkRequestConstants.FIND_WORK_REQUEST_BY_CUSTOMER_STATUS, ownerId, SUCCESS);
 
     final WorkRequestListDTO workRequestListDTO = new WorkRequestListDTO();
 
@@ -91,25 +88,25 @@ public class CustomerGetWorkRequestsController {
   }
 
   private void inputValidation(final String ownerId) {
-    loggerService.info(WorkRequestConstants.INPUT_VALIDATION, ownerId);
     if (null == ownerId) {
       loggerService.warn(
-              WORK_REQUEST_ERROR,
-              WorkRequestConstants.NULL_OWNERID,
-              FAILURE
+              WORK_REQUEST_INPUT_VALIDATION_ERROR,
+              ownerId,
+              FAILURE,
+              WorkRequestConstants.NULL_OWNERID
       );
       throw new ValidationException(WorkRequestConstants.NULL_OWNERID);
     }
 
     if (!ownerId.matches(WorkRequestConstants.OWNER_ID_REGEX)) {
       loggerService.warn(
-              WORK_REQUEST_ERROR,
-              WorkRequestConstants.ALPHACHAR_OWNERID,
-              FAILURE
+              WORK_REQUEST_INPUT_VALIDATION_ERROR,
+              ownerId,
+              FAILURE,
+              WorkRequestConstants.ALPHACHAR_OWNERID
       );
       throw new ValidationException(WorkRequestConstants.ALPHACHAR_OWNERID);
     }
-    loggerService.debug(WorkRequestConstants.INPUT_VALIDATION_STATUS, ownerId, SUCCESS);
   }
 
 }
