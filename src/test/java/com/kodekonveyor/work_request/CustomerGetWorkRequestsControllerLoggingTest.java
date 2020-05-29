@@ -51,7 +51,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
     @DisplayName(
             "Logging of input validation failure when owner id is null."
     )
-    public void test3() {
+    public void test2() {
         ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(null))
                 .assertException(ValidationException.class);
 
@@ -69,7 +69,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
     @DisplayName(
             "Logging of input validation failure when owner id is null."
     )
-    public void test4() {
+    public void test3() {
         ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(INVALID_OWNERID))
                 .assertException(ValidationException.class);
 
@@ -87,7 +87,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
     @DisplayName(
             "Logging of unauthorized api call failure."
     )
-    public void test5() {
+    public void test4() {
         ThrowableTester.assertThrows(() -> customerGetWorkRequestsController.call(String.valueOf(USER_ID_FOR_UNAUTHENTICATED_CALL)))
                 .assertException(ValidationException.class);
 
@@ -105,7 +105,7 @@ public class CustomerGetWorkRequestsControllerLoggingTest extends CustomerWorkRe
     @DisplayName(
             "Logging of successful api call."
     )
-    public void test6() {
+    public void test5() {
         customerGetWorkRequestsController.call(OWNER_ID);
         Mockito.verify(loggerService)
                 .debug(
