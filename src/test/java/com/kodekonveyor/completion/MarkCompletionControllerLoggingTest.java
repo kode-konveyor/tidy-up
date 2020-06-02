@@ -9,11 +9,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.slf4j.Logger;
 
 import static com.kodekonveyor.completion.CompletionConstants.FAILURE;
 import static com.kodekonveyor.completion.CompletionConstants.INVALID_WORK_REQUEST_STATUS;
@@ -31,6 +35,11 @@ import static org.mockito.ArgumentMatchers.eq;
 @TestedService("MarkCompletionController")
 public class MarkCompletionControllerLoggingTest extends MarkCompletionControllerTestBase {
 
+    @Mock
+    Logger loggerService;
+    @Captor
+    ArgumentCaptor<String> captorString;
+
     @Test
     @DisplayName(
             "The start of MarkCompletionController is Logged"
@@ -40,11 +49,8 @@ public class MarkCompletionControllerLoggingTest extends MarkCompletionControlle
 
         Mockito.verify(loggerService)
                 .info(
-                        eq(LOG_API_CALL), captorString.capture(), eq(null)
+                        eq(LOG_API_CALL)
                 );
-        assertEquals(
-                MarkCompletionController.class.getName(), captorString.getValue()
-        );
     }
 
     @Test
@@ -56,7 +62,7 @@ public class MarkCompletionControllerLoggingTest extends MarkCompletionControlle
 
         Mockito.verify(loggerService)
                 .debug(
-                        eq(LOG_API_CALL_STATUS), eq(MarkCompletionController.class.getName()), captorString.capture()
+                        eq(LOG_API_CALL_STATUS), captorString.capture()
                 );
         assertEquals(
                 SUCCESS, captorString.getValue()
@@ -75,8 +81,7 @@ public class MarkCompletionControllerLoggingTest extends MarkCompletionControlle
 
         Mockito.verify(loggerService)
                 .warn(
-                        eq(LOG_API_CALL_FALURE_STATUS),
-                        eq(MarkCompletionController.class.getName()), eq(FAILURE), captorString.capture()
+                        eq(LOG_API_CALL_FALURE_STATUS), eq(FAILURE), captorString.capture()
                 );
 
         assertEquals(

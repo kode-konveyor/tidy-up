@@ -34,7 +34,7 @@ public class MarkCompletionController {
   @PutMapping("/completed/{workRequestId}")
   public WorkRequestDTO call(final Long workRequestId) {
 
-    loggerService.info(LOG_API_CALL, MarkCompletionController.class.getName(), null);
+    loggerService.info(LOG_API_CALL);
 
     final List<WorkRequestEntity> entities =
         workRequestRepository.findByWorkRequestId(workRequestId);
@@ -43,7 +43,7 @@ public class MarkCompletionController {
 
     if (!entity.getStatus().equals(WorkRequestStatusEnum.AGREED)) {
       loggerService.warn(
-              LOG_API_CALL_FALURE_STATUS, MarkCompletionController.class.getName(), FAILURE, INVALID_WORK_REQUEST_STATUS
+              LOG_API_CALL_FALURE_STATUS, FAILURE, INVALID_WORK_REQUEST_STATUS
       );
       throw new IllegalStateException();
     }
@@ -63,7 +63,7 @@ public class MarkCompletionController {
     workRequestDTO.setWorkType(entity.getWorkType());
     workRequestDTO.setAddress(address);
 
-    loggerService.debug(LOG_API_CALL_STATUS, MarkCompletionController.class.getName(), SUCCESS);
+    loggerService.debug(LOG_API_CALL_STATUS, SUCCESS);
 
     return workRequestDTO;
   }
