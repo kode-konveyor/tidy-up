@@ -27,7 +27,6 @@ public class MarkCompletionController {
   @Autowired
   WorkRequestRepository workRequestRepository;
 
-
   @Autowired
   Logger loggerService;
 

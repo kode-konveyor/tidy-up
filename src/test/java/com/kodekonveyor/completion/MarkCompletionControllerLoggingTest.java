@@ -35,11 +35,6 @@ import static org.mockito.ArgumentMatchers.eq;
 @TestedService("MarkCompletionController")
 public class MarkCompletionControllerLoggingTest extends MarkCompletionControllerTestBase {
 
-    @Mock
-    Logger loggerService;
-    @Captor
-    ArgumentCaptor<String> captorString;
-
     @Test
     @DisplayName(
             "The start of MarkCompletionController is Logged"
