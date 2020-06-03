@@ -9,6 +9,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -30,6 +32,9 @@ import static org.mockito.ArgumentMatchers.eq;
 @TestedBehaviour("Logging")
 @TestedService("MarkCompletionController")
 public class MarkCompletionControllerLoggingTest extends MarkCompletionControllerTestBase {
+
+    @Captor
+    ArgumentCaptor<String> captorString;
 
     @Test
     @DisplayName(

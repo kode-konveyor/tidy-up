@@ -1,8 +1,6 @@
 package com.kodekonveyor.completion;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -18,8 +16,7 @@ public class MarkCompletionControllerTestBase {
   WorkRequestRepository workRequestRepository;
   @Mock
   Logger loggerService;
-  @Captor
-  ArgumentCaptor<String> captorString;
+
   @BeforeEach
   void setUp() {
     WorkRequestEntityRepositoryStubs.agreedWorkRequest(workRequestRepository);
