@@ -18,8 +18,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import static com.kodekonveyor.work_request.WorkRequestConstants.*;
-import static com.kodekonveyor.work_request.WorkRequestEntityTestData.*;
+import static com.kodekonveyor.work_request.WorkRequestConstants.FAILURE;
+import static com.kodekonveyor.work_request.WorkRequestConstants.LOG_API_CALL_FALURE_STATUS;
+import static com.kodekonveyor.work_request.WorkRequestConstants.SUCCESS;
+import static com.kodekonveyor.work_request.WorkRequestConstants.UNAUTHORIZE_REVOKE_WORK_REQUEST;
+import static com.kodekonveyor.work_request.WorkRequestEntityTestData.INVALID_WORK_REQUEST_ID;
+import static com.kodekonveyor.work_request.WorkRequestEntityTestData.NON_POSITIVE_WORK_REQUEST_ID;
+import static com.kodekonveyor.work_request.WorkRequestEntityTestData.REVOKE_WORK_REQUEST_ID;
+import static com.kodekonveyor.work_request.WorkRequestEntityTestData.WORK_REQUEST_ID;
 import static org.mockito.ArgumentMatchers.eq;
 
 @RunWith(MockitoJUnitRunner.class)
