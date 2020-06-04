@@ -3,6 +3,7 @@ package com.kodekonveyor.work_request.find;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.slf4j.Logger;
 
 import com.kodekonveyor.authentication.AuthenticatedUserService;
 import com.kodekonveyor.authentication.AuthenticatedUserStubs;
@@ -18,6 +19,9 @@ public class FindWorkRequestControllerTestBase {
 
   @Mock
   AuthenticatedUserService authenticatedUserService;
+
+  @Mock
+  Logger loggerService;
 
   @BeforeEach
   void setUp() {

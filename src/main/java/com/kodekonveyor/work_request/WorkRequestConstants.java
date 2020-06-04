@@ -57,7 +57,7 @@ public class WorkRequestConstants {
       "You can only revoke your own work request";
 
   public static final String UNAUTHORIZE_GET_WORK_REQUESTS_FOR_USER =
-          "You can only fetch your own work request";
+      "You can only fetch your own work request";
 
   public static final String OWNER_ID_REGEX = "[0-9]+";
   public static final int MIN_PRICE = 1;
@@ -69,14 +69,15 @@ public class WorkRequestConstants {
   public static final String FIND_WORK_REQUEST =
       "Finding work request for ID: {}";
   public static final String FIND_WORK_REQUEST_BY_CUSTOMER =
-          "Finding work request for owner : {}";
+      "Finding work request for owner : {}";
   public static final String FIND_WORK_REQUEST_BY_CUSTOMER_STATUS =
-          "Finding work request for owner id {} status : {}";
+      "Finding work request for owner id {} status : {}";
 
-  public static final String WORK_REQUEST_INPUT_VALIDATION_ERROR = "Input validation status for {} : {} , error : {} ";
+  public static final String WORK_REQUEST_INPUT_VALIDATION_ERROR =
+      "Input validation status for {} : {} , error : {} ";
 
   public static final String FIND_WORK_REQUEST_BY_CUSTOMER_API_CALL_STATUS =
-          "API call for work request by owner id {} : {}";
+      "API call for work request by owner id {} : {}";
 
   public static final String FIND_WORK_REQUEST_STATUS =
       "Work request found : {} {}";
@@ -86,4 +87,6 @@ public class WorkRequestConstants {
   public static final String FAILURE = "FAILURE";
   public static final String WORK_REQUEST_RECEIVED = "workrequest.received";
   public static final String OPEN_WORK_REQUEST = "Open work request: {}";
+  public static final String WORK_REQUEST_FIND = "workrequest.find";
+  public static final String COMMA = ",";
 }
