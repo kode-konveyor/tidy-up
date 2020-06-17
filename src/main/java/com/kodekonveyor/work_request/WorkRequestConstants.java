@@ -89,4 +89,7 @@ public class WorkRequestConstants {
   public static final String OPEN_WORK_REQUEST = "Open work request: {}";
   public static final String WORK_REQUEST_FIND = "workrequest.find";
   public static final String COMMA = ",";
+  public static final String LOG_API_CALL = "Api execution starts!";
+  public static final String LOG_API_CALL_STATUS = "Api call status : {}";
+  public static final String LOG_API_CALL_FALURE_STATUS = "Api call status : {}, error : {}";
 }
