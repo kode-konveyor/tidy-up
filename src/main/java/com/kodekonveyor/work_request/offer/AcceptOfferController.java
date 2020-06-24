@@ -33,7 +33,7 @@ public class AcceptOfferController {
     final WorkRequestEntity workRequest = offerEntity.getWorkRequest();
     workRequest.setStatus(WorkRequestStatusEnum.AGREED);
     workRequestRepository.save(workRequest);
-
+    loggerService.call(OfferConstants.SUCCESS + workRequest.getId());
     return getWorkRequestDTOStatusAgreed(workRequest);
   }
 
