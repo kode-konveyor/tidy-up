@@ -1,4 +1,4 @@
-//Created by Raghavan
+
 package com.kodekonveyor.work_request.offer;
 
 import static org.junit.Assert.assertTrue;
