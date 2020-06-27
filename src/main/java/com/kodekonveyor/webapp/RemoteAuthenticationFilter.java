@@ -49,7 +49,6 @@ public class RemoteAuthenticationFilter implements Filter {
       final List<UserEntity> users = userRepository.findByAuth0id(auth0id);
       if (users.isEmpty())
         return;
-
       loggerService
           .info(LoggingMarkers.AUTHENTICATION, AUTHENTICATED, auth0id);
       final Authentication auth = new RemoteAuthentication(users.get(0));

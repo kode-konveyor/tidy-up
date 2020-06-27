@@ -35,7 +35,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
   private XmlWebApplicationContext getContext() {
     context = new XmlWebApplicationContext();
-
     context.setConfigLocations(WebappConstants.APPLICATION_CONTEXT_XML_PATH);
     return context;
   }
